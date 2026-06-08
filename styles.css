@@ -77,6 +77,12 @@ select {
   font-weight: 800;
 }
 
+.brand-mark img {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
 .brand strong,
 .brand small {
   display: block;
