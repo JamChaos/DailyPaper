@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daily Paper</title>
+    <meta
+      name="description"
+      content="Daily arXiv reports for 3D vision, world models, robotics, and Physical AI."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Daily Paper home">
+          <span class="brand-mark">DP</span>
+          <span>
+            <strong>Daily Paper</strong>
+            <small>3D Vision / Robotics / Physical AI</small>
+          </span>
+        </a>
+        <nav class="nav-actions" aria-label="External links">
+          <a href="https://github.com/JamChaos/DailyPaper" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="#archive">Archive</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="masthead" aria-labelledby="page-title">
+          <div class="masthead-copy">
+            <p class="eyebrow">arXiv Research Briefing</p>
+            <h1 id="page-title">Daily Paper</h1>
+            <p class="lede">
+              聚焦三维视觉、世界模型、机器人操作、仿真与 Physical AI 的每日论文雷达。
+            </p>
+            <div class="stats-strip" aria-label="Site statistics">
+              <div>
+                <span id="statReports">0</span>
+                <small>Reports</small>
+              </div>
+              <div>
+                <span id="statPapers">0</span>
+                <small>Papers</small>
+              </div>
+              <div>
+                <span id="statHigh">0</span>
+                <small>High Priority</small>
+              </div>
+            </div>
+          </div>
+          <div class="masthead-media" aria-hidden="true">
+            <img src="assets/research-constellation.png" alt="" />
+          </div>
+        </section>
+
+        <section class="toolbar" aria-label="Paper filters">
+          <label class="search-box">
+            <span>Search</span>
+            <input id="searchInput" type="search" placeholder="title, author, method, topic" autocomplete="off" />
+          </label>
+          <label>
+            <span>Priority</span>
+            <select id="priorityFilter">
+              <option value="all">All</option>
+              <option value="高">High</option>
+              <option value="中">Medium</option>
+              <option value="低">Low</option>
+            </select>
+          </label>
+          <label>
+            <span>Area</span>
+            <select id="areaFilter">
+              <option value="all">All</option>
+              <option value="3d">3D Vision</option>
+              <option value="world">World Models</option>
+              <option value="robot">Robotics</option>
+              <option value="physical">Physical AI</option>
+              <option value="hci">HCI</option>
+            </select>
+          </label>
+        </section>
+
+        <div class="content-grid">
+          <aside class="archive-panel" id="archive" aria-labelledby="archive-title">
+            <div class="section-heading">
+              <p class="eyebrow">Archive</p>
+              <h2 id="archive-title">日报归档</h2>
+            </div>
+            <div id="reportList" class="report-list"></div>
+          </aside>
+
+          <section class="report-panel" aria-live="polite">
+            <div id="emptyState" class="empty-state" hidden>
+              <p class="eyebrow">No Report Yet</p>
+              <h2>等待第一份日报</h2>
+              <p>自动化运行后，这里会出现每日趋势、重点论文和阅读优先级。</p>
+            </div>
+
+            <article id="reportDetail" class="report-detail" hidden>
+              <div class="report-header">
+                <div>
+                  <p class="eyebrow" id="reportDate">Latest</p>
+                  <h2 id="reportTitle">Daily Report</h2>
+                </div>
+                <a id="markdownLink" class="text-link" href="#" target="_blank" rel="noreferrer">Markdown</a>
+              </div>
+
+              <p id="reportSummary" class="report-summary"></p>
+
+              <div class="trend-row" id="trendRow"></div>
+
+              <div class="section-heading compact">
+                <p class="eyebrow">Top Picks</p>
+                <h3>最值得深入阅读</h3>
+              </div>
+              <div id="topPicks" class="top-picks"></div>
+
+              <div class="section-heading compact">
+                <p class="eyebrow">Papers</p>
+                <h3>论文列表</h3>
+              </div>
+              <div id="paperList" class="paper-list"></div>
+            </article>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
