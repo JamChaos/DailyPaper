@@ -169,6 +169,50 @@ function renderResources(paper) {
   return row;
 }
 
+function getPaperFacts(paper) {
+  const facts = [];
+  const published = String(paper.published || "").trim();
+
+  if (published.includes(";")) {
+    published.split(";").forEach((part) => {
+      const [rawLabel, ...rawValue] = part.split(":");
+      const value = rawValue.join(":").trim();
+      if (!value) return;
+
+      const labelText = rawLabel.trim();
+      let label = labelText;
+      if (/published/i.test(labelText)) label = "Published";
+      if (/updated/i.test(labelText)) label = "Updated";
+      if (labelText.includes("公告")) label = "Batch";
+      if (labelText.includes("分类")) label = "Categories";
+
+      facts.push([label, value]);
+    });
+  } else if (published) {
+    facts.push(["Published", published]);
+  }
+
+  if (paper.categories && !facts.some(([label]) => label === "Categories")) {
+    facts.push(["Categories", paper.categories]);
+  }
+
+  return facts;
+}
+
+function renderPaperFacts(paper) {
+  const facts = getPaperFacts(paper);
+  if (!facts.length) return null;
+
+  const list = createEl("dl", "paper-facts");
+  facts.forEach(([label, value]) => {
+    const item = createEl("div", "paper-fact");
+    item.append(createEl("dt", "", label), createEl("dd", "", value));
+    list.append(item);
+  });
+
+  return list;
+}
+
 function renderPaper(paper, index) {
   const card = createEl("article", "paper-card");
   const meta = createEl("div", "paper-meta");
@@ -177,14 +221,14 @@ function renderPaper(paper, index) {
     renderPill(paper.priority || "低", priorityClass(paper.priority)),
   );
 
-  if (paper.published) meta.append(renderPill(paper.published));
-  if (paper.categories) meta.append(renderPill(paper.categories));
-
   const title = createEl("h4", "", paper.title || "Untitled paper");
   const authors = createEl("p", "authors", paper.authors || "Authors unavailable");
+  const facts = renderPaperFacts(paper);
   const summary = createEl("p", "", paper.summary || "No summary available.");
 
-  card.append(meta, title, authors, summary);
+  card.append(meta, title, authors);
+  if (facts) card.append(facts);
+  card.append(summary);
 
   const methods = paper.methodHighlights || [];
   if (methods.length) {

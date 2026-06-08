@@ -465,10 +465,39 @@ h1 {
   margin: 8px 0;
 }
 
-.paper-card .authors,
-.paper-card .categories {
+.paper-card .authors {
   color: var(--muted);
   font-size: 0.92rem;
+}
+
+.paper-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 8px 18px;
+  margin: 12px 0;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.paper-fact {
+  min-width: 0;
+}
+
+.paper-fact dt {
+  margin: 0 0 2px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.paper-fact dd {
+  margin: 0;
+  color: #343932;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .method-list {
