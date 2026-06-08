@@ -30,7 +30,7 @@ const areaNeedles = {
   world: ["world", "世界模型", "world model", "simulation", "仿真"],
   robot: ["robot", "机器人", "manipulation", "grasp", "embodied"],
   physical: ["physical", "physics", "物理", "physics-aware", "physical ai"],
-  hci: ["hci", "人机交互", "interaction", "interface"],
+  hoi: ["hoi", "human-object", "human object", "hand-object", "hand object", "人-物", "人与物", "交互", "affordance", "grasp"],
 };
 
 function byDateDesc(a, b) {
