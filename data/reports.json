@@ -1,4 +1,384 @@
 {
   "updatedAt": "2026-06-08",
-  "reports": []
+  "reports": [
+    {
+      "date": "2026-06-08",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-08",
+      "shortTitle": "3D / Robotics / World Models",
+      "summary": "今天的重点从三维重建与渲染扩展到机器人闭环系统：3DGS/4D geometry 被用于仿真校准、世界模型和操作策略，VLA 方向则开始细化 latent action、action decoder、symbolic world model 与按需多模态推理。",
+      "trends": [
+        "3D 表征进入闭环仿真",
+        "VLA 从 backbone scaling 转向 action representation",
+        "世界模型强调几何一致性",
+        "3DGS 走向流式和专业相机模型",
+        "人类视频成为机器人监督来源"
+      ],
+      "topPapers": [
+        "QuadVerse",
+        "Stream3D-VLM",
+        "GEM-4D",
+        "LARA",
+        "ActionMap",
+        "STRIPS-WM",
+        "Native3D"
+      ],
+      "markdownPath": "reports/arxiv/2026-06-08.md",
+      "papers": [
+        {
+          "title": "QuadVerse: An Integrated Framework Aligning Visual-Physical Reality for Quadruped Simulation",
+          "authors": "Yuxiang Chen, Yuanhao Wang, Ziheng Zhang, Meng Zhang, Yu Liu, Yufei Jia, Tiancai Wang, Erjin Zhou, Jin Xie",
+          "arxivUrl": "https://arxiv.org/abs/2606.07118",
+          "published": "arXiv API published: 2026-06-05 10:18:24 UTC; updated: 2026-06-05 10:18:24 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "这篇把四足机器人仿真的视觉、接触和执行器动力学放在同一个校准闭环里处理，而不是分别修补 sim-to-real 的某一侧。方法从 RGB 视频重建带几何约束的 3DGS 场景，并进一步抽取可碰撞的语义网格，用于摩擦先验和接触参数校准。最后通过真实轨迹回放训练 residual dynamics compensator，使视觉导航策略可以在没有任务特定真实 rollout 的情况下零样部署。对三维重建和机器人仿真的启发是，3D 表征不只是渲染资产，也可以成为物理校准的中间层。",
+          "methodHighlights": [
+            "几何约束 3DGS 同时服务 ego-view photorealistic rendering 和 collision-ready semantic mesh。",
+            "用网格初始化空间变化摩擦先验，再通过轨迹后验搜索校准接触。",
+            "通过 residual dynamics compensation 解耦地形接触误差和执行器非理想性。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "simulation",
+            "robotics",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Stream3D-VLM: Online 3D Spatial Understanding with Incremental Geometry Priors",
+          "authors": "Hanxun Yu, Xuan Qu, Lei Ke, Boqiang Zhang, Yuxin Wang, Jianke Zhu, Dong Yu",
+          "arxivUrl": "https://arxiv.org/abs/2606.06891",
+          "published": "arXiv API published: 2026-06-05 04:16:24 UTC; updated: 2026-06-05 04:16:24 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Stream3D-VLM 面向在线 3D 空间理解，目标是让 3D 多模态模型不再依赖完整场景或离线视频片段。它把响应时机建模为自回归 streaming control，并通过 VSFI 模块把随时间对齐的几何先验增量注入视觉流。GAVC 几何自适应体素压缩用于降低长上下文视觉 token 开销，同时作者构建了超过 100 万条在线时空 3D QA 和 29 项任务基准。对 embodied perception 的价值在于，它把“何时看、看多少、何时回答”变成 3D-VLM 的核心能力。",
+          "methodHighlights": [
+            "在线 streaming 3D-language 建模，而不是离线整段场景理解。",
+            "Visual-Spatial Feature Integration 增量融合几何先验。",
+            "Geometry-Adaptive Voxel Compression 面向长视频/长轨迹 token 压缩。"
+          ],
+          "projectUrl": "https://stream3d-vlm.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D understanding",
+            "VLM",
+            "streaming perception"
+          ]
+        },
+        {
+          "title": "Native3D: End-to-End 3D Scene Generation via Unified Mesh-Texture Modeling and Semantic Alignment",
+          "authors": "Yibo Liu, Ziwei Zhang, Haozhou Pang, Menghao Li, Lanshan He, Gan Qi",
+          "arxivUrl": "https://arxiv.org/abs/2606.07117",
+          "published": "arXiv API published: 2026-06-05 10:13:17 UTC; updated: 2026-06-05 10:13:17 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.CV, cs.AI",
+          "categories": "cs.CV, cs.AI",
+          "summary": "Native3D 直接做端到端 3D scene generation，核心诉求是绕开 2D diffusion 中间表示带来的几何失真和纹理退化。它提出统一的 mesh-texture joint representation，用 Transformer scene encoder 同时建模几何结构、纹理特征和物体间空间关系。3D REPA Loss 用改进对比学习对齐多层语义 latent，以提升几何和纹理一致性。它值得关注的点是把 3D 生成从“2D 先验迁移”推进到更原生的 3D 表示学习。",
+          "methodHighlights": [
+            "完全绕过 2D 中间表示的 3D scene generation pipeline。",
+            "统一 mesh-texture 表示，联合建模几何与纹理。",
+            "3D Representation Alignment Loss 对齐 latent 语义层级。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D generation",
+            "mesh",
+            "texture"
+          ]
+        },
+        {
+          "title": "EvoGS: Constructing Continuous-Layered Gaussian Splatting with Evolution Tree for Scalable 3D Streaming",
+          "authors": "Yuang Shi, Simone Gasparini, Géraldine Morin, Wei Tsang Ooi",
+          "arxivUrl": "https://arxiv.org/abs/2606.07179",
+          "published": "arXiv API published: 2026-06-05 11:44:15 UTC; updated: 2026-06-05 11:44:15 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.CV, cs.MM, eess.IV",
+          "categories": "cs.CV, cs.MM, eess.IV",
+          "summary": "EvoGS 面向 3D Gaussian Splatting 的流式传输问题，批评现有 progressive 方法以离散层堆叠 splats，造成冗余、误差累积和质量跳变。它用 Evolution Tree 构造 continuous-layering 表示，让子节点以类似小波的 parent-child refinement 修正祖先误差。实验显示 splat 冗余从超过 65% 降到 25% 以下，同时传输 payload 和 GPU 显存最高分别降低 2.4 倍和 5.5 倍。对于实时 3DGS/云端渲染系统，这是非常直接的系统层改进。",
+          "methodHighlights": [
+            "Evolution Tree 连续层级表示，替代独立离散 LOD splat sets。",
+            "父子 refinement 让细节层可以结构性纠错。",
+            "面向 adaptive streaming 降低 payload、VRAM，并平滑质量变化。"
+          ],
+          "projectUrl": "https://yuang-ian.github.io/evogs/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "streaming",
+            "compression"
+          ]
+        },
+        {
+          "title": "RigPAPR: Rig-Based Animation of Static Neural Point Clouds from a Fixed-Viewpoint Video",
+          "authors": "Shichong Peng, Yanshu Zhang, Ke Li",
+          "arxivUrl": "https://arxiv.org/abs/2606.06685",
+          "published": "arXiv API published: 2026-06-04 19:59:35 UTC; updated: 2026-06-04 19:59:35 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.CV, cs.GR",
+          "categories": "cs.CV, cs.GR",
+          "summary": "RigPAPR 处理一个很实用的问题：如何把静态神经点云从固定视角驱动视频中动画化，并恢复可重摆 pose 的 rigged 3D asset。论文指出 Gaussian splats 或 mesh proxy 做 LBS 时容易在关节边界出现 gaps 和 spikes，因为每个 primitive 的形状是在 canonical pose 下独立校准的。PAPR 不给 primitive 固定形状，而是在渲染时从变形后的点位置重新组合像素，因此在 articulation 下边界更干净。它对 articulated object、角色资产和 I2V-to-3D pipeline 都有直接参考价值。",
+          "methodHighlights": [
+            "自动 rig 静态 PAPR cloud，并用单目固定视角视频驱动。",
+            "避免 mesh proxy、pose-dependent correction 和类别模板。",
+            "PAPR 的按像素重组合机制缓解 LBS 下 splat joint artifacts。"
+          ],
+          "projectUrl": "https://youtu.be/up3BwRHYWG8",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "neural rendering",
+            "articulated objects",
+            "3D assets"
+          ]
+        },
+        {
+          "title": "RPC-GS: Gaussian Splatting with native RPC Rendering for Satellite Imagery",
+          "authors": "Valentin Wagner, Sebastian Bullinger, Christoph Bodensteiner, Michael Arens",
+          "arxivUrl": "https://arxiv.org/abs/2606.06690",
+          "published": "arXiv API published: 2026-06-04 20:12:31 UTC; updated: 2026-06-04 20:12:31 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "RPC-GS 把 Gaussian Splatting 带到卫星影像的 Rational Polynomial Camera 模型中，避免把 pushbroom satellite sensor 简化成 perspective/affine camera。论文直接通过 RPC 投影 Gaussian mean 和 covariance，并用一系列 geo-coordinate transforms 把 splatting 坐标映射到图像坐标。因为 RPC 没有显式 camera depth，作者引入 metric ray-based depth formulation。它提醒 3DGS 在专业成像系统里不能只套 pinhole camera，传感器模型本身会决定重建误差。",
+          "methodHighlights": [
+            "首个 native RPC rendering 的 satellite Gaussian Splatting 框架。",
+            "用 Jacobian-based covariance projection 处理部分非线性坐标变换。",
+            "在 DFC2019/IARPA2016 等卫星基准上降低 altitude/reconstruction error。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "satellite reconstruction",
+            "rendering"
+          ]
+        },
+        {
+          "title": "AnchorWorld: Embodied Egocentric World Simulation with View-based Evolution Customization",
+          "authors": "Yu Li, Menghan Xia, Gongye Liu, Xintao Wang, Conglang Zhang, Lei Ke, Yuxuan Lin, Ruihang Chu, Pengfei Wan, Kun Gai, Yujiu Yang",
+          "arxivUrl": "https://arxiv.org/abs/2606.07326",
+          "published": "arXiv API published: 2026-06-05 14:43:13 UTC; updated: 2026-06-05 14:43:13 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "AnchorWorld 聚焦可交互、可定制的 egocentric world simulation，目标是让世界模型不仅生成视频，还能维持人-环境交互的空间一致性。它用 3D human motion 作为主要交互模态，并引入外生视角辅助监督来补足第一人称视角中被截断或出视野的身体部位。通过 anchor views 和文本描述定义局部场景演化，模型可以在统一世界坐标系中生成自演化世界。它对 embodied world model 的启发是：第一人称模拟必须显式处理“身体在世界中”的几何锚定。",
+          "methodHighlights": [
+            "3D human motion 作为 egocentric simulation 的交互控制信号。",
+            "外生视角监督增强 full-body spatial grounding。",
+            "anchor views + text dynamics 支持局部世界演化定制。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "egocentric simulation",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "Dash2Sim: Closed-Loop Driving Simulation from in-the-wild Dashcam Videos",
+          "authors": "Anurag Ghosh, Francesco Pittaluga, Khiem Vuong, Angela Chen, Juan Alvarez-Padilla, Manmohan Chandraker, Srinivasa Narasimhan",
+          "arxivUrl": "https://arxiv.org/abs/2606.07366",
+          "published": "arXiv API published: 2026-06-05 15:09:27 UTC; updated: 2026-06-05 15:09:27 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.CV, cs.LG, cs.RO",
+          "categories": "cs.CV, cs.LG, cs.RO",
+          "summary": "Dash2Sim 将野外单目 dashcam 视频转成 metric、geo-referenced 的 4D driving logs，并对齐到现有模拟器中进行闭环验证。它重点处理 work zone 这类长尾驾驶场景，构建 ROADWork4D，包含 4,244 个场景、270 万 3D objects、覆盖 17 个城市。作者发现即使用 privileged closed-loop planners，临时施工车道也会显著挑战现有规划器。对仿真研究的启发是，大规模互联网/行车视频可以成为闭环世界构建来源，但 4D 几何恢复和地图验证是关键瓶颈。",
+          "methodHighlights": [
+            "单目 in-the-wild dashcam 到 metric geo-referenced 4D driving logs。",
+            "ROADWork4D 覆盖 4,244 scenes 和 2.7M 3D objects。",
+            "用真实长尾场景测试闭环 planner，而不只做 open-loop 感知指标。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "4D reconstruction",
+            "closed-loop simulation",
+            "autonomous driving"
+          ]
+        },
+        {
+          "title": "LARA: Latent Action Representation Alignment for Vision-Language-Action Models",
+          "authors": "Mengya Liu, Baoxiong Jia, Jiangyong Huang, Jingze Zhang, Siyuan Huang",
+          "arxivUrl": "https://arxiv.org/abs/2606.07100",
+          "published": "arXiv API published: 2026-06-05 09:51:25 UTC; updated: 2026-06-05 09:51:25 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "LARA 针对 VLA 模型缺少机器人动作数据的问题，尝试用 human videos 中学习到的 latent action 来补充监督。它认为 LAM 和 VLA 分开训练会让 LAM 在 VLA 训练时不接地气，也让 VLA 受冻结 latent representation 限制。LARA 将 LAM 和 VLA 通过 representation alignment 联合优化，使 LAM 避免捕捉无功能意义的视觉变化，同时让 VLA 受 forward dynamics 正则约束。结果在 3 个仿真和 1 个真实机器人 manipulation benchmark 上带来约 10%、5%、15% 的提升。",
+          "methodHighlights": [
+            "LAM/VLA reciprocal alignment，而不是冻结 latent action 后单向使用。",
+            "用 action trajectories 约束 LAM，减少 spurious visual dynamics。",
+            "作为 plug-and-play 框架支持 pre-training、post-training 和 LAM refinement。"
+          ],
+          "projectUrl": "https://latentactionpretraining.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "latent action",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "ActionMap: Robot Policy Learning via Voxel Action Heatmap",
+          "authors": "Pei Yang, Hai Ci, Yanzhe Chen, Qi Lv, Han Cai, Mike Zheng Shou",
+          "arxivUrl": "https://arxiv.org/abs/2606.06904",
+          "published": "arXiv API published: 2026-06-05 04:42:56 UTC; updated: 2026-06-05 04:42:56 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "ActionMap 关注 VLA 中常被忽视的动作解码器：现有模型多把连续动作当作单点回归或 token bin，而没有利用动作空间的几何邻近关系。论文提出 voxel heatmap action head，让每个 voxel 直接存储对应动作概率，可以替换现有 VLA 的原生 action decoder。它在 LIBERO 仿真和真实 Franka 操作中，在相同训练步数下超过不同 backbone 的原始解码器，并在低数据区更高效。这个方向说明 action representation 本身可能和 backbone scaling 一样重要。",
+          "methodHighlights": [
+            "把连续控制输出改成 voxel action heatmap。",
+            "不绑定特定 backbone，可替换 OpenVLA-OFT 等 VLA 的 action head。",
+            "跨仿真和真实 manipulation 展示更好的数据效率和收敛速度。"
+          ],
+          "projectUrl": "https://github.com/showlab/ActionMap",
+          "codeUrl": "https://github.com/showlab/ActionMap",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "action representation",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "STRIPS-WM: Learning Grounded Propositional STRIPS-style World Models from Images",
+          "authors": "Abhiroop Ajith, Constantinos Chamzas",
+          "arxivUrl": "https://arxiv.org/abs/2606.06832",
+          "published": "arXiv API published: 2026-06-05 02:16:50 UTC; updated: 2026-06-05 02:16:50 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "STRIPS-WM 从图像转移中学习 STRIPS-style world models，试图把高维视觉观察压缩成可规划的 action-relevant facts。它先从图像诱导有限抽象转移图，再学习 latent binary predicates 和每个 action label 对应的 grounded propositional operator。最终这些 predicates 被蒸馏进视觉编码器，使机器人可以从新 start/goal images 直接调用经典规划器。它连接了视觉表征学习和符号规划，对长程 manipulation 很有启发。",
+          "methodHighlights": [
+            "从 image-action-next image transitions 学习 preconditions/add/delete effects。",
+            "latent predicates + grounded operators 形成可解释符号 action model。",
+            "让经典 planner 直接接入视觉 start/goal。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "symbolic planning",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "PhyRoGen: Synthetic Generation of Physical Robot Manipulation Puzzles Using Procedural Content Generation",
+          "authors": "Lennart Julian Droß, Andreas Orthey, Marc Toussaint",
+          "arxivUrl": "https://arxiv.org/abs/2606.06569",
+          "published": "arXiv API published: 2026-06-04 17:48:31 UTC; updated: 2026-06-04 17:48:31 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "PhyRoGen 用 procedural content generation 生成物理机器人操作 puzzle，目标是为 assembly/disassembly 等任务提供可扩展训练和评测数据。它可以生成带 interlocking object dependencies 的 physical puzzles，其中一个 articulated object 必须先被操作，另一个对象才能移动。作者定义了 6 个 generator，生成 24 个 puzzles，并用采样规划在 1 到 300 秒内求解，同时在 KUKA LBR iiwa 物理仿真中验证可操作性。它的价值在于把“可解、可控、带物理约束”的任务生成系统化。",
+          "methodHighlights": [
+            "PCG 生成 interlocking articulated manipulation puzzles。",
+            "配套 benchmark framework 验证 solvability。",
+            "在物理仿真中验证每个 puzzle 可由机器人操作。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "physical puzzles",
+            "procedural generation",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "What Matters When Cotraining Robot Manipulation Policies on Everyday Human Videos?",
+          "authors": "Richard Li, Aditya Prakash, Andrew Wen, Saurabh Gupta, Yilun Du, Pulkit Agrawal",
+          "arxivUrl": "https://arxiv.org/abs/2606.06627",
+          "published": "arXiv API published: 2026-06-04 18:24:23 UTC; updated: 2026-06-04 18:24:23 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.RO, cs.AI, cs.CV, cs.LG",
+          "categories": "cs.RO, cs.AI, cs.CV, cs.LG",
+          "summary": "这篇系统研究 everyday Internet videos 如何帮助机器人 manipulation policy cotraining，而不是依赖专门采集、动作像机器人的人类演示数据。作者构建了 532 段、28 小时带高质量三角化手部标签的自然人类视频数据。结果显示手部姿态质量确实重要，但仅有准确 hands 还不够，视觉和策略网络还需要按 embodiment specialization 处理人-机器人动作差异。低机器人数据场景下，cotraining recipe 在 6 个操作任务上带来 29.7 个百分点成功率提升。",
+          "methodHighlights": [
+            "面向 everyday videos 的机器人共训练诊断，而非只用 curated human demos。",
+            "明确区分 hand pose quality 和 embodiment motion gap 的影响。",
+            "低机器人数据 regime 下提升明显。"
+          ],
+          "projectUrl": "https://richardrl.github.io/what-matters-cotraining-human-videos/index.html",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "human videos",
+            "robot manipulation",
+            "cotraining"
+          ]
+        },
+        {
+          "title": "Dreaming when Necessary: Advancing World Action Models with Adaptive Multi-Modal Reasoning",
+          "authors": "Yinzhou Tang, Jingbo Xu, Yu Shang, Zihao Song, Chen Gao, Wei Wu, Yong Li",
+          "arxivUrl": "https://arxiv.org/abs/2606.07089",
+          "published": "arXiv API published: 2026-06-05 09:35:48 UTC; updated: 2026-06-05 09:35:48 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "AdaWAM 讨论 World Action Models 在长程 embodied tasks 中何时需要“做梦”式视频预测，何时只需要文本或视觉推理。论文认为现有 WAM 过度依赖视频预测作为 action prior，缺少按执行上下文切换推理模式的能力。它引入轻量动态路由器，在 task transition 时触发文本推理，在精细操作时触发视觉推理，从而提升效率和表现。这个思路适合思考世界模型和策略执行之间的预算分配问题。",
+          "methodHighlights": [
+            "World Action Model + adaptive multimodal reasoning。",
+            "动态 router 按上下文选择 textual 或 visual reasoning。",
+            "在仿真和真实 embodied tasks 中提升效率和性能。"
+          ],
+          "projectUrl": "https://adawam.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "world action models",
+            "embodied planning",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "AEGIS: A Backup Reflex for Physical AI",
+          "authors": "Josef Chen",
+          "arxivUrl": "https://arxiv.org/abs/2606.06660",
+          "published": "arXiv API published: 2026-06-04 19:09:22 UTC; updated: 2026-06-04 19:09:22 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.AI, cs.PF, cs.RO",
+          "categories": "cs.AI, cs.PF, cs.RO",
+          "summary": "AEGIS 把长程机器人操作失败看作可提前预警的问题：很多失败不是突然发生，而是弱策略一步步把状态推入不可恢复区域。它在弱策略冻结 activations 上训练轻量 probe，提前检测高风险 step，并只在需要时切换到更强策略。LIBERO-Spatial 上它追回弱策略丢失轨迹的 10.1%，明显优于盲目升级和随机触发，同时只在 38% steps 启用强策略。它提供了一个 Physical AI 系统层思路：不要总是全程用大模型，而是在正确时机升级控制。",
+          "methodHighlights": [
+            "Activation-probe Early-warning + Gated Inference Switching。",
+            "弱策略路径前 30% trajectory 即可进行早期风险判断。",
+            "选择性强策略接管，把 compute 用在临界步骤。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "failure detection",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "GEM-4D: Geometry-Enhanced Video World Models for Robot Manipulation",
+          "authors": "Kaichen Zhou, Yuzhen Chen, Fangneng Zhan, Hang Hua, Grace Chen, Xinhai Chang, Ao Qu, Yilun Du, Zhuang Liu, Paul Pu Liang, Mengyu Wang",
+          "arxivUrl": "https://arxiv.org/abs/2605.22882",
+          "published": "arXiv API published: 2026-05-20 21:36:44 UTC; updated: 2026-06-05 16:29:58 UTC; 公告批次: 2026-06-08 (arXiv new listings: Monday, 8 June 2026); 分类: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "GEM-4D 是今日 replacement 中最值得补充的一篇：它指出视频世界模型虽然能生成看似合理的未来，但常无法跨时间稳定追踪同一物理点。方法从 geometry foundation model 蒸馏 dense 4D correspondence supervision 到视频生成 backbone，使模型同时保持外观生成和几何一致性。进一步的 inverse dynamics module 将 correspondence-consistent rollouts 转成可执行机器人轨迹，真实操作成功率从 61% 提升到 81%。它对 Physical AI 的核心启发是：世界模型要能指导动作，必须在视频生成内部绑定几何对应关系。",
+          "methodHighlights": [
+            "dense 4D correspondence supervision 注入 video generative backbone。",
+            "单流架构，推理时不增加额外成本。",
+            "inverse dynamics 把几何一致视频 rollout 转成机器人轨迹。"
+          ],
+          "projectUrl": "https://gem-4d.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "recent supplement",
+            "video world models",
+            "4D geometry",
+            "robot manipulation"
+          ]
+        }
+      ]
+    }
+  ]
 }
