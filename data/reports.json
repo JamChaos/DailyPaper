@@ -1,6 +1,273 @@
 {
-  "updatedAt": "2026-06-08",
+  "updatedAt": "2026-06-09",
   "reports": [
+    {
+      "date": "2026-06-09",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-09",
+      "shortTitle": "3D / Embodied / World Models",
+      "summary": "今天的重点集中在 metric 3D 几何、HOI 驱动操作学习与世界模型接口重构：卫星和地面几何被用于绝对尺度恢复，单视频到操作的全栈链路继续成形，而 WAM/VLA 开始转向异步时域、图像化动作表示和对象中心层级规划。",
+      "trends": [
+        "metric geometry 成为 reconstruction 到 robotics 的关键桥梁",
+        "单视频到 sim2real 操作链路继续闭环化",
+        "世界模型开始重构 action interface 与时间尺度",
+        "HOI 与 egocentric data pipeline 直接服务灵巧操作",
+        "3DGS 继续强化结构细节建模"
+      ],
+      "topPapers": [
+        "AHA-WAM",
+        "Video2Sim2Real",
+        "EgoAERO",
+        "GraspFoM",
+        "LEGS",
+        "Empowering Feed-Forward Reconstruction with Metric Scale via Satellite Images"
+      ],
+      "markdownPath": "reports/arxiv/2026-06-09.md",
+      "papers": [
+        {
+          "title": "LEGS: Laplacian-Enhanced Gaussian Splatting with a Nonlinear Weighted Loss",
+          "authors": "Yongfei Guo, Qizhou Huo, Xuan Sun, Yuanhao Gong",
+          "arxivUrl": "https://arxiv.org/abs/2606.07932",
+          "published": "公告批次: 2026-06-09 (Tuesday, 9 June 2026); 分类: cs.CV, cs.GR, cs.MM, eess.IV, math.OC",
+          "categories": "cs.CV, cs.GR, cs.MM, eess.IV, math.OC",
+          "summary": "LEGS 聚焦 3DGS 中结构细节恢复不足的问题，在 edge-guided weighting 之外加入二阶 Laplacian 响应，并用 nonlinear weighted loss 强化边缘与高频区域监督。相比标准 photometric loss，它更强调结构突变区域的训练信号，有利于提升 novel view synthesis 的锐利边界和局部细节。",
+          "methodHighlights": [
+            "用 Laplacian 二阶响应增强 3DGS 的结构感知能力。",
+            "设计 nonlinear weighting，避免线性边缘加权对细节监督不足。",
+            "提升 radiance field reconstruction 和实时新视角合成中的 contour 与 fine detail。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "novel view synthesis",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "Empowering Feed-Forward Reconstruction Models with Metric Scale via Satellite Images",
+          "authors": "Xianghui Ze, Yongjian Luo, Mengjun Chao, Zhenbo Song, Jianfeng Lu, Yujiao Shi",
+          "arxivUrl": "https://arxiv.org/abs/2606.08205",
+          "published": "公告批次: 2026-06-09 (Tuesday, 9 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "论文把卫星图像引入 feed-forward 3D reconstruction，以外部全球先验解决 up-to-scale 几何难以直接服务机器人系统的问题。模型在粗位姿条件下检索局部卫星 patch，并通过 cross-view interaction 同时推断绝对尺度、优化几何和对齐相机位姿。",
+          "methodHighlights": [
+            "用 satellite imagery 作为绝对尺度锚点。",
+            "双向 cross-view interaction 同时处理 scale、geometry 和 localization。",
+            "在 KITTI、nuScenes、Oxford RobotCar 上统一提升 metric 3D 能力。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "metric scale",
+            "autonomous driving"
+          ]
+        },
+        {
+          "title": "GraspFoM: Towards Reconstruction-Driven Robotic Grasping with 3D Foundation Priors",
+          "authors": "Dongli Wu, Xiaobao Wei, Hao Wang, Qiaochu Dong, Ying Li, Qingpo Wuwu, Ming Lu, Wufan Zhao",
+          "arxivUrl": "https://arxiv.org/abs/2606.08440",
+          "published": "公告批次: 2026-06-09 (Tuesday, 9 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "GraspFoM 将共享 3D object latent 作为 reconstruction 和 grasp pose prediction 的共同先验，并通过 pose-reasoning diffuser、reconstruction-aware scorer 和 residual latent updater 建立几何与抓取的双向约束。它说明 mesh/3DGS 级别的 3D 资产已经可以直接进入抓取策略。",
+          "methodHighlights": [
+            "SAM3D 共享 object latent 同时服务 reconstruction 与 grasping。",
+            "pose-reasoning diffuser 输出连续多模态 grasp poses。",
+            "支持 mesh 与 3DGS 两种三维资产输出。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot grasping",
+            "3D foundation model",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "EgoAERO: Learning Dexterous Manipulation from a Single Egocentric Video without Object Assets",
+          "authors": "Yichen Niu, Haoran Lv, Xinrui Zhang, Xueyao Wan, Shiyu Gao, Ying Ai, Hui Xu, Yongqi Hu, Hengyi Zhang, Yang Xie, Zhaxizhuoma, Yue Zhao, Zhenshan Bing, Yan Ding, Jianxing Liu",
+          "arxivUrl": "https://arxiv.org/abs/2606.08057",
+          "published": "公告批次: 2026-06-09 (Tuesday, 9 June 2026); 分类: cs.RO, cs.AI",
+          "categories": "cs.RO, cs.AI",
+          "summary": "EgoAERO 只用单段第一人称 RGB-D 视频就恢复 contact-consistent hand-object trajectories，并在没有预扫描 object assets 的前提下学习灵巧操作。它还构建了 430 万帧的 EgoDex-R 数据管线，是 HOI 与 dexterous manipulation 结合得很紧的一篇工作。",
+          "methodHighlights": [
+            "asset-free hand-object tracking 与 reconstruction。",
+            "ego motion compensation + adaptive contact optimization 恢复接触一致轨迹。",
+            "EgoDex-R 支撑大规模 egocentric dexterous manipulation 学习。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "dexterous manipulation",
+            "egocentric video"
+          ]
+        },
+        {
+          "title": "Video2Sim2Real: Full-Stack Autonomous Dexterous Skill Acquisition from a Single Human Video",
+          "authors": "Yunhai Han, Jianuo Qiu, Linhao Bai, Ziyu Xiao, Zihang Zeng, Yangcen Liu, Zhaodong Yang, Shalin Jain, Wenrui Ma, Jiaqi Fu, Yuqian Zheng, Manisha Natarajan, Muhammad Zubair Irshad, Kenneth Shaw, Matthew Gombolay, Zsolt Kira, Harish Ravichandar",
+          "arxivUrl": "https://arxiv.org/abs/2606.08828",
+          "published": "公告批次: 2026-06-09 (Tuesday, 9 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "Video2Sim2Real 把单段人类视频转成 simulator-ready digital twin、motion prior 和可部署策略，并用 object-centric keyframes 代替逐帧人类轨迹作为技能锚点。它更强调让环境结果一致，而不是直接复制人类动作，因此更适合跨 embodiment 的操作学习。",
+          "methodHighlights": [
+            "单视频到 digital twin、motion prior、sim2real policy 的全栈链路。",
+            "object-centric keyframes 缓解 embodiment gap。",
+            "以环境状态变化一致性替代逐帧 imitation。"
+          ],
+          "projectUrl": "https://video2sim2real.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "sim2real",
+            "dexterous manipulation",
+            "digital twin"
+          ]
+        },
+        {
+          "title": "AHA-WAM: Asynchronous Horizon-Adaptive World-Action Modeling with Observation-Guided Context Routing",
+          "authors": "Jisong Cai, Long Ling, Shiwei Chu, Zhongshan Liu, Jiayue Kang, Zhixuan Liang, Wenjie Xu, Yinan Mao, Weinan Zhang, Xiaokang Yang, Ru Ying, Ran Zheng, Yao Mu",
+          "arxivUrl": "https://arxiv.org/abs/2606.09811",
+          "published": "公告批次: 2026-06-09 (Tuesday, 9 June 2026); 分类: cs.RO, cs.AI, cs.CV",
+          "categories": "cs.RO, cs.AI, cs.CV",
+          "summary": "AHA-WAM 将 world prediction 和 action execution 解耦到不同时间尺度上: 低频视频 DiT 负责长期世界规划和记忆维护，高频动作 DiT 负责闭环执行。配合 horizon-adaptive offset training 与 Observation-Guided Video-Context Routing，它在不做 robot-data pretraining 的前提下仍展现出强性能。",
+          "methodHighlights": [
+            "异步 world planner 与 action executor。",
+            "低频视频 DiT 维护长期 latent world context。",
+            "OVCR 让动作分支按需读取世界上下文。"
+          ],
+          "projectUrl": "https://serene-sivy.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot manipulation",
+            "VLA"
+          ]
+        },
+        {
+          "title": "iMaC: Translating Actions into Motion and Contact Images for Embodied World Models",
+          "authors": "Zhenyu Wu, Xiuwei Xu, Yukun Zhou, Yifan Li, Qiuping Deng, Xiaofeng Wang, Zheng Zhu, Bingyao Yu, Ziwei Wang, Jiwen Lu, Haibin Yan",
+          "arxivUrl": "https://arxiv.org/abs/2606.09813",
+          "published": "公告批次: 2026-06-09 (Tuesday, 9 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "iMaC 把图像而非低维控制向量当作动作表示，使动作 token 同时承载空间运动意图、接触约束和交互几何。它的 image-action encoder 与 dynamic world predictor 组合，给 embodied world model 提供了一种更几何化的 action interface。",
+          "methodHighlights": [
+            "Image as Action Control，重定义 embodied action representation。",
+            "同时编码 motion intent、contact constraints 和 interaction cues。",
+            "兼顾未来状态预测与控制执行。"
+          ],
+          "projectUrl": "https://imac-wm.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "action representation",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "Unifying Object-Centric World Models and Diffusion Policy: A Hierarchical Framework for Multi-Stage Robotic Tasks",
+          "authors": "Raktim Gautam Goswami, Prashanth Krishnamurthy, Yann LeCun, Farshad Khorrami",
+          "arxivUrl": "https://arxiv.org/abs/2606.08775",
+          "published": "公告批次: 2026-06-09 (Tuesday, 9 June 2026); 分类: cs.RO, cs.AI",
+          "categories": "cs.RO, cs.AI",
+          "summary": "WorldDP 用高层 object-centric world model 规划可达子目标，再由低层 diffusion policy 负责执行，专门面向 multi-stage robotic tasks。它说明对象级表示和层级规划对长链 manipulation 很重要。",
+          "methodHighlights": [
+            "object-centric world model + diffusion policy 的层级框架。",
+            "运行时搜索 feasible subgoals。",
+            "通过对象解耦提升长程规划能力。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "world models",
+            "diffusion policy",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "VGP-Nav: Metric-Aware Visual Geometric Perception for Robot Navigation",
+          "authors": "Hewei Pan, Weiye Zhu, Zekai Zhang, Zitong Huang, Rongtao Xu, Jinbao Wang, Feng Zheng",
+          "arxivUrl": "https://arxiv.org/abs/2606.09268",
+          "published": "公告批次: 2026-06-09 (Tuesday, 9 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "VGP-Nav 只用单目 RGB 同时完成 metric localization 与 obstacle perception，并利用 ground-plane geometry 消除尺度歧义。它代表了一类更轻量但更重视 metric geometry 的视觉导航方法。",
+          "methodHighlights": [
+            "单目 RGB 联合完成定位与障碍感知。",
+            "用 ground-plane geometry 提供尺度锚点。",
+            "直接输出可供 planner 使用的 metric obstacle representation。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "robot navigation",
+            "metric geometry",
+            "perception"
+          ]
+        },
+        {
+          "title": "VAIC: Vision-Guided Humanoid Agile Object Interaction Control via Decoupled Commands",
+          "authors": "Dongting Li, Qianyang Wu, Xingyu Chen, Liang Li, Yuhang Lin, Sikai Wu, Guoyao Zhang, Mingliang Zhou, Diyun Xiang, Qiang Zhang, Renjing Xu, Jianzhu Ma",
+          "arxivUrl": "https://arxiv.org/abs/2606.09286",
+          "published": "公告批次: 2026-06-09 (Tuesday, 9 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "VAIC 以 onboard depth 和 proprioception 为主要输入，通过 teacher-student 蒸馏与 recurrent object adaptation 支撑人形机器人的 agile object interaction。它强调可部署性，而不是依赖完美状态观测和外部追踪。",
+          "methodHighlights": [
+            "只依赖 onboard depth + proprioception。",
+            "teacher-student 蒸馏转移特权状态信息。",
+            "recurrent object adaptation 处理隐式对象动力学。"
+          ],
+          "projectUrl": "https://vaic-humanoid.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "humanoid robotics",
+            "object interaction",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "KPGrasp: Scalable Keypoint Flow Matching for Dexterous Grasp Generation",
+          "authors": "Yuansen Huang, Jiayi Chen, Haoran Liu, Yubin Ke, Bing Han, Jiangran Lyu, Mi Yan, Li Yi, He Wang",
+          "arxivUrl": "https://arxiv.org/abs/2606.09314",
+          "published": "公告批次: 2026-06-09 (Tuesday, 9 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "KPGrasp 用 all-Euclidean 3D hand-keypoint 参数化和 Transformer flow matching 学习灵巧抓取分布，不依赖显式接触损失或 test-time refinement。它展示了抓取生成在数据量和模型规模上的可扩展性。",
+          "methodHighlights": [
+            "all-Euclidean hand-keypoint parameterization。",
+            "只用标准 flow-matching loss 学习 grasp prior。",
+            "展现随数据规模和模型容量扩展的良好性质。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "dexterous grasping",
+            "3D keypoints",
+            "flow matching"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-06-08",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-08",
