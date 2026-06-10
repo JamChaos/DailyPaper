@@ -1,6 +1,185 @@
 {
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-06-10",
   "reports": [
+    {
+      "date": "2026-06-10",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-10",
+      "shortTitle": "3D / Embodied / World Models",
+      "summary": "今天命中的更新主要集中在 3DGS 的新核函数与生成式 zoom-in、以及把三维几何直接接到抓取、HOI 和 world model 控制接口上。相比昨天，今天更像是把三维表示往下游决策与物理交互里继续压实的一天。",
+      "trends": [
+        "3DGS 继续向更强边界建模和跨尺度生成演进",
+        "三维几何开始直接服务抓取与 HOI 物理可行性",
+        "world model 正在重写 action interface 与时间尺度",
+        "articulated objects 数据集更强调物理属性与可交互性",
+        "具身模型开始把图像和语言纳入统一控制接口"
+      ],
+      "topPapers": [
+        "WLA-0",
+        "iMaC",
+        "GraspFoM",
+        "RePHO",
+        "GaussianZoom",
+        "3D Skew-Normal Splatting",
+        "Artiverse"
+      ],
+      "markdownPath": "reports/arxiv/2026-06-10.md",
+      "papers": [
+        {
+          "title": "3D Skew-Normal Splatting",
+          "authors": "Xiangru Wu, Ke Fan, Yanwei Fu",
+          "arxivUrl": "https://arxiv.org/abs/2605.15010",
+          "published": "公告批次: 2026-05-14 (Thursday, 14 May 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "这篇工作从 3DGS 的 primitive 形状入手，认为对称 Gaussian 在有限 primitive 预算下会损失边界和单侧结构的表达能力。作者把基础核改成 Azzalini Skew-Normal 之后，用可学习的 skewness 在对称 Gaussian 和更偏置的分布之间连续插值。这样既保留了解析可积性，也能更好地拟合尖边、薄结构和非对称表面。它属于那种看起来是“小改核函数”，但实质上在重新定义 3DGS 表达能力的工作。",
+          "methodHighlights": [
+            "用 Skew-Normal primitive 替代对称 Gaussian primitive。",
+            "通过 bounded skewness 实现连续形状控制。",
+            "采用解耦参数化和 block-wise optimization 提升训练稳定性。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "novel view synthesis",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "GaussianZoom: Progressive Zoom-in Generative 3D Gaussian Splatting with Geometric and Semantic Guidance",
+          "authors": "Jiale Shi, Jiarui Hu, Zesong Yang, Kaixuan Luan, Hujun Bao, Zhaopeng Cui",
+          "arxivUrl": "https://arxiv.org/abs/2605.18252",
+          "published": "公告批次: 2026-05-18 (Monday, 18 May 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "GaussianZoom 把“极限放大”当成 3D 重建问题来做，而不是单纯的超分或后处理。作者用多视图一致的 super-resolution 模块配合 depth-based feature warping 和 VLM-driven detail synthesis，让局部细节在多视图间仍保持一致。再加上可扩展的 continuous LoD 层级，模型能够在更大放大倍率下保持平滑、无锯齿的跨尺度渲染。它对 3D 生成和场景重建都很有启发，因为它把几何和语义一起纳入了 zoom-in 过程。",
+          "methodHighlights": [
+            "结合几何一致性和语义引导做 progressive zoom-in 重建。",
+            "用连续 LoD hierarchy 控制 Gaussian 可见性和跨尺度过渡。",
+            "强调极端放大时的多视图一致性，而不是只追单帧观感。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "3D Gaussian Splatting",
+            "generative 3D"
+          ]
+        },
+        {
+          "title": "GraspFoM: Towards Reconstruction-Driven Robotic Grasping with 3D Foundation Priors",
+          "authors": "Dongli Wu, Xiaobao Wei, Hao Wang, Qiaochu Dong, Ying Li, Qingpo Wuwu, Ming Lu, Wufan Zhao",
+          "arxivUrl": "https://arxiv.org/abs/2606.08440",
+          "published": "公告批次: 2026-06-07 (Sunday, 7 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "GraspFoM 试图把三维重建变成抓取先验，而不是抓取前的中间步骤。它基于 SAM3D 构建共享 3D object latent，再用 anchor-initialized truncated pose-reasoning diffuser 直接生成连续、多峰抓取姿态。更关键的是，重建和抓取会通过 reconstruction-aware scorer 与 residual latent updater 互相修正，让几何表征朝着更适合操作的方向收敛。对于做机器人操作的人，这篇最重要的点是: mesh 和 3DGS 已经可以作为 grasp planning 的输入资产。",
+          "methodHighlights": [
+            "共享 3D object latent 同时服务 reconstruction 与 grasping。",
+            "用 pose-reasoning diffuser 生成连续、多模态 grasp poses。",
+            "输出 mesh 和 3DGS 两种三维资产形态。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot grasping",
+            "3D foundation model",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "Recovering Physically Plausible Human-Object Interactions from Monocular Videos",
+          "authors": "Dingbang Huang, Etienne Vouga, Qixing Huang, Georgios Pavlakos",
+          "arxivUrl": "https://arxiv.org/abs/2606.05359",
+          "published": "公告批次: 2026-06-03 (Wednesday, 3 June 2026); 分类: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "RePHO 处理的是 HOI 重建里最典型的矛盾: 运动轨迹看起来对，不代表物理上真的对。作者先做 kinematic estimate，再把结果交给物理模拟器驱动的 RL policy 继续优化，目标是让重建出的交互更少穿插、更少悬浮。为了避免噪声轨迹把 RL 带偏，论文还设计了自更新式采样机制，挑出最有信息量、也最可靠的帧来训练。它的价值在于把 HOI 从“像”推进到“可物理成立”。",
+          "methodHighlights": [
+            "先 kinematic reconstruction，再用物理模拟和 RL 做 refinement。",
+            "采用 adaptive sampling + dual self-updating 机制稳定训练。",
+            "明确优化 physically plausible HOI，而不只是视觉相似度。"
+          ],
+          "projectUrl": "https://dingbang777.github.io/RePHO/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "physics-aware reconstruction"
+          ]
+        },
+        {
+          "title": "Artiverse: A Diverse and Physically Grounded Dataset for Articulated Objects",
+          "authors": "Denys Iliash, Jiayi Liu, Egor Fokin, Qirui Wu, Ali Mahdavi-Amiri, Manolis Savva, Angel X. Chang",
+          "arxivUrl": "https://arxiv.org/abs/2605.24403",
+          "published": "公告批次: 2026-05-23 (Saturday, 23 May 2026); 分类: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "Artiverse 提供了一个面向 articulated objects 的大规模数据资源，目标不是只给表面几何，而是给能支撑功能建模和仿真的三维资产。数据集包含 5.4K 人工标注对象，覆盖 88 个类别，并标注功能部件、内部结构、运动学关系、多自由度关节，以及尺度、材质和质量等物理属性。作者还设计了半自动标注流程，把几何推理和人工验证结合起来，降低了标注成本。它的意义在于把 articulated objects 从“形状集合”推进成“可用于交互和仿真的物理对象库”。",
+          "methodHighlights": [
+            "同时提供功能部件、关节和物理属性标注。",
+            "覆盖 88 类、5.4K 物体，适合功能理解与仿真。",
+            "支持 part mobility analysis、articulated generation 和 physics-based interaction。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "articulated objects",
+            "3D assets",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "World-Language-Action Model for Unified World Modeling, Language Reasoning, and Action Synthesis",
+          "authors": "Yi Yang, Zhihong Liu, Siqi Kou, Yiyang Chen, Yanzhe Hu, Jianbo Zhou, Boyuan Zhao, Zhijie Wei, Xiao Xia, Xueqi Li, Pengfei Liu, Zhijie Deng",
+          "arxivUrl": "https://arxiv.org/abs/2606.05979",
+          "published": "公告批次: 2026-06-04 (Thursday, 4 June 2026); 分类: cs.RO, cs.AI, cs.LG",
+          "categories": "cs.RO, cs.AI, cs.LG",
+          "summary": "WLA-0 把 world modeling、语言推理和动作合成合并成一个统一的 embodied foundation model。它同时输入文本指令、图像和机器人状态，预测文本子任务、子目标图像和机器人动作，并通过 autoregressive Transformer 把 next state 拆成语义意图和细粒度物理动态两部分。更值得注意的是，world prediction 可以在推理时关闭，也可以在需要时打开做 test-time scaling，这让它比传统 WAM/VLA 接口更灵活。它对长时任务和跨 embodiment 学习都很有参考价值。",
+          "methodHighlights": [
+            "统一 world modeling、language reasoning 和 action synthesis。",
+            "通过 World Expert 和 Action Expert 分离语义与物理动态监督。",
+            "支持 test-time world prediction scaling。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "language reasoning",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "iMaC: Translating Actions into Motion and Contact Images for Embodied World Models",
+          "authors": "Zhenyu Wu, Xiuwei Xu, Yukun Zhou, Yifan Li, Qiuping Deng, Xiaofeng Wang, Zheng Zhu, Bingyao Yu, Ziwei Wang, Jiwen Lu, Haibin Yan",
+          "arxivUrl": "https://arxiv.org/abs/2606.09813",
+          "published": "公告批次: 2026-06-08 (Sunday, 8 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "iMaC 直接重写了 embodied world model 里的动作接口，认为关节角和末端位姿太窄，不足以表达复杂物理交互。它把原始视觉图像当作动作 token，让动作同时携带空间运动意图、接触约束和交互几何。模型由 image-action encoder 和 dynamic world predictor 两部分组成，前者把目标图像压成 action embedding，后者在这些 image actions 条件下学习环境转移。这个设计很像是在告诉具身模型: 动作不一定要是低维控制量，也可以是带几何语义的视觉条件。",
+          "methodHighlights": [
+            "用图像替代结构化控制向量作为 action representation。",
+            "同时编码 motion intent、contact constraints 和 physical dynamics。",
+            "兼顾 future state prediction 和 closed-loop control。"
+          ],
+          "projectUrl": "https://imac-wm.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "embodied AI",
+            "action representation"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-06-09",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-09",
