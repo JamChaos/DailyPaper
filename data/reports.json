@@ -1,6 +1,261 @@
 {
-  "updatedAt": "2026-06-10",
+  "updatedAt": "2026-06-11",
   "reports": [
+    {
+      "date": "2026-06-11",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-11",
+      "shortTitle": "3D / VLA / World Models",
+      "summary": "今天最新公告批次集中在 VLA 与 world/action model、接触丰富的灵巧操作，以及 3DGS/HOI/低光三维重建。主体 10 篇均来自 2026-06-11 arXiv new listings，没有近期补充。",
+      "trends": [
+        "VLA 正在接入 world-action priors，而不只依赖静态图文语义",
+        "world model 的关键问题从预测未来转向可被动作头利用的表征",
+        "灵巧操作开始显式处理 morphology、触觉接触和物理参数不确定性",
+        "3DGS 继续向真实照片集合、可编辑渲染和复杂光照鲁棒性演进",
+        "HOI 生成开始用离散多视图接口连接文本语义和 joint mesh optimization",
+        "自动驾驶 VLA 正在把 dense 3D geometry 作为独立监督模态"
+      ],
+      "topPapers": [
+        "World Pilot",
+        "Making Foresight Actionable / AGRA",
+        "TextHOI-3D",
+        "TRON",
+        "TacCoRL",
+        "PLUME",
+        "VLGA"
+      ],
+      "markdownPath": "reports/arxiv/2026-06-11.md",
+      "papers": [
+        {
+          "title": "World Pilot: Steering Vision-Language-Action Models with World-Action Priors",
+          "authors": "Zefu Lin, Rongxu Cui, Junjia Xu, Xiaojuan Jin, Wenling Li, Lue Fan, Zhaoxiang Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2606.12403",
+          "published": "arXiv published 2026-06-10T17:59:08Z; 公告批次: 2026-06-11 (Thursday, 11 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "World Pilot 将 World-Action Model 的场景演化和轨迹先验接入 VLA，使策略在当前视觉和语言之外拥有对未来动态的预演。Latent Steering 影响感知层，Action Steering 为动作生成提供轨迹级 motion prior。实验显示它在 LIBERO-Plus 零样本 OOD 和真实机器人任务中提升明显，尤其适合处理视角、几何、形变和位姿变化。",
+          "methodHighlights": [
+            "用 World-Action Model 同时提供 scene-evolution latent 和 trajectory-level motion prior。",
+            "将世界先验分成感知侧 Latent Steering 与动作侧 Action Steering。",
+            "证明视频预训练世界模型即便未做 action post-training，也能辅助机器人策略。"
+          ],
+          "projectUrl": "https://world-pilot.github.io/",
+          "codeUrl": "https://github.com/ZefuLin/WorldPilot",
+          "datasetUrl": "https://huggingface.co/Chedan86/WorldPilot-LIBERO",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "VLA",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Making Foresight Actionable: Repurposing Representation Alignment in World Action Models",
+          "authors": "Lu Qiu, Yizhuo Li, Yi Chen, Yuying Ge, Yixiao Ge, Xihui Liu",
+          "arxivUrl": "https://arxiv.org/abs/2606.12217",
+          "published": "arXiv published 2026-06-10T15:31:25Z; 公告批次: 2026-06-11 (Thursday, 11 June 2026); 分类: cs.CV, cs.AI, cs.RO",
+          "categories": "cs.CV, cs.AI, cs.RO",
+          "summary": "这篇论文指出，WAM 生成合理视频未来并不保证 hidden states 能被动作头正确使用。作者通过 attention analysis 和 causal intervention 发现动作解码器常忽略任务相关交互区域，并受无关区域扰动。AGRA 将视频 diffusion 中间特征与空间语义特征对齐，使世界模型表征更 action-grounded。",
+          "methodHighlights": [
+            "用因果干预诊断视觉未来和动作可用性的错位。",
+            "提出 Action-Grounded Representation Alignment 对齐视频 diffusion 特征和空间语义表示。",
+            "提升物体定位、affordance understanding 和 OOD 泛化。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot manipulation",
+            "VLA",
+            "affordance"
+          ]
+        },
+        {
+          "title": "TextHOI-3D: Text-to-3D Hand-Object Interaction via Discrete Multi-View Generation and Joint Mesh Optimization",
+          "authors": "Zixiong Hao, Zhencun Jiang",
+          "arxivUrl": "https://arxiv.org/abs/2606.11805",
+          "published": "arXiv published 2026-06-10T08:38:40Z; 公告批次: 2026-06-11 (Thursday, 11 June 2026); 分类: cs.CV, cs.AI",
+          "categories": "cs.CV, cs.AI",
+          "summary": "TextHOI-3D 将文本驱动 3D 生成推进到手-物交互 mesh。它用离散多视图视觉 token 连接文本语义生成和几何恢复，再通过 prior initialization、multi-view joint optimization 和 anti-penetration refinement 恢复 hand-object mesh。多视图设置显著降低 object CD 和 penetration volume。",
+          "methodHighlights": [
+            "用 discrete multi-view visual tokens 作为文本到 3D HOI 的中间接口。",
+            "联合优化手和物体 mesh，并加入 anti-penetration refinement。",
+            "同时约束语言语义、多视图一致性、articulated hand shape 和接触合理性。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "hand-object interaction",
+            "generative 3D"
+          ]
+        },
+        {
+          "title": "TRON: Tracing Rays to Orchestrate a Neural Renderer for 3D Gaussian Reconstructions",
+          "authors": "Or Perel, Hassan Abu Alhaija, Zian Wang, Jacob Munkberg, Matan Atzmon, Sanja Fidler, Masha Shugrina",
+          "arxivUrl": "https://arxiv.org/abs/2606.11314",
+          "published": "arXiv published 2026-06-09T18:01:02Z; 公告批次: 2026-06-11 (Thursday, 11 June 2026); 分类: cs.CV, cs.GR",
+          "categories": "cs.CV, cs.GR",
+          "summary": "TRON 将 3D Gaussian ray tracing 与 neural rendering 结合，用 ray tracer 提供 radiometric guidance，而不是直接输出最终像素。它利用显式 3D scaffold 和材质先验保留可编辑性，再由轻量神经渲染器弥补真实感差距。目标覆盖 relighting、material editing、object insertion 和动态物体运动。",
+          "methodHighlights": [
+            "把 3D Gaussian ray tracing 输出作为神经渲染器的结构化指导。",
+            "用 inverse rendering 先验正则 Gaussian field 的材质属性。",
+            "服务真实捕获 3D 环境中的可控、可编辑渲染。"
+          ],
+          "projectUrl": "https://research.nvidia.com/labs/sil/projects/tron/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "neural rendering",
+            "relighting",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "Wild3R: Feed-Forward 3D Gaussian Splatting from Unconstrained Sparse Photo Collection",
+          "authors": "Yuto Furutani, Takashi Otonari, Kaede Shiohara, Toshihiko Yamasaki",
+          "arxivUrl": "https://arxiv.org/abs/2606.11894",
+          "published": "arXiv published 2026-06-10T10:23:06Z; 公告批次: 2026-06-11 (Thursday, 11 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Wild3R 面向真实稀疏照片集合中的 feed-forward 3DGS，重点处理光照差异和 transient objects。论文提出 WildCity 数据集，包含 200 个场景、170 种光照条件和 337,500 张图像。模型在 reference views 条件下学习跨视角外观一致性，同时去除临时内容。",
+          "methodHighlights": [
+            "面向 unconstrained sparse photo collections 的 feed-forward 3DGS。",
+            "用 WildCity 数据集覆盖多光照与 transient object 变化。",
+            "学习跨视图外观一致性并削弱临时物体污染。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "feed-forward reconstruction",
+            "novel view synthesis"
+          ]
+        },
+        {
+          "title": "DarkVGGT: Seeing Through Darkness Using Thermal Geometry without Daylight Tax",
+          "authors": "Minseong Kweon, Wenyuan Zhao, Nuo Chen, Lulin Liu, Huiwen Han, Zihao Zhu, Srinivas Shakkottai, Chao Tian, Zhiwen Fan",
+          "arxivUrl": "https://arxiv.org/abs/2606.11326",
+          "published": "arXiv published 2026-06-09T18:08:51Z; 公告批次: 2026-06-11 (Thursday, 11 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "DarkVGGT 用 RGB-T feed-forward geometry 框架处理低光场景下 RGB 几何线索失效的问题。Physics-inspired thermal factorization 提取更一致的热几何线索，geometry-shared thermal routing 则将可靠结构注入 RGB 流。它提升低可见度下的 depth 和 camera pose 估计，同时尽量保留正常光照表现。",
+          "methodHighlights": [
+            "通过热因子分解提取 emissive-dominant、geometry-consistent cues。",
+            "用 geometry-shared thermal routing 区分通用几何和热成像特有模式。",
+            "目标是低光鲁棒但不产生明显 daylight tax。"
+          ],
+          "projectUrl": "https://darkvggt.github.io/",
+          "codeUrl": "https://github.com/phai-lab/DarkVGGT",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D reconstruction",
+            "thermal geometry",
+            "depth estimation",
+            "camera pose"
+          ]
+        },
+        {
+          "title": "Bridging the Morphology Gap: Adapting VLA Models to Dexterous Manipulation via Intent-Conditioned Fine-Tuning",
+          "authors": "Chuanke Pang, Junyi Huang, Zhijun Zhao, Yaobing Wang, Kun Xu, Xilun Ding",
+          "arxivUrl": "https://arxiv.org/abs/2606.12109",
+          "published": "arXiv published 2026-06-10T14:03:52Z; 公告批次: 2026-06-11 (Thursday, 11 June 2026); 分类: cs.RO, cs.AI",
+          "categories": "cs.RO, cs.AI",
+          "summary": "InDex 解决 VLA 从低自由度平行夹爪迁移到高自由度灵巧手时的 morphology gap。它把预训练 1-DoF grasp 输出重解释为 continuous virtual grasp intent，并用两阶段框架先对齐轨迹和意图，再用 intent-conditioned diffusion head 解码多指关节。这样能保留 VLA 的空间泛化能力并学习接触丰富的灵巧操作。",
+          "methodHighlights": [
+            "将 parallel gripper grasp 输出作为跨 morphology 的 virtual grasp intent。",
+            "两阶段解耦学习: 先空间轨迹和意图，再多指 articulation。",
+            "用 intent-conditioned diffusion head 缓解 action manifold collapse。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "dexterous manipulation",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "TacCoRL: Integrating Tactile Feedback into VLA via Simulation",
+          "authors": "Siyu Ma, Yuqi Liang, Chang Yu, Yunuo Chen, Hao Su, Yixin Zhu, Yin Yang, Chenfanfu Jiang",
+          "arxivUrl": "https://arxiv.org/abs/2606.11743",
+          "published": "arXiv published 2026-06-10T07:20:36Z; 公告批次: 2026-06-11 (Thursday, 11 June 2026); 分类: cs.RO, cs.GR, cs.LG",
+          "categories": "cs.RO, cs.GR, cs.LG",
+          "summary": "TacCoRL 将触觉反馈注入 VLA，以处理 contact-rich tasks 中视觉缺失的局部接触状态。它在真实对齐仿真中学习 near-failure states 下触觉应如何调制动作，并用模拟 RL 强化可完成任务的触觉响应。四个双臂接触任务上，visuo-tactile policy 平均成功率从 50.0% 提升到 72.5%。",
+          "methodHighlights": [
+            "通过 sim-real co-training 和 simulation RL 注入 tactile feedback。",
+            "重点学习罕见 near-failure contact states 下的动作修正。",
+            "不依赖大规模触觉预训练或在线真实机器人 RL。"
+          ],
+          "projectUrl": "https://tac-corl.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "tactile sensing",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "PLUME: Probabilistic Latent Unified World Modeling and Parameter Estimation for Multi-Finger Manipulation",
+          "authors": "Abhinav Kumar, Soshi Iba, Rana Soltani Zarrin, Dmitry Berenson",
+          "arxivUrl": "https://arxiv.org/abs/2606.11396",
+          "published": "arXiv published 2026-06-09T19:36:25Z; 公告批次: 2026-06-11 (Thursday, 11 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "PLUME 将多指操作中的物体形状、姿态、摩擦等未知物理参数纳入世界模型。它联合学习参数 belief 演化和条件动力学，把物理参数、奖励和部分可观测变量放入统一 latent 表示。部署时通过在线参数推断对齐真实动力学，而不是重新训练或微调。",
+          "methodHighlights": [
+            "联合建模物理参数 belief 与 dynamics。",
+            "通过在线参数推断实现 sim-to-real 对齐。",
+            "把 world model、parameter estimation 和 planning 放进同一 latent 空间。"
+          ],
+          "projectUrl": "https://plume-world-model.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "dexterous manipulation",
+            "parameter estimation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "VLGA: Vision-Language-Geometry-Action Models for Autonomous Driving",
+          "authors": "Jin Yao, Dhruva Dixith Kurra, Tom Lampo, Zezhou Cheng, Danhua Guo, Burhan Yaman",
+          "arxivUrl": "https://arxiv.org/abs/2606.12396",
+          "published": "arXiv published 2026-06-10T17:57:06Z; 公告批次: 2026-06-11 (Thursday, 11 June 2026); 分类: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "VLGA 将 geometry 作为自动驾驶 VLA 的第四模态，解决策略缺少 dense 3D grounding 的问题。模型通过 geometry expert 和 LiDAR pointmap regression 监督重建车辆周围 dense 3D world。nuScenes 与 Bench2Drive 结果显示，密集几何监督能降低轨迹误差和碰撞率，并提升闭环驾驶表现。",
+          "methodHighlights": [
+            "将 geometry 作为 vision-language-action 之外的第四模态。",
+            "用 per-pixel pointmap regression against LiDAR 提供 dense 3D supervision。",
+            "同时覆盖 open-loop 轨迹预测和 closed-loop driving score。"
+          ],
+          "projectUrl": "https://yaojin17.github.io/VLGA/",
+          "codeUrl": "https://github.com/yaojin17/VLGA",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "3D reconstruction",
+            "autonomous driving",
+            "dense geometry"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-06-10",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-10",
