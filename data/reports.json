@@ -1,6 +1,309 @@
 {
-  "updatedAt": "2026-06-11",
+  "updatedAt": "2026-06-12",
   "reports": [
+    {
+      "date": "2026-06-12",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-12",
+      "shortTitle": "3D / WAM / Physical AI",
+      "summary": "最新公告批次命中 12 篇，近期补充 0 篇；世界动作模型、生成式几何和机器人可靠数据最突出。",
+      "trends": [
+        "world/action model 正在从视频预测转向可执行控制接口",
+        "WAM 开始显式建模 action、value、mask 和 latent action tokens",
+        "三维生成与重建转向 pixel-aligned、flow-based 和 Gaussian scaffold 表征",
+        "4D 人体重建开始借助多视角视频扩散服务 4D Gaussian Splatting",
+        "机器人 Physical AI 更强调 articulated tools、可靠标注和 sim-to-real 数据闭环",
+        "空间推理 agent 的瓶颈不仅是模型能力，也包括工具调用接口设计"
+      ],
+      "topPapers": [
+        "World Tracing",
+        "WEAVER",
+        "RepWAM",
+        "MaskWAM",
+        "NavWAM",
+        "Flex4DHuman",
+        "Mana",
+        "SPARC"
+      ],
+      "markdownPath": "reports/arxiv/2026-06-12.md",
+      "papers": [
+        {
+          "title": "World Tracing: Generative Pixel-Aligned Geometry Beyond the Visible",
+          "authors": "Hao Zhang, Mohamed El Banani, Jen-Hao Cheng, Paul Zhang, Yi Hua, Ben Mildenhall, Christoph Lassner, Narendra Ahuja, Gengshan Yang",
+          "arxivUrl": "https://arxiv.org/abs/2606.13652",
+          "published": "arXiv published 2026-06-11T17:52:48Z; 公告批次: 2026-06-12 (Friday, 12 June 2026); 分类: cs.CV, cs.GR",
+          "categories": "cs.CV, cs.GR",
+          "summary": "World Tracing 为每个输入像素预测多层相机空间 3D 点栈，兼顾可见表面忠实性与遮挡几何补全。WT-DiT 通过 flow matching 生成像素对齐几何，在物体、场景和动态 benchmark 上提升完整 3D 生成与 correspondence 保持。",
+          "methodHighlights": [
+            "pixel-aligned multi-layer 3D point stacks 表达可见与遮挡几何。",
+            "WT-DiT 结合 factorized/global attention 处理多层几何 token。",
+            "mixed noise schedule 平衡可见表面重建和不可见几何生成。"
+          ],
+          "projectUrl": "https://haoz19.github.io/world-tracing-page/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "generative 3D",
+            "geometry",
+            "novel view synthesis"
+          ]
+        },
+        {
+          "title": "Flex4DHuman: Flexible Multi-view Video Diffusion for 4D Human Reconstruction",
+          "authors": "Jen-Hao Cheng, Yipeng Wang, Hao Zhang, Gengshan Yang, Jenq-Neng Hwang",
+          "arxivUrl": "https://arxiv.org/abs/2606.13655",
+          "published": "arXiv published 2026-06-11T17:54:05Z; 公告批次: 2026-06-12 (Friday, 12 June 2026); 分类: cs.CV, cs.GR",
+          "categories": "cs.CV, cs.GR",
+          "summary": "Flex4DHuman 用相对相机位姿条件化多视角视频扩散，把单目或稀疏多视角人体视频扩展为密集同步视角。生成视频可直接进入 4D Gaussian Splatting 流程，降低 casual video 到动态 4D asset 的门槛。",
+          "methodHighlights": [
+            "只用 relative camera-pose conditioning，不依赖显式人体几何先验。",
+            "五轴 positional encoding 将 RoPE 扩展到 view 和连续 SE(3) 相机关系。",
+            "三阶段课程训练覆盖 pose following、target-view generation 和 temporal rollout。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "4D reconstruction",
+            "3D Gaussian Splatting",
+            "human reconstruction",
+            "video diffusion"
+          ]
+        },
+        {
+          "title": "Surflo: Consistent 3D Surface Flow Model with Global State",
+          "authors": "Antoine Guedon, Shu Nakamura, Nicolas Dufour, Jiahui Lei, Ko Nishino, Angjoo Kanazawa",
+          "arxivUrl": "https://arxiv.org/abs/2606.13644",
+          "published": "arXiv published 2026-06-11T17:48:38Z; 公告批次: 2026-06-12 (Friday, 12 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Surflo 将变量数量的未定姿 RGB 视图压缩为全局 3D latent state，再用 flow matching 解码任意分辨率有向表面点。推理时 photometric guidance 缓解独立点解码的局部不一致。",
+          "methodHighlights": [
+            "变量数量未定姿视图到一个 global 3D latent state。",
+            "flow matching 生成 oriented surface points，不受固定网格限制。",
+            "ODE integration 中引入 photometric-gradient guidance。"
+          ],
+          "projectUrl": "https://anttwo.github.io/surflo/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "surface reconstruction",
+            "flow matching",
+            "geometry"
+          ]
+        },
+        {
+          "title": "MoVerse: Real-Time Video World Modeling with Panoramic Gaussian Scaffold",
+          "authors": "Yang Zhou, Ziheng Wang, Yuqin Lu, Haofeng Liu, Jun Liang, Shengfeng He, Jing Li",
+          "arxivUrl": "https://arxiv.org/abs/2606.13376",
+          "published": "arXiv published 2026-06-11T14:01:02Z; 公告批次: 2026-06-12 (Friday, 12 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "MoVerse 从单张窄视场图像构建可交互漫游的视频世界模型。它先生成 360 度全景，再提升为 persistent 3D Gaussian scaffold，并用条件视频渲染器按用户轨迹实时输出观察。",
+          "methodHighlights": [
+            "world construction 与 observation rendering 解耦。",
+            "panoramic Gaussian scaffold 作为持久空间记忆。",
+            "bidirectional diffusion teacher 蒸馏为低延迟 causal autoregressive student。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "3D Gaussian Splatting",
+            "video generation",
+            "scene generation"
+          ]
+        },
+        {
+          "title": "Modality Forcing for Scalable Spatial Generation",
+          "authors": "Bardienus Pieter Duisterhof, Deva Ramanan, Jeffrey Ichnowski, Justin Johnson, Keunhong Park",
+          "arxivUrl": "https://arxiv.org/abs/2606.13676",
+          "published": "arXiv published 2026-06-11T17:59:45Z; 公告批次: 2026-06-12 (Friday, 12 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Modality Forcing 将 T2I 模型的空间先验转化为 image-depth 联合生成能力。通过每模态独立噪声水平和解码器，它能在稀疏真实 depth 上训练并支持任意条件顺序。",
+          "methodHighlights": [
+            "per-modality noise levels 统一条件生成与联合生成。",
+            "per-modality decoders 支持稀疏真实 depth 训练。",
+            "从 370M 到 3.3B 参数验证 T2I scale 对 depth 的收益。"
+          ],
+          "projectUrl": "https://modality-forcing.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "depth estimation",
+            "spatial generation",
+            "generative 3D",
+            "geometry"
+          ]
+        },
+        {
+          "title": "SpatialClaw: Rethinking Action Interface for Agentic Spatial Reasoning",
+          "authors": "Seokju Cho, Ryo Hachiuma, Abhishek Badki, Hang Su, Byung-Kwan Lee, Chan Hee Song, Sifei Liu, Subhashree Radhakrishnan, Seungryong Kim, Yu-Chiang Frank Wang, Min-Hung Chen",
+          "arxivUrl": "https://arxiv.org/abs/2606.13673",
+          "published": "arXiv published 2026-06-11T17:59:36Z; 公告批次: 2026-06-12 (Friday, 12 June 2026); 分类: cs.CV, cs.AI",
+          "categories": "cs.CV, cs.AI",
+          "summary": "SpatialClaw 用 stateful Python kernel 作为 VLM 的 code-as-action interface，让模型逐步组合感知与几何 primitives。它在 20 个 3D/4D 空间推理 benchmark 上显著超过近期 spatial agent。",
+          "methodHighlights": [
+            "用 code-as-action interface 替代固定 tool-call schema。",
+            "stateful kernel 保存中间观测和分析结果。",
+            "训练自由，跨多个 VLM backbone 获得稳定提升。"
+          ],
+          "projectUrl": "https://spatialclaw.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D spatial reasoning",
+            "embodied AI",
+            "agentic reasoning",
+            "geometry"
+          ]
+        },
+        {
+          "title": "WEAVER, Better, Faster, Longer: An Effective World Model for Robotic Manipulation",
+          "authors": "Arnav Kumar Jain, Yilin Wu, Jesse Farebrother, Gokul Swamy, Andrea Bajcsy",
+          "arxivUrl": "https://arxiv.org/abs/2606.13672",
+          "published": "arXiv published 2026-06-11T17:59:15Z; 公告批次: 2026-06-12 (Friday, 12 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "WEAVER 是面向机器人操作的多视角 world model，同时追求 fidelity、long-horizon consistency 和 efficiency。它用 flow matching 预测未来 latents 和 rewards，并在真实硬件上服务 policy evaluation、improvement 与 planning。",
+          "methodHighlights": [
+            "multi-view latent world model 同时预测未来状态和 reward。",
+            "显式面向 long-horizon dynamic manipulation 设计。",
+            "硬件验证覆盖策略评估、策略改进和 test-time planning。"
+          ],
+          "projectUrl": "https://arnavkj1995.github.io/WEAVER/",
+          "codeUrl": "https://arnavkj1995.github.io/WEAVER/",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot manipulation",
+            "Physical AI",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "RepWAM: World Action Modeling with Representation Visual-Action Tokenizers",
+          "authors": "Junke Wang, Qihang Zhang, Shuai Yang, Yiming Luo, Yujun Shen, Zuxuan Wu, Yu-Gang Jiang, Yinghao Xu",
+          "arxivUrl": "https://arxiv.org/abs/2606.13674",
+          "published": "arXiv published 2026-06-11T17:59:43Z; 公告批次: 2026-06-12 (Friday, 12 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "RepWAM 用 representation visual-action tokenizer 替代纯重建导向视频 tokenizer，让 WAM 同时建模未来视觉状态和连接状态的 latent actions。实验显示语义 visual-action token 更适合真实与仿真闭环操作。",
+          "methodHighlights": [
+            "视觉状态和 latent actions 进入语义对齐 token 空间。",
+            "语言条件下联合建模 future visual states 与 latent actions。",
+            "预训练后适配真实机器人轨迹进行闭环控制。"
+          ],
+          "projectUrl": "https://wdrink.github.io/RepWAM",
+          "codeUrl": "https://github.com/wdrink/RepWAM",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot manipulation",
+            "Physical AI",
+            "VLA"
+          ]
+        },
+        {
+          "title": "MaskWAM: Unifying Mask Prompting and Prediction for World-Action Models",
+          "authors": "Hanyang Yu, Haitao Lin, Jingbo Zhang, Wenyao Zhang, Chenghao Gu, Heng Li, Ping Tan",
+          "arxivUrl": "https://arxiv.org/abs/2606.13515",
+          "published": "arXiv published 2026-06-11T16:02:42Z; 公告批次: 2026-06-12 (Friday, 12 June 2026); 分类: cs.CV, cs.LG, cs.RO",
+          "categories": "cs.CV, cs.LG, cs.RO",
+          "summary": "MaskWAM 将 mask 同时作为输入 prompt 和未来预测目标，建立 object-centric world-action model。目标 mask 提供精确空间锚点，future mask prediction 则带来对象级语义监督，提升杂乱与语言歧义场景中的泛化。",
+          "methodHighlights": [
+            "masks 同时作为 visual prompt 和 future prediction target。",
+            "Mixture of Transformers 统一 RGB、mask 和 action modeling。",
+            "目标物体 mask 降低语言歧义并抑制背景噪声。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot manipulation",
+            "object-centric learning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "NavWAM: A Navigation World Action Model for Goal-Conditioned Visual Navigation",
+          "authors": "Daichi Azuma, Taiki Miyanishi, Koya Sakamoto, Shuhei Kurita, Yaonan Zhu, Petr Khrapchenkov, Motoaki Kawanabe, Yusuke Iwasawa, Yutaka Matsuo",
+          "arxivUrl": "https://arxiv.org/abs/2606.13494",
+          "published": "arXiv published 2026-06-11T15:44:36Z; 公告批次: 2026-06-12 (Friday, 12 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "NavWAM 把导航世界模型从外部 planner 使用的预测模块改造成可直接输出动作的 diffusion-transformer policy。它在共享 latent sequence 中联合表示未来观察、goal-progress values 和 action chunks。",
+          "methodHighlights": [
+            "future observation、value 和 action chunks 共享 latent sequence。",
+            "视觉 foresight 直接服务闭环导航控制。",
+            "仿真预训练后进行 real-robot adaptation。"
+          ],
+          "projectUrl": "https://dachii-azm.github.io/navwam/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "visual navigation",
+            "embodied AI",
+            "robotics"
+          ]
+        },
+        {
+          "title": "Mana: Dexterous Manipulation of Articulated Tools",
+          "authors": "Zhao-Heng Yin, Guanya Shi, Pieter Abbeel, C. Karen Liu",
+          "arxivUrl": "https://arxiv.org/abs/2606.13677",
+          "published": "arXiv published 2026-06-11T17:59:49Z; 公告批次: 2026-06-12 (Friday, 12 June 2026); 分类: cs.RO, cs.AI, cs.CV, cs.LG",
+          "categories": "cs.RO, cs.AI, cs.CV, cs.LG",
+          "summary": "Mana 将 articulated tool manipulation 重新表述为动画问题，用低成本 affordance 标注生成 grasp keyframes，再经 motion planning 和 RL 形成操作轨迹。它在四类 articulated tools 上展示零样本 sim-to-real transfer。",
+          "methodHighlights": [
+            "从功能 affordance 到 grasp keyframes 的自动数据生成。",
+            "coarse-to-fine pipeline 结合 motion planning 和 reinforcement learning。",
+            "面向不同尺度与关节类型 articulated tools 的灵巧操作。"
+          ],
+          "projectUrl": "https://zhaohengyin.github.io/mana",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "dexterous manipulation",
+            "articulated objects",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "SPARC: Reliable Spatial Annotations from Robot Demonstrations at Scale",
+          "authors": "Nils Blank, Paul Mattes, Maximilian Xiling Li, Jakub Suliga, Thomas Roth, Moritz Reuss, Pankhuri Vanjani, Rudolf Lioutikov",
+          "arxivUrl": "https://arxiv.org/abs/2606.13497",
+          "published": "arXiv published 2026-06-11T15:46:28Z; 公告批次: 2026-06-12 (Friday, 12 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "SPARC 从机器人示范中自动生成 bounding boxes、object trajectories 和 manipulation phase labels，并为每个标注提供 reliability score。IA-Bench 进一步评测示范中 interacted object grounding，对 embodied foundation models 和真实策略训练都有价值。",
+          "methodHighlights": [
+            "自动空间标注带 reliability calibration。",
+            "利用任务时空结构判断标注可信度。",
+            "IA-Bench 衡量机器人示范中的 interacted object grounding。"
+          ],
+          "projectUrl": "https://intuitive-robots.github.io/sparc-labeling",
+          "codeUrl": "https://intuitive-robots.github.io/sparc-labeling",
+          "datasetUrl": "https://intuitive-robots.github.io/sparc-labeling",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "spatial grounding",
+            "embodied AI",
+            "human-object interaction"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-06-11",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-11",
