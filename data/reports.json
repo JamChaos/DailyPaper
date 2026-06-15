@@ -1,6 +1,399 @@
 {
-  "updatedAt": "2026-06-12",
+  "updatedAt": "2026-06-15",
   "reports": [
+    {
+      "date": "2026-06-15",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-15",
+      "shortTitle": "3D WAM / Articulation / Embodied Nav",
+      "summary": "最新公告批次命中 16 篇，近期补充 0 篇；3D world/action model、articulated objects 和几何一致生成最突出。",
+      "trends": [
+        "world/action model 开始显式吸收三维结构、接触区域和长时域物体运动",
+        "机器人世界模型从 RGB 视频预测转向 3D traces、4D geometry tokens 和视觉-触觉表征",
+        "三维重建开始把 panoptic semantics、6D pose、distance field 和机器人规划接口放进同一任务",
+        "articulated object 研究用 kinematic specification 连接 VLM、mesh segmentation 和仿真控制",
+        "视频与 3D 场景生成更强调几何一致性、可编辑需求记忆和增量验证",
+        "具身导航与操作系统更重视空间先验记忆、单视角限制、低延迟闭环和示范数据效率"
+      ],
+      "topPapers": [
+        "μ0",
+        "WAM4D",
+        "ContactWorld",
+        "Instruct-Particulate",
+        "Pano3D",
+        "VideoWeave"
+      ],
+      "markdownPath": "reports/arxiv/2026-06-15.md",
+      "papers": [
+        {
+          "title": "μ0: A Scalable 3D Interaction-Trace World Model",
+          "authors": "Seungjae Lee, Yoonkyo Jung, Jusuk Lee, Jonghun Shin, Amir Hossein Shahidzadeh, Yao-Chih Lee, H. Jin Kim, Jia-Bin Huang, Furong Huang",
+          "arxivUrl": "https://arxiv.org/abs/2606.13769",
+          "published": "arXiv submitted 2026-06-11 17:59:56 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.RO, cs.CV, cs.LG",
+          "categories": "cs.RO, cs.CV, cs.LG",
+          "summary": "μ0 将机器人世界模型的预测目标从 dense pixels 或 embodiment-specific actions 改成 salient interaction points 的 3D trajectories。TraceExtract 自动从多源视频抽取关键点、全局轨迹和层级语言监督，为跨 embodiment 的 robot learning 提供紧凑 motion interface。",
+          "methodHighlights": [
+            "3D interaction traces 替代像素未来或直接动作标签。",
+            "TraceExtract 自动生成 keypoint、global trace 和 hierarchical language supervision。",
+            "视觉语言 backbone 与 3D motion prediction 结合服务 scalable robot learning。"
+          ],
+          "projectUrl": "https://mu0-wm.github.io",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "3D interaction",
+            "robot learning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "WAM4D: Fast 4D World Action Model via Spatial Register Tokens",
+          "authors": "Ying Li, Xiaobao Wei, Jiajun Cao, Hao Wang, Xiaowei Chi, Chengyu Bai, Qianpu Sun, Jiajun Li, Xiaojie Zhang, Jian Tang, Sirui Han, Shanghang Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2606.14048",
+          "published": "arXiv submitted 2026-06-12 02:49:34 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "WAM4D 用训练期 spatial register tokens 把几何 foundation model 的未来深度先验注入 causal video-action transformer。推理时移除 register branch，避免 dense 4D decoding 的高延迟，同时保留 3D spatial/contact constraints 对动作生成的帮助。",
+          "methodHighlights": [
+            "training-time future-depth spatial register tokens 注入几何先验。",
+            "推理阶段移除 register branch 保持轻量动作生成。",
+            "causal mixture attention 防止非因果捷径。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "4D geometry",
+            "VLA",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "ContactWorld: What Matters in Vision-Tactile World Models for Contact-Rich Manipulation",
+          "authors": "Zhiyuan Zhang, Pokuang Zhou, Kaidi Zhang, Adeesh Desai, Temitope Amosa, Davood Soleymanzadeh, Jiuzhou Lei, Minghui Zheng, Yu She",
+          "arxivUrl": "https://arxiv.org/abs/2606.13877",
+          "published": "arXiv submitted 2026-06-11 20:01:49 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "ContactWorld 系统评估视觉-触觉 world models 在 12 个接触丰富 manipulation tasks 中的表征需求。空间结构化且时间连续的表征最有利于长时域规划，触觉有效性依赖跨模态兼容性而非简单模态堆叠。",
+          "methodHighlights": [
+            "覆盖 insertion、disassembly、screwing 等 contact-rich tasks。",
+            "比较 RGB、point cloud 和 tactile representation 对 planning 的影响。",
+            "强调 spatial structure 与 temporal continuity。"
+          ],
+          "projectUrl": "https://contact-world.github.io/",
+          "codeUrl": "https://github.com/PokuangZhou/ContactWorld",
+          "datasetUrl": "https://huggingface.co/datasets/Pokuang/ContactWorld/tree/main",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "tactile sensing",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Instruct-Particulate: Scaling Feed-Forward 3D Object Articulation with Kinematic Control",
+          "authors": "Ruining Li, Yuxin Yao, Matt Zhou, Chuanxia Zheng, Christian Rupprecht, Joan Lasenby, Shangzhe Wu, Andrea Vedaldi",
+          "arxivUrl": "https://arxiv.org/abs/2606.14699",
+          "published": "arXiv submitted 2026-06-12 17:59:36 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.CV, cs.GR, cs.RO",
+          "categories": "cs.CV, cs.GR, cs.RO",
+          "summary": "Instruct-Particulate 以 3D mesh 和 kinematic specification 为输入，预测 kinematic part segmentation 与 joint motion parameters。指令化 specification 消解不同标注粒度的歧义，使 articulated object reconstruction 更适合机器人仿真和可交互资产生成。",
+          "methodHighlights": [
+            "kinematic specification 包含 part descriptions、connectivity、joint types 和 point prompts。",
+            "预测 part segmentation 与 joint motion parameters。",
+            "利用异构大规模 articulation 数据提升泛化。"
+          ],
+          "projectUrl": "https://instruct-particulate.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "articulated objects",
+            "3D reconstruction",
+            "robot simulation",
+            "graphics"
+          ]
+        },
+        {
+          "title": "SplatlessDF: Continuous Distance Field Mapping with Non-Splatting Gaussians",
+          "authors": "Monisha Mushtary Uttsha, Lan Wu, Teresa Vidal-Calleja",
+          "arxivUrl": "https://arxiv.org/abs/2606.13990",
+          "published": "arXiv submitted 2026-06-12 00:18:52 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "SplatlessDF 将 Gaussian primitives 从 photometric rendering 转向 spatial distance field mapping。它直接优化 anisotropic Gaussians 得到可微 DF，使距离和梯度可在空间域查询，并可与 2DGS 结合支持 surface rendering。",
+          "methodHighlights": [
+            "non-splatting Gaussian elements 用于 continuous distance field。",
+            "支持 DF-only 和 2DGS-coupled joint DF-rendering。",
+            "空间域距离/梯度查询适合 navigation 和 planning。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "distance field",
+            "robot navigation",
+            "mapping"
+          ]
+        },
+        {
+          "title": "Pano3D: Unified 3D Reconstruction and Panoptic Segmentation",
+          "authors": "Victor Barberteguy, Ahmet Iscen, Mathilde Caron, Alireza Fathi, Gul Varol, Cordelia Schmid",
+          "arxivUrl": "https://arxiv.org/abs/2606.14307",
+          "published": "arXiv submitted 2026-06-12 09:43:13 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Pano3D 在 feed-forward 3D reconstruction backbone 上加入 set-based mask decoder，用几何与语义损失联合训练，实现 3D reconstruction 和 3D panoptic segmentation 的统一。该路线把三维重建从形状恢复推进到可查询语义场景理解。",
+          "methodHighlights": [
+            "3D reconstruction 与 3D panoptic segmentation 同框架训练。",
+            "set-based mask decoder 接入几何 backbone 的三维特征。",
+            "ScanNet、ScanNet200、ScanNet++ 上验证泛化。"
+          ],
+          "projectUrl": "https://victorbbt.github.io/Pano3D/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "panoptic segmentation",
+            "scene understanding",
+            "geometry"
+          ]
+        },
+        {
+          "title": "VideoWeave: Unlocking Geometric Consistency in Video Generation via Joint Geometry-Video Modeling",
+          "authors": "Xunzhi Xiang, Zixuan Duan, Yabo Chen, Zhengxuan Wei, Guiyu Zhang, Zixiao Gu, Zhe Gao, Haibin Huang, Chi Zhang, Qi Fan, Xuelong Li",
+          "arxivUrl": "https://arxiv.org/abs/2606.14162",
+          "published": "arXiv submitted 2026-06-12 06:41:13 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "VideoWeave 将几何模型隐式特征适配为 geometry latents，并与 video latents 在共享 denoising space 中联合建模。它减少了显式深度/点云条件的误差传递，让几何一致性在训练阶段塑造视频生成分布。",
+          "methodHighlights": [
+            "latent-space post-training 将 implicit geometry features 纳入视频 diffusion。",
+            "geometry latents 与 video latents 共享 denoising 空间。",
+            "构建 GeoVid-80K 支撑几何一致视频生成。"
+          ],
+          "projectUrl": "https://videoweave.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "video generation",
+            "geometry consistency",
+            "generative 3D",
+            "diffusion"
+          ]
+        },
+        {
+          "title": "MUSE: Agentic 3D Scene Authoring via Memory-Grounded Incremental Requirement Satisfaction",
+          "authors": "Ruijie Xu, Xinnan Zhu, Jiayu Ying, Daoguo Dong, Yuzhou Ji, Xin Tan",
+          "arxivUrl": "https://arxiv.org/abs/2606.14168",
+          "published": "arXiv submitted 2026-06-12 06:51:08 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "MUSE 将文本驱动 3D scene generation 表述为增量 requirement satisfaction。Architect、Sculptor 和 Inspector 通过 Working/Scene/Skill Memory 分工执行和验证局部场景编辑，更适合迭代式 embodied simulation asset authoring。",
+          "methodHighlights": [
+            "construction 与 editing 统一为 incremental requirement satisfaction。",
+            "Working/Scene/Skill Memory 维护需求、场景状态和技能。",
+            "Inspector 逐步验证，减少局部失败扩散。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D scene generation",
+            "embodied AI",
+            "agentic authoring",
+            "simulation"
+          ]
+        },
+        {
+          "title": "MooMIns -- Monocular 3D Reconstruction and Object Pose Estimation from Multiple Instances",
+          "authors": "Robert Langendorfer, Markus Hillemann, Markus Ulrich",
+          "arxivUrl": "https://arxiv.org/abs/2606.14389",
+          "published": "arXiv submitted 2026-06-12 12:24:50 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "MooMIns 利用单张图像中多个同类实例形成的隐式 multi-view geometry，同时恢复物体 3D shape 与每个实例的 6D pose。方法反转 Gaussian Splatting 设定，用单相机下多个实例提供几何证据。",
+          "methodHighlights": [
+            "single image multiple instances 提供隐式多视角约束。",
+            "Gaussian-splatting-based inversion 同时估计 shape 与 6D pose。",
+            "SAM3 masks 与 modified SfM 初始化降低 monocular depth hallucination。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D reconstruction",
+            "6D pose",
+            "3D Gaussian Splatting",
+            "industrial vision"
+          ]
+        },
+        {
+          "title": "FlowMo-WM: A World Model with Object Momentum and Hidden Ambient Drift",
+          "authors": "Yitao Jiang, Luyang Zhao, Muhao Chen, Devin Balkcom",
+          "arxivUrl": "https://arxiv.org/abs/2606.13817",
+          "published": "arXiv submitted 2026-06-11 18:46:43 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.RO, cs.LG",
+          "categories": "cs.RO, cs.LG",
+          "summary": "FlowMo-WM 从 image-action histories 中推断 object-centric motion state 和 long-history hidden drift context。它把物体惯性与风/水流等外生漂移从动作动力学中分离，适合非平稳环境中的机器人世界模型。",
+          "methodHighlights": [
+            "显式区分 object momentum 和 hidden ambient drift。",
+            "short-history latent 与 long-history context 分别编码快慢变量。",
+            "zero-context residual transition 分离动作基础动力学与上下文漂移。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "world models",
+            "robotics",
+            "object dynamics",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "EgoGuide: Egocentric Guidance for Efficient Robot-Free Demonstration Collection and Learning",
+          "authors": "Yue Xu, Mingtao Nie, Tianle Li, Hong Li, Yibo Luo, Siyuan Huang, Yong-Lu Li",
+          "arxivUrl": "https://arxiv.org/abs/2606.14665",
+          "published": "arXiv submitted 2026-06-12 17:36:23 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "EgoGuide 同步采集 wrist 与 head/egocentric observations，并用在线 visual-geometric data quality guidance 提高 UMI 式示范效率。Gated Egocentric Residual Policy 用全局头戴视角纠正腕部局部歧义，提升遮挡鲁棒性。",
+          "methodHighlights": [
+            "同步 wrist-view 与 egocentric/head-view 示范采集。",
+            "online visual-geometric quality guidance 减少低效示范。",
+            "Gated Egocentric Residual Policy 融合全局上下文和局部控制视角。"
+          ],
+          "projectUrl": "https://silicx.github.io/EgoGuide",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "demonstration learning",
+            "egocentric vision",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Spatially Conditioned Diffusion Policy: Learning Precise and Robust Manipulation with a Single RGB Camera",
+          "authors": "Seoyoon Kim, Kanghyun Kim, Dongwoo Ko, Yeong Jin Heo, Min Jun Kim",
+          "arxivUrl": "https://arxiv.org/abs/2606.14535",
+          "published": "arXiv submitted 2026-06-12 15:12:03 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "SCDP 将 end-effector trajectories 作为视觉注意锚点，在 diffusion loop 中沿中间轨迹采样 point-wise visual features。它面向单全局 RGB 摄像头精细操作，减少对多相机和腕部相机的依赖。",
+          "methodHighlights": [
+            "end-effector trajectory 作为 task-relevant visual attention anchor。",
+            "diffusion loop 内沿轨迹采样 point-wise visual features。",
+            "单 RGB 全局视角下提升精细操作精度和鲁棒性。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "diffusion policy",
+            "robot manipulation",
+            "single-view RGB",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "ReactVLA: Fast and Lightweight Reactive Robot Manipulation via Improved Mean Flow Action Generation",
+          "authors": "Yanzhao Guo, Wenkai Chen, Jianwei Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2606.14255",
+          "published": "arXiv submitted 2026-06-12 08:33:37 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "ReactVLA 用 improved Mean Flow action generator 将 diffusion VLA 的动作生成压缩到 one-to-few-step，并用 Attention Residuals 动态保留任务相关多模态特征。重点是把 VLA 推向低延迟闭环 manipulation。",
+          "methodHighlights": [
+            "improved Mean Flow 降低 diffusion action generation 延迟。",
+            "Attention Residuals 动态路由任务相关多模态表示。",
+            "在 LIBERO、RoboIMI 和真实机器人任务上评估。"
+          ],
+          "projectUrl": "https://game-loader.github.io/ReactVLA/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "diffusion policy",
+            "real-time control"
+          ]
+        },
+        {
+          "title": "FloVerse: Floor Plan-Guided Multi-Modal Navigation",
+          "authors": "Weiqi Huang, Shuangyi Dong, Jiaxin Li, Yifei Guo, Zan Wang, Wei Liang",
+          "arxivUrl": "https://arxiv.org/abs/2606.14267",
+          "published": "arXiv submitted 2026-06-12 08:49:53 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "FloVerse 将 floor plan-guided navigation 统一到 PointNav、ObjectNav 和 ImageNav。FloVerse-1.6K 包含 1.6K 场景、平面图、240K expert trajectories 和 12M RGBD frames，ThreeDiff 结合多模态目标推理和深度轨迹细化。",
+          "methodHighlights": [
+            "统一 PointNav、ObjectNav 和 ImageNav 的 floor-plan-guided setting。",
+            "FloVerse-1.6K 提供 floor plan、RGBD 和 expert trajectories。",
+            "ThreeDiff 结合 diffusion goal reasoning 与 depth-based trajectory refinement。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "embodied navigation",
+            "floor plan",
+            "RGBD",
+            "robotics"
+          ]
+        },
+        {
+          "title": "AnyGoal: Vision-Language Guided Multi-Agent Exploration for Training-Free Lifelong Navigation",
+          "authors": "MoniJesu James, Marcelino Julio Fernando, Miguel Altamirano Cabrera, Dzmitry Tsetserukou",
+          "arxivUrl": "https://arxiv.org/abs/2606.13878",
+          "published": "arXiv submitted 2026-06-11 20:07:34 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "AnyGoal 用 VLM 驱动 frontier-based exploration，并通过共享 2D Gaussian Bayesian Value Map 持续积累目标相关证据。它是 training-free 多机器人终身导航架构，避免维护沉重的 dense 3D snapshot memory。",
+          "methodHighlights": [
+            "2D Gaussian Bayesian Value Map 持续积累目标相关 posterior。",
+            "VLM scores 经 depth-cone mask 融合到空间记忆。",
+            "多机器人 frontier 分配不依赖集中式控制器。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "embodied navigation",
+            "VLM",
+            "multi-agent robotics",
+            "spatial memory"
+          ]
+        },
+        {
+          "title": "Occupancy-Grounded Room Segmentation for Hierarchical 3D Scene Graphs",
+          "authors": "Carlos Cueto Zumaya, Iacopo Catalano, Jorge Pena-Queralta, Wallace Moreira Bessa",
+          "arxivUrl": "https://arxiv.org/abs/2606.13727",
+          "published": "arXiv submitted 2026-06-11 09:36:15 UTC; 公告批次: 2026-06-15 (Monday, 15 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "该工作用 occupancy decomposition 得到的 tracked free-space regions 锚定 hierarchical 3D scene graph 的 room nodes，并输出明确 polygonal footprints。它为室内机器人 3DSG 的房间层提供统一几何评价标准。",
+          "methodHighlights": [
+            "room nodes 锚定 occupancy-derived free-space regions。",
+            "输出 explicit polygonal footprints 便于与 room annotations 匹配。",
+            "以统一几何标准评估 3DSG room layer。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D scene graphs",
+            "robot mapping",
+            "indoor robotics",
+            "scene understanding"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-06-12",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-12",
