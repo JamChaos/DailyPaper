@@ -1,6 +1,502 @@
 {
-  "updatedAt": "2026-06-15",
+  "updatedAt": "2026-06-16",
   "reports": [
+    {
+      "date": "2026-06-16",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-16",
+      "shortTitle": "Geometry VLA / Tactile HOI / World Models",
+      "summary": "最新公告批次命中 20 篇，近期补充 0 篇；几何化机器人策略、触觉 HOI 和 world model 最突出。",
+      "trends": [
+        "机器人策略从 2D 视觉语义接口转向显式 3D 几何、接触和动作表示",
+        "触觉、接触几何和 hand-object interaction 成为 Physical AI 数据与控制瓶颈",
+        "world/action model 更强调长时域状态、语言动作接口和低延迟 latent prediction",
+        "3DGS 与三维重建开始面向自动驾驶仿真、工业测量和消费级训练效率",
+        "仿真、数字孪生和 real-to-real augmentation 正在变成机器人数据闭环基础设施"
+      ],
+      "topPapers": [
+        "Geometric Action Model",
+        "Qwen-RobotWorld",
+        "T-Rex",
+        "DragMesh-2",
+        "ViTaL",
+        "UMA",
+        "LaWAM",
+        "DreamX-World",
+        "TurboGS"
+      ],
+      "markdownPath": "reports/arxiv/2026-06-16.md",
+      "papers": [
+        {
+          "title": "DragMesh-2: Physically Plausible Dexterous Hand-Object Interaction with Articulated Objects",
+          "authors": "Tianshan Zhang, Yijia Duan, Yanjun Li, Zeyu Zhang, Hao Tang",
+          "arxivUrl": "https://arxiv.org/abs/2606.15133",
+          "published": "arXiv submitted 2026-06-13; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "DragMesh-2 将 articulated object manipulation 建模为多指手通过持续接触驱动物体关节运动，而不是简单重放物体轨迹。它强调 hand-handle contact、接触载荷变化和物理可行性，是今天最强的 HOI/articulated object 操作论文。",
+          "methodHighlights": [
+            "contact-driven dexterous HOI",
+            "articulated object motion from hand contact",
+            "面向载荷变化的物理鲁棒性"
+          ],
+          "projectUrl": "https://aigeeksgroup.github.io/DragMesh-2",
+          "codeUrl": "https://github.com/AIGeeksGroup/DragMesh-2",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "articulated objects",
+            "dexterous manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Geometric Action Model for Robot Policy Learning",
+          "authors": "Jisang Han, Seonghu Jeon, Jaewoo Jung, René Zurbrügg, Honggyu An, Tifanny Portela, Marco Hutter, Marc Pollefeys, Seungryong Kim, Sunghwan Hong",
+          "arxivUrl": "https://arxiv.org/abs/2606.17046",
+          "published": "arXiv submitted 2026-06-15; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.RO, cs.CV, cs.LG",
+          "categories": "cs.RO, cs.CV, cs.LG",
+          "summary": "GAM 将 pretrained geometric foundation model 拆分并复用为 observation encoder、future geometry predictor 和 action decoder。它让机器人策略在同一几何底座上预测未来 3D 状态和动作，直接补足 VLA/WAM 的 3D reasoning 短板。",
+          "methodHighlights": [
+            "复用 geometric foundation model",
+            "causal future geometry token prediction",
+            "future geometry 与 action decoding 绑定"
+          ],
+          "projectUrl": "https://cvlab-kaist.github.io/Geometric-Action-Model/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot policy",
+            "3D geometry",
+            "VLA",
+            "world models",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "T-Rex: Tactile-Reactive Dexterous Manipulation",
+          "authors": "Dantong Niu, Zhuoyang Liu, Zekai Wang, Boning Shao, Zhao-Heng Yin, Anirudh Pai, Yuvan Sharma, Stefano Saravalle, Ruijie Zheng, Jing Wang, Ryan Punamiya, Mengda Xu, Yuqi Xie, Yunfan Jiang, Letian Fu, Konstantinos Kallidromitis, Matteo Gioia, Junyi Zhang, Jiaxin Ge, Haiwen Feng, Fabio Galasso, Wei Zhan, David M. Chan, Yutong Bai, Roei Herzig, Jiahui Lei, Fei-Fei Li, Ken Goldberg, Jitendra Malik, Pieter Abbeel, Yuke Zhu, Danfei Xu, Jim Fan, Trevor Darrell",
+          "arxivUrl": "https://arxiv.org/abs/2606.17055",
+          "published": "arXiv submitted 2026-06-15; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "T-Rex 面向 tactile-reactive dexterous manipulation，构建 100 小时 tactile-rich 数据并设计高频触觉编码。它用 temporal tactile VQ-VAE 和 variable-rate MoT 将触觉动态接入 VLA，服务精细力控制和 deformable manipulation。",
+          "methodHighlights": [
+            "100-hour tactile-rich dataset",
+            "temporal tactile VQ-VAE",
+            "variable-rate Mixture-of-Transformers"
+          ],
+          "projectUrl": "https://tactile-rex.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "tactile sensing",
+            "dexterous manipulation",
+            "VLA",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "ART-Glove: Articulated Tactile Glove for Contact-Grounded Dexterous Interaction Capture",
+          "authors": "Changyi Lin, Ding Zhao",
+          "arxivUrl": "https://arxiv.org/abs/2606.16370",
+          "published": "arXiv submitted 2026-06-15; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "ART-Glove 用 articulated tactile glove 同步记录人手 22-DoF 运动和 2048-taxel 触觉，使手侧接触几何显式化。它为从人类示范学习灵巧操作提供比纯手姿态更接近控制需求的监督。",
+          "methodHighlights": [
+            "16 个刚性功能表面表示手侧接触几何",
+            "22-DoF joint 与 dense tactile sensing 同步",
+            "120 Hz contact-rich demonstration capture"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "tactile sensing",
+            "dexterous manipulation",
+            "demonstration capture",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "DataLadder: A Simulation-Enabled Interconversion Toolchain for the Embodied Data Pyramid",
+          "authors": "Peidong Liu, Yongce Liu, Songyan Guo, Fuyuan Ma, Zhihao Yuan, Ao Li, Zengjue Chen, Wenhao Li, Tianle Zhang, Mingyang Li, Jiale Zhang, Junzhe Xiong, Zhiyuan Xiang, Dafeng Chi, Yuzheng Zhuang, Yihang Li, Qingrong He, Jiaming Liang, Chen Cai, Peng Hao, Mingxi Luo, Song Wang, Junwu Xiong, Ruodai Li, Liyi Luo, Wei Tan, Dongjiang Li, Jiawei Li, Hui Shen, Yicheng Gong, Liang Lin",
+          "arxivUrl": "https://arxiv.org/abs/2606.16776",
+          "published": "arXiv submitted 2026-06-15; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "DataLadder 将 real robot、simulation 和 human embodied feedback 组织为双向转换工具链。它既能把真实任务重建为校准数字孪生用于评估，也能把 egocentric human demonstrations 转成 robot-centered data。",
+          "methodHighlights": [
+            "Robot <-> Simulation <-> Human 双向转换",
+            "calibrated digital twins for scalable evaluation",
+            "JoySim 作为仿真和物理一致性过滤层"
+          ],
+          "projectUrl": "https://joyai-sim.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot simulation",
+            "digital twin",
+            "embodied AI",
+            "robot data",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "MVM-IOD: An Industrial Object-Centric Benchmark Dataset for the Evaluation of 3D Reconstruction Methods",
+          "authors": "Robert Langendörfer, Markus Hillemann, Markus Ulrich",
+          "arxivUrl": "https://arxiv.org/abs/2606.16638",
+          "published": "arXiv submitted 2026-06-15; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "MVM-IOD 提供工业物体的 RGB、reference camera poses 和 reference 3D point clouds，用于评测 3D reconstruction、pose estimation 和 novel view methods。它显示真实工业采集会对 feed-forward 3D 方法造成明显 OOD 压力。",
+          "methodHighlights": [
+            "工业机器人半球采集设置",
+            "reference poses 与 3D point clouds",
+            "评测 SfM、MVS、VGGT、π3 和 2DGS"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "camera pose estimation",
+            "industrial vision",
+            "benchmark"
+          ]
+        },
+        {
+          "title": "R2RDreamer: 3D-aware Data Augmentation for Spatially-generalized 2D Manipulation Policies",
+          "authors": "Xiuwei Xu, Haowen Sun, Angyuan Ma, Yiwei Zhang, Zhenyu Wu, Xiaofeng Wang, Bingyao Yu, Zheng Zhu, Jie Zhou, Jiwen Lu",
+          "arxivUrl": "https://arxiv.org/abs/2606.17040",
+          "published": "arXiv submitted 2026-06-15; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "R2RDreamer 先在 3D 中编辑 object point clouds 与 end-effector trajectories，再投影到 2D video space 生成 RGB 观测。它保留几何一致性，同时服务 RGB-based 2D manipulation policies 的空间泛化。",
+          "methodHighlights": [
+            "3D action-observation editing",
+            "2D video completion for RGB policy",
+            "real-to-real manipulation data augmentation"
+          ],
+          "projectUrl": "https://r2rdreamer.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "3D-aware augmentation",
+            "imitation learning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Inference-time Policy Steering via Vision and Touch",
+          "authors": "Yilin Wu, Zilin Si, Zeynep Temel, Oliver Kroemer, Andrea Bajcsy",
+          "arxivUrl": "https://arxiv.org/abs/2606.14981",
+          "published": "arXiv submitted 2026-06-12; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.RO, cs.AI, cs.LG",
+          "categories": "cs.RO, cs.AI, cs.LG",
+          "summary": "ViTaL 在部署时用 vision-touch verification 引导预训练生成式机器人策略。高层视觉选择长时域行为模式，低层触觉 diffusion editing 修正接触细节，并用 visuo-tactile latent world model 支持 outcome-based steering。",
+          "methodHighlights": [
+            "bi-level vision-touch policy steering",
+            "tactile-guided diffusion editing",
+            "visuo-tactile latent world model"
+          ],
+          "projectUrl": "https://yilin-wu98.github.io/vital_website",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "tactile sensing",
+            "world models",
+            "robot manipulation",
+            "diffusion policy",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Qwen-RobotWorld Technical Report: Unifying Embodied World Modeling through Language-Conditioned Video Generation",
+          "authors": "Jie Zhang, Xiaoyue Chen, Anzhe Chen, Chenxu Lv, Deqing Li, Gengze Zhou, Hang Yin, Haoqi Yuan, Haoyang Li, Jiahao Li, Jiazhao Zhang, Jingren Zhou, Kaiyuan Gao, Kun Yan, Lihan Jiang, Ningyuan Tang, Pei Lin, Qihang Peng, Shengming Yin, Tianhe Wu, Tianyi Yan, Xiao Xu, Yan Shu, Yanran Zhang, Ye Wang, Yi Wang, Yilei Chen, Yixian Xu, Yiyang Huang, Yuxiang Chen, Zekai Zhang, Zhendong Wang, Zhixing Lei, Zhixuan Liang, Zihao Liu, Zikai Zhou, Xiong-Hui Chen, Chenfei Wu",
+          "arxivUrl": "https://arxiv.org/abs/2606.17030",
+          "published": "arXiv submitted 2026-06-15; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Qwen-RobotWorld 将 embodied world modeling 统一为 language-conditioned video generation，用自然语言作为跨操作、驾驶、导航和人机迁移的动作接口。它面向数据生成、策略评估和语言引导规划。",
+          "methodHighlights": [
+            "Double-Stream MMDiT with MLLM Action Encoding",
+            "8.6M video-text EWK corpus",
+            "General+Expert Progressive Curriculum"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "video generation",
+            "embodied AI",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Kairos: A Native World Model Stack for Physical AI",
+          "authors": "Kairos Team, Fei Wang, Shan You, Qiming Zhang, Tao Huang, Zuoyi Fu, Zhisheng Zheng, Yunlong Xi, Feng Lv, Xiaoming Wu, Zeyu Liu, Cong Wan, Pu Li, Ruiqing Yang, Xiaoou Li, Wei Wang, Kangkang Zhu, Yuwei Zhang, Shi Fu, Xiaoning Wu, Xuzeng Fan, Dacheng Tao, Xiaogang Wang",
+          "arxivUrl": "https://arxiv.org/abs/2606.16533",
+          "published": "arXiv submitted 2026-06-15; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.AI, cs.CV",
+          "categories": "cs.AI, cs.CV",
+          "summary": "Kairos 将 world model 定义为 Physical AI 原生基础设施，强调跨 embodiment 数据课程、长时域 persistent state 和部署效率。它更像世界模型系统栈和路线图。",
+          "methodHighlights": [
+            "cross-embodiment data curriculum",
+            "unified world understanding/generation/prediction architecture",
+            "hybrid linear temporal attention"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "world models",
+            "Physical AI",
+            "embodied AI",
+            "long-horizon prediction"
+          ]
+        },
+        {
+          "title": "RealityBridge: Bridging Editable 3D Gaussian Splatting Driving Simulations and Real-World Videos",
+          "authors": "Zhenhua Wu, Yun Pang, Mingkun Chang, Yuwei Ning, Liangzhi Wang, Yi Xiao, Guanbin Li",
+          "arxivUrl": "https://arxiv.org/abs/2606.16278",
+          "published": "arXiv submitted 2026-06-15; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.CV, cs.AI",
+          "categories": "cs.CV, cs.AI",
+          "summary": "RealityBridge 将 editable 3DGS driving simulation 桥接到 real-world videos，目标是在保留长尾场景可控编辑能力的同时降低 sim-to-real gap。它服务自动驾驶安全场景生成与评估。",
+          "methodHighlights": [
+            "editable 3DGS driving simulation",
+            "bridging rendered videos and real videos",
+            "long-tail hazardous scenario synthesis"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "autonomous driving",
+            "simulation",
+            "generative 3D"
+          ]
+        },
+        {
+          "title": "High-Fidelity 4D Hand-Object Capture via Multi-View Spatiotemporal Tracking and Physics-Aware Gaussians",
+          "authors": "Bo Peng, Xu Chen, Yi Gu, Hidenobu Matsuki, Mingsong Dou, Jingjing Shen, Deying Kong, Juyong Zhang, Zhengyang Shen",
+          "arxivUrl": "https://arxiv.org/abs/2606.15908",
+          "published": "arXiv submitted 2026-06-14; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "该工作在无需预扫描模板或 marker 的条件下做 high-fidelity 4D hand-object interaction capture。它通过 multi-view transformer 初始化手、物体和 dense geometry，再用 physics-aware Gaussians 提升动态跟踪稳定性。",
+          "methodHighlights": [
+            "markerless/template-free 4D HOI capture",
+            "cross-view geometry and temporal cue fusion",
+            "physics-aware Gaussians"
+          ],
+          "projectUrl": "https://zyshen021.github.io/HOSTPG/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "4D reconstruction",
+            "3D Gaussian Splatting",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "Human Universal Grasping",
+          "authors": "Kevin Yuanbo Wu, Tianxing Zhou, Isaac Tu, Billy Yan, Irmak Guzey, David Fouhey, Dandan Shan, Lerrel Pinto",
+          "arxivUrl": "https://arxiv.org/abs/2606.17054",
+          "published": "arXiv submitted 2026-06-15; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "HUG 从 egocentric RGB-D human grasps 中学习通用多指 grasp prior。它收集 1M-HUGs，并用 flow-matching model 预测 wrist pose 与 MANO hand pose，再 retarget 到不同机器人手。",
+          "methodHighlights": [
+            "1M-HUGs egocentric grasp dataset",
+            "RGB-D flow-matching grasp generation",
+            "retargeting to multiple robot hands"
+          ],
+          "projectUrl": "https://grasping.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "human-object interaction",
+            "grasping",
+            "robot manipulation",
+            "RGB-D",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Unified Motion-Action Modeling for Heterogeneous Robot Learning",
+          "authors": "Yunhao Cao, Shitong Liu, Chao Feng, Meryl Zhang, Xuanchen Lu, Andrew Owens, Kuan Fang",
+          "arxivUrl": "https://arxiv.org/abs/2606.16917",
+          "published": "arXiv submitted 2026-06-15; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "UMA 用 3D object motion trajectories 作为共享接口，统一 visuomotor control 与 dynamics modeling。它把 object motion 和 robot actions 作为共演变量，在 heterogeneous robot、human video 和 simulation 数据上预训练。",
+          "methodHighlights": [
+            "3D object motion trajectory interface",
+            "masked generative objective",
+            "task intent and scene geometry disentanglement"
+          ],
+          "projectUrl": "https://uma-manipulation.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot learning",
+            "3D motion",
+            "world models",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "DreamX-World 1.0: A General-Purpose Interactive World Model",
+          "authors": "DreamX Team, Yancheng Bai, Rui Chen, Xiangxiang Chu, Rujing Dang, Hao Dou, Bingjie Gao, Qiwen Gu, Siyu Hong, Jiachen Lei, Geng Li, Jifan Li, Ruimin Lin, Qingfeng Shi, Bingze Song, Lei Sun, Jing Tang, Ruitian Tian, Jun Wang, Jiahong Wu, Pengfei Zhang, Shen Zhang, Jiashu Zhu",
+          "arxivUrl": "https://arxiv.org/abs/2606.16993",
+          "published": "arXiv submitted 2026-06-15; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "DreamX-World 是通用 interactive text/image-to-video world model，支持相机导航、回访已观察区域和 promptable events。它用 camera-accurate UE 渲染、游戏记录和真实视频训练长时域可交互生成。",
+          "methodHighlights": [
+            "E-PRoPE camera geometry encoding",
+            "few-step autoregressive world model",
+            "memory-conditioned long-horizon generation"
+          ],
+          "projectUrl": "https://amap-ml.github.io/DreamX_World",
+          "codeUrl": "https://github.com/AMAP-ML/DreamX-World",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "video generation",
+            "interactive simulation",
+            "3D generation"
+          ]
+        },
+        {
+          "title": "LaWAM: Latent World Action Models for Efficient Dynamics-Aware Robot Policies",
+          "authors": "Jialei Chen, Kai Wang, Kang Chen, Shuaihang Chen, Feng Gao, Wenhao Tang, Zhiyuan Li, Weilin Liu, Zhuyu Yao, Boxun Li, Yuanbo Xu, Chao Yu",
+          "arxivUrl": "https://arxiv.org/abs/2606.15768",
+          "published": "arXiv submitted 2026-06-14; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.RO, cs.AI",
+          "categories": "cs.RO, cs.AI",
+          "summary": "LaWAM 用 latent visual subgoals 替代昂贵的 future video generation，将 dynamics foresight 接入机器人策略。它在 pretrained vision foundation model latent space 中预测 future observation features，保持低延迟。",
+          "methodHighlights": [
+            "latent visual subgoals",
+            "latent-action-conditioned world model",
+            "dynamics-aware low-latency policy conditioning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "VLA",
+            "robot manipulation",
+            "latent prediction",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "X-Tokenizer: A Multimodal Action Tokenizer for Vision-Language-Action Pretraining",
+          "authors": "Xirui Kang, Yanpei Shi, Lucy Liang, Roy Gan, Dongxiu Liu, Pushi Zhang, Danpeng Chen, Xiaoyi Qin, Yinan Zheng, Jinliang Zheng, Hao Wang, Xianyuan Zhan, Hang Su",
+          "arxivUrl": "https://arxiv.org/abs/2606.14752",
+          "published": "arXiv submitted 2026-06-07; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.CV, cs.AI, cs.LG, cs.RO",
+          "categories": "cs.CV, cs.AI, cs.LG, cs.RO",
+          "summary": "X-Tokenizer 将 action tokenization 从动作压缩提升为 VLA 语义接口学习。SRQ 第一层通过 masked action modeling 形成 coarse motion intent 的离散动作语言，后续层保留细节重构。",
+          "methodHighlights": [
+            "Semantic Residual Quantization",
+            "Masked Action Modeling for action language",
+            "alignment to foundation model representations"
+          ],
+          "projectUrl": "https://x-square-robot.github.io/X-Tokenizer_projectPage/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "action tokenization",
+            "robot learning",
+            "multimodal pretraining"
+          ]
+        },
+        {
+          "title": "TurboGS: Accelerating 3D Gaussian Splatting via Error-Guided Sparse Pixel Sampling and Optimization",
+          "authors": "Zheng Dong, Daifei Qiu, Pinxuan Dai, Ke Xu, Jiamin Xu, Lili He, Rynson W.H. Lau, Weiwei Xu",
+          "arxivUrl": "https://arxiv.org/abs/2606.15924",
+          "published": "arXiv submitted 2026-06-14; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.CV, cs.GR",
+          "categories": "cs.CV, cs.GR",
+          "summary": "TurboGS 用 error-guided sparse pixel sampling 加速 3D Gaussian Splatting 训练，把计算集中在多视图重建误差高的困难区域。它同时引入结构感知损失和 error-driven Gaussian density control。",
+          "methodHighlights": [
+            "tile-wise sparse pixel sampling",
+            "sparse NCC structure-aware loss",
+            "error-driven density control"
+          ],
+          "projectUrl": "https://zhengdong.site/projects/TurboGS/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "novel view synthesis",
+            "3D reconstruction",
+            "graphics"
+          ]
+        },
+        {
+          "title": "GeoStream: Toward Precise Camera Controlled Streaming Video Generation",
+          "authors": "Yizhou Zhao, Yifan Wang, Xiaoyuan Wang, Yushu Wu, Hao Zhang, Moayed Haji-Ali, Rameen Abdal, Ashkan Mirzaei, Yanyu Li, Willi Menapace, Laszlo Jeni, Sergey Tulyakov, Peter Wonka, Chaoyang Wang",
+          "arxivUrl": "https://arxiv.org/abs/2606.15162",
+          "published": "arXiv submitted 2026-06-13; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "GeoStream 在 autoregressive streaming video generation 中维护 self-refreshing 3D cache，通过深度估计、反投影和再投影提供 metric-scale camera control。它减少训练/推理几何条件分布不匹配。",
+          "methodHighlights": [
+            "self-refreshing 3D cache",
+            "depth unprojection and target-view reprojection",
+            "on-policy distillation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "video generation",
+            "world models",
+            "camera control",
+            "3D geometry"
+          ]
+        },
+        {
+          "title": "SGFormer++: Semantic Graph Transformer for Incremental 3D Scene Graph Generation",
+          "authors": "Mengshi Qi, Changsheng Lv, Zijian Fu, Xianlin Zhang, Huadong Ma",
+          "arxivUrl": "https://arxiv.org/abs/2606.15328",
+          "published": "arXiv submitted 2026-06-13; 公告批次: 2026-06-16 (Tuesday, 16 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "SGFormer++ 用 Transformer 对 point cloud scene graph 做全局关系建模，并用 LLM/VLM 语义先验增强三维关系理解。它还面向 incremental 3D scene graph generation 处理新关系类别持续到来。",
+          "methodHighlights": [
+            "Transformer global message passing for 3D SGG",
+            "edge-aware Graph Embedding Layer++",
+            "LLM/VLM semantic injection without trainable overhead"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/Andy20178/SGFormer",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D scene graph",
+            "3D scene understanding",
+            "point cloud",
+            "robot mapping"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-06-15",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-15",
