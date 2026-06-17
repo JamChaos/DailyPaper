@@ -1,6 +1,509 @@
 {
-  "updatedAt": "2026-06-16",
+  "updatedAt": "2026-06-17",
   "reports": [
+    {
+      "date": "2026-06-17",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-17",
+      "shortTitle": "Executable 3D Worlds / HOI Retargeting / VLA World Models",
+      "summary": "最新公告批次命中 20 篇，近期补充 0 篇；可执行三维世界、HOI 迁移和 VLA/world model 最突出。",
+      "trends": [
+        "可执行三维世界成为机器人学习和 world model 的共同接口",
+        "3DGS、3D asset annotation 和仿真运行时正在合流为 Physical AI 数据基础设施",
+        "HOI/手物交互从识别走向 metric 4D 表示、接触修复和机器人 retargeting",
+        "VLA/World-Action 模型从离线 imitation 走向可规划、可记忆、可在线改进",
+        "未来预测从 2D video latent 转向 persistent 3D latent 和 ego/world motion 解耦"
+      ],
+      "topPapers": [
+        "GASE",
+        "EgoInfinity",
+        "GeneralVLA-2",
+        "Future Dynamic 3D Reconstruction",
+        "ActWorld",
+        "Qwen-RobotManip",
+        "MoonSplat",
+        "MOCHI"
+      ],
+      "markdownPath": "reports/arxiv/2026-06-17.md",
+      "papers": [
+        {
+          "title": "GASE: Gaussian Splatting-Based Automated System for Reconstructing Embodied-Simulation Environments",
+          "authors": "Jiawei Zhang, Yiming Yan, Chao Liang, Nuo Xu, Seson Sun, Qichen Zhang, Yuhao Xu, Yantai Yang, Yingqiao Wang, Qin Jin, Zhipeng Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2606.17520",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "GASE 用多视角全景视频和 3D Gaussian Splatting 自动重建 embodied-simulation environments，将前景物体和背景资产导入物理仿真，用于机器人 manipulation/navigation policy training。它是今天 3DGS 到仿真闭环最直接的系统论文。",
+          "methodHighlights": [
+            "multi-view panoramic scanning",
+            "camera-pose-based foreground extraction",
+            "3DGS assets imported into physics simulators"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D reconstruction",
+            "robot simulation",
+            "embodied AI",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "EgoInfinity: A Web-Scale 4D Hand-Object Interaction Data Engine for Any-View Robot Retargeting and Video-to-Action Robot Learning",
+          "authors": "Gaotian Wang, Kejia Ren, Andrew Morgan, Yiting Chen, Howard H. Qian, Podshara Chanrungmaneekul, Kaiyu Hang",
+          "arxivUrl": "https://arxiv.org/abs/2606.17385",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "EgoInfinity 将互联网 RGB 操作视频提升为 metric 4D hand-object representations，包括 hand trajectories、6-DoF object poses 和 contact-relevant states，并 retarget 到多种机器人形态。它把开放网络视频转成可执行机器人行为数据。",
+          "methodHighlights": [
+            "web-scale 4D hand-object interaction engine",
+            "interaction-aware reconstruction refinement",
+            "any-view robot retargeting"
+          ],
+          "projectUrl": "https://huggingface.co/spaces/Rice-RobotPI-Lab/EgoInfinity",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "4D reconstruction",
+            "robot retargeting",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "GeneralVLA-2: Geometry-Aware Reconstruction and Governed Memory for Robot Planning",
+          "authors": "Haoyu Wang, Guoqing Ma, Zeyu Zhang, Yandong Guo, Boxin Shi, Hao Tang",
+          "arxivUrl": "https://arxiv.org/abs/2606.17480",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "GeneralVLA-2 将多视角几何重建和 governed long-term memory 接入 robot planning，减少单目 object reconstruction hallucination，并为经验检索加入质量、置信度、生命周期和冲突元数据。",
+          "methodHighlights": [
+            "GeoFuse-MV3D reconstruction",
+            "soft visual-hull geometry support",
+            "governed long-term memory for planning"
+          ],
+          "projectUrl": "https://aigeeksgroup.github.io/GeneralVLA-2",
+          "codeUrl": "https://github.com/AIGeeksGroup/GeneralVLA-2",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "3D reconstruction",
+            "robot planning",
+            "geometric reasoning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "MuseVLA: An Adaptive Multimodal Sensing Vision-Language-Action Model for Robotic Manipulation",
+          "authors": "Xingyuming Liu, Ruichun Ma, Heyu Guo, Qixiu Li, Qingwen Yang, Lin Luo, Shiqi Jiang, Chenren Xu, Jiaolong Yang, Baining Guo",
+          "arxivUrl": "https://arxiv.org/abs/2606.17598",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "MuseVLA 将温度、声音、雷达等异构传感器设计为按需调用的 VLA 工具，并转成 grounded sensor image 统一接入机器人操作策略，面向 RGB 难以感知的物理属性。",
+          "methodHighlights": [
+            "sensor-token tool calling",
+            "grounded sensor image representation",
+            "synthetic multisensory data augmentation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "multimodal sensing",
+            "robot manipulation",
+            "dexterous manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "AnnotateAnything: Automatic Annotation of 3D Assets for Robot Manipulation",
+          "authors": "Haoran Lu, Mutian Shen, Shuyang Yu, Yu Xiao, Songling Liu, Jianshu Zhang, Shang Wu, Yue Chen, Guo Ye, Jiayi Wang, Zhaoran Wang, Han Liu",
+          "arxivUrl": "https://arxiv.org/abs/2606.17446",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "AnnotateAnything 将 raw 3D assets 自动转成 manipulation-ready assets，产出 grasp poses、dexterous contacts、articulation waypoints、insertion directions、hanging affordances 和 navigation targets。",
+          "methodHighlights": [
+            "VLM-based 3D-grounded annotation",
+            "parallel physics annotation pipeline",
+            "executable manipulation labels"
+          ],
+          "projectUrl": "https://tourmaline-caramel-169490.netlify.app",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D assets",
+            "robot manipulation",
+            "affordance",
+            "simulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "MagicSim: A Unified Infrastructure for Executable Embodied Interaction",
+          "authors": "Haoran Lu, Songling Liu, Yue Chen, Guo Ye, Mutian Shen, Shuyang Yu, Yu Xiao, Jihai Zhao, Shang Wu, Jianshu Zhang, Xiangtian Gui, Chuye Hong, Yuran Wang, Maojiang Su, Jiayi Wang, Ruihai Wu, Zhaoran Wang, Han Liu",
+          "arxivUrl": "https://arxiv.org/abs/2606.17511",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.RO, cs.AI, cs.CV",
+          "categories": "cs.RO, cs.AI, cs.CV",
+          "summary": "MagicSim 把仿真做成连接 control、skills、planning 和 agent interface 的 shared execution substrate，用 deterministic batched runtime 和 shared MDP 支撑可执行 embodied interaction。",
+          "methodHighlights": [
+            "deterministic batched runtime",
+            "Command-to-Skill-to-Planner-to-Robot pipeline",
+            "structured multimodal trajectory recording"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot simulation",
+            "embodied AI",
+            "robot planning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion",
+          "authors": "Nils Morbitzer, Jonathan Evers, Artem Savkin, Thomas Stauner, Nassir Navab, Federico Tombari, Stefano Gasperini",
+          "arxivUrl": "https://arxiv.org/abs/2606.18250",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "FR3D 用 persistent 3D latent representation 预测未来动态三维重建，并显式解耦 ego-motion 与 scene dynamics，减少 2D video world model 中物体变形、消失和运动歧义。",
+          "methodHighlights": [
+            "persistent 3D latent world model",
+            "ego-motion/world-motion disentanglement",
+            "teacher-student spatial distillation"
+          ],
+          "projectUrl": "https://fr3d-wm.github.io",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "world models",
+            "dynamic scenes",
+            "autonomous agents"
+          ]
+        },
+        {
+          "title": "ActWorld: From Explorable to Interactive World Model via Action-Aware Memory",
+          "authors": "Zhexiao Xiong, Yizhi Song, Hao Kang, Qing Yan, Liming Jiang, Jenson Yang, Zhoujie Fu, Stathi Fotiadis, Angtian Wang, Zichuan Liu, Bo Liu, Yiding Yang, Xin Lu, Nathan Jacobs",
+          "arxivUrl": "https://arxiv.org/abs/2606.17730",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "ActWorld 将交互式 world model 从导航扩展到 mid-rollout object interaction，用 100K interaction video dataset、action-aware memory 和 persistent memory bank 保持长时物体状态。",
+          "methodHighlights": [
+            "object-interactive world model",
+            "hierarchical action-aware memory",
+            "persistent event and object identity tokens"
+          ],
+          "projectUrl": "https://interactwm.github.io/ActWorld",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "human-object interaction",
+            "HOI",
+            "interactive video generation",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "MOCHI: Motion Enhancement of Collaborative Human-object Interactions",
+          "authors": "Jiye Lee, Yonghun Choi, Jungdam Won",
+          "arxivUrl": "https://arxiv.org/abs/2606.18243",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.CV, cs.GR, cs.RO",
+          "categories": "cs.CV, cs.GR, cs.RO",
+          "summary": "MOCHI 修复 collaborative multi-human object interaction capture 中的接触错位、motion jitter、时序不一致和手指细节缺失，用抓取优化和 diffusion-based full-body refinement 增强 MHOI 数据。",
+          "methodHighlights": [
+            "physically plausible grasp optimization",
+            "diffusion-based MHOI motion refinement",
+            "human-object and human-human objectives"
+          ],
+          "projectUrl": "https://jiyewise.github.io/projects/MOCHI/",
+          "codeUrl": "https://github.com/jiyewise/MOCHI",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "motion generation",
+            "4D capture",
+            "robotics"
+          ]
+        },
+        {
+          "title": "EAGG: Embodiment-Aligned Grasp Generation via Geometry-Aware Graph Conditioning",
+          "authors": "Wanhao Niu, Qiyan Ke, Yuan Sun, Hao Sun, Jie Xu, Muyuan Ma, Ruiqi Hu, Fuchun Sun",
+          "arxivUrl": "https://arxiv.org/abs/2606.18092",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.RO, cs.AI",
+          "categories": "cs.RO, cs.AI",
+          "summary": "EAGG 用 topology-aware end-effector graph 和 geometry-aware graph conditioning 做跨末端执行器 grasp generation，使 parallel grippers 到 dexterous end effectors 的迁移保留接触和形态差异。",
+          "methodHighlights": [
+            "topology-aware end-effector graph",
+            "geometry-aware morphology tokens",
+            "iterative geometry injection"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/wanhaoniu/EAGG",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "grasp generation",
+            "dexterous manipulation",
+            "geometry",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "WireCraft: A Simulation Benchmark for Industrial DLO Manipulation",
+          "authors": "Chongyu Zhu, Ramy ElMallah, Hyegang Kim, Zachary Tang, Jiachen Rao, Artem Arutyunov, Seungyeon Ha, Chi-Guhn Lee",
+          "arxivUrl": "https://arxiv.org/abs/2606.18097",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "WireCraft 是工业线缆等 DLO 操作仿真 benchmark，覆盖 connector insertion、clip routing 和 channel seating，并对 RL、IL、VLA 在接触丰富对齐阶段的不足给出评测。",
+          "methodHighlights": [
+            "industrial DLO manipulation benchmark",
+            "articulated and deformable physics models",
+            "sim and real UR5 trajectories"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "robot simulation",
+            "deformable objects",
+            "dexterous manipulation",
+            "benchmark",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Qwen-RobotManip Technical Report: Alignment Unlocks Scale for Robotic Manipulation Foundation Models",
+          "authors": "Haoqi Yuan, Zhixuan Liang, Anzhe Chen, Ye Wang, Haoyang Li, Pei Lin, Yiyang Huang, Zixing Lei, Tong Zhang, Jiazhao Zhang, Jie Zhang, Jingyang Fan, Gengze Zhou, Qihang Peng, Chenxu Lv, Xiaoyue Chen, An Yang, Fei Huang, Junyang Lin, Dayiheng Liu, Jingren Zhou, Chenfei Wu, Xiong-Hui Chen",
+          "arxivUrl": "https://arxiv.org/abs/2606.17846",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.RO, cs.CV, cs.LG",
+          "categories": "cs.RO, cs.CV, cs.LG",
+          "summary": "Qwen-RobotManip 用 representation、motion 和 behavior 三维对齐来规模化机器人操作基础模型，并通过 human-to-robot synthesis 生成约 38,100 小时多源预训练语料。",
+          "methodHighlights": [
+            "unified manipulation alignment framework",
+            "human-to-robot synthesis across 15 platforms",
+            "large-scale OOD manipulation evaluation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "foundation models",
+            "cross-embodiment",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "WAM-RL: World-Action Model Reinforcement Learning with Reconstruction Rewards and Online Video SFT",
+          "authors": "Zezhong Qian, Xiaowei Chi, Yu Qi, Haozhan Li, Zhi Yang Chen, Shanghang Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2606.17906",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "WAM-RL 将 World-Action model 放入 RL 框架，通过 online interaction 联合优化 world model 和 actor，强调长时任务不能只优化 action head，还需要 world model 一起演化。",
+          "methodHighlights": [
+            "World-Action model RL",
+            "joint world model and actor optimization",
+            "reconstruction rewards and online video SFT"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot manipulation",
+            "reinforcement learning",
+            "VLA",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "PearlVLA: Progressive Embodied Action-Plan Refinement in Latent Space",
+          "authors": "Bochen Yang, Lianlei Shan",
+          "arxivUrl": "https://arxiv.org/abs/2606.17924",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.RO, cs.AI",
+          "categories": "cs.RO, cs.AI",
+          "summary": "PearlVLA 将 deliberation 移入 VLM latent space，用 latent world model 预测 action-free future observation latent，再迭代细化 latent action plan，以兼顾低延迟和长时规划。",
+          "methodHighlights": [
+            "latent plan refinement",
+            "future-guided RefineNet",
+            "process-reward RL over imagined futures"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "VLA",
+            "world models",
+            "robot planning",
+            "latent reasoning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "ThinkingVLA: Interleaved Vision and Language Reasoning for Robotic Manipulation",
+          "authors": "Tianyi Lu, Hui Zhang, Zijie Diao, Junke Wang, Shengqi Xu, Xingyao Lin, Guojin Zhong, Ziyi Ye, Peng Wang, Zuxuan Wu, Yu-Gang Jiang",
+          "arxivUrl": "https://arxiv.org/abs/2606.17937",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "ThinkingVLA 把机器人操作规划拆成未来视觉状态预测和 inverse dynamics，在统一 autoregressive Mixture-of-Transformers 中交错进行文本与视觉推理。",
+          "methodHighlights": [
+            "forward CoT with visual forecasting",
+            "inverse CoT for action intent",
+            "interleaved vision-language reasoning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "visual reasoning",
+            "long-horizon planning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "MoonSplat: Monocular Online Gaussian Splatting with Sim(3) Global Optimization",
+          "authors": "Guo Pu, Yixuan Han, Haofeng Li, Yao Zhang, Hui Zhou, Zhouhui Lian",
+          "arxivUrl": "https://arxiv.org/abs/2606.17935",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "MoonSplat 将 monocular online 3DGS 与 Sim(3) global optimization 结合，提升长序列 camera tracking、loop closure、渲染质量和在线重建效率，并验证 UAV active reconstruction。",
+          "methodHighlights": [
+            "monocular online 3DGS",
+            "global Sim(3) optimization",
+            "voxelized 3DGS and color residual learning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/TrickyGo/MoonSplat",
+          "datasetUrl": "https://github.com/TrickyGo/MoonSplat",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D reconstruction",
+            "SLAM",
+            "robotics",
+            "AR/VR"
+          ]
+        },
+        {
+          "title": "OmniDrive: An LLM-Choreographed Multi-Agent World Model with Unified Latent Co-Compression for Multi-View Driving Video Generation",
+          "authors": "Zijie Meng, Yufei Liu, Chengqian Ma, Zhiyu Li, Jiyuan Liu, Wenhua Nie, Bingcai Wei, Shuqin Chen, Weichen Xu, Jiquan Yuan, Miao Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2606.17536",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.CV, cs.AI",
+          "categories": "cs.CV, cs.AI",
+          "summary": "OmniDrive 用 Director、Cartographer、Auditor 三类 Qwen2.5-VL agents 编排多视角驾驶 world model，并通过 latent co-compression 对齐语言、几何和像素。",
+          "methodHighlights": [
+            "LLM-choreographed multi-agent generation",
+            "WorldScript and spatial layout tokens",
+            "multi-view latent co-compression"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "autonomous driving",
+            "multi-view generation",
+            "3D geometry",
+            "simulation"
+          ]
+        },
+        {
+          "title": "FLAP: FOV-Constrained Active Perception Planning for Prior-Map-Free 3D Navigation",
+          "authors": "Mengke Zhang, Sitong Li, Tiancheng Lai, Ruitian Pang, Mingxuan Zhang, Qingcheng Chen, Fei Gao, Chao Xu, Yanjun Cao",
+          "arxivUrl": "https://arxiv.org/abs/2606.17630",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "FLAP 将 FOV-constrained active perception 直接嵌入未知 3D 环境中的 UAV 轨迹优化，兼顾传感器视场、安全和运动效率。",
+          "methodHighlights": [
+            "FOV constraints in trajectory optimization",
+            "velocity-triggered active perception",
+            "prior-map-free 3D navigation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D navigation",
+            "active perception",
+            "UAV",
+            "robot planning"
+          ]
+        },
+        {
+          "title": "Qwen-RobotNav Technical Report: A Scalable Navigation Model Designed for an Agentic Navigation System",
+          "authors": "Jiazhao Zhang, Gengze Zhou, Hale Yin, Yiyang Huang, Zixing Lei, Qihang Peng, Haoqi Yuan, Jie Zhang, Xudong Guo, Xiaoyue Chen, An Yang, Fei Huang, Junyang Lin, Dayiheng Liu, Jingren Zhou, Zhuoyuan Yu, Jingyang Fan, Zhixuan Liang, Pei Lin, Ye Wang, Anzhe Chen, Kun Yan, Xiao Xu, Jiahao Li, Lulu Hu, Minying Zhang, Shurui Li, Wenhu Xiao, Shuai Bai, Xuancheng Ren, Chenxu Lv, Chenfei Wu, Xiong-Hui Chen",
+          "arxivUrl": "https://arxiv.org/abs/2606.18112",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "Qwen-RobotNav 用可参数化 task modes 和 observation parameters 支持推理时重配置导航策略，使 object search、target tracking、driving 等任务共享同一空间规划底座。",
+          "methodHighlights": [
+            "parameterized navigation interface",
+            "controllable visual history encoding",
+            "agentic long-horizon task composition"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "robot navigation",
+            "VLA",
+            "embodied AI",
+            "spatial planning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Improving and Evaluating Hand-Object Interaction Detection",
+          "authors": "Ahmad Darkhalil, Dima Damen, David Fouhey",
+          "arxivUrl": "https://arxiv.org/abs/2606.17384",
+          "published": "arXiv submitted 2026-06-16; 公告批次: 2026-06-17 (Wednesday, 17 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "HOI-DETR 将 hand-object 和 object-object interactions 引入检测框架，并提供覆盖 Hands23、HOIST、FineBio、HD-EPIC 的评测套件、checkpoint 和 demo，强化 HOI perception 基础。",
+          "methodHighlights": [
+            "HOI-DETR with hand-object/object-object interactions",
+            "4-dataset HOI evaluation suite",
+            "new annotations and checkpoint release"
+          ],
+          "projectUrl": "https://ahmaddarkhalil.github.io/HOI-DETR/",
+          "codeUrl": "https://github.com/AhmadDarKhalil/HOI-DETR",
+          "datasetUrl": "https://huggingface.co/ahmaddarkhalil/hoi-detr",
+          "priority": "中",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "hand-object interaction",
+            "robot perception",
+            "3D reconstruction"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-06-16",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-16",
