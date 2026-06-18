@@ -1,6 +1,500 @@
 {
-  "updatedAt": "2026-06-17",
+  "updatedAt": "2026-06-18",
   "reports": [
+    {
+      "date": "2026-06-18",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-18",
+      "shortTitle": "3D World Models / HOI Retargeting / 3DGS Infrastructure",
+      "summary": "最新公告批次命中 20 篇，近期补充 0 篇；3D 一致 world model、HOI 转机器人和可扩展 3DGS 最突出。",
+      "trends": [
+        "3D-consistent world models 正在成为机器人策略、评测和数据生成中间层",
+        "从人类视频到机器人动作的路线正在转向 3D hand-object trajectories 和 tactile/contact 表征",
+        "稀疏视角重建开始结合 3D generative priors 与 3DGS fidelity",
+        "多视角 3D-grounded VLM reasoning 正在服务长程灵巧操作和具身空间理解",
+        "3D foundation model 部署关注实时性、分布式训练和结构化 token 压缩"
+      ],
+      "topPapers": [
+        "PAIWorld",
+        "MolmoMotion",
+        "FlowObject",
+        "Do as I Do",
+        "SC3-Eval",
+        "OneCanvas",
+        "Hand-4DGS",
+        "Zero-Shot Long-Horizon Dexterous Manipulation"
+      ],
+      "markdownPath": "reports/arxiv/2026-06-18.md",
+      "papers": [
+        {
+          "title": "PAIWorld: A 3D-Consistent World Foundation Model for Robotic Manipulation",
+          "authors": "Yuhang Huang, Xuan Lv, Junyan Xu, Zhiyuan Yu, Jiazhao Zhang, Ruizhen Hu, Wancheng Feng, Shilong Zou, Hewen Xiao, Ziqiao Zhou, Kaiyun Huang, Zhiyu Peng, Juzhan Xu, Hang Zhao, Chenyang Zhu, Renjiao Yi, Yifei Huang, Douhui Wu, Yan Zhang, Kexu Cheng, Chunhe Song, Yunzhi Xue, Xiuhong Zhang, Leitao Guo, Yunji Chen, Bin Wu, Haibin Yu, Kai Xu",
+          "arxivUrl": "https://arxiv.org/abs/2606.18375",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "PAIWorld 面向机器人操作中的多视角 3D-consistent world modeling，用几何感知跨视角注意力、相机几何 RoPE 和 latent 3D-REPA 蒸馏缓解单视角视频 world model 的跨相机不一致。它适合服务 policy post-training、model-based planning 和 world action models。",
+          "methodHighlights": [
+            "Geometry-Aware Cross-View Attention",
+            "camera ray/extrinsic Geometric RoPE",
+            "latent 3D-REPA distillation from 3D foundation models"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot manipulation",
+            "3D consistency",
+            "VLA",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "MolmoMotion: Forecasting Point Trajectories in 3D with Language Instruction",
+          "authors": "Jianing Zhang, Chenhao Zheng, Yajun Yang, Max Argus, Rustin Soraki, Winson Han, Taira Anderson, Chun-Liang Li, Shuo Liu, Jiafei Duan, Zhongzheng Ren, Jieyu Zhang, Ranjay Krishna",
+          "arxivUrl": "https://arxiv.org/abs/2606.18558",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "MolmoMotion 用语言条件预测目标物体上 3D query points 的未来 world-coordinate trajectories，并构建 MolmoMotion-1M 与 PointMotionBench。它把 3D motion prior 连接到机器人操作训练和视频生成运动控制。",
+          "methodHighlights": [
+            "language-conditioned 3D point trajectory forecasting",
+            "MolmoMotion-1M and PointMotionBench",
+            "autoregressive coordinate prediction plus flow-matching trajectory generation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D motion",
+            "world models",
+            "robot manipulation",
+            "video generation"
+          ]
+        },
+        {
+          "title": "CAOA -- Completion-Assisted Object-CAD Alignment",
+          "authors": "Hiranya Garbha Kumar, Minhas Kamal, Balakrishnan Prabhakaran",
+          "arxivUrl": "https://arxiv.org/abs/2606.18429",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.CV, cs.AI, cs.LG",
+          "categories": "cs.CV, cs.AI, cs.LG",
+          "summary": "CAOA 将 point cloud completion 和 symmetry-aware relative pose estimation 结合，用补全后的几何改善 indoor RGB-D scans 的 object-CAD 9-DoF alignment。它发布 S2C-Completion，用于 Scan2CAD object-CAD pairs 补全和对齐。",
+          "methodHighlights": [
+            "completion-assisted object-CAD alignment",
+            "synthetic data generation for indoor scene gap",
+            "symmetry-aware relative pose loss"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/MinhasKamal/CAOA",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "CAD alignment",
+            "point cloud completion",
+            "indoor scenes"
+          ]
+        },
+        {
+          "title": "FlowObject: Flow Steering for Bridging Generative Priors and Reconstruction Fidelity",
+          "authors": "Yuchen Rao, Xuqian Ren, Yinyu Nie, Sayan Deb Sarkar, Biao Zhang, Vincent Lepetit, Friedrich Fraundorfer",
+          "arxivUrl": "https://arxiv.org/abs/2606.19019",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "FlowObject 把 few-view 3D object reconstruction 视为 training-free guided inverse problem，用双空间 flow steering 结合 3D generative completion prior 和观测一致性，并通过 3DGS refinement 提升可见表面的真实感。",
+          "methodHighlights": [
+            "dual-space flow guidance",
+            "training-free sparse-view object reconstruction",
+            "3DGS refinement for visible-surface fidelity"
+          ],
+          "projectUrl": "https://yuchenrao.github.io/projects/flowObject/flowObject.html",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "3D generation",
+            "3D Gaussian Splatting",
+            "few-view reconstruction"
+          ]
+        },
+        {
+          "title": "Hand-4DGS: Feed-Forward 3D Gaussian Splatting for 4D Hand Reconstruction from Egocentric Videos",
+          "authors": "Jeongmin Bae, Seoha Kim, Marc Pollefeys, Mahdi Rad, Youngjung Uh, Taein Kwon",
+          "arxivUrl": "https://arxiv.org/abs/2606.19156",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Hand-4DGS 从 egocentric videos 前馈重建动态 4D hands，用 mesh-guided Gaussian representation 和 temporal convolutions 处理遮挡、快速运动和单目歧义。它对 AR/VR、AI glasses 和手-物交互感知有直接价值。",
+          "methodHighlights": [
+            "feed-forward 4D hand reconstruction",
+            "mesh-guided Gaussian representation",
+            "2D supervision without 3D hand pose ground truth"
+          ],
+          "projectUrl": "https://jeongminb.github.io/hand-4dgs/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "4D reconstruction",
+            "hand-object interaction",
+            "HOI",
+            "egocentric vision"
+          ]
+        },
+        {
+          "title": "Do as I Do: Dexterous Manipulation Data from Everyday Human Videos",
+          "authors": "Bhawna Paliwal, Haritheja Etukuru, William Liang, Pieter Abbeel, Nur Muhammad Mahi Shafiullah, Jitendra Malik",
+          "arxivUrl": "https://arxiv.org/abs/2606.19333",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "Do as I Do 从 everyday monocular RGB human videos 重建 hand-object interactions，并 retarget 到多指灵巧手可执行轨迹。它重点处理 hand-object estimation 不稳定和 human-to-robot embodiment gap。",
+          "methodHighlights": [
+            "monocular human video to hand-object interaction reconstruction",
+            "robot-complete dexterous trajectory retargeting",
+            "warmup, random force perturbation and transition reward for retargeting"
+          ],
+          "projectUrl": "https://do-as-i-do.com/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "dexterous manipulation",
+            "robot retargeting",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "SC3-Eval: Evaluating Robot Foundation Models via Self-Consistent Video Generation",
+          "authors": "Wei-Cheng Tseng, Gashon Hussein, Yuzhu Dong, Allen Z. Ren, Lucy X. Shi, XuDong Wang, Sergey Levine, Zhaoshuo Li, Jinwei Gu, Florian Shkurti, Ming-Yu Liu, Quan Vuong",
+          "arxivUrl": "https://arxiv.org/abs/2606.18610",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "SC3-Eval 用 action-conditioned video world model 评估 robot foundation models，并用 forward-inverse dynamics、cross-view 和 test-time consistency 稳定 closed-loop rollout。它面向低成本、可泛化的真实 VLA policy 评测。",
+          "methodHighlights": [
+            "forward-inverse dynamics consistency",
+            "cross-view inpainting consistency",
+            "test-time inverse dynamics uncertainty for rollout termination"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot evaluation",
+            "VLA",
+            "multi-view consistency",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "VEGA: Learning Navigation VLAs from In-the-Wild Egocentric Video with Geometric Trajectory Supervision",
+          "authors": "Gershom Seneviratne, Yohan Abeysinghe, Jianyu An, Vaibhav Shende, Dinesh Manocha",
+          "arxivUrl": "https://arxiv.org/abs/2606.18426",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "VEGA 从未标注 in-the-wild egocentric navigation videos 中用单目几何重建生成 obstacle-aware trajectory supervision，训练支持 text/image/spatial waypoint goals 的 flow-matching navigation VLA。",
+          "methodHighlights": [
+            "monocular reconstruction for geometric trajectory supervision",
+            "flow-matching navigation VLA",
+            "VEGA-Bench with 250k scenes and about 5M goals"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "navigation",
+            "egocentric vision",
+            "3D geometry",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "DREAM-Chunk: Reactive Action Chunking with Latent World Model",
+          "authors": "Wenxi Chen, Kaidi Zhang, Chi Lin, Zhiyuan Zhang, Yu She, Yuejiang Liu, Raymond A. Yeh, Shaoshuai Mou, Yan Gu",
+          "arxivUrl": "https://arxiv.org/abs/2606.18589",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "DREAM-Chunk 在测试时采样多个 action chunks，用轻量 latent world model 预测未来状态并选择与真实观察最匹配的 chunk，从而缓解 open-loop action chunking 在随机动力学和硬件误差下的脆弱性。",
+          "methodHighlights": [
+            "test-time action chunk selection",
+            "latent world model rollouts",
+            "no extra policy fine-tuning required"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "VLA",
+            "robot manipulation",
+            "test-time compute"
+          ]
+        },
+        {
+          "title": "OneCanvas: 3D Scene Understanding via Panoramic Reprojection",
+          "authors": "Bartłomiej Baranowski, Dave Zhenyu Chen, Matthias Nießner",
+          "arxivUrl": "https://arxiv.org/abs/2606.19253",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.CV, cs.AI, cs.LG, cs.RO",
+          "categories": "cs.CV, cs.AI, cs.LG, cs.RO",
+          "summary": "OneCanvas 将多视角 patch features 用深度和相机位姿 unproject 到 3D world coordinate，再重投影到单个 panoramic canvas，让 pretrained VLM 以图像接口做 3D scene understanding。",
+          "methodHighlights": [
+            "panoramic reprojection of multi-view 3D features",
+            "3D position embedding for depth-aware VLM input",
+            "spatial pretraining curriculum with synthetic patch placement"
+          ],
+          "projectUrl": "https://baranowskibrt.github.io/onecanvas/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D scene understanding",
+            "VLM",
+            "embodied AI",
+            "robotics"
+          ]
+        },
+        {
+          "title": "RegimeVGGT: Layer-Wise Spatially Preserving Redundancy Removal for Visual Geometry Grounded Transformer",
+          "authors": "Jinhao You, Shuo Lyu, Zhuohang Lyu, Tanxuan Li, Zibo Zhao, Jiaxiang Hu, Kai Tang, Yichen Guo",
+          "arxivUrl": "https://arxiv.org/abs/2606.18439",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "RegimeVGGT 针对 VGGT 多视角 3D reconstruction 的推理成本，按层分析几何作用并做 U-shaped compression，保留几何/边缘 salient tokens 和 pose-critical path，训练免费获得显著加速。",
+          "methodHighlights": [
+            "layer-wise analysis of VGGT geometry roles",
+            "Saliency-Guided Banded Merging",
+            "Selectively Protected K/V Downsampling"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "visual geometry transformer",
+            "model acceleration",
+            "robotics"
+          ]
+        },
+        {
+          "title": "Splaxel: Efficient Distributed Training of 3D Gaussian Splatting for Large-scale Scene Reconstruction via Pixel-level Communication",
+          "authors": "Wenqi Jia, Zhewen Hu, Ying Huang, Yu Gong, Stavros Kalafatis, Yuke Wang, Wei Niu, Chengming Zhang, Ang Li, Sheng Di, Yuede Ji, Bo Fang, Miao Yin",
+          "arxivUrl": "https://arxiv.org/abs/2606.18588",
+          "published": "arXiv cross-list; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.DC, cs.CV",
+          "categories": "cs.DC, cs.CV",
+          "summary": "Splaxel 用 pixel-level local rendering and global composition 训练大规模 3DGS，各 GPU 交换 partial pixel values 而非 Gaussian-level 信息，在最多 120M Gaussians 的大场景上提升训练效率。",
+          "methodHighlights": [
+            "pixel-level distributed 3DGS communication",
+            "visibility prediction for communication reduction",
+            "conflict-free camera-view consolidation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "large-scale reconstruction",
+            "distributed training"
+          ]
+        },
+        {
+          "title": "ReSiReg: Towards Spatially Consistent Semantics in Language-Conditioned Robotic Tasks",
+          "authors": "Simon Schwaiger, David Seyser, Alessandro Scherl, Wilfried Wöber, Gerald Steinbauer-Wagner",
+          "arxivUrl": "https://arxiv.org/abs/2606.19088",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "ReSiReg 将 spatially consistent VLM intermediates 聚类成 visual prototypes，再生成语言描述并重建 dense language-grounded embeddings，用于 OVSS、3D mapping 和真实机器人 manipulation scenes。",
+          "methodHighlights": [
+            "prototype-level language embeddings",
+            "spatially consistent dense VLM semantics",
+            "compact 25M dense VLM for robotic deployment"
+          ],
+          "projectUrl": "https://resireg.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "semantic mapping",
+            "VLM",
+            "3D mapping",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "Object-Centric Residual RL for Zero-Shot Sim-to-Real VLA Enhancement",
+          "authors": "Kinam Kim, Namiko Saito, Heecheol Kim, Katsushi Ikeuchi, Jaegul Choo, Yasuyuki Matsushita",
+          "arxivUrl": "https://arxiv.org/abs/2606.18953",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "该论文冻结 base VLA，并在仿真中用 object poses、proprioception 和 base VLA action 训练 residual policy，避免 image-based residual 的视觉 sim-to-real gap。真实 FR3 任务中平均成功率有明显提升。",
+          "methodHighlights": [
+            "object-centric residual policy observations",
+            "paired sim/real VLA via teleoperation replay",
+            "residual-corrected rollouts for VLA self-improvement"
+          ],
+          "projectUrl": "https://www.microsoft.com/en-us/research/articles/object-centric-residual-rl/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "sim-to-real",
+            "robot manipulation",
+            "residual RL",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "HALOMI: Learning Humanoid Loco-Manipulation with Active Perception from Human Demonstrations",
+          "authors": "Zehui Zhao, Yuxuan Zhao, Gaojing Zhang, Chenxi Liu, Maolin Zheng, Wenzhao Lian",
+          "arxivUrl": "https://arxiv.org/abs/2606.18772",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "HALOMI 用 ego-view、wrist-view observation 和 head-hand trajectories 从人类示范学习 humanoid loco-manipulation，并通过 manifold-constrained controller 提高 head-hand tracking 鲁棒性。",
+          "methodHighlights": [
+            "egocentric and wrist-view human demonstrations",
+            "manifold-constrained controller",
+            "controller-aware trajectory adaptation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "humanoid",
+            "loco-manipulation",
+            "active perception",
+            "human demonstration",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Zero-Shot Long-Horizon Dexterous Manipulation via Multi-View 3D-Grounded VLM Reasoning",
+          "authors": "Jisoo Kim, Sangwon Baik, Taeksoo Kim, Sungjoo Kim, Junyoung Lee, Mingi Choi, Hanbyul Joo",
+          "arxivUrl": "https://arxiv.org/abs/2606.19340",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "该框架从 calibrated multi-view RGB images 中用 VLM grounding primitive-level 2D keypoints，再通过多视角融合升维到 3D task plans，支持 tool-use、dexterous grasp affordance 和闭环重规划。",
+          "methodHighlights": [
+            "multi-view 3D keypoint grounding",
+            "object-centric atomic action retrieval for tool-use",
+            "closed-loop status verification and replan"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "dexterous manipulation",
+            "VLM",
+            "3D grounding",
+            "multi-view",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "HT-Bench: Benchmarking and Learning Dexterous Full-Hand Tactile Representations with Egocentric Vision",
+          "authors": "Yuzhe Huang, Jiaping Wu, Jiaming Jiang, Hezhe Lin, Aikebaier Aierken, Yunlong Wang, Kun Cheng, Ziyuan Jiao, Yuanxin Zhong",
+          "arxivUrl": "https://arxiv.org/abs/2606.19161",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "HT-Bench 提供 egocentric vision paired with full-hand tactile data 的大规模 benchmark，评估触觉表征是否编码 contact geometry、能否和视觉对齐并泛化到未见 dexterous tasks。",
+          "methodHighlights": [
+            "226 tasks with RGB and tactile frames",
+            "full-hand tactile representation benchmark",
+            "vector-quantized vision-tactile encoder"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "dexterous manipulation",
+            "tactile representation",
+            "egocentric vision",
+            "contact geometry"
+          ]
+        },
+        {
+          "title": "ART-VS: Adaptive Resolution Tiling for Vision Transformer Visual Servoing",
+          "authors": "Alessandro Scherl, Bernhard Neuberger, Simon Schwaiger, David Mulero-Pérez, Lucas Muster, Jose Garcia-Rodriguez",
+          "arxivUrl": "https://arxiv.org/abs/2606.19089",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "ART-VS 将 visual servoing 分为 native ViT resolution 粗对齐和 tiled high-resolution 局部精对齐，在不做任务特定训练的情况下提升 category-level grasping 的定位精度和效率。",
+          "methodHighlights": [
+            "adaptive resolution tiling",
+            "local high-resolution ViT feature matching",
+            "training-free visual servoing"
+          ],
+          "projectUrl": "https://art-vs.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "visual servoing",
+            "robot grasping",
+            "ViT features",
+            "active perception"
+          ]
+        },
+        {
+          "title": "GCNGrasp-VP: Affordance-Guided View Planning for Efficient Task-Oriented Grasping",
+          "authors": "Zanjia Tong, Wenlong Dong, Chengjie Zhang, Hong Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2606.19091",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "GCNGrasp-VP 结合 GCNGrasp-v2 和 affordance-guided view planning，用 affordance field 作为 information gain 来选择下一视角，解决 task-oriented grasping 中任务相关区域被遮挡的问题。",
+          "methodHighlights": [
+            "affordance field prediction",
+            "view planning without scene reconstruction",
+            "task-relevant active perception for grasping"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/Instinct323/GCNGrasp-VP",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "robot grasping",
+            "affordance",
+            "active perception",
+            "task-oriented manipulation"
+          ]
+        },
+        {
+          "title": "A Scalable Embodied Intelligence Platform for Seamless Real-to-Sim-to-Real Transfer of Household Mobile Manipulation Tasks",
+          "authors": "Kui Yang, Xianlei Long, Haoxuan Li, Yan Ding, Chao Chen",
+          "arxivUrl": "https://arxiv.org/abs/2606.18646",
+          "published": "arXiv v1; 公告批次: 2026-06-18 (Thursday, 18 June 2026); 分类: cs.RO",
+          "categories": "cs.RO",
+          "summary": "该论文提出 BestMan 平台，从真实观察构建 household mobile manipulation 仿真场景，再通过 simulation-guided task formalization、skill learning 和 hardware-agnostic middleware 支持 real-to-sim-to-real 迁移。",
+          "methodHighlights": [
+            "Automated Scene Generation from real observations",
+            "simulation-guided task formalization",
+            "hardware-agnostic middleware for mobile manipulators"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "embodied AI",
+            "mobile manipulation",
+            "simulation",
+            "sim-to-real",
+            "Physical AI"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-06-17",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-17",
