@@ -1,6 +1,496 @@
 {
-  "updatedAt": "2026-06-18",
+  "updatedAt": "2026-06-22",
   "reports": [
+    {
+      "date": "2026-06-22",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-22",
+      "shortTitle": "VLA Geometry / WAM Memory / 3DGS Deployment",
+      "summary": "最新可用公告批次命中 20 篇，补充 0 篇；机器人策略几何化、WAM 轻量化和 3DGS 部署最突出。",
+      "trends": [
+        "机器人数据与策略正在快速几何化，多视角一致性、6D pose、旋转等变、双臂协调和关键视觉记忆成为 VLA 泛化核心先验",
+        "World Action Model 从完整未来视频生成转向更便宜、更任务相关的状态变化、长期记忆和可控环境建模",
+        "3DGS 与三维重建继续走向真实部署，重点从渲染质量扩展到标定、SLAM、热成像和稀疏视角几何稳定性",
+        "具身空间智能更依赖 occupancy grounding、显式 2D-to-3D lifting、object-centric particles 和 3D scene graphs",
+        "Human/egocentric video 不只用于策略预训练，也开始影响机器人手硬件设计和 embodiment 对齐"
+      ],
+      "topPapers": [
+        "Pose6DAug",
+        "ImageWAM",
+        "MemoryWAM",
+        "VisDom",
+        "Occ-VLM",
+        "3D-DLP",
+        "Generating Robot Hands from Human Demonstrations",
+        "TaCauchy"
+      ],
+      "markdownPath": "reports/arxiv/2026-06-22.md",
+      "papers": [
+        {
+          "title": "Pose6DAug: Physically Plausible Multi-view Object Swapping for Robot Data Augmentation",
+          "authors": "Jonghoon Lee, Seong Hyeon Park, Byungwoo Jeon, Minha Lee, Jinwoo Shin",
+          "arxivUrl": "https://arxiv.org/abs/2606.20118",
+          "published": "arXiv v1 submitted 2026-06-18T11:41:25Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.RO, cs.LG",
+          "categories": "cs.RO, cs.LG",
+          "summary": "Pose6DAug uses successful multi-view robot episodes as physically valid seeds for novel-object data augmentation. It swaps only the manipulated object in 3D, drives an explicit mesh with a temporally coherent 6D pose trajectory, and preserves cross-view consistency under occlusion and egocentric viewpoints. The result is targeted VLA fine-tuning data for failure modes without new teleoperation collection.",
+          "methodHighlights": [
+            "failure-driven augmentation from successful episodes",
+            "explicit mesh and temporally coherent 6D object pose",
+            "multi-view physically plausible rendering for VLA generalization"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "multi-view geometry",
+            "6D pose",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "One Demo is Worth a Thousand Trajectories: Action-View Augmentation for Visuomotor Policies",
+          "authors": "Chuer Pan, Litian Liang, Dominik Bauer, Eric Cousineau, Benjamin Burchfiel, Siyuan Feng, Shuran Song",
+          "arxivUrl": "https://arxiv.org/abs/2606.19586",
+          "published": "arXiv v1 submitted 2026-06-17T20:41:13Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "This work turns a single real eye-in-hand demonstration into many realistic and physically feasible action-view trajectories. It reconstructs and edits the scene with a fisheye-aware Gaussian Splatting formulation, then uses trajectory optimization to produce smooth collision-free paths and corresponding novel-view observations. It is a practical example of using 3DGS as a robot data augmentation engine rather than only a renderer.",
+          "methodHighlights": [
+            "single-demo action-view augmentation",
+            "wide-FoV fisheye Gaussian Splatting",
+            "trajectory optimization for collision-free rendered views"
+          ],
+          "projectUrl": "https://chuerpan.com/1001-demos.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "robot manipulation",
+            "visuomotor policy",
+            "data augmentation"
+          ]
+        },
+        {
+          "title": "EquiVLA: A General Framework for Rotationally Equivariant Vision-Language-Action Models",
+          "authors": "Thien-Loc Ha, Quang-Tan Nguyen, Trong-Bao Ho, Long Dinh, Minh Duc Nguyen, Gia-Binh Nguyen, Pham Tri Quang, Minh N. Vu, Duy M. H. Nguyen, An Thai Le, Ngo Anh Vien",
+          "arxivUrl": "https://arxiv.org/abs/2606.19784",
+          "published": "arXiv v1 submitted 2026-06-18T04:36:57Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "EquiVLA injects SO(2) equivariance into VLA policies to improve orientation generalization without simply scaling data. EquiPerceptor extracts approximately equivariant visual representations from frozen ViT features, while EquiActor provides an exactly equivariant flow-matching action head. It shows strong gains across LIBERO, CALVIN, and real Mobile ALOHA tasks.",
+          "methodHighlights": [
+            "SO(2)-equivariant VLA framework",
+            "EquiPerceptor for frozen visual features",
+            "EquiActor for equivariant flow-matching action prediction"
+          ],
+          "projectUrl": "https://equivla.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "geometric equivariance",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Co-VLA: Coordination-Aware Structured Action Modeling for Dual-Arm Vision-Language-Action Systems",
+          "authors": "Yandong Wang, Jiaqian Yu, Xiongfeng Peng, Lu Xu, Yamin Mao, Weiming Li, Jaewook Yoo, Dongwook Lee, Daehyun Ji, Mingbo Zhao, Chao Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2606.20285",
+          "published": "arXiv v1 submitted 2026-06-18T14:28:37Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "Co-VLA argues that implicit coordination is not enough for tightly coupled dual-arm VLA tasks. It replaces the monolithic action head with a Structured Action Expert that separates shared coordination intent from arm-specific residual execution latents. A Latent-Aware Controller then adjusts synchronization, asymmetry, smoothness, and safety at deployment.",
+          "methodHighlights": [
+            "shared coordination latent plus arm residual latents",
+            "coordination-aware action loss",
+            "Latent-Aware Controller for dual-arm execution constraints"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "dual-arm manipulation",
+            "robot coordination",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "EventVLA: Event-Driven Visual Evidence Memory for Long-Horizon Vision-Language-Action Policies",
+          "authors": "Ganlin Yang, Zhangzheng Tu, Yuqiang Yang, Sitong Mao, Junyi Dong, Tianxing Chen, Jiaqi Peng, Jing Xiong, Jiafei Cao, Jifeng Dai, Wengang Zhou, Yao Mu, Tai Wang",
+          "arxivUrl": "https://arxiv.org/abs/2606.20092",
+          "published": "arXiv v1 submitted 2026-06-18T11:11:37Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "EventVLA addresses long-horizon manipulation failures caused by visual evidence becoming occluded or unobservable. It stores sparse causal visual events through foundational anchors and a dynamic Keyframe Evidence Memory that predicts future keyframe utility from VLA embeddings. The approach targets non-Markovian manipulation without a massive visual history buffer.",
+          "methodHighlights": [
+            "sparse visual evidence memory",
+            "future-utility keyframe prediction from VLA latents",
+            "RoboTwin-MeM benchmark for memory-dependent manipulation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "memory",
+            "long-horizon tasks"
+          ]
+        },
+        {
+          "title": "ImageWAM: Do World Action Models Really Need Video Generation, or Just Image Editing?",
+          "authors": "Yuyang Zhang, Wenyao Zhang, Zekun Qi, He Zhang, Haitao Lin, Jingbo Zhang, Yao Mu, Xiaokang Yang, Wenjun Zeng, Xin Jin",
+          "arxivUrl": "https://arxiv.org/abs/2606.19531",
+          "published": "arXiv v1 submitted 2026-06-17T19:25:28Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "ImageWAM challenges the assumption that robot world action models need full future video generation. It reuses denoising KV caches from a pretrained image editing model as compact world-action context for a flow-matching action expert, without decoding target frames at inference. The result focuses compute on action-relevant visual changes and reports lower FLOPs and latency than video-based WAMs.",
+          "methodHighlights": [
+            "image-editing prior instead of full video generation",
+            "denoising KV caches as world-action context",
+            "flow-matching action expert conditioned on task-relevant visual change"
+          ],
+          "projectUrl": "https://zhangwenyao1.github.io/ImageWAM/",
+          "codeUrl": "https://github.com/yuyangalin/ImageWAM",
+          "datasetUrl": "https://huggingface.co/collections/yuyangalin/imagewam",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "world action models",
+            "robot manipulation",
+            "VLA"
+          ]
+        },
+        {
+          "title": "MemoryWAM: Efficient World Action Modeling with Persistent Memory",
+          "authors": "Sizhe Yang, Juncheng Mu, Tianming Wei, Chenhao Lu, Xiaofan Li, Linning Xu, Zhengrong Xue, Zhecheng Yuan, Dahua Lin, Jiangmiao Pang, Huazhe Xu",
+          "arxivUrl": "https://arxiv.org/abs/2606.20562",
+          "published": "arXiv v1 submitted 2026-06-18T17:59:51Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "MemoryWAM targets non-Markovian real-world manipulation where fixed-window WAMs forget useful history and full-history WAMs become expensive. It combines recent frames, event-boundary anchor frames, and compact gist tokens, then retrieves both detailed short-term and compressed long-term context with a tailored attention mechanism. The key contribution is persistent memory for WAMs without sequence-length-proportional cost growth.",
+          "methodHighlights": [
+            "hybrid memory with recent frames, event anchors, and gist tokens",
+            "attention over detailed short-term and compressed long-term context",
+            "efficient WAM for memory-dependent manipulation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "world action models",
+            "memory",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "HumanScale: Egocentric Human Video Can Outperform Real-Robot Data for Embodied Pretraining",
+          "authors": "Juncheng Ma, Jianxin Bi, Yufan Deng, Xuanran Zhai, Kewei Zhang, Ye Huang, Bo Liang, Shukai Gong, Jiankai Tu, Xiaotian Tang, Jiaxin Li, Kaiqi Chen, Duomin Wang, Yuqi Wang, Bingyi Kang, Eric Huang, Zhiyang Dou, Zhen Dong, Enze Xie, Wojciech Matusik, Tat-Seng Chua, Daquan Zhou",
+          "arxivUrl": "https://arxiv.org/abs/2606.20521",
+          "published": "arXiv v1 submitted 2026-06-18T17:37:34Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "HumanScale systematically compares egocentric human video and teleoperated real-robot trajectories for embodied pretraining. Under fixed post-training and validation protocols, filtered and labeled human video can outperform equal-volume robot data for action prediction and OOD real-robot execution. It supports a scalable recipe: learn diverse world representations from egocentric human video, then align action space with smaller robot datasets.",
+          "methodHighlights": [
+            "controlled comparison of egocentric human video and real-robot data",
+            "filtering and labeling pipeline for embodied pretraining",
+            "human-video pretraining plus small robot action alignment"
+          ],
+          "projectUrl": "https://github.com/DAGroup-PKU/HumanNet/",
+          "codeUrl": "https://github.com/DAGroup-PKU/HumanNet/",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "egocentric vision",
+            "embodied AI",
+            "HOI",
+            "human-object interaction",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "Generating Robot Hands from Human Demonstrations",
+          "authors": "Sha Yi, Nicklas Hansen, Xueqian Bai, Carmelo Sferrazza, Michael T. Tolley, Xiaolong Wang",
+          "arxivUrl": "https://arxiv.org/abs/2606.20549",
+          "published": "arXiv v1 submitted 2026-06-18T17:57:21Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "This paper uses human manipulation data to design robot hands, not only to train controllers. More than four million frames of human fingertip motion guide the optimization of tree-structured hands that can reproduce desired motions with simple inverse-kinematics fingertip matching. It shows human data can shape robot embodiment for dexterous manipulation.",
+          "methodHighlights": [
+            "human fingertip trajectories for robot hand morphology search",
+            "RL actor accelerates design and joint-angle search",
+            "print-in-place articulated hand mechanisms"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "dexterous manipulation",
+            "robot hand",
+            "embodiment design",
+            "HOI",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "3D-DLP: Self-Supervised 3D Object-Centric Scene Representation Learning",
+          "authors": "Ellina Zhang, Madhaven Iyengar, Amir Zadeh, Chuan Li, Deepak Pathak, David Held, Tal Daniel",
+          "arxivUrl": "https://arxiv.org/abs/2606.19451",
+          "published": "arXiv v1 submitted 2026-06-17T18:00:08Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.LG, cs.CV, cs.RO",
+          "categories": "cs.LG, cs.CV, cs.RO",
+          "summary": "3D-DLP decomposes RGB-D or voxel observations into object-centric 3D latent particles. Each particle stores interpretable geometry and appearance attributes such as 3D keypoint position, bounding box size, and visual features. The compact representation improves downstream manipulation compared with dense 3D inputs or non-3D baselines.",
+          "methodHighlights": [
+            "3D latent particles for object-centric scene representation",
+            "self-supervised reconstruction with interpretable segmentation",
+            "compact 3D latent state for robot manipulation"
+          ],
+          "projectUrl": "https://eubooks3003.github.io/3d-dlp",
+          "codeUrl": "https://github.com/Eubooks3003/3d-dlp",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D scene representation",
+            "object-centric learning",
+            "robot manipulation",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "TaCauchy: An Extensible FEM Framework for Vision-Based Tactile Simulation",
+          "authors": "Hengfei Zhao, Yifan Xie, Junhao Gong, Yue Sun, Kai Zhu, Weihua He, Shoujie Li, Haohuan Fu, Wenbo Ding",
+          "arxivUrl": "https://arxiv.org/abs/2606.20426",
+          "published": "arXiv v1 submitted 2026-06-18T16:08:45Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "TaCauchy provides high-fidelity FEM simulation for vision-based tactile sensors inside Isaac Sim. It computes Cauchy stress tensors from hyperelastic laws through UIPC, projects stress to contact surfaces, and exposes physically grounded force and pressure supervision. This is directly relevant to contact-rich manipulation and Physical AI simulation.",
+          "methodHighlights": [
+            "FEM and UIPC-based tactile stress simulation",
+            "geometry-aware adaptive mesh refinement",
+            "sensor interfaces for GelSight Mini, DIGIT, and 9DTact"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "tactile simulation",
+            "physics-aware AI",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Occ-VLM: Occupancy Grounded Vision Language Model for Indoor Scene Understanding",
+          "authors": "Jianing Li, Zhou Fang, Yijiang Liu, Li Du",
+          "arxivUrl": "https://arxiv.org/abs/2606.19776",
+          "published": "arXiv v1 submitted 2026-06-18T04:24:28Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Occ-VLM uses posed RGB images and a single 2D vision encoder for 3D indoor scene understanding. It reconstructs 3D occupancy as an auxiliary prior and uses it to associate foreground 2D tokens with 3D space before LLM decoding. The design reuses 2D VLM semantics while adding geometry grounding for embodied scene reasoning.",
+          "methodHighlights": [
+            "3D occupancy auxiliary grounding for 2D tokens",
+            "no extra 3D geometry encoder",
+            "multi-view occupancy, 3D VQA, and dense captioning evaluation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D scene understanding",
+            "VLM",
+            "occupancy",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "3D Scene Graphs: Open Challenges and Future Directions",
+          "authors": "Dennis Rotondi, Francesco Argenziano, Sebastian Koch, Nathan Hughes, Martin Buechner, Johanna Wald, Lukas Rosenberger Schmid, Daniele Nardi, Abhinav Valada, Liam Paull, Federico Tombari, Luca Carlone, Kai O. Arras",
+          "arxivUrl": "https://arxiv.org/abs/2606.19383",
+          "published": "arXiv v1 submitted 2026-06-15T08:14:08Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "This survey formalizes 3D Scene Graphs and reviews their role as semantically grounded, relational 3D representations for spatial AI. It covers modeling choices, construction pipelines, dynamic and affordance-aware graph extensions, and evaluation gaps. It is useful as a roadmap for robotics scene understanding, navigation, planning, and manipulation.",
+          "methodHighlights": [
+            "unified definition of 3D Scene Graphs",
+            "review of graph construction from raw sensor observations",
+            "discussion of intrinsic graph quality and task-level evaluation"
+          ],
+          "projectUrl": "https://3dscenegraphs.com/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D scene graphs",
+            "spatial AI",
+            "robotics",
+            "scene understanding"
+          ]
+        },
+        {
+          "title": "VisDom: Sparse Novel View Synthesis with Visible Domain Constraint",
+          "authors": "Mariia Gladkova*, Tarun Yenamandra*, Edmond Boyer, Robert Maier, Tony Tung, Daniel Cremers",
+          "arxivUrl": "https://arxiv.org/abs/2606.20531",
+          "published": "arXiv v1 submitted 2026-06-18T17:45:37Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "VisDom introduces a learning-free visible-domain constraint for sparse novel view synthesis. It extends visual hull carving by requiring a 3D point to be observed by at least K views, filtering silhouette-consistent but geometrically invalid regions. The constraint plugs into NeRF and Gaussian Splatting pipelines to improve sparse-view object reconstruction.",
+          "methodHighlights": [
+            "visible-domain filtering stronger than silhouette consistency",
+            "learning-free sparse-view geometry prior",
+            "compatible with NeRF and Gaussian Splatting"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "novel view synthesis",
+            "3D reconstruction",
+            "3D Gaussian Splatting",
+            "NeRF"
+          ]
+        },
+        {
+          "title": "Geometry-Preserving in 3D Gaussian Splatting for LiDAR-Camera Extrinsic Calibration",
+          "authors": "Kyoleen Kwak, Daeho Kim, Jeong Woon Lee, Hyoseok Hwang",
+          "arxivUrl": "https://arxiv.org/abs/2606.20103",
+          "published": "arXiv v1 submitted 2026-06-18T11:23:33Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "This paper addresses geometry drift in 3DGS proxies used for targetless LiDAR-camera extrinsic calibration. It aggregates multi-view LiDAR observations for dense depth supervision and blocks photometric gradients from updating Gaussian spatial parameters. The focus is keeping metric geometry accurate instead of optimizing only for rendering quality.",
+          "methodHighlights": [
+            "multi-view LiDAR dense depth supervision",
+            "photometric-gradient blocking for Gaussian spatial parameters",
+            "targetless LiDAR-camera calibration with metric geometry preservation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "LiDAR-camera calibration",
+            "3D reconstruction",
+            "robot perception"
+          ]
+        },
+        {
+          "title": "MMD-SLAM: Structure-Enhanced Multi-Meta Gaussian Distribution-Guided Visual SLAM",
+          "authors": "Fan Zhu, Ziyu Chen, Peichen Liu, Yifan Zhao, Zhisong Xu, Hui Zhu, Hongxing Zhou, Sixun Liu, Chunmao Jiang",
+          "arxivUrl": "https://arxiv.org/abs/2606.19874",
+          "published": "arXiv v1 submitted 2026-06-18T07:33:08Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "MMD-SLAM combines 3DGS-based visual SLAM with Atlanta World structural priors. It adds point-line fusion for pose optimization, uses dominant-direction Multi-Meta Gaussians to encode scene structure, and evolves Gaussians according to geometry. The goal is better tracking and more consistent photorealistic mapping.",
+          "methodHighlights": [
+            "point-line fusion for pose optimization",
+            "Multi-Meta Gaussian representation with Atlanta World directions",
+            "Gaussian evolution guided by scene geometry"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "SLAM",
+            "3D reconstruction",
+            "robot perception"
+          ]
+        },
+        {
+          "title": "LIT-GS: LiDAR-Inertial-Thermal Gaussian Splatting for Illumination-Robust Mapping",
+          "authors": "Shikuan Shi, Chunran Zheng, Jiaming Xu, Tianyong Ye, Tao Yu, Yukang Cui",
+          "arxivUrl": "https://arxiv.org/abs/2606.20424",
+          "published": "arXiv v1 submitted 2026-06-18T16:06:52Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "LIT-GS improves Gaussian mapping under illumination changes and weak texture by adding thermal sensing and LiDAR plane geometry. It builds confidence-aware thermal-LiDAR anchors, adds point-to-plane residuals into bundle adjustment, and regularizes differentiable splatting with LiDAR planes. The result targets robust robot mapping beyond RGB-friendly conditions.",
+          "methodHighlights": [
+            "LiDAR-inertial-thermal Gaussian Splatting",
+            "thermal-LiDAR cross-modal anchors",
+            "LiDAR-plane-regularized splatting"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "robot mapping",
+            "thermal vision",
+            "LiDAR"
+          ]
+        },
+        {
+          "title": "Holo-World: Unified Camera, Object and Weather Control for Video World Model",
+          "authors": "Xiangchen Yin, Wenzhang Sun, Jiahui Yuan, Zijie Liu, Yinda Chen, Wei Li, Dachun Kai, Chunfeng Wang, Xiaoyan Sun",
+          "arxivUrl": "https://arxiv.org/abs/2606.20083",
+          "published": "arXiv v1 submitted 2026-06-18T11:01:34Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Holo-World starts from a single image and controls camera motion, object motion, and weather state in a unified video world model. Its Unified Scene Adapter separates world preservation and weather transfer, using geometry buffers and object controls to maintain structure while modifying environmental appearance. It is relevant to controllable 3D-aware video generation and world modeling.",
+          "methodHighlights": [
+            "unified camera, object, and weather control",
+            "HoloStateData for unified control supervision",
+            "Scene-Weather Decomposed CFG"
+          ],
+          "projectUrl": "https://xiangchenyin.github.io/Holo-World",
+          "codeUrl": "https://github.com/XiangchenYin/Holo-World",
+          "datasetUrl": "https://huggingface.co/suxi123/Holo-World",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "video generation",
+            "3D generation",
+            "controllable generation"
+          ]
+        },
+        {
+          "title": "See-and-Reach: Precise Vision-Language Navigation for UAVs within the Field of View",
+          "authors": "Fanfu Xue, En Yu, Yantian Shen, Zhikun Hu, Hongjun Wang, Yang Yang, Xindi Wang, Jiande Sun",
+          "arxivUrl": "https://arxiv.org/abs/2606.20045",
+          "published": "arXiv v1 submitted 2026-06-18T10:21:42Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.CV, cs.AI",
+          "categories": "cs.CV, cs.AI",
+          "summary": "See-and-Reach isolates the target-visible stage of UAV vision-language navigation: once the target is in view, can the UAV ground it and convert that evidence into precise 3D motion? 3DG-VLN uses dynamic 3D direction cues, high-resolution front/downward egocentric views, and online target-relative direction updates. The benchmark contains trajectories with continuous 3D waypoint annotations.",
+          "methodHighlights": [
+            "UAV-VLN-FOV target-visible navigation benchmark",
+            "dynamic 3D direction cues for waypoint prediction",
+            "high-resolution front and downward egocentric observations"
+          ],
+          "projectUrl": "https://github.com/xuefanfu/3DG-VLN",
+          "codeUrl": "https://github.com/xuefanfu/3DG-VLN",
+          "datasetUrl": "https://github.com/xuefanfu/3DG-VLN",
+          "priority": "中",
+          "areaTags": [
+            "embodied AI",
+            "navigation",
+            "UAV",
+            "3D grounding",
+            "vision-language navigation"
+          ]
+        },
+        {
+          "title": "SCAN-Planner: Spatial Collision-Aware Local Planning for Route-Guided Long-Range Quadruped Navigation",
+          "authors": "Han Zheng, Zhe Chen, Yiwen Fu, Ming Yang, Tong Qin",
+          "arxivUrl": "https://arxiv.org/abs/2606.19555",
+          "published": "arXiv v1 submitted 2026-06-17T19:55:09Z; announcement batch: 2026-06-19 (Friday, 19 June 2026); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "SCAN-Planner is a spatial collision-aware local planner for quadruped navigation in tight passages, clutter, stairs, and 3D unstructured scenes. It models the elongated robot body with a yaw-aware twin-cylinder footprint and checks whole-body collision through sparse queries in an inflated 3D occupancy map. A projected A* search and robot-centric sliding map support long-range deployment.",
+          "methodHighlights": [
+            "yaw-aware twin-cylinder robot footprint",
+            "whole-body collision checking in inflated 3D occupancy maps",
+            "projected A* and sliding local map for long-range navigation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "quadruped navigation",
+            "3D occupancy",
+            "robot planning",
+            "embodied AI"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-06-18",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-18",
