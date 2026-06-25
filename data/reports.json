@@ -1,6 +1,609 @@
 {
-  "updatedAt": "2026-06-24",
+  "updatedAt": "2026-06-25",
   "reports": [
+    {
+      "date": "2026-06-25",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-25",
+      "shortTitle": "Action Priors / ICWM / RoboAtlas / ForceBand",
+      "summary": "最近一天命中 25 篇，补充 0 篇；VLA 动作先验、world modeling、3DGS/4D 表示和力觉操作最突出。",
+      "trends": [
+        "2026-06-25 最近公告批次里，3D 表示的重点不是再提出全新渲染原语，而是把 3DGS/4D proxy/对象 SLAM 变成可编辑、可控制、可部署的系统: TryOnCrafter、MVTrack4Gen、Support-Aware Appearance 和 DSP-SLAM++ 最有代表性。",
+        "机器人 VLA 正在从纯视觉-语言对齐转向显式动作先验、世界模型上下文和几何/空间 grounding: Learning Action Priors、ICWM、SVP-IL、WOLF-VLA、HALO 都在补 VLA 的物理执行短板。",
+        "Physical AI 线索很密集: ForceBand 用肌电补力觉示范，RigPI 用 VLM 初始化可微仿真参数识别，DeformGen 用动力学生成可变形物体增强，AISPO 把深度补全目标转向可抓取性。",
+        "导航和 SLAM 方向更强调语义地图与长期记忆: RoboAtlas、RAVEN、SAGE-Nav 和 fARfetch 都把 3D/空间结构放在 VLM/LLM 推理之前，避免只依赖语言模型临场猜测。",
+        "最值得优先深读的是 Learning Action Priors、In-Context World Modeling、RoboAtlas、ForceBand、TryOnCrafter、MVTrack4Gen、Support-Aware Appearance、DSP-SLAM++、RigPI 和 DynaMOMA；它们分别对应动作先验、世界模型适配、3D 语义 SLAM、力觉示范、4D 可控生成、多视角几何监督、3DGS 外观烘焙、对象级 SLAM、物理参数识别和动态抓取。"
+      ],
+      "topPapers": [
+        "Learning Action Priors",
+        "In-Context World Modeling",
+        "RoboAtlas",
+        "ForceBand",
+        "TryOnCrafter",
+        "MVTrack4Gen",
+        "Support-Aware Appearance",
+        "DSP-SLAM++",
+        "RigPI",
+        "DynaMOMA"
+      ],
+      "markdownPath": "reports/arxiv/2026-06-25.md",
+      "papers": [
+        {
+          "title": "Learning Action Priors for Cross-embodiment Robot Manipulation",
+          "authors": "Dong Jing, Tianqi Zhang, Jiaqi Liu, Jinman Zhao, Zelong Sun, Li Erran Li, Zhiwu Lu, Mingyu Ding",
+          "arxivUrl": "https://arxiv.org/abs/2606.26095",
+          "published": "arXiv API published 2026-06-24T17:59:56Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO, cs.AI, cs.CV",
+          "categories": "cs.RO, cs.AI, cs.CV",
+          "summary": "这篇论文指出，现有 VLA 往往直接在视觉-语言 backbone 后接动作模块，动作时间结构需要从零开始学，尤其在跨 embodiment 任务中收敛慢、数据效率低。作者先用未条件化动作轨迹预训练一个轻量 flow-matching encoder-decoder 动作模块，再把 decoder 和 latent distillation 迁移进 VLA 训练。训练好的 encoder 还能把状态-动作历史压成一个时间上下文 token，用极小代价支持 history-aware policy。结果显示，在 13 个仿真和真实跨 embodiment 任务上，动作先验带来更快收敛、更高成功率和更强低数据泛化。",
+          "methodHighlights": [
+            "two-stage training: action-prior pretraining before visual-language-action alignment",
+            "flow-matching action module learns temporal motion structure from raw action trajectories",
+            "latent distillation and decoder reuse transfer the prior into cross-embodiment VLA policies"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "cross-embodiment",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "In-Context World Modeling for Robotic Control",
+          "authors": "Siyin Wang, Junhao Shi, Senyu Fei, Zhaoyang Fu, Li Ji, Jingjing Gong, Xipeng Qiu",
+          "arxivUrl": "https://arxiv.org/abs/2606.26025",
+          "published": "arXiv API published 2026-06-24T16:53:36Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "ICWM 把机器人系统辨识改写成 in-context adaptation 问题，而不是每遇到新相机视角或机器人形态就重新微调。策略在执行任务前先观察一小段自生成、任务无关交互历史，从中推断当前系统的关键变量和动力学。这里的上下文不是告诉模型“做什么任务”，而是让模型理解“这个系统如何运作”。仿真和真实平台实验表明，这种 world modeling 上下文显著提升 VLA 对新视角和新配置的泛化。",
+          "methodHighlights": [
+            "uses short self-generated interaction histories for in-context system identification",
+            "separates how-the-world-works context from task demonstrations",
+            "adapts robotic control to novel camera viewpoints and robot configurations without parameter updates"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot control",
+            "VLA",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "RoboAtlas: Contextual Active SLAM",
+          "authors": "Alexander Schperberg, Shivam K. Panda, Abraham P. Vinod, M. K. Jawed, Stefano Di Cairano",
+          "arxivUrl": "https://arxiv.org/abs/2606.26046",
+          "published": "arXiv API published 2026-06-24T17:26:07Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "RoboAtlas 是一个 contextual Active SLAM 框架，在几何探索和语义推理之间自适应切换。系统以 OpenRoboVox 构建可扩展 3D 语义地图，并用 contextual multi-armed bandit 融合 frontier exploration、全局语义地图推理和 egocentric VLM 推理。论文在超过 1800 平方米真实环境和约 3 万语义实例的 Unitree Go2 部署中达到 100% 任务成功率。它说明在具身导航里，基础模型性能之外，大规模 3D 语义地图本身就是关键能力。",
+          "methodHighlights": [
+            "scalable 3D semantic mapping with OpenRoboVox",
+            "contextual bandit balances geometric exploration and semantic navigation",
+            "large real-world deployment plus GOAT-Bench evaluation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "SLAM",
+            "3D semantic mapping",
+            "embodied navigation",
+            "VLM"
+          ]
+        },
+        {
+          "title": "ForceBand: Learning Forceful Manipulation with sEMG",
+          "authors": "Botao He, Zhi Wang, Linna Kuang, Ishaan Ghosh, Jitendra Malik, Cornelia Fermuller, Tingfan Wu, Jiayuan Mao, Ruoshi Liu, Haozhi Qi, Yiannis Aloimonos",
+          "arxivUrl": "https://arxiv.org/abs/2606.26093",
+          "published": "arXiv API published 2026-06-24T17:59:35Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "ForceBand 关注普通人类示范缺少接触力信息的问题，因为视频和动捕通常只记录运动与外观。论文提出低成本腕戴 sEMG 系统，采集 10 小时 egocentric video、sEMG、IMU 和指尖力数据，并预训练 EMG2Force 从肌电与惯性信号预测每指受力。经过少量用户标定后，示范者只需戴 ForceBand 加视频即可生成带力标签的机器人学习数据。在 pick、squeeze、place 等需要对象特定力控制的任务中，这种 force-enriched demonstration 明显提升操作成功率。",
+          "methodHighlights": [
+            "wrist-worn sEMG plus IMU estimates per-finger force for demonstrations",
+            "10-hour multimodal dataset with egocentric video and fingertip force measurements",
+            "force-augmented demonstrations improve manipulation requiring contact-force control"
+          ],
+          "projectUrl": "https://forceband-emg.github.io",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "force sensing",
+            "tactile perception",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "TryOnCrafter: Unleashing Camera Trajectories for Realistic Video Virtual Try-on via a Renderable 4D Try-on Proxy",
+          "authors": "Hao Sun, Hao Yan, Mengting Chen, Quanjian Song, Yu Li, Juan Cao, Jinsong Lan, Xiaoyong Zhu, Bo Zheng, Sheng Tang",
+          "arxivUrl": "https://arxiv.org/abs/2606.26092",
+          "published": "arXiv API published 2026-06-24T17:59:06Z; source: API latest within 2026-06-25 run window, while /list cs.CV/new showed no updates at run time; categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "TryOnCrafter 定义了 camera-controllable video virtual try-on，希望虚拟试衣不再被源视频相机轨迹限制。核心是 Renderable 4D Try-on Proxy: 先把高质量 2D try-on prior 蒸馏到穿衣 3DGS avatar，再用 SMPL-X 序列驱动并与重建背景点云度量对齐。Proxy-Anchored Video DiT 以这个可渲染 4D 结构为几何锚，生成可按任意相机轨迹控制且保持非刚体人体动态一致的视频。对 4D human generation 和可控视角生成来说，它把 3DGS、人体模型和视频扩散模型连接得很紧。",
+          "methodHighlights": [
+            "renderable 4D try-on proxy built from clothed 3DGS avatar and SMPL-X motion",
+            "metric alignment with reconstructed background point cloud",
+            "Proxy-Anchored Video DiT enforces camera-trajectory control and deformation plausibility"
+          ],
+          "projectUrl": "https://sunhao242.github.io/TryOnCrafter_web.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "4D generation",
+            "3D Gaussian Splatting",
+            "human avatar",
+            "video generation"
+          ]
+        },
+        {
+          "title": "MVTrack4Gen: Multi-View Point Tracking as Geometric Supervision for 4D Video Generation",
+          "authors": "JoungBin Lee, Jaewoo Jung, Jongmin Lee, Tongmin Kim, Hyunsung Kim, Takuya Narihira, Kazumi Fukuda, Jahyeok Koo, Jisang Han, Yuki Mitsufuji, Seungryong Kim",
+          "arxivUrl": "https://arxiv.org/abs/2606.26087",
+          "published": "arXiv API published 2026-06-24T17:56:33Z; source: API latest within 2026-06-25 run window, while /list cs.CV/new showed no updates at run time; categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "MVTrack4Gen 面向从单目参考视频按目标相机轨迹合成 novel-view video 的几何一致性问题。作者发现特定 attention 层已经编码跨视角和跨时间的 correspondence cue，错位会导致运动不一致。方法把这些特征接入辅助 multi-view tracking head，用点跟踪目标联合训练 camera-conditioning video diffusion model。它不依赖不稳定的显式动态重建模块，而是把 tracking 监督直接注入生成模型内部。",
+          "methodHighlights": [
+            "multi-view point tracking objective supervises novel-view video diffusion",
+            "routes correspondence-rich attention features into an auxiliary tracking head",
+            "improves geometric and motion consistency for 4D video generation"
+          ],
+          "projectUrl": "https://cvlab-kaist.github.io/MVTrack4Gen/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "4D generation",
+            "multi-view consistency",
+            "video diffusion",
+            "geometric supervision"
+          ]
+        },
+        {
+          "title": "From Sparse and Imperfect 2D Anchors to Consistent 3D Gaussian Street Scenes: Support-Aware Appearance",
+          "authors": "Long Cao, Zhongquan Wang, Jie Li, Yuhan Chen, Kefei Qian, Xiangfei Huang, Guofa Li",
+          "arxivUrl": "https://arxiv.org/abs/2606.26007",
+          "published": "arXiv API published 2026-06-24T16:26:53Z; official announcement batch: 2026-06-25 (/list cs.GR/new cross-list); categories: cs.CV, cs.GR",
+          "categories": "cs.CV, cs.GR",
+          "summary": "这篇工作处理 3D Gaussian street scenes 的外观编辑/条件迁移问题: 2D 图像先验能生成目标条件，但独立编辑多视角会产生不一致噪声。论文用 teacher-relative appearance residual distillation 构建频率分解、置信估计和 primitive-level lifting 的结构化空间。support-aware Gaussian-space aggregation 只接纳被多视角支持的细节，并抑制 unsupported noise，最后把残差烘焙进固定几何的 SH 系数。对自动驾驶 3DGS 场景资产来说，这是把 2D 生成先验落到可部署 3D 表示的一步。",
+          "methodHighlights": [
+            "teacher-relative residual distillation for 3DGS appearance baking",
+            "confidence-gated coarse-to-fine optimization suppresses unsupported 2D noise",
+            "fixed-geometry SH coefficients keep standard rasterizer deployment"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/Cagares/Baking-for-3D-Gaussian",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "street scenes",
+            "3D asset editing",
+            "autonomous driving"
+          ]
+        },
+        {
+          "title": "DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild",
+          "authors": "Ahmad Kourani, Ghina Daoud, Daniel Asmar, Imad Elhajj",
+          "arxivUrl": "https://arxiv.org/abs/2606.25953",
+          "published": "arXiv API published 2026-06-24T15:27:23Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "DSP-SLAM++ 扩展 DSP-SLAM，目标是在真实环境中同时满足实时性、多类别支持和高保真语义对象模型。系统引入异步 mapping pipeline，缓解对象建图线程瓶颈，并针对 monocular fisheye-LiDAR 传感器组合做融合适配。论文报告在 25 Hz 多类别数据集上将最大对象处理延迟降低最高 70%，同时生成更完整细粒度形状。它对机器人操作和自动驾驶都重要，因为 object-level SLAM 只有实时且多类别，才能成为可用的交互世界模型。",
+          "methodHighlights": [
+            "asynchronous object mapping pipeline for real-time multi-class object SLAM",
+            "sensor fusion adaptations for monocular fisheye-LiDAR setups",
+            "high-fidelity semantically coherent object reconstruction in the wild"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/AUBVRL/DSP-SLAMpp",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "SLAM",
+            "object reconstruction",
+            "3D perception",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "DynaMOMA: Instantaneous Prediction of Grasp Poses for Mobile Manipulation of Dynamic Objects",
+          "authors": "Zhinan Yu, Junyan Xu, Jiazhao Zhang, Zheng Qin, Yijie Tang, Yuhang Huang, Yihan Cao, Zhiyuan Yu, Yongjun Wang, Renjiao Yi, Chenyang Zhu, Kai Xu",
+          "arxivUrl": "https://arxiv.org/abs/2606.25295",
+          "published": "arXiv API published 2026-06-24T01:58:15Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "DynaMOMA 研究移动机器人抓取动态物体时，底盘、机械臂和目标连续变化之间的协调。方法用 anchor-based diffusion model 根据历史观测预测短时、时间一致的 grasp trajectories，再把轨迹编码成 compact feature 输入 whole-body RL policy。anticipation-guided reward 会把策略目标从当前抓取观测自适应前移到预测抓取轨迹，给机器人留出提前量。它对动态抓取的启发是，将抓取预测作为 whole-body control 的显式前瞻变量，而不是只做即时反应。",
+          "methodHighlights": [
+            "anchor-based diffusion predicts short-horizon grasp trajectories",
+            "whole-body RL policy consumes trajectory features for mobile manipulation",
+            "anticipation-guided reward shifts control target toward predicted future grasp poses"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "grasping",
+            "diffusion policy",
+            "dynamic objects"
+          ]
+        },
+        {
+          "title": "RigPI: Dynamic Parameter Identification of Rigid Body via VLM-Seeded Differentiable Simulation",
+          "authors": "Xincheng He, Rongrong Zhang, Wei Jiang, Wenqiang Xu",
+          "arxivUrl": "https://arxiv.org/abs/2606.25212",
+          "published": "arXiv API published 2026-06-23T22:15:42Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "RigPI 面向机器人操作中的动态参数识别，包括自由刚体和带 revolute/prismatic joints 的多连杆物体。VLM 提供语义先验、初始化和受约束搜索空间，力矩、运动观测与可微物理仿真共同优化惯量、摩擦等参数。两阶段优化减少噪声敏感性，避免物理上不合理的解。对 articulated objects 和数字孪生而言，它把语言/视觉先验与 differentiable simulation 结合成可落地的系统辨识流程。",
+          "methodHighlights": [
+            "VLM-seeded initialization and constrained search for physical parameters",
+            "differentiable simulation refines inertial and frictional properties",
+            "handles unconstrained and multi-link rigid bodies during robot-object interaction"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "articulated objects",
+            "differentiable simulation",
+            "robot manipulation",
+            "digital twin"
+          ]
+        },
+        {
+          "title": "GRAFT: Graph-Based Affordance Transfer via Part Correspondence",
+          "authors": "Mengying Lin, Utkarsh Mishra, Ajay Mandlekar, Danfei Xu",
+          "arxivUrl": "https://arxiv.org/abs/2606.25241",
+          "published": "arXiv API published 2026-06-23T23:58:57Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "GRAFT 关注机器人如何把一个物体上的操作 affordance 迁移到未见过的新物体。它不用单纯语义检索，而是把物体表示为 part-based graphs，用部件级描述子做实例检索和部件对应，再用 vertex-level descriptors 做细粒度接触点匹配。对于新物体，系统先找功能和几何都相似的 demonstration instance，再通过点级对应传播接触点。它适合少样本操作泛化，因为真正的迁移单位是功能部件和接触几何。",
+          "methodHighlights": [
+            "part-based graph representation for object retrieval and correspondence",
+            "combines functional similarity with geometric part alignment",
+            "propagates contact points for zero-shot manipulation transfer from one demonstration"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "affordance",
+            "robot manipulation",
+            "part correspondence",
+            "3D geometry"
+          ]
+        },
+        {
+          "title": "DeformGen: Dynamics-Based Topology Augmentation for Deformable Manipulation Policy Learning",
+          "authors": "Zili Lin, Wenyao Zhang, Yuyang Zhang, Zekun Qi, Junyan Lin, Hanxin Zhu, Jiaolong Yang, Zhibo Chen, Yao Mu, Xiaokang Yang, Xin Jin, Wenjun Zeng",
+          "arxivUrl": "https://arxiv.org/abs/2606.25939",
+          "published": "arXiv API published 2026-06-24T15:15:38Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "DeformGen 针对 deformable manipulation 的数据增强问题，指出刚体式位姿扰动无法生成物理可达且拓扑合理的变形状态。方法对可变形物体施加局部物理扰动，再 forward-simulate dynamics 得到 topology-coherent states。轨迹迁移则通过 deformation-field warping，把粒子位移提升为连续空间函数，从而同步调整末端执行器轨迹。它把 state augmentation 和 behavior augmentation 绑定在同一物理过程里，对布料、绳索、软物体操作很有价值。",
+          "methodHighlights": [
+            "localized physical disturbances plus forward simulation create valid deformable states",
+            "deformation-field warping transfers manipulation trajectories across changed topology",
+            "augments state distribution and associated behavior jointly for policy learning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "deformable manipulation",
+            "simulation",
+            "policy learning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning",
+          "authors": "Yanzhe Tang, Xinyu Shao, Yuxuan Hu, Siyu Chen, Bowen Yang, Yajun Gao, Tongtong Cao, Xiu Li, Long Zeng",
+          "arxivUrl": "https://arxiv.org/abs/2606.25360",
+          "published": "arXiv API published 2026-06-24T03:45:06Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "SVP-IL 把 language-conditioned imitation learning 中的语义理解和空间控制解耦，避免端到端 VLA 把目标消歧和动作生成压在同一隐空间里。方法用 vision-language foundation model 从指令解析零样本几何 mask，并转成 Spatial Visual Prompts 注入连续动作生成器。这样给低数据模仿学习提供明确、未污染的空间梯度，尤其适合有歧义的目标选择任务。论文在 50 到 100 条示范的低数据设置和真实机器人实验中都显示出更稳定的泛化。",
+          "methodHighlights": [
+            "parses instructions into zero-shot geometric masks using vision-language foundation models",
+            "injects Spatial Visual Prompts into the action generator through lightweight feature fusion",
+            "decouples semantic target reasoning from geometric control for low-data imitation learning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "geometric grounding",
+            "imitation learning",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "AISPO: Enhancing Depth Reliability for Robotic Manipulation of Non-Lambertian Objects via Affine-Invariant Shape Prior",
+          "authors": "Zhiming Chen, Linfang Zheng, Kun Zhang, Hyung Jin Chang, Wei Zhang, Hongyu Yu, Hua Chen",
+          "arxivUrl": "https://arxiv.org/abs/2606.25503",
+          "published": "arXiv API published 2026-06-24T07:37:11Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "AISPO 解决透明和高反光物体导致 RGB-D 深度缺失或错误的问题，这些错误会直接传播到抓取规划。方法结合多尺度 RGB-D feature fusion 和 affine-invariant shape prior，不只优化平均深度误差，而是强调物理可用性和结构完整性。真实抓取实验显示，更可靠的深度显著提升非 Lambertian 物体操作成功率。对机器人三维感知而言，深度补全的评价目标应从像素精度转向规划可执行性。",
+          "methodHighlights": [
+            "affine-invariant shape prior enforces geometric consistency in depth completion",
+            "multi-scale RGB-D fusion targets transparent and specular objects",
+            "real-world grasping validates physically usable depth rather than only average accuracy"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "depth completion",
+            "robot manipulation",
+            "3D perception",
+            "transparent objects"
+          ]
+        },
+        {
+          "title": "TacVerse: A Multi-Sensor Dataset and Benchmark for Cross-Sensor Vision-Based Tactile Perception",
+          "authors": "Lan Wei, Gurmeher Khurana, Sirine Bhouri, Wenhao Hong, Zeyuan Xin, Qingzheng Cong, Wen Fan, Yanzheng Xiang, Dandan Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2606.25877",
+          "published": "arXiv API published 2026-06-24T14:22:48Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "TacVerse 是面向 vision-based tactile sensors 的跨传感器数据集和 benchmark，包含来自 7 种 VBTS 的 106,800 张触觉图像。任务覆盖形状分类、grating 分类和力回归，并评估 within-sensor、zero-shot cross-sensor transfer 与 few-shot adaptation。结果表明，不同触觉传感器之间的 domain shift 很强，尤其对细粒度纹理和力回归更敏感。MAE 预训练在跨任务和跨传感器上表现最稳定，为触觉基础表示提供了可复现实验场。",
+          "methodHighlights": [
+            "106,800 tactile images from seven vision-based tactile sensors",
+            "benchmarks within-sensor, zero-shot cross-sensor, and few-shot adaptation settings",
+            "studies self-supervised pretraining for tactile representation transfer"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "tactile perception",
+            "robot manipulation",
+            "benchmark",
+            "cross-sensor transfer"
+          ]
+        },
+        {
+          "title": "BFMTrack: Latent Sequence Optimization for Physics-Based Motion Tracking with Behavioral Foundation Models",
+          "authors": "Thomas Rupf, Agon Serifi, David Müller, Sammy Christen, Ruben Grandia, Espen Knoop, Moritz Bächer",
+          "arxivUrl": "https://arxiv.org/abs/2606.25056",
+          "published": "arXiv API published 2026-06-23T18:12:22Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "BFMTrack 让 behavioral foundation models 支持 time-varying motion tracking，而不仅是到达目标或状态奖励优化。论文提出 Latent Sequence Optimization，在仿真 rollout 中用 policy gradient 优化一整段 latent sequence，并用 temporally correlated noise 保持 latent 轨迹平滑连贯。方法不需要重新做 reward engineering，就能处理 dense tracking、sparse keyframing，并部署到真实 humanoid robot。它对 Physical AI 的启发是，大规模行为先验需要能被序列约束精确牵引，才能服务动作重建和机器人执行。",
+          "methodHighlights": [
+            "optimizes sequences of behavioral-model latents for motion tracking",
+            "simulation rollouts plus policy-gradient updates avoid task-specific reward tuning",
+            "temporally correlated noise encourages coherent latent trajectories"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "physics-based motion",
+            "humanoid robot",
+            "behavioral foundation model",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "WOLF-VLA: Whole-Body Humanoid Optimal Locomotion Framework for Vision-Language-Action Learning",
+          "authors": "Melya Boukheddimi, Omar Adjali, Daniel Sontag, Frank Kirchner",
+          "arxivUrl": "https://arxiv.org/abs/2606.25591",
+          "published": "arXiv API published 2026-06-24T08:59:59Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "WOLF-VLA 把 VLA 从常见的机械臂操作扩展到 contact-rich humanoid whole-body locomotion。作者用 whole-body optimal-control motion synthesis 构建动态可行轨迹，并生成包含环境变化、物体颜色/位置、视觉干扰和语言指令的大规模多模态数据集。训练得到的 VLA 直接从自然语言、视觉和关节轨迹生成 humanoid locomotion policy。论文承诺开放数据集、模型和仿真 benchmark，对 instruction-driven humanoid control 是有用基础设施。",
+          "methodHighlights": [
+            "optimal-control synthesis provides dynamically feasible humanoid demonstrations",
+            "multi-modal dataset spans six locomotion-related task families",
+            "trains VLA policies for language-conditioned whole-body humanoid locomotion"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "VLA",
+            "humanoid robot",
+            "locomotion",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "G2DP: Diffusion Planning with Spatio-Temporal Grid Guidance",
+          "authors": "Hang Yu, Ye Jin, Alessandro Canevaro, Julian Schmidt, Julian Jordan, Peizheng Li, Marc Kaufeld, Silvan Lindner, Johannes Betz, Wilhelm Stork",
+          "arxivUrl": "https://arxiv.org/abs/2606.26017",
+          "published": "arXiv API published 2026-06-24T16:38:55Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "G2DP 针对自动驾驶 diffusion planner 的随机性，引入 dense spatio-temporal cost volume 做推理时引导。它融合未来占用分布和 route-progress map，形成连续 safety energy functional，并把梯度直接注入 denoising loop。相比稀疏实体查询或后处理修正，这种网格引导能同时表达碰撞风险、路线推进和交互场景约束。nuPlan、interPlan 和 DeepScenario 上的闭环结果说明，扩散规划需要把物理/环境约束放进采样过程本身。",
+          "methodHighlights": [
+            "differentiable spatio-temporal cost volume guides denoising",
+            "combines probabilistic future occupancy with route-progress constraints",
+            "improves closed-loop collision avoidance and route adherence"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "diffusion planning",
+            "autonomous driving",
+            "physics-aware AI",
+            "world models"
+          ]
+        },
+        {
+          "title": "RAVEN: Long-Horizon Reasoning & Navigation with a Visuo-Spatio-Temporal Memory",
+          "authors": "Yixun Hu, Zhicheng Zheng, Lihan Zha, Chunwei Xing, Rajdeep Singh, Omar Hossain, Antonio Loquercio, Dhruv Shah",
+          "arxivUrl": "https://arxiv.org/abs/2606.25206",
+          "published": "arXiv API published 2026-06-23T21:56:41Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO, cs.AI, cs.CL",
+          "categories": "cs.RO, cs.AI, cs.CL",
+          "summary": "RAVEN 面向长期部署机器人所需的视觉-空间-时间记忆。它把视觉 embedding 连同位姿和时间存入向量数据库，并通过空间地图约束检索，用于长程问答和自然语言目标导航。相比把图像先转成 caption，直接在视觉 embedding 上检索能保留更细粒度语义，同时降低 retrieval cost。Unitree Go1 室内导航部署表明，这类 memory system 是把 VLM 接入长期具身任务的关键中间层。",
+          "methodHighlights": [
+            "stores visual embeddings with pose and time for scalable robot memory",
+            "spatial map grounds retrieval for question answering and navigation",
+            "avoids lossy captioning and supports long-horizon goal reaching"
+          ],
+          "projectUrl": "https://ravenmem.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "embodied navigation",
+            "spatio-temporal memory",
+            "VLM",
+            "robotics"
+          ]
+        },
+        {
+          "title": "Memory Retrieval in Visuomotor Policies for Long-Horizon Robot Control",
+          "authors": "Rutav Shah, Yisu Li, Femi Bello, Yuke Zhu, Roberto Martín-Martín",
+          "arxivUrl": "https://arxiv.org/abs/2606.25136",
+          "published": "arXiv API published 2026-06-23T20:07:23Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "这篇论文提出 HALO，用 attention-based memory retrieval 改善长时部分可观测环境中的 visuomotor control。作者用 VLM 先验从示范轨迹生成 memory-dependent QA，并把 video QA 目标蒸馏进策略，减少策略对历史信息的伪相关依赖。执行时则用 sparse attention 只检索最相关历史，减轻闭环错误在记忆中的累积。它对家庭机器人很实际: 长程控制不只是扩大 context window，还要让检索目标和任务因果相关。",
+          "methodHighlights": [
+            "VLM-prior distillation steers memory retrieval toward task-relevant history",
+            "joint video question-answering objective trains memory-dependent reasoning",
+            "sparse attention reduces memory drift during closed-loop control"
+          ],
+          "projectUrl": "https://robin-lab.cs.utexas.edu/HALO",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "visuomotor policy",
+            "long-horizon control",
+            "robot memory",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation",
+          "authors": "Hao Su, Yuehao Huang, Yukai Ma, Yong Liu, Jiajun Lv",
+          "arxivUrl": "https://arxiv.org/abs/2606.25497",
+          "published": "arXiv API published 2026-06-24T07:24:39Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "SAGE-Nav 把 object-goal navigation 分成异步全局语义规划和高频反应控制。LLM 负责把抽象指令拆成语义 grounded waypoints，Hierarchical Scene Graph Encoder 用关系图卷积保存语义与空间拓扑，Goal-aware Alignment-Fusion Network 则把实时感知和结构先验动态融合。i-THOR 与 RoboTHOR 结果显示，它在效率和 zero-shot generalization 上有明显提升。对三维导航研究的启发是，scene graph 不应只做离线表示，而应直接参与低层策略对齐。",
+          "methodHighlights": [
+            "LLM global planner decomposes navigation goals into semantic waypoints",
+            "hierarchical scene graph encoder preserves semantic and spatial topology",
+            "goal-aware alignment fusion connects real-time perception with graph priors"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "scene graph",
+            "embodied navigation",
+            "LLM planning",
+            "3D perception"
+          ]
+        },
+        {
+          "title": "Self-supervised Garment Dynamics with Persistent Wrinkles",
+          "authors": "Xiaoyuan Yang, Deshan Gong, Taku Komura, He Wang",
+          "arxivUrl": "https://arxiv.org/abs/2606.25065",
+          "published": "arXiv API published 2026-06-23T18:18:58Z; official announcement batch: 2026-06-25 (/list cs.GR/new); categories: cs.GR",
+          "categories": "cs.GR",
+          "summary": "这篇图形学工作把自监督神经服装仿真从纯弹性材料推进到可产生持久褶皱的 elasto-plastic dynamics。作者用 physics-inspired loss 把学习转成移动能量最小化问题，以模拟塑性带来的持续形变。由于目标 loss 会随训练变化，论文提出 curriculum learning，从纯弹性逐步过渡到弹塑性，让参数和损失共同收敛。对三维人体、虚拟试衣和机器人布料操作来说，持久褶皱是重要的物理真实感信号。",
+          "methodHighlights": [
+            "self-supervised neural garment simulator models persistent wrinkles",
+            "moving energy minimization loss mimics elasto-plastic behavior",
+            "physics-inspired curriculum transitions from elasticity to elasto-plasticity"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "garment simulation",
+            "physics-aware AI",
+            "deformable objects",
+            "3D graphics"
+          ]
+        },
+        {
+          "title": "fARfetch: Enabling Collocated AR-HRC in Large Visually Diverse Environments with VLM-Driven AR Content Adaptation",
+          "authors": "Christian Fronk, Hanting Ye, David Hunt, Miroslav Pajic, Maria Gorlatova",
+          "arxivUrl": "https://arxiv.org/abs/2606.25162",
+          "published": "arXiv API published 2026-06-23T20:51:08Z; official announcement batch: 2026-06-25 (/list cs.RO/new and cs.HC/new cross-list); categories: cs.RO, cs.CV, cs.HC",
+          "categories": "cs.RO, cs.CV, cs.HC",
+          "summary": "fARfetch 是面向大尺度户外人机协作的 AR-HRC 系统。它共享 AR headset 与机器人之间的语义环境地图，在 AR 中显示 landmark 支持 grounded go-to commands，并提供 world-in-miniature 进行路径编辑。系统还用 VLM 根据环境自动调整虚拟内容的颜色、大小和朝向，保证长距离和复杂视觉背景中的可读性。虽然属于 cs.HC 交叉，但重点是机器人协作、语义地图和具身交互，而不是普通 HCI。",
+          "methodHighlights": [
+            "shared semantic environment mapping between AR headset and robot",
+            "world-in-miniature interface for path authoring in large environments",
+            "VLM-driven AR content adaptation for legibility during human-robot collaboration"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "human-robot collaboration",
+            "AR robotics",
+            "semantic mapping",
+            "embodied interaction"
+          ]
+        },
+        {
+          "title": "Beyond a Shadow of a Doubt: Close Proximity Geometry Reconstruction Using FMCW Radar Shadow Effects",
+          "authors": "Felix de Trogoff du Boisguezennec, Benjamin Ramtoula, Daniele De Martini",
+          "arxivUrl": "https://arxiv.org/abs/2606.25829",
+          "published": "arXiv API published 2026-06-24T13:47:28Z; official announcement batch: 2026-06-25 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "这篇论文从一个很具体但有价值的几何 cue 出发: 车辆底盘会遮挡 FMCW radar 射线并形成稳定阴影。作者利用 radar return 边界与 opening angle 的解析映射，恢复近距离细长竖直物体的 3D in-plane inclination。方法不假设更广阔场景结构，在仿真和 Navtech CTS350-X 雷达实验中验证了可行性。它说明 2D rotating radar 除了定位外，也可以通过遮挡/阴影效应提供近场 3D 几何重建线索。",
+          "methodHighlights": [
+            "uses vehicle-chassis radar shadow as a geometric cue",
+            "closed-form mapping estimates 3D inclination of nearby slender objects",
+            "extends 2D rotating radar from localization toward close-range reconstruction"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D reconstruction",
+            "radar perception",
+            "autonomous systems",
+            "geometry"
+          ]
+        },
+        {
+          "title": "ARTOO-DARTU: Studying AR-HRC With AR Obstruction Mitigation During a Warehouse Task",
+          "authors": "Christian Fronk, Hanting Ye, Zhehan Qu, Maria Gorlatova",
+          "arxivUrl": "https://arxiv.org/abs/2606.25202",
+          "published": "arXiv API published 2026-06-23T21:48:49Z; official announcement batch: 2026-06-25 (/list cs.HC/new and cs.RO/new cross-list); categories: cs.HC, cs.RO",
+          "categories": "cs.HC, cs.RO",
+          "summary": "ARTOO-DARTU 研究仓储人机协作中 AR situated analytics 遮挡真实任务物体的问题。系统提供实时机器人状态、分析和控制，同时用 obstruction detection and mitigation pipeline 保护用户对真实环境的可见性。34 人研究显示，AR analytics 只有在 ODM 启用时才显著提升总体 HRC 效率，且需要真实视野的子任务速度提升更明显。这篇论文作为补充纳入，是因为它强关联机器人协作和具身交互，并没有把普通 HCI 当作 HOI。",
+          "methodHighlights": [
+            "AR-HRC system combines robot situated analytics with obstruction mitigation",
+            "warehouse picking abstraction preserves real-world identification demands",
+            "user study isolates when AR feedback improves human-robot collaboration efficiency"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "human-robot collaboration",
+            "AR robotics",
+            "embodied interaction",
+            "warehouse robotics"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-06-24",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-24",
