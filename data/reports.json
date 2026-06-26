@@ -1,6 +1,609 @@
 {
-  "updatedAt": "2026-06-25",
+  "updatedAt": "2026-06-26",
   "reports": [
+    {
+      "date": "2026-06-26",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-26",
+      "shortTitle": "PhysiFormer / RayPE / KRVF / VibeAct",
+      "summary": "最近一天命中 25 篇，补充 0 篇；物理世界模型、3DGS 几何保护和接触式机器人操作最突出。",
+      "trends": [
+        "2026-06-26 官方新公告批次里，3D/4D 表示和世界模型明显向物理可控性靠拢: PhysiFormer、Neural Voxel Dynamics、PhysEditWorld、Fast LeWorldModel、DexAC-WM 和 Hallucination in World Models 都在处理动作、几何、物理状态与长期 rollout 的一致性问题。",
+        "3DGS/NeRF 方向的关键词是几何保护和可诊断: SatSplatDiff、PanoImager、SceneStyler、Vis4GS、RayPE 和 Sculpting NeRF Geometry 分别从卫星重建、稀疏全景、风格一致性、训练可解释、射线编码和偏好优化切入。",
+        "机器人操作的热点集中在接触和物理反馈: Play2Perfect、VibeAct、Tactile-WAM、PressMimic、RelAfford6D、SSI-Policy 和 Motion Feasibility from Point Clouds 都在把触觉、压力、点云、6D affordance 或阶段结构显式注入策略。",
+        "具身数据和评测继续向真实长时程移动: OctoSense、WatchAct、RobOralScan、OmniContact 和 E-TTS 分别补多模态传感、行为 grounding、主动三维扫描、HOI 式 humanoid loco-manipulation 与测试时扩展。",
+        "最值得优先深读的是 PhysiFormer、Neural Voxel Dynamics、PhysEditWorld、KRVF、RelAfford6D、VibeAct、Tactile-WAM、RayPE、PanoImager 和 Hallucination in World Models；它们对三维重建、世界模型和 Physical AI 的共同启发是: 仅有视觉逼真不够，模型必须把几何坐标、接触、物理参数、传感来源和数据覆盖显式纳入闭环。"
+      ],
+      "topPapers": [
+        "PhysiFormer",
+        "Neural Voxel Dynamics",
+        "PhysEditWorld",
+        "KRVF",
+        "RelAfford6D",
+        "VibeAct",
+        "Tactile-WAM",
+        "RayPE",
+        "PanoImager",
+        "Hallucination in World Models"
+      ],
+      "markdownPath": "reports/arxiv/2026-06-26.md",
+      "papers": [
+        {
+          "title": "PhysiFormer: Learning to Simulate Mechanics in World Space",
+          "authors": "Yiming Chen, Yushi Lan, Andrea Vedaldi",
+          "arxivUrl": "https://arxiv.org/abs/2606.27364",
+          "published": "arXiv API published 2026-06-25T17:59:00Z; official announcement batch: 2026-06-26 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "PhysiFormer 把物理世界模型从像素空间转到世界坐标中的 3D mesh 顶点轨迹。模型以初始顶点位置、速度和材料类型为条件，用 diffusion transformer 直接采样刚体或弹性物体的未来运动。它不显式写入刚性、因果或传统仿真器约束，而是通过时间、空间和对象维度分解的 attention 学习多物体动力学。结果对机器人、图形和物理设计都有启发，因为它把可视化世界模型推进到几何坐标和材料条件下的可采样物理预测。",
+          "methodHighlights": [
+            "world-coordinate mesh trajectory diffusion",
+            "time-space-object factorized attention for multi-object mechanics",
+            "generalizes to mixed materials, real geometries, and larger object counts"
+          ],
+          "projectUrl": "https://yimingc9.github.io/physiformer",
+          "codeUrl": "https://github.com/yimingc9/PhysiFormer",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "3D physics",
+            "robotics",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Neural Voxel Dynamics: Learning Implicit 3D Physics via Volumetric Feature Advection",
+          "authors": "Zican Wang, Niloy Mitra",
+          "arxivUrl": "https://arxiv.org/abs/2606.26410",
+          "published": "arXiv API published 2026-06-24T22:06:35Z; official announcement batch: 2026-06-26 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "这篇论文同样针对视频世界模型缺少 3D 几何基础的问题，但选择从单目视频监督中自监督学习 3D 体素动力学。方法先用 monocular depth prior 将 V-JEPA 语义特征抬升到 voxel latent space，再用 Volumetric Feature Advection 学习 action-conditioned transition operator。物理状态不再是 2D 图像 token 的隐式漂移，而是在体素特征中被平流和演化。它对动态世界模型的价值在于，用被动视频也能学习保持对象永久性和长期结构稳定的隐式 3D 物理。",
+          "methodHighlights": [
+            "lifts video features into depth-grounded 3D voxel latent space",
+            "volumetric feature advection models action-conditioned physical transitions",
+            "self-supervised from video-derived signals without simulator internals"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D dynamics",
+            "world models",
+            "self-supervised learning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "PhysEditWorld: A Large-Scale Dataset Toward Physics-Editable World Models",
+          "authors": "Bin Hu, Yanwen Ma, Jiehui Huang, Ziliang Zhang, Haoning Wu, Ruicheng Zhang, Yaokun Li, Zijun Wang, Yuechen Zhang, Chun-Mei Tseng, Hanhui Li, Shengju Qian, Jun Zhou, Kaipeng Zhang, Xiaodan Liang, Jiaya Jia, Xiu Li",
+          "arxivUrl": "https://arxiv.org/abs/2606.26694",
+          "published": "arXiv API published 2026-06-25T07:27:09Z; official announcement batch: 2026-06-26 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "PhysEditWorld 是面向 physics-editable world models 的 UE5 数据集，重点把物理参数从隐式相关性变成显式可控变量。数据通过 replay-and-rendering pipeline 固定初始状态、动作序列和相机策略，只改变重力等物理配置，从而得到可归因的物理变化。它包含 12 个 cinematic 场景、100 多小时交互和 6000 万以上 rollout frames，并同步 RGB、depth、normal、audio、action traces、camera trajectory、engine states、semantic annotations 和 gravity labels。对世界模型研究而言，这是把“能生成”推进到“能物理编辑并保持一致”的基础设施。",
+          "methodHighlights": [
+            "UE5 replay paradigm isolates controllable physical parameters",
+            "multimodal rollout data with depth, normals, action traces, camera trajectories, and engine states",
+            "utility studies for gravity-faithful video generation and world understanding"
+          ],
+          "projectUrl": "https://yizhiqianbi.github.io/physeditworld/",
+          "codeUrl": "https://github.com/yizhiqianbi/physeditworld",
+          "datasetUrl": "https://yizhiqianbi.github.io/physeditworld/",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "physics-aware AI",
+            "simulation",
+            "dataset"
+          ]
+        },
+        {
+          "title": "Fast LeWorldModel",
+          "authors": "Yuntian Gao, Xiangyu Xu",
+          "arxivUrl": "https://arxiv.org/abs/2606.26217",
+          "published": "arXiv API published 2026-06-24T17:59:59Z; official announcement batch: 2026-06-26 (/list cs.LG/new); categories: cs.LG, cs.CV, cs.RO",
+          "categories": "cs.LG, cs.CV, cs.RO",
+          "summary": "Fast LeWorldModel 关注 reconstruction-free visual world model 在规划阶段的计算瓶颈。原 LeWorldModel 需要自回归地一步步 rollout 候选动作序列，规划慢且误差会随 horizon 累积。Fast-LeWM 改为 action-prefix prediction: 对动作序列前缀并行编码，直接预测不同前缀执行后的未来 latent。这样既减少规划时间，也让模型学习多步动作效果如何逐渐累积，对机器人视觉规划中的 latent world model 很实用。",
+          "methodHighlights": [
+            "action-prefix prediction replaces autoregressive latent rollout",
+            "parallel evaluation of candidate action sequences",
+            "reduces planning time and slows latent error growth over horizon"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "visual planning",
+            "robotics",
+            "latent dynamics"
+          ]
+        },
+        {
+          "title": "Hallucination in World Models is Predictable and Preventable",
+          "authors": "Nicklas Hansen, Xiaolong Wang",
+          "arxivUrl": "https://arxiv.org/abs/2606.27326",
+          "published": "arXiv API published 2026-06-25T17:38:45Z; official announcement batch: 2026-06-26 (/list cs.LG/new); categories: cs.LG, cs.CV, cs.RO",
+          "categories": "cs.LG, cs.CV, cs.RO",
+          "summary": "这篇论文把生成式世界模型的 hallucination 归因到 state-action coverage 的低覆盖区域，而不是简单归咎于模型容量。作者构建 MMBench2，包含 427 小时、210 个任务、真实动作、奖励和 live simulators，并训练 350M 参数世界模型分析错误。论文区分 perceptual、action-marginalized 和 scene-diverging 三类 hallucination，并提出能提前预测失败的轻量信号。更重要的是，这些信号还能作为采样和在线数据收集策略，帮助模型用少量新轨迹适配未见环境。",
+          "methodHighlights": [
+            "MMBench2 with actions, rewards, and live simulators",
+            "predictors for three hallucination modes",
+            "coverage-aware sampling and curiosity-style targeted data collection"
+          ],
+          "projectUrl": "https://www.nicklashansen.com/mmbench2",
+          "codeUrl": "https://github.com/nicklashansen/mmbench2",
+          "datasetUrl": "https://huggingface.co/datasets/nicklashansen/mmbench2",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robotics",
+            "benchmark",
+            "simulation"
+          ]
+        },
+        {
+          "title": "Not All Actions Are Equal: Rethinking Conditioning for Dexterous World Model",
+          "authors": "Zizhao Yuan, Zhengtu Liang, Taowen Wang, Qiwei Liang, Yichi Wang, Yunheng Wang, Yuetong Fang, Lusong Li, Zecui Zeng, Renjing Xu",
+          "arxivUrl": "https://arxiv.org/abs/2606.27325",
+          "published": "arXiv API published 2026-06-25T17:36:35Z; official announcement batch: 2026-06-26 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "DexAC-WM 指出高自由度 dexterous action 不适合被压成单一全局条件向量，因为大尺度运动和细微接触信号量级差异很大。方法把 action conditioning 结构化为动作 tokenization、local refinement 和 global modulation，保留每个维度的语义和动力学影响。它还加入语义分支，为高自由度视频预测提供 object-scene prior。对手部操作世界模型来说，这篇论文的核心信息是: 结构化动作条件本身是建模能力，不只是附加输入。",
+          "methodHighlights": [
+            "dimension-aware action tokenization for high-DoF dexterous control",
+            "local refinement plus global modulation aligns action signals with visual dynamics",
+            "semantic branch supplies object-scene priors for action-conditioned prediction"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "dexterous manipulation",
+            "action conditioning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "RayPE: Ray-Space Positional Encoding for 3D-Aware Video Generation",
+          "authors": "Minghao Yin, Jiahao Lu, Wenbo Hu, Wang Zhao, Shan Ying, Kai Han",
+          "arxivUrl": "https://arxiv.org/abs/2606.27345",
+          "published": "arXiv API published 2026-06-25T17:51:02Z; official announcement batch: 2026-06-26 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "RayPE 针对视频 diffusion transformer 的位置编码缺少 3D 场景结构这一问题。作者用 Plucker ray 的 reciprocal product 描述相机射线之间的几何关系，并把每个 token 的 6D Plucker 坐标加到 self-attention 的 query/key 中。注意力分数被分解为内容项、几何项和交叉项，让模型在视频生成中显式感知 camera rays。模块参数量小于 0.1%，可零初始化接入预训练 DiT，却提升相机可控性、跨帧 3D 一致性和视频质量。",
+          "methodHighlights": [
+            "injects per-token 6D Plucker ray coordinates into DiT attention",
+            "attention decomposes into content, geometry, and cross terms",
+            "handles heterogeneous camera-translation scales with magnitude gating and normalization"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D-aware generation",
+            "video generation",
+            "camera geometry",
+            "diffusion"
+          ]
+        },
+        {
+          "title": "PanoImager: Geometry-Guided Novel View Synthesis and Reconstruction from Sparse Panoramic Views",
+          "authors": "Zhisong Xu, Takeshi Oishi",
+          "arxivUrl": "https://arxiv.org/abs/2606.27071",
+          "published": "arXiv API published 2026-06-25T14:15:09Z; official announcement batch: 2026-06-26 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "PanoImager 解决稀疏全景图下 3D 重建的弱视差和旋转主导问题，尤其是 SfM/SLAM 难以初始化的场景。它绕过传统 SfM 初始化，结合 feed-forward pose/depth priors、geometry-conditioned diffusion view completion 和 depth-guided 3DGS optimization。方法将全景图拆成局部透视视图，并合成辅助观察来补足稀疏证据。对室内外全景建图来说，它适合作为 SLAM 初始化失败后的离线或后台几何补强模块。",
+          "methodHighlights": [
+            "SfM-free sparse panorama reconstruction",
+            "geometry-conditioned diffusion completes auxiliary views",
+            "depth-guided 3DGS optimization improves cross-view consistency"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "novel view synthesis",
+            "3D Gaussian Splatting",
+            "SLAM"
+          ]
+        },
+        {
+          "title": "SatSplatDiff: Geometry-preserving generative refinement for high-fidelity satellite Gaussian Splatting",
+          "authors": "Jiyong Kim, Shuang Song, Ronjgun Qin",
+          "arxivUrl": "https://arxiv.org/abs/2606.27223",
+          "published": "arXiv API published 2026-06-25T16:12:36Z; official announcement batch: 2026-06-26 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "SatSplatDiff 面向卫星 3D Gaussian Splatting，处理顶部视角监督不足导致建筑立面空洞和渲染质量差的问题。直接用生成模型逐视图 refinement 会带来 hallucination 和 photo-consistency 破坏，进而损伤几何。论文在 photogrammetric DSM initialization 和 2DGS shadow casting 基础上加入 monocular depth supervision、多尺度几何 refinement 和 shadow-guided generative refinement。它的重点不是单纯让图像更好看，而是在传感器一致和几何误差可控的前提下做高分辨率增强。",
+          "methodHighlights": [
+            "monocular depth supervision plus multi-scale geometric refinement",
+            "shadow-guided generative refinement preserves satellite scene geometry",
+            "reports lower geometric MAE and improved visual fidelity on IARPA2016/DFC2019"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/GDAOSU/SatSplatDiff",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "satellite reconstruction",
+            "3D reconstruction",
+            "generative refinement"
+          ]
+        },
+        {
+          "title": "Capacity-Controlled Multi-View Stylization of 3D Gaussian Splatting",
+          "authors": "Zhihao Wen, Yixin Yang, Bojian Wu, Yang Zhou, Dani Lischinski, Daniel Cohen-Or, Hui Huang",
+          "arxivUrl": "https://arxiv.org/abs/2606.26754",
+          "published": "arXiv API published 2026-06-25T08:36:50Z; official announcement batch: 2026-06-26 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "这篇工作把 3DGS 风格化中的跨视角一致性问题表述为带容量约束的局部风格匹配。传统方法在每个渲染视图独立做 2D feature matching，容易出现风格分配不稳定、多对一特征复用和视角不一致。作者用 semi-balanced optimal transport 加 column-capacity constraints 控制 style feature allocation，并加入 cross-view matching guidance 与几何正则。它适合需要可编辑但又不想牺牲场景语义结构的 3DGS 资产生产流程。",
+          "methodHighlights": [
+            "semi-balanced optimal transport for local style matching",
+            "column-capacity constraints control style allocation",
+            "cross-view guidance and geometry regularization stabilize 3DGS stylization"
+          ],
+          "projectUrl": "https://vcc2310.github.io/SceneStyler/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "multi-view consistency",
+            "3D asset editing",
+            "stylization"
+          ]
+        },
+        {
+          "title": "Vis4GS: A Visual Analytic Tool for 3D Gaussian Splatting Reconstruction",
+          "authors": "Kai-Yuan Lin, Aryabima Mandala Putra, Jui-Chi Lee, Shih-Hsuan Hung",
+          "arxivUrl": "https://arxiv.org/abs/2606.26985",
+          "published": "arXiv API published 2026-06-25T12:59:02Z; official announcement batch: 2026-06-26 (/list cs.GR/new); categories: cs.GR",
+          "categories": "cs.GR",
+          "summary": "Vis4GS 不是新的 3DGS 优化算法，而是用于理解和诊断 3DGS 重建失败的可视分析工具。它把最终渲染伪影连接到 Gaussian primitive 属性、view coverage、训练进度和 Gaussian genealogy。系统提供 Gaussian 分析视图、属性时间线、densification tree 和日志控制面板，支持 blur/needle-like artifact scoring。对 3DGS 工程化很有意义，因为它把“看最终图像调参”变成可追溯的 primitive-level 诊断流程。",
+          "methodHighlights": [
+            "links rendered artifacts to Gaussian properties and training history",
+            "view coverage and Gaussian genealogy analysis",
+            "interactive diagnosis for blur and needle-like artifacts"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D reconstruction",
+            "visual analytics",
+            "debugging"
+          ]
+        },
+        {
+          "title": "Sculpting NeRF Geometry: Human-Preference Fine-Tuning of a 3D-Aware Face GAN",
+          "authors": "Archer Moore, Mingming Gong, Liam Hodgkinson",
+          "arxivUrl": "https://arxiv.org/abs/2606.27305",
+          "published": "arXiv API published 2026-06-25T17:26:06Z; official announcement batch: 2026-06-26 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "这篇论文把 RLHF 用到 3D-aware face GAN 的 NeRF density field 上，而不是先转 mesh 再做显式表面优化。奖励模型直接读取 radiance-field density 值，不需要文本条件、mesh extraction 或多视角渲染作为中间监督。density-consistency constraint 用来保持 2D 外观尽量稳定，同时重塑 3D 几何。作为 proof of concept，它说明小规模人类偏好也可能直接塑造隐式 3D 生成模型的几何质量。",
+          "methodHighlights": [
+            "preference reward over NeRF density field",
+            "fine-tunes 3D-aware GAN without mesh or multi-view rendering supervision",
+            "density-consistency constraint trades geometry improvement against bounded appearance drift"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D generation",
+            "NeRF",
+            "RLHF",
+            "human avatar"
+          ]
+        },
+        {
+          "title": "KRVF: A Source-Aware Semantic Voxel World Representation for Edge Mobile Manipulation",
+          "authors": "Runfeng Ling",
+          "arxivUrl": "https://arxiv.org/abs/2606.26321",
+          "published": "arXiv API published 2026-06-24T19:07:42Z; official announcement batch: 2026-06-26 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "KRVF 关注移动操作机器人在边缘算力下需要怎样的本地世界模型。它把局部世界状态表示为 task-oriented voxels，编码 occupancy、color、semantic evidence、temporal freshness 和 evidence source。与重建中心的 mapping pipeline 不同，KRVF 区分 measured occupancy 与 semantic-prior hypotheses，避免深度失败时把语义猜测错误地固化进几何。系统还可渲染 map-prior depth 供感知修复，并暴露 semantic objects 和 grasp candidates 等任务查询接口。",
+          "methodHighlights": [
+            "source-aware semantic voxel representation for edge mobile manipulation",
+            "separates measured occupancy from semantic-prior hypotheses",
+            "map-prior depth rendering and task-level query operators for robot memory"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "semantic mapping",
+            "mobile manipulation",
+            "3D perception"
+          ]
+        },
+        {
+          "title": "Play2Perfect: What Matters in Dexterous Play Pretraining for Precise Assembly?",
+          "authors": "Tyler Ga Wei Lum, Kushal Kedia, C. Karen Liu, Jeannette Bohg",
+          "arxivUrl": "https://arxiv.org/abs/2606.26428",
+          "published": "arXiv API published 2026-06-24T22:39:12Z; official announcement batch: 2026-06-26 (/list cs.RO/new); categories: cs.RO, cs.AI",
+          "categories": "cs.RO, cs.AI",
+          "summary": "Play2Perfect 研究多指灵巧手在精密装配前是否应该先通过 task-agnostic play 学会通用 manipulation priors。预训练阶段让机器人在多对象、多目标上学习 grasping、in-hand reorientation 和 pose reaching，随后再 finetune 到高精度接触任务。论文系统比较 object diversity、training objective、trajectory diversity 和 goal precision 等因素。结果显示 play prior 比从零 RL 高 33 倍样本效率，并能 zero-shot sim-to-real 迁移到 0.5 mm 间隙的 tight insertion。",
+          "methodHighlights": [
+            "task-agnostic dexterous play pretraining",
+            "finetuning focuses exploration on precise contact-rich assembly",
+            "systematic analysis of diversity, objective, trajectory, and goal precision"
+          ],
+          "projectUrl": "https://play2perfect.github.io",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "dexterous manipulation",
+            "robot manipulation",
+            "sim-to-real",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "VibeAct: Vibration to Actions for Contact-Rich Reactive Robot Dexterity",
+          "authors": "Yuemin Mao, Uksang Yoo, Jean Oh, Jonathan Francis, Jeffrey Ichnowski",
+          "arxivUrl": "https://arxiv.org/abs/2606.27344",
+          "published": "arXiv API published 2026-06-25T17:50:07Z; official announcement batch: 2026-06-26 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "VibeAct 用嵌入灵巧手的压电麦克风捕捉高带宽 vibro-acoustic 接触信号，解决视觉遮挡下接触和滑移难以感知的问题。真实数据通过 teleoperation 采集，再在 calibrated digital clone 中回放，自动标注每个手指的 contact 和 slip。策略并不需要在仿真里生成原始音频，而是在真实和仿真之间共享 contact/slip 物理表示。对接触丰富的 regrasping、in-hand reorientation 和 insertion，持续滑移通道成为反应式控制的重要观测。",
+          "methodHighlights": [
+            "piezoelectric microphones provide high-bandwidth vibrotactile sensing",
+            "real recordings replayed in a calibrated digital clone for contact/slip labels",
+            "policies train on shared physical contact/slip representation instead of raw audio simulation"
+          ],
+          "projectUrl": "https://vibeact.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "dexterous manipulation",
+            "tactile perception",
+            "contact-rich control",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Tactile-WAM: Touch-Aware World Action Model with Tactile Asymmetric Attention",
+          "authors": "Siyu Wu, Linjing You, Junjie Zhu, Yaozu Liu, Changhao Zhang, Jian Liu, Weiqiang Wang, Qi Li, Jituo Li, Hengshuang Zhao",
+          "arxivUrl": "https://arxiv.org/abs/2606.26663",
+          "published": "arXiv API published 2026-06-25T06:54:56Z; official announcement batch: 2026-06-26 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "Tactile-WAM 把 tactile prediction 接进 World Action Model，但先识别了一个关键失败模式: tactile pollution。若无约束地把稀疏、局部、事件驱动的触觉 token 注入视觉动力学模型，反而会污染视频和动作预测。作者提出 Tactile Asymmetric Attention Mechanism，用 VideoClean mask 阻止 video query 访问 tactile key/value，同时让 action query 保留触觉信息，并用 touch-aware bias 调节动作 attention。它说明触觉世界模型不是简单多模态拼接，而需要非对称的信息路由。",
+          "methodHighlights": [
+            "identifies tactile pollution in touch-augmented WAMs",
+            "VideoClean mask protects visual prediction while action queries use tactile tokens",
+            "touch-aware attention bias improves contact-rich manipulation success"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "tactile perception",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "RelAfford6D: Relational 6D Affordance Graphs for Constraint-Driven Robotic Manipulation",
+          "authors": "Guodong Zhang, Qichen He, Wenyuan Xie, Shaokai Wu, Yanbiao Ji, Qiuchang Li, Bayram Bayramli, Yue Ding, Hongtao Lu",
+          "arxivUrl": "https://arxiv.org/abs/2606.27036",
+          "published": "arXiv API published 2026-06-25T13:42:26Z; official announcement batch: 2026-06-26 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "RelAfford6D 用训练自由的 Relational 6D Affordance Graph 连接自然语言指令、物体部件关系和可执行 6D 约束。系统先推断 primary interacting part 与 physical anchor 之间的语义拓扑，再用 vision foundation models 提升到 metric SE(3) poses。后续执行被写成 kinematic constraint satisfaction，机器人沿 revolute 或 prismatic manifolds 生成连续轨迹。对 articulated objects 操作来说，这种显式几何约束比孤立 contact point 或 latent affordance 更可解释、也更容易闭环修正。",
+          "methodHighlights": [
+            "relational 6D affordance graph links interactive parts and physical anchors",
+            "vision foundation models lift semantic topology to metric SE(3) poses",
+            "analytic kinematic constraints for revolute/prismatic articulated manipulation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "articulated objects",
+            "robot manipulation",
+            "affordance",
+            "3D perception"
+          ]
+        },
+        {
+          "title": "SSI-Policy: Learning Structured Scene Interfaces for Vision-Language Robotic Manipulation",
+          "authors": "Kaijun Wang, Zikai Ouyang, Xuping Wu, Jinyi Hong, Wei Pan, Haibo Lu, Jia Pan, Wei Zhang, Linfang Zheng",
+          "arxivUrl": "https://arxiv.org/abs/2606.26800",
+          "published": "arXiv API published 2026-06-25T09:38:05Z; official announcement batch: 2026-06-26 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "SSI-Policy 为低数据机器人操作构造了 Structured Scene Interface，把语义 grounding、几何结构和运动提示放在一个 RGB-only 中间表示里。SSI 同时编码 monocular depth features、language-grounded object layouts 和 instruction-conditioned 2D motion trajectories。它从 action-free video 训练，和下游控制解耦，因此少量示范就能学习策略。对 VLA finetuning 的启发是，显式场景接口可以在不依赖深度传感器的情况下保留几何和运动线索。",
+          "methodHighlights": [
+            "RGB-only Structured Scene Interface with depth, object layout, and motion cues",
+            "trainable from action-free video and robot-agnostic",
+            "improves low-demo LIBERO and real-world manipulation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "spatial grounding",
+            "3D perception"
+          ]
+        },
+        {
+          "title": "Learning Motion Feasibility from Point Clouds in Cluttered Environments",
+          "authors": "Sajid Ansari, Arthi, Girish Varma, Antony Thomas",
+          "arxivUrl": "https://arxiv.org/abs/2606.26700",
+          "published": "arXiv API published 2026-06-25T07:32:25Z; official announcement batch: 2026-06-26 (/list cs.RO/new); categories: cs.RO, cs.AI",
+          "categories": "cs.RO, cs.AI",
+          "summary": "这篇论文把 motion feasibility prediction 直接建立在 cluttered scene 的 RGB-D/point cloud 观测上，减少 sampling-based motion planner 的无效尝试。作者构建包含 88 个扫描物体、190 个 cluttered tabletop scenes 和 270 万 grasp feasibility labels 的大规模 benchmark。比较 MLP、volumetric CNN 和 point-cloud Transformer 后，最佳 GRASPFC-PTX 在 novel objects 上达到 0.996 AUROC。它适合与任务与运动规划结合，作为几何场景到可行抓取/运动判断的快速过滤器。",
+          "methodHighlights": [
+            "large benchmark with 2.7M grasp feasibility labels",
+            "raw RGB-D/point-cloud input for 7-DOF manipulation in clutter",
+            "point-cloud transformer predicts feasibility far faster than repeated SBMP attempts"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "point cloud",
+            "robot manipulation",
+            "motion planning",
+            "3D perception"
+          ]
+        },
+        {
+          "title": "PressMimic: Pressure-Guided Motion Capture and Control for Humanoid Robot Imitation",
+          "authors": "Yi Lu, Shenghao Ren, Tianyu Xiong, Zhaoxiang Li, Jiaqi Li, He Zhang, Tao Yu, Qiu Shen, Xun Cao",
+          "arxivUrl": "https://arxiv.org/abs/2606.26741",
+          "published": "arXiv API published 2026-06-25T08:24:35Z; official announcement batch: 2026-06-26 (/list cs.RO/new); categories: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "PressMimic 认为 humanoid motion imitation 不能只依赖视觉动捕和运动学 imitation，因为接触动力学缺失会造成脚滑、穿地和不稳定。它把压力作为从感知到控制的统一物理 grounding 信号。FRAPPE++ 融合 RGB 和压力来估计 3D pose 与 global motion，压力提供接触和支撑约束来消除视觉歧义。控制阶段的 pressure-supervised policy 则把压力派生信号注入 RL，使 humanoid 执行时接触模式更物理一致。",
+          "methodHighlights": [
+            "RGB-plus-pressure motion capture for 3D pose and global motion",
+            "pressure-derived contact/support constraints reduce kinematic ambiguity",
+            "pressure-supervised humanoid control improves stable contact execution"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "humanoid",
+            "3D pose",
+            "contact dynamics",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "OmniContact: Chaining Meta-Skills via Contact Flow for Generalizable Humanoid Loco-Manipulation",
+          "authors": "Runyi Yu, Xiaoyi Lin, Ji Ma, Yinhuai Wang, Koukou Luo, Jiahao Ji, Huayi Wang, Wenjia Wang, Runhan Zhang, Ping Tan, Ting Wu, Ruoli Dai, Qifeng Chen, Lei Han",
+          "arxivUrl": "https://arxiv.org/abs/2606.26201",
+          "published": "arXiv API published 2026-06-24T16:28:23Z; official announcement batch: 2026-06-26 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "OmniContact 用 contact flow 作为 humanoid loco-manipulation 的层级接口，把 key body trajectories 和 time-series binary contact signals 合在一起。低层 CF-Track 学习可复用 meta-skills，高层 CF-Gen 生成未来 contact-flow 序列以组合长时程任务。论文还收集了 OmniContact，一个基于 MoCap 的 humanoid-object interaction 语料。与纯隐式 skill embedding 相比，contact flow 更可解释，适合让 VLM 做语义分解后交给物理技能链执行。",
+          "methodHighlights": [
+            "contact flow represents body trajectories plus binary contact signals",
+            "CF-Track skill library and CF-Gen contact-flow chaining",
+            "MoCap-based HOI corpus for humanoid loco-manipulation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "humanoid",
+            "HOI",
+            "loco-manipulation",
+            "contact-rich control"
+          ]
+        },
+        {
+          "title": "RobOralScan: Learning Active Intraoral Scanning for Robotic Dental Reconstruction",
+          "authors": "Jinhyung Lee, Haeun Yun, Siwon Kim, Gihyun Baek, Sungho Moon, Sehyun Hwang, Sunghoon Im",
+          "arxivUrl": "https://arxiv.org/abs/2606.26955",
+          "published": "arXiv API published 2026-06-25T12:29:36Z; official announcement batch: 2026-06-26 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "RobOralScan 是机器人主动口内扫描系统，目标是在狭窄口腔环境里自动积累足够视角完成牙列重建。方法引入 geometric memory-based observation，将部分扫描历史累积为 tri-state geometric representation，让策略知道哪些表面还没有被充分观测。tooth-wise coverage learning 结合 coverage-aware reward 和 progressive training，改善全局覆盖和单牙覆盖均匀性。它对主动三维重建的启发是，扫描策略本身需要记忆几何覆盖，而不只是跟随当前视图。",
+          "methodHighlights": [
+            "geometric memory accumulates partial scan observations",
+            "tooth-wise coverage learning balances global and per-tooth reconstruction quality",
+            "closed-loop scanner motion policy with zero-shot sim-to-real demonstration"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "active reconstruction",
+            "robotics",
+            "3D scanning",
+            "medical robotics"
+          ]
+        },
+        {
+          "title": "OctoSense: Self-Supervised Learning for Multimodal Robot Perception",
+          "authors": "Anthony Bisulco, Jeremy Wang, Kostas Daniilidis, Randall Balestriero, Pratik Chaudhari",
+          "arxivUrl": "https://arxiv.org/abs/2606.27317",
+          "published": "arXiv API published 2026-06-25T17:30:49Z; official announcement batch: 2026-06-26 (/list cs.CV/new); categories: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "OctoSense 同时是开源多传感器平台和 59 小时时间同步机器人数据集，包含 stereo RGB、event cameras、LiDAR、thermal、IMU、RTK GPS 和 proprioception。论文用 late-fusion masked autoencoder 做多模态自监督学习，针对不同频率、延迟和噪声的传感器使用 modality-specific tokenizers。推理时缓存各模态 token，以便新测量到来时快速更新表示。它对 3D/机器人感知的价值在于，把恶劣传感条件下的深度、语义、光流、里程计等任务放进同一个真实多模态训练场。",
+          "methodHighlights": [
+            "open multimodal robot platform with RGB, event, LiDAR, thermal, IMU, GPS, and proprioception",
+            "59-hour synchronized dataset across environments and degraded sensing",
+            "late-fusion masked autoencoder with modality-specific tokenizers and cached tokens"
+          ],
+          "projectUrl": "https://abisulco.com/octosense/",
+          "codeUrl": "https://github.com/anthonytec2/OctoSense",
+          "datasetUrl": "https://huggingface.co/datasets/anthonytec2/OctoSense",
+          "priority": "高",
+          "areaTags": [
+            "robot perception",
+            "LiDAR",
+            "multimodal learning",
+            "dataset"
+          ]
+        },
+        {
+          "title": "E-TTS: A New Embodied Test-Time Scaling Framework for Robotic Manipulation",
+          "authors": "Wen Ye, Peiyan Li, Tingyu Yuan, Yuan Xu, Xiangnan Wu, Chaoyang Zhao, Jing Liu, Nianfeng Liu, Yan Huang, Liang Wang",
+          "arxivUrl": "https://arxiv.org/abs/2606.27268",
+          "published": "arXiv API published 2026-06-25T16:50:21Z; official announcement batch: 2026-06-26 (/list cs.RO/new); categories: cs.RO, cs.AI",
+          "categories": "cs.RO, cs.AI",
+          "summary": "E-TTS 将 test-time scaling 引入 embodied manipulation，并把 reasoning scaling 与 action scaling 统一在闭环迭代中。框架保存历史上下文，用 vision-language verifiers 对 reasoning-action joint samples 成对评分。与 open-loop TTS 不同，它会生成反馈并迭代 refine 候选动作，强调长时程任务中的历史信息。它的实用意义在于不重新收集专家数据、不重训 base VLA，也能在多 benchmark、多 embodiment 上提升执行成功率。",
+          "methodHighlights": [
+            "history-aware reasoning-action joint sampling and scoring",
+            "vision-language verifiers drive closed-loop test-time refinement",
+            "plug-and-play across multiple VLA models and embodiments"
+          ],
+          "projectUrl": "https://27yw.github.io/E-TTS-Web/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "embodied AI",
+            "VLA",
+            "robot manipulation",
+            "test-time scaling"
+          ]
+        },
+        {
+          "title": "WatchAct: A Benchmark for Behavior-Grounded Robot Manipulation",
+          "authors": "Baiqi Li, Ce Zhang, Yu Fang, Yue Yang, Shangzhe Li, Mingyu Ding, Gedas Bertasius",
+          "arxivUrl": "https://arxiv.org/abs/2606.26443",
+          "published": "arXiv API published 2026-06-24T23:13:56Z; official announcement batch: 2026-06-26 (/list cs.RO/new); categories: cs.RO, cs.AI, cs.CV",
+          "categories": "cs.RO, cs.AI, cs.CV",
+          "summary": "WatchAct 评估机器人能否从观察到的人类行为视频中理解发生了什么、意图是什么，以及场景如何被改变。每个样本把真实 human-action video、语言指令、对齐的 simulator scene 和可执行 LIBERO task 绑定在一起。3000 个长时程实例覆盖 event grounding、procedural reasoning、implicit intent inference 和 episodic reasoning。它对 HOI/机器人任务理解的价值在于，把人类行为观察转化为可复现实验中的计划推理与策略执行评测。",
+          "methodHighlights": [
+            "pairs human-action videos with aligned simulator scenes and executable LIBERO tasks",
+            "disentangled evaluation of video-to-plan reasoning, policy execution, and full pipeline success",
+            "3,000 long-horizon behavior-grounded manipulation instances"
+          ],
+          "projectUrl": "https://baiqi-li.github.io/watchact_page/",
+          "codeUrl": "https://github.com/Baiqi-Li/WatchAct",
+          "datasetUrl": "https://huggingface.co/datasets/BaiqiL/WatchAct",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "human-object interaction",
+            "benchmark",
+            "embodied AI"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-06-25",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-25",
