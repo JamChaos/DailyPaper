@@ -1,6 +1,818 @@
 {
-  "updatedAt": "2026-06-29",
+  "updatedAt": "2026-06-30",
   "reports": [
+    {
+      "date": "2026-06-30",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-30",
+      "shortTitle": "VLK / L2D2-GS / KiloGS-SLAM / ViPSim",
+      "summary": "最近一天命中 34 篇，补充 0 篇；3DGS 地图、具身世界模型和机器人几何接口最突出。",
+      "trends": [
+        "2026-06-30 官方公告批次里，3D Gaussian Splatting 从单纯 novel view synthesis 继续向可维护地图、语义可查询场景、动态 4D 表示和真实机器人闭环推进：L2D2-GS、KiloGS-SLAM、GaussDet、CubifyGS、MyGO-Splat、StereoGS、Graph-GSReg 和 VCS-SLAM 都在解决长期尺度、稀疏视图、语义一致和地图复用问题。",
+        "世界模型和仿真评测的主线更偏“可执行物理”：CrashTwin 用多智能体碰撞检验生成式世界模型是否遵守物理，ViPSim 把 visual space 与 parameter space 协同起来做长时程具身 rollout，OWMDrive 用 4D occupancy world model 为端到端驾驶规划提供未来先验。",
+        "机器人方向突出“几何接口进入策略”：VLK 用 3DGS 重建场景合成 humanoid loco-manipulation 监督，ZR-0 用 dense embodied chain-of-thought 对齐跨 embodiment VLA，OpenSPM、SPARK、Event-VLA、YOTO 和 DCGrasp 分别从空间记忆、锚点 keypoint、事件相机、触觉和距离场抓取补上低层几何约束。",
+        "HOI、手物交互和 articulated objects 也很密集：CoGS 与 IMU-HOI 强调人-物交互中的组件解耦和接触推理，EPIC-Contact/HOPformer 将 in-the-wild egocentric 手物接触标注推到 3D pose 层面，UnfoldArt 则把 text/image 到 articulated 3D object recovery 做成 agentic debate。",
+        "最值得优先深读的是 VLK、L2D2-GS、KiloGS-SLAM、ViPSim、GaussDet、CubifyGS、ZR-0、CoGS、CrashTwin、UnfoldArt 和 EPIC-Contact。它们的共同启发是：三维表示正在从“可看”走向“可问、可维护、可模拟、可规划、可接触”。"
+      ],
+      "topPapers": [
+        "VLK",
+        "L2D2-GS",
+        "KiloGS-SLAM",
+        "ViPSim",
+        "GaussDet",
+        "CubifyGS",
+        "ZR-0",
+        "CoGS",
+        "CrashTwin",
+        "UnfoldArt",
+        "EPIC-Contact"
+      ],
+      "markdownPath": "reports/arxiv/2026-06-30.md",
+      "papers": [
+        {
+          "title": "VLK: Learning Humanoid Loco-Manipulation from Synthetic Interactions in Reconstructed Scenes",
+          "authors": "Yen-Jen Wang, Jiaman Li, Sirui Chen, Takara E. Truong, Pei Xu, Pieter Abbeel, Rocky Duan, Koushil Sreenath, Angjoo Kanazawa, Carmelo Sferrazza, Guanya Shi, Karen Liu",
+          "arxivUrl": "https://arxiv.org/abs/2606.30645",
+          "published": "arXiv API published 2026-06-29T17:59:55Z; official announcement batch: 2026-06-30 (/list cs.RO/new, cs.AI/new, cs.GR/new); categories: cs.RO, cs.AI, cs.GR, eess.SY",
+          "categories": "cs.RO, cs.AI, cs.GR, eess.SY",
+          "summary": "VLK 针对 humanoid loco-manipulation 缺少“第一视角图像、语言指令、机器人可执行轨迹”同步数据的问题，用 3DGS 重建室内场景自动合成监督。系统在重建场景中生成导航与物体交互轨迹，再离线渲染 egocentric observations，得到 48K 条 vision-language-kinematics paired trajectories。训练出的策略预测短时程全身运动，再由 whole-body tracker 转成 Unitree G1 的真实动作。它的核心价值是把三维重建资产直接变成 humanoid policy learning 的数据引擎。",
+          "methodHighlights": [
+            "3DGS reconstructed metric indoor scenes for synthetic supervision",
+            "vision-language-kinematics trajectory generation without human intervention",
+            "whole-body tracker bridges predicted kinematics to physical humanoid actions"
+          ],
+          "projectUrl": "https://vision-language-kinematics.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "humanoid",
+            "loco-manipulation",
+            "robotics",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "L2D2-GS: Learning to Densify for Feedforward Dynamic Gaussian Scene Reconstruction",
+          "authors": "Zetian Song, Chenming Wu, Junnan Liu, Chitian Sun, Liangliang He, Hangjun Ye, Jiaqi Zhang, Siwei Ma, Wen Gao",
+          "arxivUrl": "https://arxiv.org/abs/2606.29374",
+          "published": "arXiv API published 2026-06-28T12:51:17Z; official announcement batch: 2026-06-30 (/list cs.CV/new, cs.GR/new); categories: cs.CV, cs.GR",
+          "categories": "cs.CV, cs.GR",
+          "summary": "L2D2-GS 面向自动驾驶仿真和大规模世界建模中的动态城市环境重建，试图摆脱 per-scene 3DGS optimization 的高成本。它把 feed-forward reconstruction 改写为迭代优化和 densification 过程，而不是一次性回归所有 Gaussian 参数。自监督 densification policy 用全局重建收益作为局部 primitive 生成的奖励，几何正则则减少早期伪影导致的坏局部最优。论文在 PandaSet 和 Waymo 上强调更少 primitives 下的高保真与 zero-shot 泛化。",
+          "methodHighlights": [
+            "self-supervised densification policy driven by reconstruction gains",
+            "iterative feed-forward optimization instead of one-shot Gaussian regression",
+            "geometric reparameterization regularizes early dynamic-scene artifacts"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "4D reconstruction",
+            "world models",
+            "autonomous driving"
+          ]
+        },
+        {
+          "title": "Open-Vocabulary and Referring Segmentation for 3D Gaussians Using 2D Detectors",
+          "authors": "Jameel Hassan, Yasiru Ranasinghe, Vishal Patel",
+          "arxivUrl": "https://arxiv.org/abs/2606.30638",
+          "published": "arXiv API published 2026-06-29T17:58:41Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "这篇论文提出 GaussDet，把 3D Gaussian scene 的开放词汇分割从 dense CLIP distillation 转向多视角 2D detector 投票。方法先学习 Gaussian instance features，把场景拆成 3D instance groups，再渲染这些 group 并聚合来自 2D open-vocabulary/referring detectors 的语义证据。View-Aggregated Semantic Label Distribution 用多视角一致性抑制错误标签。对 Embodied AI 来说，它让 3DGS 地图能响应复杂 referring expression，而不只支持简单名词查询。",
+          "methodHighlights": [
+            "3D instance grouping over Gaussian primitives",
+            "multi-view semantic voting from 2D open-vocabulary detectors",
+            "zero-shot referring-expression grounding on 3DGS scenes"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "open-vocabulary perception",
+            "scene understanding",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "Robust and Efficient Monocular 3D Gaussian SLAM for Kilometer-Scale Outdoor Scenes",
+          "authors": "Sicheng Yu, Dongxu Shen, Beizhen Zhao, Guanzhi Ding, Hao Wang",
+          "arxivUrl": "https://arxiv.org/abs/2606.30436",
+          "published": "arXiv API published 2026-06-29T15:12:18Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "KiloGS-SLAM 处理 monocular 3DGS SLAM 在公里级室外场景中的两个瓶颈：长程 pose tracking 脆弱和 Gaussian map 内存膨胀。它使用 motion-adaptive hybrid tracking，在 Essential matrix、PnP 和按需 foundation model rescue 之间切换。mapping 端引入 lifecycle-managed Gaussian strategy，用 chunk-based multi-view densification 与 pruning 控制冗余。它对机器人/自动驾驶部署很重要，因为它把 3DGS SLAM 拉到 10K+ frames 的真实规模。",
+          "methodHighlights": [
+            "motion-adaptive hybrid tracking with E-matrix, PnP, and foundation-model rescue",
+            "lifecycle-managed Gaussian mapping with chunk densification and pruning",
+            "kilometer-scale monocular 3DGS SLAM on a single GPU"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "SLAM",
+            "3D Gaussian Splatting",
+            "3D reconstruction",
+            "robotics"
+          ]
+        },
+        {
+          "title": "RAGA: Real Time Ray Traced Gaussian Shadow Casting for 3DGS Avatar-Scene Interaction",
+          "authors": "Aymen Mir, Riza Alp Guler, Jian Wang, Peter Wonka, Bing Zhou, Gerard Pons-Moll",
+          "arxivUrl": "https://arxiv.org/abs/2606.29329",
+          "published": "arXiv API published 2026-06-28T10:55:32Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "RAGA 关注 3DGS avatar 放入已有 3DGS scene 后的阴影物理合理性，尤其是多人和 avatar-object interaction。它不重建 mesh，而是在 Gaussian space 中对 shadow ray 做 exact ray-Gaussian line integral。为减少服装形变带来的 temporal variance，论文还设计 avatar proxy representation。CUDA 和 NVIDIA OptiX 实现约 50 FPS，说明 3DGS 动态交互不一定要退回 mesh 才能得到可信阴影。",
+          "methodHighlights": [
+            "exact ray-Gaussian line integral for shadow weights",
+            "mesh-free shadow casting in Gaussian space",
+            "avatar proxy stabilizes shadows under animation deformation"
+          ],
+          "projectUrl": "https://miraymen.github.io/raga/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "avatar",
+            "human-object interaction",
+            "neural rendering"
+          ]
+        },
+        {
+          "title": "CubifyGS: Object-Centric 3D Gaussian Splatting for Lifelong Dynamic Scene Maintenance",
+          "authors": "Bohan Ren, Dianyi Yang, Shiyang Liu, Yu Gao, Jiadong Tang, Zhilin Lai, Yi Yang, Mengyin Fu",
+          "arxivUrl": "https://arxiv.org/abs/2606.28720",
+          "published": "arXiv API published 2026-06-27T04:00:55Z; official announcement batch: 2026-06-30 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "CubifyGS 面向机器人长期场景维护中的刚体物体重排问题。它把 movable instances 建模为 reusable Gaussian assets，通过出现/消失检测、asset retrieval、刚体变换和 explicit pruning 更新地图，而不是对 primitive 被动重优化。事件触发的 adaptive optimization 只在受影响区域补几何空洞和局部 photometric mismatch。它的价值在于把 3DGS map 从一次性重建变成可维护的对象级资产库。",
+          "methodHighlights": [
+            "object-level Gaussian assets for rearranged scenes",
+            "appearance/disappearance detection plus rigid asset retrieval",
+            "event-triggered adaptive optimization for local map repair"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "scene maintenance",
+            "robotics",
+            "dynamic mapping"
+          ]
+        },
+        {
+          "title": "DR-GS: Physically-Based Deformable and Relightable 2D Gaussians",
+          "authors": "Jiaxin Li, Tong Wu, Yi Wei, Tailin Wu, Li Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2606.29379",
+          "published": "arXiv API published 2026-06-28T13:03:13Z; official announcement batch: 2026-06-30 (/list cs.CV/new, cs.AI/new, cs.GR/new); categories: cs.CV, cs.AI, cs.GR",
+          "categories": "cs.CV, cs.AI, cs.GR",
+          "summary": "DR-GS 解决 GS deformable object 中 illumination baked into texture 和 post-reconstruction material editing 困难的问题。它把 physically-based inverse rendering、relighting 和 deformation-aware manipulation 统一到一个 Gaussian pipeline 中。通过显式解耦 geometry、illumination 和 material，系统可以在形变和光照变化下保持反射与高光一致。对可编辑 3D asset 生成而言，这篇把“可渲染”推进到“可改材质、可换光、可形变”。",
+          "methodHighlights": [
+            "disentangled geometry, illumination, and material Gaussian representation",
+            "physically based inverse rendering for deformable objects",
+            "post-reconstruction relighting and material editing"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "inverse rendering",
+            "3D generation",
+            "physics-aware AI"
+          ]
+        },
+        {
+          "title": "Occlusion-Robust Multi-Object Decoupling for Physics-Based Interaction",
+          "authors": "Xin Dong, Wenfeng Deng, Yansong Tang",
+          "arxivUrl": "https://arxiv.org/abs/2606.29303",
+          "published": "arXiv API published 2026-06-28T09:50:46Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "这篇论文把多物体稀疏视角重建中的 occlusion coupling 视为 physics-based interaction 的前置障碍。方法以 3DGS 为基础，用 SAM2-trained segmentation field 得到粗实例划分，再用 joint SDS 结合 reference-view supervision、2D/3D diffusion priors 补全碎片几何。它还加入 intra-object 和 inter-object similarity 等 geometry-aware priors。输出是无需手工 mask 的 simulation-ready 多物体资产，可接 Material Point Method 做物理交互。",
+          "methodHighlights": [
+            "mask-free sparse-view multi-object decoupling",
+            "joint SDS with 2D and 3D diffusion priors",
+            "simulation-ready object reconstruction for MPM interaction"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "object interaction",
+            "Physical AI",
+            "simulation"
+          ]
+        },
+        {
+          "title": "FastPano3D: Feed-Forward Indoor Panoramic 3D Reconstruction from a Single Image",
+          "authors": "Jianqiang Li, Liumei Zhang, Wenjia Guo, Tianlong Feng, Yongzhi Liao, Di Lu, Hanchi Ren, Jingjing Deng",
+          "arxivUrl": "https://arxiv.org/abs/2606.30352",
+          "published": "arXiv API published 2026-06-29T14:23:12Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "FastPano3D 从单张 panoramic image 直接生成 renderable 3D Gaussian indoor scene。它针对 equirectangular projection distortion 和空间不均匀特征分布，设计 lightweight feature encoder、adaptive Gaussian sampling 和 point-cloud-guided refinement。相比需要多视图监督或 test-time optimization 的方法，它强调秒级前向推理，并报告可比 NeRF/3DGS 的渲染质量。它适合关注快速室内 digital twin 初始化的读者。",
+          "methodHighlights": [
+            "single-panorama feed-forward Gaussian scene reconstruction",
+            "adaptive Gaussian sampling for equirectangular distortion",
+            "point-cloud-guided refinement without test-time optimization"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D reconstruction",
+            "3D Gaussian Splatting",
+            "indoor scenes",
+            "feed-forward reconstruction"
+          ]
+        },
+        {
+          "title": "Training Vision-Language-Action Models with Dense Embodied Chain-of-Thought Supervision",
+          "authors": "Haoyang Li, Guanlin Li, Youhe Feng, Chen Zhao, Zhuoran Wang, Yang Li, Qizhe Wei, Shifeng Bao, Haitao Shen, Yihan Zhao, Tong Yang, Jing Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2606.30552",
+          "published": "arXiv API published 2026-06-29T16:48:48Z; official announcement batch: 2026-06-30 (/list cs.RO/new, cs.CV/new); categories: cs.RO, cs.CV",
+          "categories": "cs.RO, cs.CV",
+          "summary": "ZR-0 认为跨 embodiment VLA 的低层动作空间差异很大，但 scene perception、object identification、task planning 和 sub-task decomposition 这些高层认知过程可共享。它用 dense Embodied Chain-of-Thought supervision 训练 2.6B end-to-end VLA，把预训练 VLM 的结构化推理和 DiT action expert 用 cross-attention 耦合。推理时可以跳过 ECoT generation，不牺牲性能。ProcCorpus-60M 覆盖约 1000 小时、400K+ trajectories，使这篇成为今天机器人策略数据规模最大的工作之一。",
+          "methodHighlights": [
+            "dense ECoT supervision for cross-embodiment representation alignment",
+            "dual-stream VLM plus flow-matching action expert",
+            "ProcCorpus-60M with dense frame-level embodied reasoning annotations"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/RUCKBReasoning/ZR-0",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "robotics",
+            "embodied AI",
+            "manipulation"
+          ]
+        },
+        {
+          "title": "Learning Efficient 4D Gaussian Representations from Monocular Videos with Flow Splatting",
+          "authors": "Shengjun Zhang, Jinzhao Li, Xin Fei, Yueqi Duan",
+          "arxivUrl": "https://arxiv.org/abs/2606.29976",
+          "published": "arXiv API published 2026-06-29T08:50:27Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Flow Splatting 处理 monocular video 动态 3D scene reconstruction 中训练慢、渲染慢和 per-frame 4D volume 内存大的问题。它给 4D Gaussian volume 加上 time-varying means/covariances，并构造 velocity field，使 conventional splatting 可以渲染 optical flow 来监督动态学习。核心是把 dense dynamic information 用 flow 形式直接接入 4DGS 优化。它适合动态场景、移动相机和低资源 4D 重建方向。",
+          "methodHighlights": [
+            "velocity-field construction over time-varying 4D Gaussians",
+            "flow rendering supervises monocular dynamic reconstruction",
+            "efficient alternative to deformation-field or per-frame 4D-volume pipelines"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "4D reconstruction",
+            "3D Gaussian Splatting",
+            "monocular video",
+            "dynamic scenes"
+          ]
+        },
+        {
+          "title": "Scenes as Objects, Not Primitives: Instance-Structured 3D Tokenization from Unposed Views",
+          "authors": "Mijin Yoo, In Cho, Subin Jeon, Jiwoo Lee, Eunbyung Park, Seon Joo Kim",
+          "arxivUrl": "https://arxiv.org/abs/2606.29513",
+          "published": "arXiv API published 2026-06-28T17:21:45Z; official announcement batch: 2026-06-30 (/list cs.CV/new, cs.GR/new); categories: cs.CV, cs.GR",
+          "categories": "cs.CV, cs.GR",
+          "summary": "Instok3D 把 feed-forward 3D reconstruction 的输出从无结构 points/Gaussians 改成 instance-structured 3D token groups。每组 token 同时包含 instance token 和 anchor tokens，前者编码对象身份，后者编码局部几何与外观，并解码为 3D Gaussians。这样对象实例成为表示的原生接口，而不是后处理分割结果。对机器人、编辑和场景生成而言，这种 object-centric tokenization 比 primitive cloud 更可用。",
+          "methodHighlights": [
+            "instance-structured 3D token groups from unposed multi-view images",
+            "two-level instance and anchor token factorization",
+            "object-centric Gaussian decoding for reconstruction, segmentation, and manipulation"
+          ],
+          "projectUrl": "https://yoomimi.github.io/instok3d",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "3D Gaussian Splatting",
+            "object-centric representation",
+            "scene understanding"
+          ]
+        },
+        {
+          "title": "CoGS: Compositional Dynamic Human-Object Scenes Gaussian Splatting from Monocular Video",
+          "authors": "Jerrin Bright, John Zelek",
+          "arxivUrl": "https://arxiv.org/abs/2606.28820",
+          "published": "arXiv API published 2026-06-27T09:10:22Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "CoGS 面向 monocular human-object interaction scene reconstruction，问题在于人、物体和背景共享像素但运动模型不同。它将视频拆成 articulated human、rigid object field 和 static scene field 三个协同分支，并用分阶段优化避免运动泄漏。human 分支借助 canonical prior 补全很少被观察到的区域，object 分支由估计轨迹驱动。相比一体化动态 radiance field，它更适合为机器人学习构建可解释 HOI 资产。",
+          "methodHighlights": [
+            "compositional Gaussian branches for human, object, and static scene",
+            "six-stage optimization to prevent motion leakage",
+            "monocular human-object interaction reconstruction with articulated and rigid priors"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "3D Gaussian Splatting",
+            "4D reconstruction"
+          ]
+        },
+        {
+          "title": "UniTriSplat: A Unified 3D Gaussian Splatting Framework with Uniform Spherical Rasterization for Universal Cameras",
+          "authors": "Yipeng Zhu, Huajian Huang, Tristan Braud, Sai-Kit Yeung",
+          "arxivUrl": "https://arxiv.org/abs/2606.29794",
+          "published": "arXiv API published 2026-06-29T05:14:48Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "UniTriSplat 解决 3DGS 在 perspective、fisheye、omnidirectional 等异构相机上 rasterization 不一致的问题。它把 Gaussian splatting reformulate 到 unit sphere，并用 HEALPix 的 equal-area property 构建和输入角分辨率对齐的 spherical grid。forward rendering 和 gradient propagation 都在 spherical radian domain 中完成。对机器人全景相机和 VR/AR 多相机系统，它提供了更统一的 3DGS 基础设施。",
+          "methodHighlights": [
+            "HEALPix-based uniform spherical rasterization",
+            "camera-agnostic Gaussian rendering and gradients",
+            "HEALPix-aware perceptual loss for full-FoV reconstruction"
+          ],
+          "projectUrl": "https://yipengzhu0809.github.io/UniTriSplat/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "universal cameras",
+            "panoramic reconstruction",
+            "neural rendering"
+          ]
+        },
+        {
+          "title": "OpenSPM: An Environment-Transferable Robotic Key Spatial Pose Memory and Closed-Loop High-Frequency Flow-Matching Action Generation Model",
+          "authors": "Iok Tong Lei, Qingchen Xie, Yifan Wang, Yap Ying Jie, Zhidong Deng",
+          "arxivUrl": "https://arxiv.org/abs/2606.29936",
+          "published": "arXiv API published 2026-06-29T08:12:58Z; official announcement batch: 2026-06-30 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "OpenSPM 针对开放环境 tabletop manipulation 中语义泛化和精确几何执行之间的断层。系统先用 semantically conditioned 3D perception 与 Kalman filtering 跟踪连续 6D poses，再从人类 demonstrations 中提取 object-centric key spatial poses 作为 transferable memory。推理时检索相关 spatial pose memory，并用 closed-loop high-frequency flow-matching action generation 执行动作。它不是端到端替换 VLA，而是把明确几何记忆接到物理执行层。",
+          "methodHighlights": [
+            "semantically conditioned 3D pose tracking",
+            "transferable object-centric spatial pose memory from demonstrations",
+            "closed-loop high-frequency flow-matching action generation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robotics",
+            "manipulation",
+            "spatial memory",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "MyGO-Splat: Multi-Objective Closed-Loop Geometric Feedback for RGB-Only Gaussian SLAM",
+          "authors": "Fan Zhu, Ziyu Chen, Zhenjun Zhao, Zhisong Xu, Hui Zhu, Mingrui Li, Chunmao Jiang, Javier Civera",
+          "arxivUrl": "https://arxiv.org/abs/2606.29738",
+          "published": "arXiv API published 2026-06-29T03:22:06Z; official announcement batch: 2026-06-30 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "MyGO-Splat 关注 RGB-only Gaussian SLAM 的 scale ambiguity 和开环几何漂移。它从 Gaussian map 中 analytically rasterize pixel-wise depth 和 surface normals，让已优化地图反过来监督 camera pose optimization。Scale-aware adaptive alignment 将 foundation-model depth 投到全局 Gaussian space 中，形成自校正的 scale feedback。它与 KiloGS-SLAM 形成互补：一个强调公里级，一个强调闭环几何反馈。",
+          "methodHighlights": [
+            "closed-loop depth and normal feedback from Gaussian maps",
+            "scale-aware adaptive alignment of monocular depth priors",
+            "multi-objective tracking and mapping correction for RGB-only SLAM"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "SLAM",
+            "3D Gaussian Splatting",
+            "robotics",
+            "geometry"
+          ]
+        },
+        {
+          "title": "Ground4D: Consistency-Aware 4D Reconstruction from Monocular Video",
+          "authors": "Qing Zhao, Weijian Deng, Pengxu Wei, Liang Lin",
+          "arxivUrl": "https://arxiv.org/abs/2606.28828",
+          "published": "arXiv API published 2026-06-27T09:27:42Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Ground4D 处理单目视频学习 4D scene representation 时几何随时间漂移的问题。动态 3DGS 往往通过 photometric optimization 获得好渲染，但不显式保证跨时间的几何一致。论文引入 consistency-aware 约束来同时服务 dynamic novel-view synthesis 和 faithful geometry。它适合与 Flow Splatting 对读：一个从 flow 监督动态，一个强调长期几何一致。",
+          "methodHighlights": [
+            "consistency-aware monocular 4D reconstruction",
+            "dynamic novel-view synthesis with geometry preservation",
+            "regularization against temporal drift in dynamic Gaussian scenes"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "4D reconstruction",
+            "monocular video",
+            "3D Gaussian Splatting",
+            "dynamic scenes"
+          ]
+        },
+        {
+          "title": "A Physics-Grounded Benchmark for Multi-Agent Dynamics in World Models",
+          "authors": "Tianjian Chen, Jiaqi Xie, Yuyang Hu, Zhenyang Li, Zihao Wang, Wenjun Zeng, Yixin Zhu, Siyuan Huang",
+          "arxivUrl": "https://arxiv.org/abs/2606.28757",
+          "published": "arXiv API published 2026-06-27T06:13:35Z; official announcement batch: 2026-06-30 (/list cs.CV/new, cs.RO/new); categories: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "这篇论文提出 CrashTwin，用多智能体碰撞场景评估 world model 的物理可信度，而不只看视觉真实度和语义对齐。论文指出生成式世界模型可能在 rare but safety-critical interactions 中生成看似合理但物理错误的 rollout。CrashTwin 结合可控碰撞数据、物理指标和从视频 rollout 提取 metric kinematics 的流程。它对自动驾驶、机器人仿真和 Physical AI 的意义是把 world model benchmark 拉回可验证物理。",
+          "methodHighlights": [
+            "physics-grounded evaluation for multi-agent collision dynamics",
+            "CrashTwin dataset with controllable safety-critical interactions",
+            "metrics beyond visual fidelity for world-model rollouts"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "physics-aware AI",
+            "autonomous driving",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "ViPSim: Collaborating Visual and Parameter Spaces for Consistent Long-Horizon Embodied World Models",
+          "authors": "Longyu Chen, Heng Li, Wei Yang, Manqi Zhao, Dongsheng Jiang",
+          "arxivUrl": "https://arxiv.org/abs/2606.28804",
+          "published": "arXiv API published 2026-06-27T08:18:09Z; official announcement batch: 2026-06-30 (/list cs.CV/new, cs.RO/new); categories: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "ViPSim 认为 embodied world models 的长时程不稳定来自低维动作与高维视频之间的 representation gap。它把 Visual Space 定义为显式空间先验域，包含 end-effector pose projection、camera perspective、depth-informed geometry 等；Parameter Space 则承载动作和物理/任务参数。两者协同减少 trajectory drift 和 robot-object interaction inconsistency。对 VLA evaluation 而言，它把世界模型从纯视频生成拉向 action-grounded simulator。",
+          "methodHighlights": [
+            "collaboration between visual priors and low-dimensional parameter spaces",
+            "depth and end-effector spatial priors for long-horizon rollouts",
+            "embodied world model aimed at VLA evaluation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "embodied AI",
+            "robotics",
+            "simulation"
+          ]
+        },
+        {
+          "title": "Sequential Planning via Anchored Robotic Keypoints",
+          "authors": "Bryce Grant, Aryeh Rothenberg, Logan Senning, Zonghe Chua, Zach Patterson, Peng Wang",
+          "arxivUrl": "https://arxiv.org/abs/2606.30613",
+          "published": "arXiv API published 2026-06-29T17:48:01Z; official announcement batch: 2026-06-30 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "SPARK 是 training-free neurosymbolic manipulation system，用 anchored robotic keypoints 做顺序规划。系统让一个 Gemini call 生成 typed behavior tree，低层 primitives 内含 motion、grasping 和 depth geometry；另一个调用用于提出多样 perception prompts。它在 LIBERO-PRO position/task cells 上显著超过反复重查 LLM 的 code-generation agent。值得关注的是，它把 LLM 预算从每步重规划转移到鲁棒 perception 和几何锚点。",
+          "methodHighlights": [
+            "anchored robotic keypoints as stable manipulation references",
+            "typed behavior tree over reusable low-level primitives",
+            "training-free neurosymbolic planning with perception prompt alternatives"
+          ],
+          "projectUrl": "https://cwru-aism.github.io/spark-page/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "robotics",
+            "manipulation",
+            "spatial reasoning",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "StereoGS: Sparse-View 3D Gaussian Splatting via Stereo Priors",
+          "authors": "Wenhao Yuan, Yiyuan Ge, Deli Cai",
+          "arxivUrl": "https://arxiv.org/abs/2606.30545",
+          "published": "arXiv API published 2026-06-29T16:45:57Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "StereoGS 处理 sparse-view 3DGS 容易过拟合和单目深度先验尺度不一致的问题。它在优化中构造 virtual stereo pairs，并用 foundation stereo model 做 Stereo Depth Regularization，从而引入 absolute scale 和 binocular-consistent structures。Gradient-Aware Opacity Decay 用来抑制冗余 primitives 和过拟合。对稀疏视图重建而言，这篇比单纯单目 depth prior 更强调跨视角尺度闭合。",
+          "methodHighlights": [
+            "virtual stereo pairs for sparse-view 3DGS optimization",
+            "stereo depth regularization with absolute scale consistency",
+            "gradient-aware opacity decay to reduce overfitting"
+          ],
+          "projectUrl": "https://stringerywh00.github.io/StereoGS_project_page/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "sparse-view reconstruction",
+            "stereo",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "Event-VLA: Action-Conditioned Event Fusion for Robust Vision-Language-Action Model",
+          "authors": "Jiaxin Liu, Xun Xu, Zhenhao Zhang, Hanqing Wang, Ruiqi Chen, Shi Chang, Weiyu Guo, Laurent Kneip",
+          "arxivUrl": "https://arxiv.org/abs/2606.29384",
+          "published": "arXiv API published 2026-06-28T13:19:11Z; official announcement batch: 2026-06-30 (/list cs.CV/new, cs.RO/new); categories: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "Event-VLA 针对 VLA 在低照度、强光变化等 degraded RGB observation 下的鲁棒操作问题。它把 event streams 作为对 RGB 的 illumination-robust、motion-sensitive 补充，而不是简单把 event feature 丢进全局语义 token。方法引入 action-conditioned event fusion，使事件信息更贴近 manipulation action 所需的时空变化。它对真实机器人部署很实际：很多失败并不是语义问题，而是观测物理条件变差。",
+          "methodHighlights": [
+            "event streams as illumination-robust VLA observations",
+            "action-conditioned event feature fusion",
+            "robust manipulation under degraded RGB visibility"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "VLA",
+            "robotics",
+            "event cameras",
+            "manipulation"
+          ]
+        },
+        {
+          "title": "UnfoldArt: Zero-Shot Recovery of Full Articulated 3D Objects from Text or Image",
+          "authors": "Mohamed el amine boudjoghra, Ivan Laptev, Angela Dai",
+          "arxivUrl": "https://arxiv.org/abs/2606.30608",
+          "published": "arXiv API published 2026-06-29T17:44:53Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "UnfoldArt 面向 text/image 到 articulated 3D objects 的 zero-shot recovery，目标是恢复结构、运动和被 articulation 暴露的隐藏几何。它使用 debate-driven agentic approach：高层 agents 用 VLM/video model 推理语义和运动，低层 agents 估计 articulation parameters 与 interaction points。两轮 structured debate 先利用全局 object priors，再细化局部几何和关节。对具身环境资产生成而言，这篇把“生成静态物体”推进到“生成可交互的 articulated object”。",
+          "methodHighlights": [
+            "debate-driven agents for articulated object reasoning",
+            "joint recovery of hidden geometry, motion, and articulation parameters",
+            "zero-shot text-or-image input for interactive 3D assets"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "articulated objects",
+            "3D generation",
+            "embodied AI",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "Graph-GSReg: Leveraging 3D Scene Graphs for Gaussian Splatting Registration",
+          "authors": "Jaewon Lee, Mangyu Kong, Euntai Kim",
+          "arxivUrl": "https://arxiv.org/abs/2606.29782",
+          "published": "arXiv API published 2026-06-29T04:58:44Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Graph-GSReg 关注多个 3DGS scenes 合并成统一 Gaussian representation 的注册问题。它不是直接在 Gaussian primitive 间找对应，也不是依赖昂贵 image-based refinement，而是从 3DGS 及其渲染图构建 3D scene graph。注册在高层语义和结构上下文图上进行，从而获得更全局一致的初始对齐。它适合长期地图管理和多段扫描拼接，是 3DGS 从 demo 到系统化地图的一块拼图。",
+          "methodHighlights": [
+            "3DGS registration reformulated as scene-graph registration",
+            "semantic and structural context above primitive-level matching",
+            "supports large-scale Gaussian map merging and management"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "registration",
+            "3D scene graph",
+            "mapping"
+          ]
+        },
+        {
+          "title": "You Only Touch Once: 6-DoF Object Pose Estimation from Single Tactile Contact",
+          "authors": "Pengfei Ye, Yuxiang Ma, Haonan Chen, Guangming Wang, Yixiong Jing, Brian Sheil, Yilun Du, Edward Adelson",
+          "arxivUrl": "https://arxiv.org/abs/2606.28899",
+          "published": "arXiv API published 2026-06-27T13:12:57Z; official announcement batch: 2026-06-30 (/list cs.RO/new); categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "YOTO 用一对 simultaneous tactile contacts 恢复物体 6-DoF pose，针对视觉在遮挡、反光和透明物体上失效的问题。每个 tactile contact 被表示为 local 3D point cloud，网络先 coarse-to-fine 定位到物体表面。两个接触点和已标定传感器位姿再交给 normal-aware SVD solver 一步求解完整位姿。它强调触觉不是辅助信号，而可以成为 manipulation 中的几何主通道。",
+          "methodHighlights": [
+            "single-pair tactile contact for full 6-DoF pose estimation",
+            "local tactile point-cloud localization on object surface",
+            "closed-form normal-aware SVD pose solver"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robotics",
+            "tactile perception",
+            "6D pose",
+            "manipulation"
+          ]
+        },
+        {
+          "title": "VCS-SLAM: Geometry-Validated Semantic Evidence Fusion for 3D Gaussian SLAM",
+          "authors": "Raman Jha, Shuaihang Yuan, Yi Fang",
+          "arxivUrl": "https://arxiv.org/abs/2606.29494",
+          "published": "arXiv API published 2026-06-28T16:48:09Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "VCS-SLAM 处理 semantic 3D Gaussian SLAM 中 2D semantic priors 质量不均导致的持久语义伪影。它不再把所有语义观测当作等权监督，而是通过 visibility consistency、surface-supported boundary evidence 和 ray-level conflict uncertainty 评估可靠性。几何验证后的 objective 会抑制遮挡更新、减少 semantic bleeding，并推迟不可靠 label assignment。对机器人可查询地图而言，这是比“把 2D label 融进去”更稳健的一步。",
+          "methodHighlights": [
+            "geometry-validated semantic evidence fusion",
+            "visibility and ray-conflict reliability for semantic updates",
+            "RGB-D 3D Gaussian SLAM with reduced semantic artifacts"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "SLAM",
+            "3D Gaussian Splatting",
+            "semantic mapping",
+            "robotics"
+          ]
+        },
+        {
+          "title": "OWMDrive: Causality-Aware End-to-End Autonomous Driving via 4D Occupancy World Model",
+          "authors": "Junjie Cheng, Ruiqi Song, Ye Wu, Nanxing Zeng, Ximiao Li, Yunfeng Ai",
+          "arxivUrl": "https://arxiv.org/abs/2606.30421",
+          "published": "arXiv API published 2026-06-29T15:05:41Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "OWMDrive 用 4D Occupancy World Model 给端到端驾驶提供多步 3D occupancy forecasting。论文认为只从当前静态场景决策会在遮挡和意外事件下过于保守或不稳定，因此先生成未来 occupancy，再作为 conditional prior 指导 diffusion planner。Causality-aware 设计强调交通交互的时间因果动态，而不只是 occupancy prediction 本身。它是自动驾驶世界模型今天最贴近 planning 的条目。",
+          "methodHighlights": [
+            "4D occupancy world model for multi-step forecasting",
+            "diffusion-based trajectory planning conditioned on predicted future states",
+            "causality-aware temporal dynamics for traffic interactions"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "occupancy",
+            "autonomous driving",
+            "planning"
+          ]
+        },
+        {
+          "title": "DCGrasp: Distance-aware Controllable Grasp Generation",
+          "authors": "Hiroyasu Akada, Jesús Pérez, Emre Aksan, Vasileios Choutas, Cristian Romero, Alberto Garcia-Garcia, Vladislav Golyanik, Christian Theobalt, Thabo Beeler",
+          "arxivUrl": "https://arxiv.org/abs/2606.29924",
+          "published": "arXiv API published 2026-06-29T08:02:02Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "DCGrasp 面向 robotics、XR 和 synthetic data generation 中可控的 3D hand-object interaction 生成。它提出 Distance Profile，将每个 hand vertex 到最近 object point 的 signed distance 与距离权重结合，用来捕捉近接触区域的语义相似交互。Diffusion Transformer 先生成 Distance Profile 和候选手姿态，再优化为满足控制信号的 grasp。相比只生成手形，它更直接编码手-物距离关系。",
+          "methodHighlights": [
+            "distance-profile grasp energy over hand vertices and object points",
+            "Diffusion Transformer for controllable hand-object pose generation",
+            "identity-invariant near-contact interaction representation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "hand-object interaction",
+            "3D generation",
+            "grasp generation",
+            "robotics"
+          ]
+        },
+        {
+          "title": "Meshtryoshka: Differentiable Rendering of Real-World Scenes via Mesh Rasterization",
+          "authors": "David Charatan, Daniel Xu, Richard Szeliski, George Kopanas, Vincent Sitzmann",
+          "arxivUrl": "https://arxiv.org/abs/2606.28622",
+          "published": "arXiv API published 2026-06-26T21:44:36Z; official announcement batch: 2026-06-30 (/list cs.CV/new, cs.GR/new); categories: cs.CV, cs.GR",
+          "categories": "cs.CV, cs.GR",
+          "summary": "Meshtryoshka 试图把 differentiable rendering 拉回传统 mesh rasterization 工具链，而不是依赖专用 3D 表示和 renderer。它使用类似套娃的 nested mesh shells：每次 forward pass 从 SDF 提取多层 mesh shells，并通过 opacity values 将梯度传回 SDF。这样 off-the-shelf mesh renderer 不需要对 vertex positions 可微，也能处理 unbounded real-world scenes。对图形和重建系统来说，它提供了 mesh-compatible 的高质量 novel view synthesis 路径。",
+          "methodHighlights": [
+            "nested mesh-shell representation extracted from SDF every forward pass",
+            "gradient flow through opacity values into signed distance function",
+            "large-scale real-scene differentiable rendering with off-the-shelf rasterizers"
+          ],
+          "projectUrl": "https://danielxu9393.github.io/meshtryoshka-website/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "differentiable rendering",
+            "mesh reconstruction",
+            "neural rendering",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "IMU-HOI: A Symbiotic Framework for Coherent Human-Object Interaction and Motion Capture via Contact-Conscious Inertial Fusion",
+          "authors": "Lizhou Lin, Songpengcheng Xia, Zengyuan Lai, Lan Sun, Jiarui Yang, Ling Pei",
+          "arxivUrl": "https://arxiv.org/abs/2606.28604",
+          "published": "arXiv API published 2026-06-26T20:52:54Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "IMU-HOI 把 sparse IMU motion capture 从 isolated human 扩展到 human-object interaction。方法从人体和物体 IMU streams 中估计 probabilistic hand-object contacts，并把接触作为高层信号在 kinematic reasoning 与 inertial reasoning 之间路由。三阶段 fusion pipeline 同时 refine human pose/root translation，并结合 hand-based forward kinematics 与 object-IMU integration 恢复 object trajectory。它对 AR/VR 和机器人示教都有意义，因为接触信息直接稳定了人与物的联合运动估计。",
+          "methodHighlights": [
+            "probabilistic hand-object contact inference from sparse IMUs",
+            "contact-conscious routing between kinematic and inertial reasoning",
+            "joint full-body pose and 6-DoF object trajectory recovery"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "motion capture",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "OP3DSG: Open-Vocabulary Part-Aware 3D Scene Graph Generation for Real-World Environments",
+          "authors": "Yirum Kim, Ue-Hwan Kim",
+          "arxivUrl": "https://arxiv.org/abs/2606.29786",
+          "published": "arXiv API published 2026-06-29T05:05:54Z; official announcement batch: 2026-06-30 (/list cs.CV/new, cs.RO/new); categories: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "OP3DSG 认为现有 open-vocabulary 3D scene graph 过于 object-centric，缺少 interaction-relevant parts、functional relations 和 affordances。它通过 object-part knowledge-guided detection 和 part-aware 3D fusion 保留小部件与可交互部件，再用 geometry-initialized prior graph 和 LLM refinement 降低虚假关系。论文还提出 UniGraph3D benchmark 评估 part-aware perception 与多层关系推理。它对机器人场景理解尤其有用，因为 affordance 往往在部件层而非整物体层。",
+          "methodHighlights": [
+            "part-aware open-vocabulary 3D scene graph generation",
+            "geometry-initialized prior graph with LLM refinement",
+            "UniGraph3D benchmark for object, part, relation, and affordance reasoning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D scene graph",
+            "open-vocabulary perception",
+            "robotics",
+            "affordance"
+          ]
+        },
+        {
+          "title": "Towards in-the-wild Egocentric 3D Hand-Object Pose Estimation",
+          "authors": "Siddhant Bansal, Zhifan Zhu, Shashank Tripathi, Jiahe Zhao, Michael J. Black, Dima Damen",
+          "arxivUrl": "https://arxiv.org/abs/2606.30598",
+          "published": "arXiv API published 2026-06-29T17:38:12Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "这篇论文直指 in-the-wild egocentric RGB 中的 3D hand-object pose estimation，难点是遮挡、接触歧义和监督稀缺。作者构建 EPIC-Contact，包含 2.3K clips、62.3K frames、dense bijective 3D hand-object contact correspondences 和 posed meshes。HOPformer 用 cross-attention decoder 让 object features 受 hand priors 条件化，一次前向联合预测双手和物体姿态。对机器人从人类第一视角视频学习手物交互，这是一份很关键的数据与模型组合。",
+          "methodHighlights": [
+            "EPIC-Contact dataset with dense 3D hand-object contact correspondences",
+            "HOPformer jointly predicts bi-manual hand and object pose",
+            "cross-attention object decoder conditioned on hand priors"
+          ],
+          "projectUrl": "https://sid2697.github.io/epic-contact/",
+          "codeUrl": "https://sid2697.github.io/epic-contact/",
+          "datasetUrl": "https://sid2697.github.io/epic-contact/",
+          "priority": "高",
+          "areaTags": [
+            "hand-object interaction",
+            "3D pose estimation",
+            "egocentric vision",
+            "HOI"
+          ]
+        },
+        {
+          "title": "Arko-T: A Foundation Model for Text-to-Structured 3D Generation",
+          "authors": "Liang Wang, Zhaoyang Xi, Zekai Xiang, Heng Meng, Qishan Zhang, Pingyi Zhou, Jin Liu, Litao Chen",
+          "arxivUrl": "https://arxiv.org/abs/2606.30429",
+          "published": "arXiv API published 2026-06-29T15:09:13Z; official announcement batch: 2026-06-30 (/list cs.LG/new); categories: cs.LG",
+          "categories": "cs.LG",
+          "summary": "Arko-T 面向 text-to-structured 3D generation，目标不是生成可渲染形状，而是生成可编辑的 parametric CAD programs。4B 模型把自然语言意图映射到 executable design code，并在数据清洗、代码规范化和 execution-grounded supervision 中保留 features、parameters 与 construction logic。它在 12 项指标上与 frontier LLMs 对比，强调较低推理成本下的 structured CAD 质量。对工程 3D 生成来说，这是从视觉资产走向可制造设计的信号。",
+          "methodHighlights": [
+            "text-to-parametric-CAD foundation model",
+            "execution-grounded supervision aligned to formal design state",
+            "editable structured 3D generation rather than raster-only shape synthesis"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D generation",
+            "CAD",
+            "structured generation",
+            "design automation"
+          ]
+        },
+        {
+          "title": "T2LDM++: A Self-Conditioned Representation Guided Diffusion Model for Realistic Text-to-LiDAR Scene Generation",
+          "authors": "Wentao Qu, Qi Zhang, Chenxu Wang, Guofeng Mei, Yongfei Liu, Xiaoshui Huang, Gim Hee Lee, Liang Xiao",
+          "arxivUrl": "https://arxiv.org/abs/2606.30147",
+          "published": "arXiv API published 2026-06-29T11:23:11Z; official announcement batch: 2026-06-30 (/list cs.CV/new); categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "T2LDM++ 关注 Text-to-LiDAR scene generation 中 Text-LiDAR pairs 稀缺、生成过平滑和可控性不足的问题。Self-Conditioned Representation Guidance 用 reconstruction-based soft supervision 让 denoising network 学到 geometry-aware representations，并在推理时解耦避免额外开销。论文还构造超过 100K samples 的 Text-LiDAR benchmarks，并支持 Semantic/Box/BEV/Camera-to-LiDAR、Sparse-to-Dense 等多条件生成。它对自动驾驶仿真和 LiDAR 数据合成有直接价值。",
+          "methodHighlights": [
+            "self-conditioned representation guidance for geometry-aware LiDAR denoising",
+            "large Text-LiDAR benchmarks with controllability metrics",
+            "multi-condition LiDAR scene generation including sparse-to-dense and BEV-to-LiDAR"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D generation",
+            "LiDAR",
+            "autonomous driving",
+            "simulation"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-06-29",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-29",
