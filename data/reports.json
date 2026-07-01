@@ -1,6 +1,790 @@
 {
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "reports": [
+    {
+      "date": "2026-07-01",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-07-01",
+      "shortTitle": "2026-07-01 arXiv 3D Vision",
+      "summary": "今日主体 34 篇、补充 0 篇；重点是 simulation-ready 4D scenes、任务条件化 3DGS 地图、Gaussian ray tracing/editing、长程 world model 评测、触觉/人形机器人操作和 occupancy-guided driving simulation。",
+      "trends": [
+        "今日 3DGS 主线明显从“可看”转向“可维护、可物理编辑、可进入机器人闭环”：GaussLite 把 Gaussian map 的容量分给任务相关区域，Streaming Gaussian Encoding 维护 4D occupancy 的时序一致性，GRay/Editable Reflections/Intrinsic GS 则把 ray tracing、反射和 intrinsic decomposition 带回物理一致渲染。",
+        "世界模型方向集中在“长程稳定”和“可用于规划”：PDR 用可微 3DGS 预测视频动态，MemLearner 学习上下文记忆查询，WorldRoamBench 把 interactive world model 的评测推到长时程稳定性和交互物理，DVG-WM 则为机器人操作解耦高层视觉生成与低层接触动态。",
+        "机器人操作与 Physical AI 的重点是把几何、接触和安全接口显式化：3D HAMSTER 把 2D VLA 轨迹落成 3D metric guidance，UniTacVLA/RoboTacDex 强化触觉模态，OopsieVerse 把 damage-aware simulation 加进 household manipulation，Human-as-Humanoid 则继续扩展从人类视频学习人形机器人动作的路线。",
+        "自动驾驶和仿真数据生成继续把 3D/occupancy 作为控制骨架：Horizon3D 做远距 radar-camera 3D 感知，InfiniVerse 用 occupancy guidance 生成无边界城市场景，DriveWeaver 和 ForgeDrive 分别处理可控车辆插入与 visual-action world model 的误差级联。"
+      ],
+      "topPapers": [
+        "One Video, One World: Turning Monocular Video into Physical 4D Scenes",
+        "GaussLite: Online Task-Conditioned 3D Gaussian Splatting for Real-Time Robotic Mapping",
+        "Streaming Gaussian Encoding for 4D Panoptic Occupancy Tracking",
+        "GRay: Ray Tracing 3D Gaussians Near the Speed of Splats",
+        "DVG-WM: Disentangled Video Generation Enables Efficient Embodied World Model for Robotic Manipulation",
+        "3D HAMSTER: Bridging Planning and Control in Hierarchical Vision Language Action Models through 3D Trajectory Guidance",
+        "From Grasps to Dexterity: Large-Scale Grasp Pretraining for Dexterous Manipulation",
+        "OopsieVerse: A Safety Benchmark with Damage-Aware Simulation for Robot Manipulation",
+        "WorldRoamBench: An Open-World Benchmark for Long-Horizon Stability of Interactive World Models",
+        "InfiniVerse: Occupancy Guided Unbounded Scene Generation for Autonomous Driving"
+      ],
+      "markdownPath": "reports/arxiv/2026-07-01.md",
+      "papers": [
+        {
+          "title": "One Video, One World: Turning Monocular Video into Physical 4D Scenes",
+          "authors": "Junhao Chen , Boran Zhang , Mingjin Chen , Henghaofan Zhang , Saining Zhang , Congcong Zhu , Hao Zhao , Ruqi Huang , Zhihao Li , Yufei Wang",
+          "arxivUrl": "https://arxiv.org/abs/2606.31388",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "OVOW 把单目视频转成实例级、仿真可用的 4D mesh 场景，而不是只输出可渲染的 implicit/Gaussian/point-cloud 表示。系统先用视觉语言模型发现、命名并分类运动实例，再做类别感知重建、物理属性补全和仿真接口标准化。它的价值在于把 4D 重建直接推向 embodied AI 与 physics simulator 可消费的资产格式。",
+          "methodHighlights": [
+            "VLM-driven instance discovery and motion classification",
+            "category-aware 4D reconstruction into simulation-ready meshes",
+            "physical interface completion for embodied AI simulators"
+          ],
+          "projectUrl": "https://OneVideoOneWorld.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "4D reconstruction",
+            "Physical AI",
+            "embodied AI",
+            "simulation"
+          ]
+        },
+        {
+          "title": "GaussLite: Online Task-Conditioned 3D Gaussian Splatting for Real-Time Robotic Mapping",
+          "authors": "Annika Thomas , Mason Peterson , Jonathan P. How",
+          "arxivUrl": "https://arxiv.org/abs/2606.30809",
+          "published": "Published: Submitted on 29 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "GaussLite 面向在线机器人地图，认为传统 3DGS 把容量均匀分配到整场景会浪费机载计算。它根据自然语言任务描述，把 Gaussian 密度集中到与任务相关的区域，同时保持可用于机器人规划的几何细节。对长期部署的移动机器人来说，这提供了一种“任务条件化地图预算”的思路。",
+          "methodHighlights": [
+            "task-conditioned 3DGS density allocation",
+            "posed RGB-D online mapping with language task input",
+            "compute-aware geometry preservation for robotic downstream tasks"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "robotic mapping",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "Streaming Gaussian Encoding for 4D Panoptic Occupancy Tracking",
+          "authors": "Maximilian Luz , Thomas Nürnberg , Yakov Miron , Abhinav Valada",
+          "arxivUrl": "https://arxiv.org/abs/2606.30754",
+          "published": "Published: Submitted on 29 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV, cs.RO",
+          "categories": "cs.CV, cs.RO",
+          "summary": "这篇论文提出 Streaming Gaussian Encoding，用可持续更新的 Gaussian state 表示 4D panoptic occupancy。相比每帧重算体素表示，它维护跨时间的几何、语义和实例一致性，尤其针对遮挡和静态背景稳定性。它适合自动驾驶与移动机器人中需要在线 4D scene understanding 的场景。",
+          "methodHighlights": [
+            "streaming Gaussian state for 4D panoptic occupancy tracking",
+            "temporal consistency under occlusion",
+            "multi-view camera geometry plus semantic instance tracking"
+          ],
+          "projectUrl": "https://sge.cs.uni-freiburg.de",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "4D occupancy",
+            "3D Gaussian representation",
+            "robot perception",
+            "autonomous driving"
+          ]
+        },
+        {
+          "title": "GRay: Ray Tracing 3D Gaussians Near the Speed of Splats",
+          "authors": "Yohan Poirier-Ginter , Jean-François Lalonde , George Drettakis",
+          "arxivUrl": "https://arxiv.org/abs/2606.30869",
+          "published": "Published: Submitted on 29 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.GR/new; Categories: cs.GR",
+          "categories": "cs.GR",
+          "summary": "GRay 重新审视 3D Gaussian 的 ray tracing，目标是在接近 splatting 的速度下获得 ray tracing 的可编辑性和物理路径优势。关键观察是密集小 Gaussian 场景下，ray tracing 只评估被 ray 命中的 primitive，复杂度可能优于 rasterization。它对需要多反射、遮挡查询或物理一致渲染的 3DGS 系统很重要。",
+          "methodHighlights": [
+            "fast ray tracer for dense 3D Gaussian scenes",
+            "logarithmic-style primitive culling along rays",
+            "optimization nearly 10x faster than prior 3DGRT in reported setting"
+          ],
+          "projectUrl": "https://repo-sam.inria.fr/nerphys/gray",
+          "codeUrl": "https://repo-sam.inria.fr/nerphys/gray",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "neural rendering",
+            "ray tracing"
+          ]
+        },
+        {
+          "title": "Editable Physically-based Reflections in Raytraced Gaussian Radiance Fields",
+          "authors": "Yohan Poirier-Ginter , Jeffrey Hu , Jean-François Lalonde , George Drettakis",
+          "arxivUrl": "https://arxiv.org/abs/2606.30861",
+          "published": "Published: Submitted on 29 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.GR/new; Categories: cs.GR",
+          "categories": "cs.GR",
+          "summary": "该工作处理 3DGS 中镜面反射常被“假几何”吸收的问题，尝试恢复真实 reflector 与 reflected objects。方法利用 diffuse/specular buffers、BRDF/geometry buffers 和 Gaussian ray tracing，把反射生成放回物理路径中。它让 captured Gaussian scene 的 roughness、multi-bounce reflection 和反射内容编辑更可信。",
+          "methodHighlights": [
+            "diffuse/specular buffer separation for Gaussian radiance fields",
+            "physically based specular path tracing over 3D Gaussians",
+            "editable reflectors and reflected objects including multi-bounce effects"
+          ],
+          "projectUrl": "https://repo-sam.inria.fr/nerphys/editable-gaussian-reflections/",
+          "codeUrl": "https://repo-sam.inria.fr/nerphys/editable-gaussian-reflections/",
+          "datasetUrl": "https://repo-sam.inria.fr/nerphys/editable-gaussian-reflections/",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "inverse rendering",
+            "physics-aware rendering"
+          ]
+        },
+        {
+          "title": "Intrinsic decomposition and editing of 3D Gaussian splats",
+          "authors": "Alexandre Lanvin , Jeffrey Hu , Simon Lucas , Adrien Bousseau , George Drettakis",
+          "arxivUrl": "https://arxiv.org/abs/2606.31637",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.GR/new; Categories: cs.GR, cs.AI",
+          "categories": "cs.GR, cs.AI",
+          "summary": "这篇把 intrinsic decomposition 扩展到 Gaussian splatting 场景，把颜色拆成 diffuse albedo、shading 和 view-dependent residual 等层。每个 intrinsic layer 使用独立 Gaussian primitive 集合，以匹配不同成分的空间特性。它的直接价值是让 captured radiance field 支持单图编辑后从任意视角保持合理光照。",
+          "methodHighlights": [
+            "independent Gaussian primitive sets for intrinsic layers",
+            "data-driven multi-view decomposition into albedo/shading/residuals",
+            "single-view edit propagation through intrinsic radiance field"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "editable radiance fields",
+            "inverse rendering"
+          ]
+        },
+        {
+          "title": "AugSplat: Radiance Field-Informed Gaussian Splatting for Sparse-View Settings",
+          "authors": "Lorenzo Lazzaroni , Riccardo Bollati , Daniel Barath , Michael Niemeyer , Keisuke Tateno",
+          "arxivUrl": "https://arxiv.org/abs/2606.31556",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "AugSplat 关注 sparse-view 设定下 3DGS 对初始化几何的高度敏感性。它利用 radiance field 提供的先验信息来增强 Gaussian optimization，从有限视角里补足几何和外观监督。对低视角采集、移动机器人快速建图和轻量 NVS 初始化都有参考价值。",
+          "methodHighlights": [
+            "radiance-field-informed Gaussian optimization",
+            "sparse-view novel-view synthesis at real-time rendering target",
+            "geometry-sensitive augmentation for Gaussian initialization"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "sparse-view reconstruction",
+            "novel view synthesis"
+          ]
+        },
+        {
+          "title": "Diffusion-Based Material Regularization for Physics-Based Inverse Rendering",
+          "authors": "Jingwang Ling , Lifan Wu , Feng Xu , Shuang Zhao",
+          "arxivUrl": "https://arxiv.org/abs/2606.31065",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "这篇论文用扩散先验正则化 physics-based inverse rendering，目标是从多视图图像重建几何、材质和光照。传统 inverse rendering 的物理可解释性强，但在真实噪声和欠约束场景中容易落入不稳定解；扩散先验提供更强的材料外观约束。它对可编辑 3D asset、relighting 和真实采集资产的物理一致性有直接启发。",
+          "methodHighlights": [
+            "diffusion prior as material regularizer",
+            "joint recovery of geometry, material, and illumination",
+            "physics-based inverse rendering for relighting/editing"
+          ],
+          "projectUrl": "https://gerwang.github.io/diffusion-regularized-inverse-rendering/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "inverse rendering",
+            "physics-aware AI",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "DualBrep: A Dual-Field Continuous Representation for B-rep Modelling",
+          "authors": "Yilin Liu , Pradeep Jayaraman , Chinthala Reddy , Xiang Xu , Hooman Shayani",
+          "arxivUrl": "https://arxiv.org/abs/2606.31579",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.GR/new; Categories: cs.GR",
+          "categories": "cs.GR",
+          "summary": "DualBrep 试图把 CAD B-rep 的连续几何和离散拓扑统一到可学习的连续双场表示中。它用 SDF 表示全局形状，用 UDF/Voronoi 结构隐式编码拓扑，并在共享 latent 中做 flow matching 生成。对可编辑 CAD、工业几何生成和机器人装配建模而言，这是比 mesh/point cloud 更接近工程格式的路线。",
+          "methodHighlights": [
+            "dual SDF/UDF field representation for B-rep geometry and topology",
+            "shared latent flow matching for CAD generation",
+            "neural rebuilder extracts explicit editable B-rep models"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/AutodeskAILab/DualBrep",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "CAD",
+            "B-rep",
+            "3D generation",
+            "geometric modeling"
+          ]
+        },
+        {
+          "title": "Mesh BDF: Barycentric Dominance Field for 3D Native Mesh Generation",
+          "authors": "Gaochao Song , Haohan Weng , Luo Zhang , Zibo Zhao , Shenghua Gao",
+          "arxivUrl": "https://arxiv.org/abs/2606.31777",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Mesh BDF 提出 Barycentric Dominance Field 做原生 3D mesh 生成，目标是绕开纯 autoregressive mesh 序列生成的效率瓶颈。它把面片归属、拓扑和几何关系编码到更适合生成模型处理的场域中。对需要可编辑拓扑而非隐式表面的 3D asset 生成方向很有参考价值。",
+          "methodHighlights": [
+            "Barycentric Dominance Field for native mesh generation",
+            "geometry-topology coupling without purely sequential decoding",
+            "mesh-oriented generative modeling for variable topology"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "mesh generation",
+            "3D generation",
+            "geometric modeling"
+          ]
+        },
+        {
+          "title": "MV-GEL: Language-Driven Multi-View Geometric Entity Localization on Meshes",
+          "authors": "Kartik Bali , Roland Aydin",
+          "arxivUrl": "https://arxiv.org/abs/2606.31533",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "MV-GEL 把语言驱动定位从图像 RIS 扩展到 3D mesh 上的精确几何实体，如边、平面区域和曲面。方法利用多视角观察解决单视角遮挡与几何歧义，并把语言目标落到结构化 mesh entity。它连接了 VLM、CAD、机器人操作和仿真中“说出几何部件并执行”的需求。",
+          "methodHighlights": [
+            "language-driven localization of geometric entities on meshes",
+            "multi-view reasoning for occluded or ambiguous target structures",
+            "mesh-level grounding for CAD, robotics, and simulation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/kbali1297/MV-GEL",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D grounding",
+            "mesh",
+            "robot manipulation",
+            "CAD"
+          ]
+        },
+        {
+          "title": "Think While You Map: Asynchronous Vision-Language Agents for Incremental 3D Scene Graphs",
+          "authors": "Deniz Bickici , Michael Pabst , Shohei Mori , Dieter Schmalstieg",
+          "arxivUrl": "https://arxiv.org/abs/2606.31471",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Think While You Map 认为 open-vocabulary 3D scene graph 不应等重建完成后再离线语义增强。它让轻量在线 mapping 和后台 VLM agents 异步运行，使探索过程中 scene graph 就能逐步被查询和修正。对具身智能系统来说，这是一种更接近实时交互的 3D 语义地图架构。",
+          "methodHighlights": [
+            "asynchronous online mapping plus background VLM semantic agents",
+            "incremental 3D scene graph with semantic loop closure",
+            "queryable scene representation during exploration"
+          ],
+          "projectUrl": "https://denizbickici.github.io/thinkgraphs/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D scene graph",
+            "embodied AI",
+            "robotic mapping"
+          ]
+        },
+        {
+          "title": "CasaMaestro: Multi-View Panoramas for House-Scale 3D Reconstruction",
+          "authors": "Yuzhou Ji , Xiaotian Yang , Zhipeng Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2606.31086",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "CasaMaestro 面向家居级 multi-room 3D reconstruction，动机是 pinhole-camera 管线覆盖大住宅需要大量图像。它使用 multi-view panoramas 提高视场覆盖和几何连贯性，服务家庭机器人导航、交互和长时程任务。它值得关注的点在于把室内 digital twin 初始化从局部房间推到 house-scale。",
+          "methodHighlights": [
+            "multi-view panorama input for house-scale reconstruction",
+            "metric residential-space modeling for embodied AI",
+            "reduced capture burden compared with dense pinhole views"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D reconstruction",
+            "indoor scenes",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "PointSplat: Compact Gaussian Splatting via Human-Centric Prediction",
+          "authors": "Yujie Guo , Yudong Jin , Lingteng Qiu , Zehong Shen , Zhen Xu , Jing Zhang , Xianchao Shen , Hujun Bao , Sida Peng , Xiaowei Zhou",
+          "arxivUrl": "https://arxiv.org/abs/2606.32036",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "PointSplat 面向多视角人体即时 Gaussian 表示，强调在沉浸式直播等应用中同时控制质量、带宽和计算。方法从 human-centric prediction 出发，减少 view-centric 表示中对同一人体内容的重复编码。它对 human avatar、实时 3D 通信和紧凑 3DGS 表示有价值。",
+          "methodHighlights": [
+            "human-centric compact Gaussian prediction",
+            "feed-forward multi-view human reconstruction",
+            "representation compression for immersive live streaming"
+          ],
+          "projectUrl": "https://zju3dv.github.io/pointsplat",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "human avatar",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "Learning Video Dynamics with Predictive Differentiable Rendering",
+          "authors": "Yujin Tang , Tian Zhou , Xin Lin , Cheng Tan , Yifan Hu , Rong Jin , SouYoung Jin , Liang Sun",
+          "arxivUrl": "https://arxiv.org/abs/2606.31050",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV, cs.AI",
+          "categories": "cs.CV, cs.AI",
+          "summary": "PDR 把视频未来预测从纯像素 MSE 推向可微渲染空间，试图生成更锐利、更几何一致的未来世界。它用 3D Gaussian Splatting 作为可微场景表示，让模型在预测动态时显式处理相机、几何和渲染。对 video world model 来说，这说明“先学可渲染的动态场景”可能比直接像素预测更稳。",
+          "methodHighlights": [
+            "predictive differentiable rendering for video dynamics",
+            "3D Gaussian Splatting as a continuous scene prediction substrate",
+            "end-to-end future frame prediction with geometry-aware rendering"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "3D Gaussian Splatting",
+            "video dynamics"
+          ]
+        },
+        {
+          "title": "MemLearner: Learning to Query Context memory for Video World Models",
+          "authors": "Jiwen Yu , Jianxiong Gao , Jianhong Bai , Yiran Qin , Kaiyi Huang , Quande Liu , Xintao Wang , Pengfei Wan , Kun Gai , Xihui Liu",
+          "arxivUrl": "https://arxiv.org/abs/2606.31734",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "MemLearner 关注 video world models 的长程一致性问题：交互式生成常因缺少记忆而在遮挡和动态对象中漂移。它学习如何查询历史上下文，而不是依赖规则式 frame retrieval。对可交互世界模型、长时程视频生成和机器人预测式规划都有启发。",
+          "methodHighlights": [
+            "learned context-memory querying for video world models",
+            "long-horizon consistency under occlusion and dynamics",
+            "interactive video generation with memory-aware retrieval"
+          ],
+          "projectUrl": "https://yujiwen.github.io/memlearner/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "video generation",
+            "long-horizon memory"
+          ]
+        },
+        {
+          "title": "WorldRoamBench: An Open-World Benchmark for Long-Horizon Stability of Interactive World Models",
+          "authors": "Ting-Bing Xu , Jiacheng Sui , Zhe Gao , Kewei Shi , Wenjin Yang , Zhicheng Liu , Zhaoxu Sun , Mingchao Sun , Hongyu Pan , Fan Jiang , Mu Xu , Qi Fan , Yong Li , Baoquan Chen",
+          "arxivUrl": "https://arxiv.org/abs/2606.31672",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV, cs.AI",
+          "categories": "cs.CV, cs.AI",
+          "summary": "WorldRoamBench 是一个面向 interactive world models 的开放世界长程稳定性评测。它不仅看 action following，还显式评估记忆、交互物理和长时程 roaming 中的稳定性。对当前 video/world model 研究而言，它把评测从短轨迹视觉质量推进到更接近 embodied deployment 的压力测试。",
+          "methodHighlights": [
+            "open-world long-horizon benchmark for interactive world models",
+            "memory and interaction-physics stability metrics",
+            "trajectory-level plus state-level evaluation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "embodied AI",
+            "evaluation"
+          ]
+        },
+        {
+          "title": "DVG-WM: Disentangled Video Generation Enables Efficient Embodied World Model for Robotic Manipulation",
+          "authors": "Ziyu Shan , Zhenyu Wu , Xiaofeng Wang , Zheng Zhu , Ziwei Wang",
+          "arxivUrl": "https://arxiv.org/abs/2606.32028",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.RO/new; Categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "DVG-WM 认为机器人操作 world model 的视觉生成和低层动力学预测不应被同一个高成本视频生成过程纠缠。它把高层语义画质与低层接触动态解耦，使模型更适合反复规划。该思路对 contact-rich manipulation 中“快预测、够细节”的 world model 特别关键。",
+          "methodHighlights": [
+            "disentangled video generation for embodied world modeling",
+            "separation of semantic visual synthesis and low-level dynamics",
+            "efficient planning loop for robotic manipulation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot manipulation",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "3D HAMSTER: Bridging Planning and Control in Hierarchical Vision Language Action Models through 3D Trajectory Guidance",
+          "authors": "Dongyoon Hwang , Byungkun Lee , Dongjin Kim , Hyojin Jang , Hoiyeong Jin , Jueun Mun , Minho Park , Hojoon Lee , Hyunseung Kim , Jaegul Choo",
+          "arxivUrl": "https://arxiv.org/abs/2606.31329",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.RO/new; Categories: cs.RO, cs.AI",
+          "categories": "cs.RO, cs.AI",
+          "summary": "3D HAMSTER 解决 hierarchical VLA 中 2D waypoint 指导低层 3D point-cloud policy 时产生的深度歧义。它把高层 VLM 轨迹转成 3D metric guidance，从而更好桥接 planning 与 control。对 VLA 机器人操作来说，这篇强调语言/视觉计划必须落到几何一致的控制接口上。",
+          "methodHighlights": [
+            "3D trajectory guidance for hierarchical VLA policies",
+            "bridges 2D VLM planning to point-cloud low-level control",
+            "reduces depth-induced waypoint distortion"
+          ],
+          "projectUrl": "https://davian-robotics.github.io/3D_HAMSTER/",
+          "codeUrl": "https://github.com/DAVIAN-Robotics/3D_HAMSTER",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "VLA",
+            "3D trajectory guidance"
+          ]
+        },
+        {
+          "title": "From Grasps to Dexterity: Large-Scale Grasp Pretraining for Dexterous Manipulation",
+          "authors": "Ying Yuan , Xinyu Liu , Sriram Krishna , David Held",
+          "arxivUrl": "https://arxiv.org/abs/2606.30749",
+          "published": "Published: Submitted on 29 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.RO/new; Categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "这篇研究大规模 dexterous grasp 预训练是否能迁移到功能性灵巧操作，尤其是需要拿取工具并操作 articulated parts 的任务。它构建 355k 轨迹的 grasp-pretraining 数据，并在分层 imitation 框架中复用 hand-object interaction 先验。对手-物交互和机器人功能操作来说，抓取数据被提升为 dexterity prior。",
+          "methodHighlights": [
+            "large-scale dexterous grasp pretraining dataset",
+            "hierarchical imitation for articulated tool use",
+            "hand-object interaction priors transferred to functional manipulation"
+          ],
+          "projectUrl": "https://yingyuan0414.github.io/grasp2dexterity/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "hand-object interaction",
+            "dexterous manipulation",
+            "articulated objects"
+          ]
+        },
+        {
+          "title": "Labimus: A Simulation and Benchmark for Humanoid Dexterous Manipulation in Chemical Laboratory",
+          "authors": "Yuhan Wu , Zhao Jin , Tao Li , Yuheng Zhang , Zhengping Che , Jian Tang , Zhichao Wang , Shuo Wang , Jun Jiang , Xiaobo Li , Yanyong Zhang , Yan Xia",
+          "arxivUrl": "https://arxiv.org/abs/2606.31037",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.RO/new; Categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "Labimus 提出面向化学实验室的人形灵巧操作仿真与基准，覆盖固体转移等精密、动态且材料敏感的任务。它强调 humanoid robots 和 dexterous hands 在实验自动化中的必要性，同时提供物理仿真任务环境。对 Physical AI 来说，这是把机器人 benchmark 推向高精度科学实验场景的信号。",
+          "methodHighlights": [
+            "humanoid dexterous manipulation benchmark for chemistry labs",
+            "physics-rich precision-critical laboratory tasks",
+            "simulation environment for material-sensitive operations"
+          ],
+          "projectUrl": "https://labimus.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "humanoid robots",
+            "dexterous manipulation",
+            "simulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "CoDex: Learning Compositional Dexterous Functional Manipulation without Demonstrations",
+          "authors": "Bowen Jiang , William Painter Reger , Roberto Martin-Martin",
+          "arxivUrl": "https://arxiv.org/abs/2606.31909",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.RO/new; Categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "CoDex 研究 compositional dexterous functional object manipulation，例如抓稳喷瓶、对准目标并触发内部机构。它不用 demonstrations，而是围绕对象功能、actuation mode 和应用区域组合学习。对 articulated objects 和功能性工具使用，这是从“抓住物体”走向“发挥物体功能”的一类任务。",
+          "methodHighlights": [
+            "demonstration-free compositional dexterous manipulation",
+            "functional object actuation plus target-directed use",
+            "task structure over object function, grasp stability, and trajectory"
+          ],
+          "projectUrl": "https://robin-lab.cs.utexas.edu/CoDex/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "dexterous manipulation",
+            "articulated objects",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "OopsieVerse: A Safety Benchmark with Damage-Aware Simulation for Robot Manipulation",
+          "authors": "Arnav Balaji , Arpit Bahety , Sriniket Ambatipudi , Daniel Lam , Junhong Xu , Roberto Martín-Martín",
+          "arxivUrl": "https://arxiv.org/abs/2606.31993",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.RO/new; Categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "OopsieVerse 把 household robot manipulation 的安全评测从成功率扩展到损坏风险。它在仿真中显式建模 damage detection、quantification 和 representation，使机器人策略可以因破坏环境或自身而被惩罚。对真实部署而言，这类 damage-aware benchmark 比单纯 task completion 更接近 Physical AI 安全需求。",
+          "methodHighlights": [
+            "damage-aware simulation for household manipulation",
+            "explicit physical damage detection and scoring",
+            "safety benchmark beyond task success rate"
+          ],
+          "projectUrl": "https://robin-lab.cs.utexas.edu/oopsieverse/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "simulation",
+            "Physical AI",
+            "safety"
+          ]
+        },
+        {
+          "title": "Efficient Sim-to-Real Transfer of World-Action Models from Synthetic Priors",
+          "authors": "Zixing Wang , Kausik Sivakumar , Jinghuan Shang , Yafei Hu , Zhaoming Xie , Ran Gong , Xiaohan Zhang , Karl Schmeckpeper",
+          "arxivUrl": "https://arxiv.org/abs/2606.31101",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.RO/new; Categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "该工作研究 world-action model 是否能从合成先验 zero-shot 迁移到真实机器人操作。它基于视频扩散模型做 visuomotor control，并构造带 domain randomization 的仿真环境来训练。核心启发是：world model 不只是预测视频，也可以成为 sim-to-real 策略迁移的中间载体。",
+          "methodHighlights": [
+            "world-action model trained from synthetic priors",
+            "zero-shot sim-to-real manipulation transfer",
+            "video diffusion adapted for visuomotor control"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "sim-to-real",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "Warp RL: Reshaping Base Policy Distributions for Dynamics Adaptation",
+          "authors": "Ethan Hirschowitz , Fabio Ramos",
+          "arxivUrl": "https://arxiv.org/abs/2606.31043",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.LG/new; Categories: cs.LG, cs.RO",
+          "categories": "cs.LG, cs.RO",
+          "summary": "Warp RL 指出 residual RL 的加性 action correction 无法改变 base policy distribution 的形状、尺度和状态相关几何。它用可逆 state-conditioned transformation warp 基策略动作分布，在 dynamics shift 下比简单 residual 更灵活。论文在 ManiSkill3 操作和真实 peg-insertion 管线中验证，适合关注 sim-to-real adaptation 的读者。",
+          "methodHighlights": [
+            "invertible state-conditioned action-distribution warping",
+            "generalizes additive residual policy correction",
+            "tested on ManiSkill3 dynamics shifts and real robot insertion"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "robot learning",
+            "sim-to-real",
+            "policy adaptation"
+          ]
+        },
+        {
+          "title": "Z-1: Efficient Reinforcement Learning for Vision-Language-Action Models",
+          "authors": "Lang Cao , Renhong Chen , Luyi Li , Peng Wang , Mofan Peng , Yitong Li",
+          "arxivUrl": "https://arxiv.org/abs/2606.31846",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.RO/new; Categories: cs.RO, cs.AI",
+          "categories": "cs.RO, cs.AI",
+          "summary": "Z-1 面向 VLA 的高效 reinforcement learning，目标是突破只靠 behavior cloning 或监督微调的策略上限。它把语言、视觉观察和连续动作置于 RL fine-tuning 框架中，强调效率和稳定性。对通用机器人策略来说，VLA 后训练正在从离线模仿转向闭环优化。",
+          "methodHighlights": [
+            "efficient RL fine-tuning for vision-language-action models",
+            "continuous-control optimization beyond behavior cloning",
+            "robot manipulation policy improvement"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "reinforcement learning"
+          ]
+        },
+        {
+          "title": "UniTacVLA: Unified Tactile Understanding and Prediction in Vision Language Action Models",
+          "authors": "Xidong Zhang , Yichi Zhang , Jiaxin Shi , Fucai Zhu , Siyu Zhu , Michael Yu Wang , Xiaojun Wu , Weihao Yuan",
+          "arxivUrl": "https://arxiv.org/abs/2606.31723",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.RO/new; Categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "UniTacVLA 把触觉理解和触觉预测统一进 Vision-Language-Action 模型，面向 contact-rich dexterous manipulation。相比只把触觉当额外传感输入，它强调 VLA 内部对接触状态的建模和预测。对手-物交互来说，触觉正在成为从视觉语义走向物理控制的关键模态。",
+          "methodHighlights": [
+            "unified tactile understanding and prediction in VLA",
+            "contact-rich manipulation modeling",
+            "vision-tactile-language-action integration"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "tactile sensing",
+            "hand-object interaction",
+            "dexterous manipulation"
+          ]
+        },
+        {
+          "title": "RoboTacDex: A Dexterous Visual-Tactile-Action Dataset for Humanoid Manipulation",
+          "authors": "Xinyi Wang , Donghan Li , Zi'Ang Chen , Chong Yu , Chen Xin , Peng Ye , Yingkai Sun , Tao Chen",
+          "arxivUrl": "https://arxiv.org/abs/2606.31836",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.RO/new; Categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "RoboTacDex 提供面向 humanoid manipulation 的视觉-触觉-动作数据集，补足灵巧操作中触觉轨迹数据不足的问题。它把多模态 demonstration 作为提升人形机器人操作能力的基础数据。对训练接触丰富的人形手部策略，这是很实用的数据侧推进。",
+          "methodHighlights": [
+            "dexterous visual-tactile-action dataset",
+            "humanoid manipulation demonstrations",
+            "multi-modal data for contact-rich policy learning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "humanoid robots",
+            "tactile sensing",
+            "dexterous manipulation",
+            "dataset"
+          ]
+        },
+        {
+          "title": "Human-as-Humanoid: Enabling Zero-Shot Humanoid Learning from Ego-Exo Human Videos with Human-Aligned Embodiments",
+          "authors": "Xiaopeng Lin , Ruoqi Yang , Shijie Lian , Zhaolong Shen , Bin Yu , Changti Wu , Haibao Liu , Yuxiang Zhang , Hong Li , Qiyuan Su , Haochen Liu , Xuguo He , Yukun Shi , Cong Huang , Zhirui Zhang , Bojun Cheng , Kai Chen",
+          "arxivUrl": "https://arxiv.org/abs/2606.32009",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.RO/new; Categories: cs.RO",
+          "categories": "cs.RO",
+          "summary": "Human-as-Humanoid 试图把 ego-exo human videos 转成高自由度 humanoid 可用的监督，缓解机器人数据难扩展的问题。它引入 human-aligned embodiments，把人类动作与机器人 embodiment 对齐以支持 zero-shot humanoid learning。对 Physical AI 来说，这代表从互联网/人类视频抽取机器人动作先验的趋势。",
+          "methodHighlights": [
+            "human-aligned embodiment mapping for humanoids",
+            "zero-shot humanoid learning from ego-exo human videos",
+            "scales action supervision beyond robot teleoperation"
+          ],
+          "projectUrl": "https://zgc-embodyai.github.io/Human-as-Humanoid",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "humanoid robots",
+            "embodied AI",
+            "human videos"
+          ]
+        },
+        {
+          "title": "MVP-Nav: Multi-layer Value Map Planner Navigator",
+          "authors": "Wenyuan Xie , Shaokai Wu , Yijin Zhou , Yanbiao Ji , Guodong Zhang , Bayram Bayramli , Qiuchang Li , Xunchu Zhou , Yue Ding , Hongtao Lu",
+          "arxivUrl": "https://arxiv.org/abs/2606.31919",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.RO/new; Categories: cs.RO, cs.AI, cs.CV",
+          "categories": "cs.RO, cs.AI, cs.CV",
+          "summary": "MVP-Nav 针对 RGB-only object-goal navigation 中缺少显式深度带来的物理不确定性。它用 multi-layer value map 把语义、物理约束和导航控制对齐，避免只靠语言推理产生不可执行路线。对具身导航来说，这篇强调 value map 需要同时表达目标语义和可达几何。",
+          "methodHighlights": [
+            "multi-layer value maps for RGB-only object-goal navigation",
+            "physical-aware planning under depth uncertainty",
+            "alignment of semantic goals and executable geometry"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "embodied navigation",
+            "robot perception",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Horizon3D: Sparse Radar-Camera Fusion for Long-Range 3D Perception in Autonomous Driving",
+          "authors": "Geonho Bang , Geunju Baek , Dongyoung Lee , Wonjun Jeong , Jun Won Choi",
+          "arxivUrl": "https://arxiv.org/abs/2606.31096",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "Horizon3D 处理高速自动驾驶中的长距 3D object detection，结合稀疏 radar 与 camera。它在 BEV 全局上下文和 query-based 细节效率之间做折中，目标是提升远距离目标的几何可靠性。对三维感知系统来说，这继续说明 radar-camera fusion 是远距安全场景的关键。",
+          "methodHighlights": [
+            "sparse radar-camera fusion for long-range 3D detection",
+            "hybrid scene-level BEV context and object-level queries",
+            "temporal fusion for highway-scale perception"
+          ],
+          "projectUrl": "https://geonhobang.github.io/horizon3d-project-page",
+          "codeUrl": "https://github.com/geonhobang/ECCV2026_Horizon3D",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D perception",
+            "autonomous driving",
+            "sensor fusion"
+          ]
+        },
+        {
+          "title": "InfiniVerse: Occupancy Guided Unbounded Scene Generation for Autonomous Driving",
+          "authors": "Xiaoyu Ye , Leheng Li , Xinyu Ji , Yingjie Cai , Hongda He , Xu Yan , Guanyi Zhao , Ying-Cong Chen , Bingbing Liu , Shuguang Cui , Zhen Li",
+          "arxivUrl": "https://arxiv.org/abs/2606.31109",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "InfiniVerse 面向自动驾驶生成无边界、可控且时间一致的城市环境。它用 occupancy guidance 连接 2D visual generation 与 3D scene structure，试图生成长距离、可控的城市场景。对 driving world model 和仿真数据生成来说，关键在于 2D-3D 对齐与可扩展场景边界。",
+          "methodHighlights": [
+            "occupancy-guided unbounded scene generation",
+            "2D-3D aligned controllable urban environments",
+            "temporal coherence for autonomous driving simulation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D generation",
+            "autonomous driving",
+            "world models",
+            "simulation"
+          ]
+        },
+        {
+          "title": "DriveWeaver: Point-Conditioned Video Inpainting for Controllable Vehicle Insertion in Autonomous Driving Simulation",
+          "authors": "Junzhe Jiang , Zipei Ma , Zijie Pan , Li Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2606.31918",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "DriveWeaver 用 point-conditioned video inpainting 实现可控车辆插入，服务自动驾驶仿真中的 corner case 生成。它避免完全依赖预重建 3D assets，从而减少光照不一致和人工资产瓶颈。对仿真数据扩增来说，这是一条用视频生成直接控制动态前景的路线。",
+          "methodHighlights": [
+            "point-conditioned vehicle insertion in driving videos",
+            "video inpainting without manually curated 3D assets",
+            "corner-case generation for autonomous driving simulation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/LogosRoboticsGroup/DriveWeaver",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "autonomous driving",
+            "simulation",
+            "video generation"
+          ]
+        },
+        {
+          "title": "ForgeDrive: Bidirectional Cross-Conditioning for Unified Visual-Action Generation in Autonomous Driving",
+          "authors": "Xuchang Zhong , He Zheng , Chenxu Zhao , Tianxiong Lv , Hangqi Fan , Bohua Wang , Yushan Liu , Zhihao Liao , Leigang Luo , Congyang Zhao , Yang Cai",
+          "arxivUrl": "https://arxiv.org/abs/2606.31226",
+          "published": "Published: Submitted on 30 Jun 2026; Batch: 2026-07-01 official arXiv new/cross listing; Listed: cs.CV/new; Categories: cs.CV",
+          "categories": "cs.CV",
+          "summary": "ForgeDrive 关注 autonomous driving 中 world-model-based visual-action generation 的级联误差。它提出 bidirectional cross-conditioning，让视觉未来生成和动作生成相互约束，而不是先 imagine 再 act。对端到端驾驶模型而言，这是把世界模型与规划动作更紧耦合的一种设计。",
+          "methodHighlights": [
+            "bidirectional cross-conditioning between visual and action generation",
+            "unified visual-action generation for autonomous driving",
+            "mitigates imagine-then-act error cascade"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "world models",
+            "autonomous driving",
+            "planning"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-06-30",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-06-30",
