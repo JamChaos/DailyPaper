@@ -1,6 +1,565 @@
 {
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-13",
   "reports": [
+    {
+      "date": "2026-07-13",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-07-13",
+      "shortTitle": "2026-07-13 arXiv 3D Vision",
+      "summary": "2026-07-13 官方 arXiv 批次主体 23 篇，聚焦生成先验到机器人执行、3DGS/SfM 系统化、触觉接触操作与全景/world model；补充 0 篇。",
+      "trends": [
+        "今天的主体论文非常集中在“生成先验如何进入可执行物理系统”：GenVid2Robot、PhysV2A、DemoBridge 和 AgenticFocus 都在解决从视频/人类示范到机器人轨迹之间的几何、抓取、碰撞和可达性断层。",
+        "3DGS 和几何 foundation model 正在向系统接口化发展：StereoSplat+ 追求单 stereo pair 因果重建，SplatCtrl 把 Gaussians 变成控制安全约束，AnythingReality 把在线 3DGS 接进 VR/VLM 交互，Glob3R 与 Co-VGGT 则把 foundation prediction 转成 SfM/共视可用信号。",
+        "触觉与接触成为 Physical AI 的关键变量：TactiDex 和 TACTIC 都不满足于运动学模仿，而是把 tactile/contact supervision、contact Jacobian 和 MPC 纳入操作闭环。",
+        "world model 的几何归纳偏置更明确：PanoWorld 使用全景旋转等变性和 ray-conditioning，CD-LAM 从因果角度清理 latent action，MultiView-Bench 则指出 VLM 的多视角 3D 融合仍是短板。",
+        "最值得优先深读的是 Video Generation Models are General-Purpose Vision Learners、SplatCtrl、GenVid2Robot、Glob3R、StereoSplat+、Hydra++、TactiDex、TACTIC、Causally Debiased Latent Action Model、PanoWorld 和 What VGGT Knows About Overlap。它们共同说明三维视觉下一阶段的关键不是单点指标，而是能否把生成先验、几何估计、接触状态和控制可行性放进同一个闭环。"
+      ],
+      "topPapers": [
+        "Video Generation Models are General-Purpose Vision Learners",
+        "SplatCtrl: Perception-Action Coupling via Gaussian Scene Representations and Reactive Robot Control",
+        "GenVid2Robot: From Video Generation to Robot Manipulation via Rigid-Geometric Consistency",
+        "Glob3R: Global Structure-from-Motion with 3D Foundation Models",
+        "StereoSplat+: Feed-Forward Stereo Gaussian Splatting with Diffusion-Assisted Progressive Inference",
+        "Hydra++: Real-Time Hierarchical 3D Scene Graph Construction With Object-Level Shape Estimation",
+        "TactiDex: A Real-World Tactile-Guided Benchmark for Human-Like Dexterous Manipulation",
+        "Tactile and Vision Conditioned Contact-Centric Control for Whole-Arm Manipulation",
+        "Causally Debiased Latent Action Model for Embodied Action Conditioned World Models",
+        "PanoWorld: Real-World Panoramic Generation",
+        "What VGGT Knows About Overlap: Probing Geometric Foundation Models for Co-Visibility"
+      ],
+      "markdownPath": "reports/arxiv/2026-07-13.md",
+      "papers": [
+        {
+          "title": "Video Generation Models are General-Purpose Vision Learners",
+          "authors": "Letian Wang, Chuhan Zhang, Rishabh Kabra, Jasper Uijlings, Steven Waslander, Andrew Zisserman, Joao Carreira, Kaiming He, Misha Andriluka, Eduard Gabriel Bazavan, Andrei Zanfir, Cristian Sminchisescu",
+          "arxivUrl": "https://arxiv.org/abs/2607.09024",
+          "published": "2026-07-10T01:09:06Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.CV, cs.AI",
+          "summary": "这篇由 Kaiming He、Andrew Zisserman 等参与的工作把大规模文本到视频生成视为视觉通用预训练范式。它将预训练视频扩散 backbone 改造成可由文本指令控制的前馈感知模型 GenCeption。实验覆盖深度、法线、相机位姿、表达式引用分割和 3D keypoint 等任务，显示视频生成 backbone 学到的时空先验可迁移到几何感知。对三维视觉来说，它强化了“生成式 world prior 可作为几何 foundation model”的路线。",
+          "methodHighlights": [
+            "pre-trained video generative diffusion backbone reused as feed-forward perception model",
+            "text-instruction steering across depth, normals, camera pose and 3D keypoint tasks",
+            "priority hit: Kaiming He and Andrew Zisserman in the same 2026-07-13 batch"
+          ],
+          "projectUrl": "https://genception.github.io",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "foundation model",
+            "video generation",
+            "3D perception",
+            "camera pose",
+            "priority author"
+          ]
+        },
+        {
+          "title": "StereoSplat+: Feed-Forward Stereo Gaussian Splatting with Diffusion-Assisted Progressive Inference",
+          "authors": "Zihua Liu, Masatoshi Okutomi",
+          "arxivUrl": "https://arxiv.org/abs/2607.08808",
+          "published": "2026-07-09T16:32:45Z | [Submitted on 9 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.CV",
+          "summary": "StereoSplat+ 面向只有单个 stereo pair 的因果 3DGS 重建，场景是机器人或 AR 设备上无法获得多视角覆盖的情况。它先用 StereoSplat 从可变数量的 posed stereo pairs 预测 3D Gaussians，再用 one-shot diffusion enhancer 生成并回灌新视角。该递进推理能补全遮挡和视野外几何，尤其适合车载、机器人和移动设备的在线 NVS。对 3DGS 研究，它把 feed-forward 和扩散补全结合得很实用。",
+          "methodHighlights": [
+            "feed-forward stereo 3D Gaussian estimator with cost-volume and triplane branches",
+            "diffusion-assisted progressive inference from one stereo pair",
+            "continuous pose encoding for variable camera configurations"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D reconstruction",
+            "novel view synthesis",
+            "robotics"
+          ]
+        },
+        {
+          "title": "SplatCtrl: Perception-Action Coupling via Gaussian Scene Representations and Reactive Robot Control",
+          "authors": "Siddarth Jain, Ho Jin Choi",
+          "arxivUrl": "https://arxiv.org/abs/2607.08948",
+          "published": "2026-07-09T21:18:39Z | [Submitted on 9 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.RO, cs.CV",
+          "summary": "SplatCtrl 把在线 3D Gaussian scene representation 直接接到机器人反应式控制中。方法用 RGB-D 流做实时场景重建，并通过 voxel filtering 和 dynamic Gaussian relocation 适应动态环境。关键是从 isotropic Gaussians 推出连续 signed distance / collision probability，再放入 control barrier functions。它对 Physical AI 的启发是：可渲染表示如果能稳定变成可微安全约束，就能进入闭环控制。",
+          "methodHighlights": [
+            "real-time 3DGS reconstruction from RGB-D streams in changing scenes",
+            "continuous signed-distance and collision-probability metrics from Gaussians",
+            "control barrier function integration for reactive collision-free manipulation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "robot control",
+            "Physical AI",
+            "collision avoidance"
+          ]
+        },
+        {
+          "title": "GenVid2Robot: From Video Generation to Robot Manipulation via Rigid-Geometric Consistency",
+          "authors": "Haohui Huang, Xi Yuan, Panpan Liao, Tao Teng, Chenguang Yang, Jing Guo, Yi Guo",
+          "arxivUrl": "https://arxiv.org/abs/2607.09191",
+          "published": "2026-07-10T08:32:47Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.RO, cs.LG",
+          "summary": "GenVid2Robot 处理“生成视频看起来合理但机器人不可执行”的核心断层。它把生成视频当成不确定的视觉运动假设，用初始 RGB-D 中的语义锚点和 sparse relative SE(3) 模型做刚性几何一致性验证。只有可由真实第一帧度量几何解释的运动才会转成 grasp-conditioned TCP 轨迹。对视频生成到机器人操作的路线，它明确要求几何、抓取和可达性先过关。",
+          "methodHighlights": [
+            "semantic anchor tracking through generated video candidates",
+            "rigid-geometric consistency check under sparse relative SE(3)",
+            "grasp-conditioned trajectory execution with bounded depth compensation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "video generation",
+            "geometry",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "What VGGT Knows About Overlap: Probing Geometric Foundation Models for Co-Visibility",
+          "authors": "Filippo Ziliotto, Luciano Serafini, Lamberto Ballan, Tommaso Campari",
+          "arxivUrl": "https://arxiv.org/abs/2607.09503",
+          "published": "2026-07-10T15:17:02Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.CV, cs.AI",
+          "summary": "这篇研究 VGGT 这类几何 foundation model 是否已经隐式学到 co-visibility。作者发现 VGGT 的内部层级有明显分工，早期层偏 3D-aware scene representation，后期层能作为 co-visibility reasoner。Co-VGGT 冻结 VGGT，只训练轻量 layer-wise MoE head 来判断 RGB 图像对是否共视。对 SfM、SLAM 和机器人定位来说，它说明 foundation model 的内部表示可被探针化并转化为几何匹配信号。",
+          "methodHighlights": [
+            "layer-wise probing of VGGT for emergent co-visibility",
+            "frozen VGGT plus less-than-7.5M-parameter mixture-of-experts head",
+            "Co-VisiON benchmark evaluation for low-overlap image pairs"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "geometric foundation model",
+            "3D reconstruction",
+            "co-visibility",
+            "VGGT"
+          ]
+        },
+        {
+          "title": "Glob3R: Global Structure-from-Motion with 3D Foundation Models",
+          "authors": "Junyuan Deng, Heng Li, Kejie Qiu, Lingteng Qiu, Rui Peng, Weichao Shen, Weihao Yuan, Siyu Zhu, Zilong Dong, Ping Tan",
+          "arxivUrl": "https://arxiv.org/abs/2607.09225",
+          "published": "2026-07-10T09:18:35Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.CV",
+          "summary": "Glob3R 试图把 feed-forward 3D foundation model 和传统 global SfM 的显式优化结合起来。它在冻结 Pi3X backbone 上加轻量 dense matching head，把密集 warp 转为可靠多视角 tracks。随后用 keyframe sliding-window 传播关联，并通过 motion averaging 与 bundle adjustment 修正相机位姿和尺度漂移。对大规模无序图像重建，它提供了“foundation prediction + SfM optimization”的清晰路线。",
+          "methodHighlights": [
+            "frozen 3D foundation backbone augmented with dense matching head",
+            "dense warps converted into reliable multi-view tracks",
+            "global motion averaging and bundle adjustment for pose/scale refinement"
+          ],
+          "projectUrl": "https://junyuandeng.github.io/Glob3r",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "SfM",
+            "3D foundation model",
+            "3D reconstruction",
+            "camera pose"
+          ]
+        },
+        {
+          "title": "Hydra++: Real-Time Hierarchical 3D Scene Graph Construction With Object-Level Shape Estimation",
+          "authors": "Hyungtae Lim, Nathan Hughes, Xihang Yu, Ruihan Xu, Yun Chang, Jingnan Shi, Rajat Talak, Luca Carlone",
+          "arxivUrl": "https://arxiv.org/abs/2607.09455",
+          "published": "2026-07-10T14:24:16Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.CV, cs.RO",
+          "summary": "Hydra++ 研究如何把 object-level shape estimation 纳入在线 hierarchical 3D scene graph。系统用 category-agnostic shape estimator 和 reprojection-mask consistency check 过滤退化估计。它还支持 LiDAR-camera 混合配置，以提升户外大尺度稀疏深度条件下的场景质量。对机器人长期自主和语义地图，这篇的价值在于把实例级几何补进场景图中。",
+          "methodHighlights": [
+            "online hierarchical 3D scene graph with object-level shape estimation",
+            "reprojection-mask consistency check for partial/noisy observations",
+            "hybrid LiDAR-camera operation for large-scale outdoor scene graphs"
+          ],
+          "projectUrl": "https://hydra-plusplus.github.io/",
+          "codeUrl": "https://github.com/MIT-SPARK/Hydra",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D scene graph",
+            "robotics",
+            "3D reconstruction",
+            "shape estimation"
+          ]
+        },
+        {
+          "title": "DGSfM: Depth-Guided Scale-Aware Global Structure-from-Motion",
+          "authors": "Sithu Aung, Viktor Kocur, Yaqing Ding, Torsten Sattler, Zuzana Kukelova",
+          "arxivUrl": "https://arxiv.org/abs/2607.09507",
+          "published": "2026-07-10T15:18:37Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.CV",
+          "summary": "DGSfM 针对 global SfM 中由尺度模糊和弱 view graph 造成的全局定位不稳定。它用单目深度作为可扩展先验，但仍保留显式多视角优化。深度感知 relative pose solver、view-graph filtering 和 depth-consistency pruning 共同把模糊匹配压下去。对 SfM 系统而言，这篇展示了现代单目深度如何以约束形式进入几何优化，而不是替代几何优化。",
+          "methodHighlights": [
+            "depth-aware relative pose solver for scale-aware pair constraints",
+            "view-graph filtering and depth-consistency correspondence pruning",
+            "global scale averaging and depth-guided pose-point initialization"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/sithu31296/DGSfM",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "SfM",
+            "monocular depth",
+            "3D reconstruction",
+            "camera pose"
+          ]
+        },
+        {
+          "title": "AnythingReality: Robust Online Gaussian Splatting SLAM for Open-Vocabulary VR Scene Exploration",
+          "authors": "Timofei Kozlov, Dmitrii Maliukov, Andrey Marchenko, Miguel Altamirano Cabrera, Dzmitry Tsetserukou",
+          "arxivUrl": "https://arxiv.org/abs/2607.09260",
+          "published": "2026-07-10T10:21:23Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.CV",
+          "summary": "AnythingReality 将 online 3D Gaussian Splatting、ORB-SLAM3 位姿估计、VR 场景探索和语音驱动 VLM 交互整合到一个系统中。它不假设干净深度或外部位姿，而是在真实噪声数据上增量重建。语义模块可记录兴趣点并进行场景描述，VR 前端则支持实时探索。对开放词汇空间建图来说，它代表了从纯重建向可交互空间记忆的推进。",
+          "methodHighlights": [
+            "ORB-SLAM3 pose tracking combined with online Gaussian reconstruction",
+            "VR exploration pipeline for incremental 3DGS scenes",
+            "speech/VLM semantic module for descriptions and points of interest"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "SLAM",
+            "VR",
+            "open-vocabulary"
+          ]
+        },
+        {
+          "title": "4D Human-Scene Reconstruction from Low-Overlap Captures",
+          "authors": "Minhyuk Hwang, Sangmin Kim, Seunguk Do, Daneul Kim, Jaesik Park",
+          "arxivUrl": "https://arxiv.org/abs/2607.09125",
+          "published": "2026-07-10T06:30:45Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.CV",
+          "summary": "StudioRecon 面向低重叠稀疏相机下的 4D human-scene reconstruction。它将背景和人体解耦，用 video diffusion 生成大量受控新视角来加密背景监督。人体部分通过跨视角身份关联和三角化关键点初始化 deformable Gaussian humans。对低成本动态捕捉来说，它说明生成模型可以作为监督 densifier，但最终仍要靠几何一致性收口。",
+          "methodHighlights": [
+            "background-human decoupled sparse-view 4D reconstruction",
+            "camera-controlled novel-view synthesis for denser background supervision",
+            "deformable Gaussian human initialization with identity association and keypoint fitting"
+          ],
+          "projectUrl": "https://sisyphm.github.io/studiorecon-page/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "4D reconstruction",
+            "human-scene reconstruction",
+            "Gaussian Splatting",
+            "video diffusion"
+          ]
+        },
+        {
+          "title": "PanoWorld: Real-World Panoramic Generation",
+          "authors": "Haoyuan Li, Dizhe Zhang, Yuemei Zhou, Xiangkai Zhang, Haoran Feng, Xiaofan Lin, Wenjie Jiang, Bo Du, Ming-Hsuan Yang, Lu Qi",
+          "arxivUrl": "https://arxiv.org/abs/2607.09661",
+          "published": "2026-07-10T17:59:32Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.CV",
+          "summary": "PanoWorld 面向全景 world model 的长程记忆与物理一致性问题。它利用 omnidirectional representation 的旋转等变性，把旋转看作隐式几何变换，并通过 Dense Panoramic Ray-Conditioning 与 Geometry-aware Memory Augmentation 处理当前动作和长程记忆。作者还构建 World360，包含真实全景 UAV 视频和 AirSim360 生成片段。对世界模型研究来说，这篇强调 360 度表示本身就是一种几何归纳偏置。",
+          "methodHighlights": [
+            "rotation-equivariant panoramic representation for world modeling",
+            "Dense Panoramic Ray-Conditioning and Geometry-aware Memory Augmentation",
+            "World360 dataset with real panoramic UAV videos and simulated clips"
+          ],
+          "projectUrl": "https://lihaoy-ux.github.io/panoworld-page/",
+          "codeUrl": "https://github.com/Insta360-Research-Team/PanoWorld",
+          "datasetUrl": "https://huggingface.co/Insta360-Research/PanoWorld",
+          "priority": "高",
+          "areaTags": [
+            "world model",
+            "panoramic generation",
+            "geometry",
+            "simulation"
+          ]
+        },
+        {
+          "title": "GReFEM: Multimodal LLMs as Zero-Shot Semantic Assistants for Physics-Guided 3D Mesh Refinement",
+          "authors": "Kartik Bali, Mahish K. Guru, Christian J Cyron, Roland Aydin",
+          "arxivUrl": "https://arxiv.org/abs/2607.08798",
+          "published": "2026-07-08T14:46:54Z | [Submitted on 8 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.GR, cs.CV",
+          "summary": "GReFEM 探索 MLLM 是否能作为 zero-shot semantic assistant，辅助 physics-guided 3D finite-element mesh refinement。它用 orthoViews 把 3D CAD 几何投成可观察关键几何特征的多视图，再用物理文本提示定位 stress-critical regions。目标不是直接求解 PDE，而是为自适应网格细化提供语义先验。对 physics-aware 3D 系统，这篇说明多模态模型可以插入 CAE 前处理环节。",
+          "methodHighlights": [
+            "zero-shot MLLM localization of stress-critical mesh regions",
+            "orthoViews module for observing key 3D geometry from 2D views",
+            "physics-guided prompts for adaptive volumetric finite-element meshing"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D mesh",
+            "physics-aware AI",
+            "finite element",
+            "MLLM"
+          ]
+        },
+        {
+          "title": "TactiDex: A Real-World Tactile-Guided Benchmark for Human-Like Dexterous Manipulation",
+          "authors": "Suting Ni, Hanbing Zhang, Zhenyu Wei, Guo Chen, Chixuan Zhang, Ye Shi, Jingya Wang",
+          "arxivUrl": "https://arxiv.org/abs/2607.09190",
+          "published": "2026-07-10T08:32:19Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.RO",
+          "summary": "TactiDex 把触觉作为人类式灵巧操作的核心监督，而不只复制手部运动学轨迹。它提供 whole-hand tactile signals、多粒度运动学和物体状态对齐的数据与评测指标。基于此，TactiSkill 用 tri-component tactile reward 统一 guidance、human-like alignment 和 contact constraints。对 HOI 和机器人灵巧操作来说，它把“接触像不像人”变成了可训练、可评测的目标。",
+          "methodHighlights": [
+            "real-world tactile-guided benchmark for hand-object interaction",
+            "aligned tactile, kinematic and object-state supervision",
+            "tri-component tactile reward for contact-level human-likeness"
+          ],
+          "projectUrl": "https://tactidex.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "dexterous manipulation",
+            "tactile sensing"
+          ]
+        },
+        {
+          "title": "Tactile and Vision Conditioned Contact-Centric Control for Whole-Arm Manipulation",
+          "authors": "Rishabh Madan, Angchen Xie, Samantha Saak, Andres Blanco, Dohyeok Lee, Sarah Grace Brown, Yunting Yan, Mark Zolotas, Jose Barreiros, Tapomayukh Bhattacharjee",
+          "arxivUrl": "https://arxiv.org/abs/2607.09218",
+          "published": "2026-07-10T09:08:55Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.RO, cs.AI",
+          "summary": "TACTIC 面向 whole-arm manipulation 中多接触状态不断形成、滑动和消失的问题。它结合 RGB-D、分布式触觉和 2D proximity representation，学习 action-conditioned latent dynamics，同时通过 contact Jacobians 注入解析运动学。控制端使用 sampling-based MPC，并让采样动作沿力调制方向投影。它对 Physical AI 的意义在于把触觉、视觉和解析接触几何合进同一个闭环控制器。",
+          "methodHighlights": [
+            "contact-centric hybrid predictive model from RGB-D, tactile sensing and proximity maps",
+            "latent dynamics coupled with analytical kinematics through contact Jacobians",
+            "sampling-based MPC with contact-aware action sampling"
+          ],
+          "projectUrl": "https://emprise.cs.cornell.edu/tactic",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "tactile sensing",
+            "contact control",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "AgenticFocus: Object-Preserving Mixed Reality Synthesis from Human FPV Video for Dexterous Humanoid Learning",
+          "authors": "Iaroslav Kolomiets, Miguel Altamirano Cabrera, Artem Lykov, Jeffrin Sam, Dmitrii Iarchuk, Yara Mahmoud, Daniia Zinniatullina, Mikhail Konenkov, Dzmitry Tsetserukou",
+          "arxivUrl": "https://arxiv.org/abs/2607.08857",
+          "published": "2026-07-09T18:27:41Z | [Submitted on 9 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.RO",
+          "summary": "AgenticFocus 将普通第一人称人类视频转成可训练 humanoid policy 的 mixed-reality demonstrations。它重点修复 hand-object occlusion，恢复完整手部运动，并通过 camera-relative alignment 和 layered compositing retarget 到 humanoid embodiment。输出数据包含聚焦视觉观测、同步 robot actions 和 states。对从人类视频学习机器人技能，这篇解决的是遮挡、手物几何和 embodiment gap 的组合问题。",
+          "methodHighlights": [
+            "object-preserving mixed-reality synthesis from human FPV video",
+            "occluded object geometry restoration and full-hand motion reconstruction",
+            "camera-relative alignment and layered compositing for humanoid retargeting"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "humanoid learning",
+            "egocentric video",
+            "dexterous manipulation",
+            "mixed reality"
+          ]
+        },
+        {
+          "title": "DemoBridge: A Simulation-in-the-Loop Toolkit for Single-View Human Demonstration Retargeting",
+          "authors": "Zehao Wang, Fabien Despinoy, Sergey Zakharov, Tinne Tuytelaars, Rahaf Aljundi",
+          "arxivUrl": "https://arxiv.org/abs/2607.09519",
+          "published": "2026-07-10T15:31:04Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.RO",
+          "summary": "DemoBridge 将单视角 RGB stereo 人手示范转成可执行、经物理验证的 robot-arm trajectory。它的核心是一个 collision-aware planner，联合优化整条关节轨迹、候选抓取、整臂和被抓物体碰撞以及对示范路径的忠实度。仿真器在循环中验证每个阶段，失败时回溯重规划，而不是丢弃示范。对模仿学习数据生成，它提供了一条从弱视角人类示范到可用 simulation rollout 的管线。",
+          "methodHighlights": [
+            "single-view human demonstration retargeting to robot-arm trajectories",
+            "whole-trajectory collision-aware planner over grasp and arm-object collisions",
+            "simulation-in-the-loop validation with backtracking and replanning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://gitlab.kuleuven.be/u0123974/demo-bridge/",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "retargeting",
+            "simulation",
+            "human demonstration"
+          ]
+        },
+        {
+          "title": "Robot Trajectron V3: A Probabilistic Shared Control Framework for SE(3) Manipulation",
+          "authors": "Pinhao Song, Zhongxi Li, Ze Fu, Federico Ulloa Rios, Renaud Detry",
+          "arxivUrl": "https://arxiv.org/abs/2607.09315",
+          "published": "2026-07-10T11:52:18Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.RO",
+          "summary": "Robot Trajectron V3 关注低带宽遥操作下的 SE(3) 抓取共享控制。它把共享控制表述为贝叶斯推断：从过去机器人动力学和视觉场景上下文学到用户意图先验，再与实时用户命令结合成 posterior。模型用 transformer conditional generative model 处理 point clouds 和候选 grasp poses，并用平移-旋转分解降低高维动作学习难度。对远程操作和辅助控制，这篇给出了概率式意图更新框架。",
+          "methodHighlights": [
+            "Bayesian shared-control formulation for SE(3) manipulation",
+            "transformer generative prior over future trajectories from point clouds and grasp candidates",
+            "factorized translation-rotation representation for high-DoF action spaces"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "robot manipulation",
+            "shared control",
+            "point cloud",
+            "trajectory"
+          ]
+        },
+        {
+          "title": "Causally Debiased Latent Action Model for Embodied Action Conditioned World Models",
+          "authors": "Yufan Wei, Kun Zhou, Lingjun Mao, Zijun Zhang, Ziming Xu, Ziqiao Xi, Shuang Liang, Ruobing Han, Yuchen Yan, Xinyue Wang, Fan Feng, Biwei Huang",
+          "arxivUrl": "https://arxiv.org/abs/2607.09185",
+          "published": "2026-07-10T08:20:27Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.CV, cs.RO",
+          "summary": "CD-LAM 关注 action-conditioned world models 缺少大规模动作标注数据的问题。Latent action model 能从无标注视频推断动作，但重建目标容易把背景和未触碰物体等 action-irrelevant 因素缠进 latent action。作者提出 embodiment-centric reconstruction、action-centric contrastive learning 和 latent space calibration 三个微调目标。结果显示更好的 latent-action controllability 和机器人动作跟随，说明 world model 的 latent action 需要因果去偏。",
+          "methodHighlights": [
+            "metrics for latent-action bias, action following and robustness",
+            "embodiment-centric reconstruction plus action-centric contrastive learning",
+            "latent space calibration for controllable action-conditioned world models"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world model",
+            "embodied AI",
+            "latent action",
+            "robot planning"
+          ]
+        },
+        {
+          "title": "CLAP: Direct VLM-to-VLA Adaptation via Language-Action Grounding",
+          "authors": "Yuri Ishitoya, Jeremy Siburian, Masashi Hamaya, Kuniaki Saito, Cristian C. Beltran-Hernandez, Mai Nishimura",
+          "arxivUrl": "https://arxiv.org/abs/2607.08974",
+          "published": "2026-07-09T22:34:11Z | [Submitted on 9 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.RO, cs.AI",
+          "summary": "CLAP 研究如何在尽量少改 VLM backbone 的情况下，把它直接适配成 VLA。问题在于直接输出数值 action tokens 会偏离 VLM 的语言分布。CLAP 在数值动作序列前加入自然语言动作描述，让精确动作 token 预测由 language-action plan 因果条件化。它适合分析 VLM 能力到底如何迁移到机器人控制，而不仅是堆大规模 post-training。",
+          "methodHighlights": [
+            "natural-language action descriptions prepended before numeric action tokens",
+            "minimal backbone modification for direct VLM-to-VLA adaptation",
+            "multi-scale compact VLA family planned for release"
+          ],
+          "projectUrl": "https://omron-sinicx.github.io/clap/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "language-action grounding",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "PhysV2A: Reachability-Gated and Semantic-Mask-Constrained Feasibility Completion for Video-to-Robot Manipulation",
+          "authors": "Haohui Huang, Junda Duan, Tao Teng, Chenguang Yang",
+          "arxivUrl": "https://arxiv.org/abs/2607.09365",
+          "published": "2026-07-10T12:43:00Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.RO",
+          "summary": "PhysV2A 同样处理视频先验到机器人执行的 feasibility gap，但重点在 grasp feasibility 是 trajectory-conditioned，而不是局部抓取点属性。它把每个 RGB-D 生成的 6-DoF grasp candidate 与恢复的物体运动刚性耦合，形成 TCP 轨迹假设。随后通过 reachability-gated selection 筛掉不可达的 grasp-trajectory 对，并用 VLM-assisted S-Mask 标出任务关键与可放松的笛卡尔分量。对视频到机器人操作，它补上了可达性和语义允许偏差两个关键检查。",
+          "methodHighlights": [
+            "trajectory-conditioned grasp feasibility for video-derived object motion",
+            "hierarchical reachability-gated selection of grasp-TCP hypotheses",
+            "VLM-assisted semantic mask for manipulability refinement"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "robot manipulation",
+            "video-to-robot",
+            "VLM",
+            "geometry"
+          ]
+        },
+        {
+          "title": "MultiView-Bench: A Diagnostic Benchmark for World-Centric Multi-View Integration in VLMs",
+          "authors": "Hantao Zhang, Jinru Sui, Ed Li, Dirk Bergemann, Zhuoran Yang",
+          "arxivUrl": "https://arxiv.org/abs/2607.08970",
+          "published": "2026-07-09T22:22:42Z | [Submitted on 9 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.CV, cs.AI",
+          "summary": "MultiView-Bench 评估 VLM 是否能把多个视角整合成 allocentric 3D mental model。它要求模型把物体位置从临时视角中解耦，并锚定到固定全局坐标系。前沿 VLM 在单图 2D 关系上表现较好，但在跨视角 3D 空间关系和证据融合上明显不足。对机器人装配、导航和世界模型，这篇提供了一个直接测“多视角理解是否真三维”的诊断工具。",
+          "methodHighlights": [
+            "diagnostic benchmark for world-centric multi-view integration",
+            "allocentric 3D scene comprehension beyond camera-relative perception",
+            "ViewNavigator multi-agent framework for active viewpoint selection and fusion"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "VLM",
+            "3D spatial reasoning",
+            "multi-view",
+            "world model"
+          ]
+        },
+        {
+          "title": "4DR360: State Reasoning for Joint 3D Detection and Occupancy Prediction in 4D Radar-Camera Full-Scene Perception",
+          "authors": "Xiaokai Bai, Lianqing Zheng, Runwei Guan, Songkai Wang, Siyuan Cao, Hui-liang Shen",
+          "arxivUrl": "https://arxiv.org/abs/2607.09629",
+          "published": "2026-07-10T17:26:19Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.CV, cs.AI",
+          "summary": "4DR360 面向 4D 毫米波雷达和相机融合下的 360 度全场景感知。它把语义 occupancy 视为可持续传播的 scene state，而不是一次性输出。State-guided BEV Enhancement 和 Doppler-guided Temporal Fusion 分别增强单帧 BEV 表示和长时证据保留。对自动驾驶 3D 感知，它把目标检测和 dense occupancy 放到同一个跨模态状态推理框架中。",
+          "methodHighlights": [
+            "joint 3D detection and semantic occupancy prediction from radar-camera inputs",
+            "occupancy treated as persistent scene state",
+            "Doppler-guided temporal fusion for longer-horizon state evidence"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D detection",
+            "occupancy prediction",
+            "autonomous driving",
+            "4D radar"
+          ]
+        },
+        {
+          "title": "B-spline Policy: Accelerating Manipulation Policies via B-spline Action Representations",
+          "authors": "Xiaoshen Han, Haoyu Xiong, Haonan Chen, Chaoqi Liu, Antonio Torralba, Yuke Zhu, Yilun Du",
+          "arxivUrl": "https://arxiv.org/abs/2607.09648",
+          "published": "2026-07-10T17:46:32Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-13 (Monday, 13 July 2026 official arXiv new listing)",
+          "categories": "cs.RO",
+          "summary": "B-spline Policy 用连续 B-spline 曲线替代离散 action chunks，以加速机器人操作策略执行。策略直接预测 knots 和 control points，得到平滑、时间连续、可缩放的动作轨迹。这个表示可以接入标准 policy learning pipeline，并由低层控制器以更高频率执行。对机器人操作模型来说，它提醒我们动作表示本身可能比网络结构更直接影响速度和稳定性。",
+          "methodHighlights": [
+            "continuous B-spline action representation with knots and control points",
+            "temporally scalable smooth trajectories for faster low-level execution",
+            "drop-in integration with standard manipulation policy learning pipelines"
+          ],
+          "projectUrl": "https://b-spline-policy.github.io",
+          "codeUrl": "https://github.com/B-spline-policy/bspline-policy",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "robot manipulation",
+            "action representation",
+            "trajectory",
+            "policy learning"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-07-10",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-07-10",
