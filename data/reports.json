@@ -1,6 +1,644 @@
 {
-  "updatedAt": "2026-07-13",
+  "updatedAt": "2026-07-14",
   "reports": [
+    {
+      "date": "2026-07-14",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-07-14",
+      "shortTitle": "2026-07-14 arXiv 3D Vision",
+      "summary": "2026-07-14 官方 arXiv 批次主体 26 篇，聚焦 3DGS 在线重建/mesh、3D world model、VLA/latent action、手物交互与触觉 Physical AI；补充 0 篇。",
+      "trends": [
+        "今天的 3DGS 论文从渲染质量走向系统接口：GeoGS-SLAM、Incremental Gaussian Triangulation、SalientGS、AsySplat 和 Grassmannian Splatting 分别把 Gaussian 表示接入 SLAM、显式 mesh、资源分配、长序列效率和动态表面建模。",
+        "世界模型和三维生成更强调“可探索、可执行、可约束”：ABot-3DWorld 把多模态输入变成 3DGS 世界，Xiaomi-Robotics-U0 把基础生成模型约束到 embodiment，Lumo-2/WALA/energy-guided driving world models 则围绕 latent action、预测动态和控制一致性展开。",
+        "机器人策略的空间表示正在具体化：robot-centric pointmaps、pixel action maps、object-centric slots、3D scene graphs 都在把视觉语义转成可操作的几何/对象/拓扑结构，而不是直接把图像 embedding 交给控制器。",
+        "dexterous manipulation 与 HOI 方向继续把接触关系放到中心位置：REGRIND、GraspGraphNet、EgoSteer 和 TAC-LOCO 分别从人手示范 retargeting、跨手型图结构抓取、第一人称视频预训练和触觉全身控制切入。",
+        "最值得优先深读的是 GeoGS-SLAM、ABot-3DWorld 0、Xiaomi-Robotics-U0、OmniX、Incremental Online Scene Reconstruction by 3D Gaussian Triangulation、Towards Predictive, Aligned, and Scalable Robot Learning、See like a Robot、EgoSteer、Action Map Policy、REGRIND 和 GraspGraphNet。它们共同指向一个趋势：三维视觉表示需要同时服务重建、生成、动作和物理约束。"
+      ],
+      "topPapers": [
+        "GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors",
+        "ABot-3DWorld 0: A Universal World Model to Explore Any 3D Space",
+        "Xiaomi-Robotics-U0: Unified Embodied Synthesis with World Foundation Model",
+        "OmniX: Any-view and Any-time 4D Reconstruction via Feed-forward Trajectory Fields",
+        "Incremental Online Scene Reconstruction by 3D Gaussian Triangulation",
+        "Towards Predictive, Aligned, and Scalable Robot Learning",
+        "See like a Robot: Robot-Centric Pointmaps for Vision-Language-Action Models",
+        "EgoSteer: A Full-Stack System Towards Steerable Dexterous Manipulation from Egocentric Videos",
+        "Action Map Policy: Learning 3D Closed-loop Manipulation via Pixel Classification",
+        "A Minimalist Retargeting-Guided Reinforcement Learning Recipe for Dexterous Manipulation",
+        "GraspGraphNet: Graph-Structured Multi-Embodiment Dexterous Grasp Generation"
+      ],
+      "markdownPath": "reports/arxiv/2026-07-14.md",
+      "papers": [
+        {
+          "title": "GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors",
+          "authors": "Ruilan Gao, Letian Jin, Yu Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2607.11184",
+          "published": "2026-07-13T07:32:09Z | [Submitted on 13 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO",
+          "summary": "GeoGS-SLAM 把 3D Gaussian Splatting 的可渲染地图与前馈视觉几何模型的 camera/scene priors 结合，用于单目在线稠密重建。它不依赖外部深度传感器，而是先从未标定 RGB 输入估计几何先验，再用 RGB 与先验共同采样 Gaussian primitives。随后系统联合优化相机位姿和 Gaussian 地图，在 SLAM 的在线约束下保留较好的渲染质量。对机器人/AR 的启发是，foundation geometry prior 可以成为 3DGS-SLAM 的初始化与约束来源，而不只是后处理工具。",
+          "methodHighlights": [
+            "feed-forward visual geometry priors for uncalibrated monocular RGB input",
+            "Gaussian map expansion from both RGB observations and geometric priors",
+            "joint pose-map optimization for online dense 3DGS reconstruction"
+          ],
+          "projectUrl": "https://rlgao.github.io/geogs_slam",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "SLAM",
+            "3D reconstruction",
+            "geometry prior",
+            "robotics"
+          ]
+        },
+        {
+          "title": "ABot-3DWorld 0: A Universal World Model to Explore Any 3D Space",
+          "authors": "Mingchao Sun, Luyang Tang, Yu Liu, Xu Yan, Zhan Li, Yunwei Zhang, Fei Yu, Zengye Ge, Yumin Liu, Jiacheng Zhang, Yongchang Zhang, Jiawei Zhang, Zhicheng Liu, Zhongxu Sun, Tianjian Ouyang, Wenzheng Chen, Shixing Yang, Nianfei Fan, Guodong Sun, Huan Li, Zheng Zhou, Yongze Li, Yingliang Peng, Mengmeng Du, Yuan Liu, Haozhe Shi, Chunnuo Gong, Chengzhen Yu, Chunxue Jia, Yang Liu, Shiying Zeng, Junnan Lai, Hang Zhang, Ning Guo, Baoquan Chen, Mu Xu, Hongyu Pan",
+          "arxivUrl": "https://arxiv.org/abs/2607.11673",
+          "published": "2026-07-13T15:14:48Z | [Submitted on 13 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.CV",
+          "summary": "ABot-3DWorld 0 试图把文本、图像、多视图或视频输入统一提升为可探索的 3D 世界。核心表示是 Spatial Generative Primitive，由高质量全景图和空间点云构成，再通过 3D-consistent panoramic video generator 沿轨迹探索，最后重建为 3DGS 世界。它同时覆盖真实输入的几何恢复和单图/文本的生成补全。对世界模型研究来说，这是一条“多模态输入 -> 空间 primitive -> 全景视频 -> 3DGS 世界”的完整生成-重建管线。",
+          "methodHighlights": [
+            "Spatial Generative Primitive combines panorama and spatial point cloud",
+            "3D-consistent panoramic video generation along planned trajectories",
+            "panoramic video reconstruction into photorealistic 3DGS worlds"
+          ],
+          "projectUrl": "https://abot-world.amap.com/plaza",
+          "codeUrl": "https://github.com/amap-cvlab/ABot-World",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D world model",
+            "3D generation",
+            "3D Gaussian Splatting",
+            "point cloud",
+            "explorable world"
+          ]
+        },
+        {
+          "title": "Xiaomi-Robotics-U0: Unified Embodied Synthesis with World Foundation Model",
+          "authors": "Xinghang Li, Jun Guo, Qiwei Li, Long Qian, Hang Lai, Yueze Wang, Hongyu Yan, Jiahang Cao, Xi Chen, Jingen Qu, Jiaxi Song, Nan Sun, Hanye Zhao, Futeng Liu, Wanli Peng, Heyun Wang, Yunhong Wang, Caoyu Xia, Jack Zhao, Diyun Xiang, Hangjun Ye, Heng Qu, Huaping Liu, Jason Li",
+          "arxivUrl": "https://arxiv.org/abs/2607.11643",
+          "published": "2026-07-13T14:57:58Z | [Submitted on 13 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO, cs.AI",
+          "summary": "Xiaomi-Robotics-U0 是 38B 参数多模态自回归模型，目标是把基础图像/视频生成模型迁移到 embodied synthesis。论文把具身生成看作基础 world foundation model 的扩展，联合优化文本到图像、图像编辑、具身场景生成、具身迁移和具身视频生成。它强调多视角一致性、几何一致性和机器人 embodiment constraints，而不是只生成好看的视频。对 Physical AI 的意义在于把生成模型的世界知识显式约束到机器人可用的空间和动作域。",
+          "methodHighlights": [
+            "38B multimodal autoregressive model for unified embodied synthesis",
+            "joint training over image/video generation, embodied scene generation and transfer",
+            "multi-view, geometric and embodiment constraints for robot-facing generation"
+          ],
+          "projectUrl": "https://robotics.xiaomi.com/xiaomi-robotics-u0.html",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "embodied AI",
+            "world model",
+            "Physical AI",
+            "robotics",
+            "video generation"
+          ]
+        },
+        {
+          "title": "SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation",
+          "authors": "Tianyu Xiong, Rui Li, Suning Ge, Jiaqi Yang",
+          "arxivUrl": "https://arxiv.org/abs/2607.11285",
+          "published": "2026-07-13T09:06:49Z | [Submitted on 13 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.CV",
+          "summary": "SalientGS 连接 SfM 与 3DGS，在初始化和 Gaussian 分配上显式引入重要性建模。它关注传统 SfM-to-3DGS 管线中高价值区域与低价值区域被均匀对待的问题，用 importance-guided MCMC Gaussian allocation 提升资源利用。方法适合高质量多视角重建和 NVS，对长尾纹理/几何区域的采样效率尤其关键。它代表 3DGS 从“能渲染”进一步走向可控采样和重建资源分配。",
+          "methodHighlights": [
+            "unified SfM-to-3DGS pipeline",
+            "importance-guided MCMC allocation of Gaussian primitives",
+            "saliency-aware reconstruction resource placement"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/Six-Bit-TX/SalientGS",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "SfM",
+            "novel view synthesis",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "OmniX: Any-view and Any-time 4D Reconstruction via Feed-forward Trajectory Fields",
+          "authors": "Yanqin Jiang, Tengfei Wang, Zhengwei Wang, Chenjie Cao, Junta Wu, Wenhan Luo, Weiming Hu, Jin Gao, Chunchao Guo",
+          "arxivUrl": "https://arxiv.org/abs/2607.10840",
+          "published": "2026-07-12T17:05:18Z | [Submitted on 12 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.CV",
+          "summary": "OmniX 面向大相机运动视频下的任意视角、任意时间 4D 重建。它不再逐帧预测静态点云，而是为每个像素预测稠密 3D point trajectories，并用动态 tokens 表示紧凑的 3D motion。方法将动态运动建模与静态几何预测解耦，适合处理大视角变化下的动态场景聚合。对 4D reconstruction 来说，它把 feed-forward 预测推进到可跨时间和视角的轨迹场表示。",
+          "methodHighlights": [
+            "dense 3D point trajectory prediction for each video pixel",
+            "decoupled dynamic motion modeling and static geometry prediction",
+            "compact dynamic tokens exploiting sparse low-rank 3D motion"
+          ],
+          "projectUrl": "https://omnix4d.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "4D reconstruction",
+            "dynamic scene",
+            "point trajectory",
+            "feed-forward reconstruction"
+          ]
+        },
+        {
+          "title": "Incremental Online Scene Reconstruction by 3D Gaussian Triangulation",
+          "authors": "Yanjin Zhu, Shaofan Liu, Jianke Zhu",
+          "arxivUrl": "https://arxiv.org/abs/2607.10690",
+          "published": "2026-07-12T10:22:18Z | [Submitted on 12 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.CV",
+          "summary": "这篇论文提出直接从 dense geometric Gaussians 增量三角化显式 mesh 的在线场景重建框架。它避免先离线把 3DGS 转成隐式场再抽 mesh 的中间步骤，使渲染表示和下游几何表面可以同步更新。关键算法是 direct meshing 与 plane-based pulling constraint，用于让 Gaussian primitives 动态贴合局部表面。对机器人地图和 XR 系统来说，它把 3DGS 的可视化优势与显式 mesh 的可操作性接在一起。",
+          "methodHighlights": [
+            "direct meshing from dense geometric Gaussian representation",
+            "incremental mesh extraction and update during online reconstruction",
+            "plane-based pulling constraint for local surface alignment"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "mesh reconstruction",
+            "online reconstruction",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "MAC-Splat: Multi-Attribute Consistency for High-Fidelity Sparse-View Reconstruction",
+          "authors": "Jinqian Yang, Yichen Wu, Wanhua Li, Haokun Lin, Renzhen Wang, Xiangchu Feng, Xixi Jia",
+          "arxivUrl": "https://arxiv.org/abs/2607.10792",
+          "published": "2026-07-12T14:50:08Z | [Submitted on 12 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.CV",
+          "summary": "MAC-Splat 面向 sparse-view 3DGS 的高保真重建，强调多属性一致性。论文针对稀疏视角下几何、深度和外观容易互相漂移的问题，设计约束来提高重建稳定性。它更偏向核心 NVS/重建质量提升，而不是机器人系统集成。对少视角 3DGS 来说，重点在于如何让不同属性在优化中互相校验。",
+          "methodHighlights": [
+            "multi-attribute consistency for sparse-view 3DGS",
+            "geometry/depth/appearance agreement under limited views",
+            "high-fidelity novel view synthesis with sparse observations"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "sparse-view reconstruction",
+            "novel view synthesis",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling",
+          "authors": "Yingji Zhong, Dave Zhenyu Chen, Fuzhao Ou, Youyu Chen, Zhihao Li, Lanqing Hong, Dan Xu",
+          "arxivUrl": "https://arxiv.org/abs/2607.10995",
+          "published": "2026-07-13T01:39:19Z | [Submitted on 13 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.CV",
+          "summary": "AsySplat 关注长序列场景建模中 generalizable 3DGS 的冗余计算。作者观察到高质量 NVS 并不总是需要同等精度的几何，且外观学习通常比几何恢复更容易，因此将几何分支和外观分支做非对称设计。几何分支处理粗粒度 tokens，外观分支用细粒度 tokens 捕获细节，两者通过双向连接交互。它对大规模长视频 3DGS 的启发是，几何和外观应按任务难度分配不同算力。",
+          "methodHighlights": [
+            "asymmetric architecture separating geometry and appearance modeling",
+            "coarse geometry tokens plus fine appearance tokens",
+            "bilateral connections for long-sequence generalizable 3DGS"
+          ],
+          "projectUrl": "https://zhongyingji.github.io/asysplat/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "long-sequence modeling",
+            "novel view synthesis",
+            "efficient reconstruction"
+          ]
+        },
+        {
+          "title": "Grassmannian Splatting I: Moving rank-2 Spacetime Surfels for Dynamic Scene Rendering",
+          "authors": "Aaron Maurice Berman, Shantanu Dave",
+          "arxivUrl": "https://arxiv.org/abs/2607.10489",
+          "published": "2026-07-11T21:51:32Z | [Submitted on 11 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.CV",
+          "summary": "Grassmannian Splatting 将动态场景 primitives 设为四维时空中的 rank-2 moving surfels。与把 4D Gaussian 切片成每帧体椭球不同，它通过 Grassmannian 参数化让每个时间截面天然是二维 surfel，并能读出法向速度。该表示更贴合动态表面渲染的几何结构，也减少 full-rank spacetime covariance 的不必要自由度。对 4DGS 来说，这是一种更几何化、表面化的 primitive 设计。",
+          "methodHighlights": [
+            "Gaussians supported on rank-2 moving surfels in spacetime",
+            "Grassmannian parameterization of normals and velocity",
+            "surface-oriented alternative to full-rank 4D Gaussian slicing"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/PaulCelanCoding/grassmannian-splatting",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "4D rendering",
+            "dynamic scene",
+            "geometry"
+          ]
+        },
+        {
+          "title": "SyncSpace: Layout-Conditioned 3D Gaussian Splatting for Space Reskinning in Mixed Reality",
+          "authors": "Qinchuan Zhang, Weibo Xu, Yunge Wen",
+          "arxivUrl": "https://arxiv.org/abs/2607.10050",
+          "published": "2026-07-11T00:16:02Z | [Submitted on 11 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.HC",
+          "summary": "SyncSpace 是 cs.HC 中少数与三维视觉强相关的条目：它用 3DGS 做 mixed reality 空间 reskinning。系统先用深度扫描提取 3D bounding boxes，将其渲染成 layout-only panorama 作为几何先验，再交给生成式 world model 产生与物理空间布局对齐的 Gaussian splat scene。随后通过 coarse-to-fine registration 和手势微调完成虚实空间对齐。它说明普通交互论文只有在明确依赖 3DGS、深度和物理空间配准时才应纳入本日报。",
+          "methodHighlights": [
+            "depth-sensed 3D layout as geometric prior for generated 3DGS worlds",
+            "layout-preserving space reskinning in mixed reality",
+            "coarse-to-fine physical/virtual registration with hand interaction"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "mixed reality",
+            "3D layout",
+            "world model"
+          ]
+        },
+        {
+          "title": "Mapping Pamir: Multi-Session Visual-Inertial SLAM and 3D Reconstruction of an Underwater Shipwreck",
+          "authors": "Michalis Chatzispyrou, Luke Horgan, Hyunkil Hwang, Harish Sathishchandra, Chinmay Burgul, Monika Roznere, Alberto Quattrini Li, Philippos Mordohai, Ioannis Rekleitis",
+          "arxivUrl": "https://arxiv.org/abs/2607.10925",
+          "published": "2026-07-12T21:16:53Z | [Submitted on 12 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO",
+          "summary": "Mapping Pamir 给出低成本 action camera 的多会话水下 VI-SLAM 与 3D 重建流程。系统用潜水电脑水深数据增强视觉惯性轨迹，再用 SVIn2 产生每次会话的轨迹和 sparse reconstruction。随后 COLMAP 对关键帧和位姿做全局优化，得到沉船环境的 dense reconstruction，并用固定 calibration targets 对齐多会话坐标。它是经典 SLAM/SfM 管线在复杂水下场景中的实用案例。",
+          "methodHighlights": [
+            "multi-session visual-inertial SLAM augmented with dive-computer depth",
+            "COLMAP global optimization and dense reconstruction from keyframes",
+            "coordinate alignment across sessions with fixed calibration targets"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "SLAM",
+            "SfM",
+            "3D reconstruction",
+            "underwater robotics"
+          ]
+        },
+        {
+          "title": "IBPA: Real-time Free-form Manifold Mesh Reconstruction via Incremental Ball Pivoting with Integrated Hole Detection",
+          "authors": "Mauhing Yip, Mohit Singh, Kostas Alexis, Christian Schellewald, Annette Stahl",
+          "arxivUrl": "https://arxiv.org/abs/2607.11627",
+          "published": "2026-07-13T14:45:46Z | [Submitted on 13 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.GR, cs.RO",
+          "summary": "IBPA 将 Ball Pivoting Algorithm 改造成可实时增量运行的自由形态 manifold mesh 重建方法。它面向 ROV/AUV 采集 bathymetric/geometric 数据时的在线覆盖判断，而不是事后才发现缺测。相比 DTM 高度场，manifold mesh 能表达悬垂和垂直结构，更适合复杂水下地形。对机器人采集任务，它把“边走边看重建质量”作为规划反馈。",
+          "methodHighlights": [
+            "incremental Ball Pivoting Algorithm for real-time manifold mesh reconstruction",
+            "integrated hole detection for online coverage assessment",
+            "free-form surface representation beyond height-field DTMs"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/Mauhing/Incremental-BPA",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "mesh reconstruction",
+            "robotics",
+            "online mapping",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "3D Scene Graph Prediction: Generating Hierarchical Models from Partially Observed Environments",
+          "authors": "Siyi H, Jared Strade, Hyungtae Lim, Luca Carlone",
+          "arxivUrl": "https://arxiv.org/abs/2607.10879",
+          "published": "2026-07-12T18:52:05Z | [Submitted on 12 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO, cs.CV",
+          "summary": "这篇论文研究机器人只观测到部分环境时，如何预测未探索区域的层级 3D scene graph。它把室内场景生成拆成 room layer 和 object layer：前者描述 floor plan 和 traversability，后者建模房间内物体布局。room layer 使用 mixed-domain graph diffusion，同时处理连续几何和离散拓扑。对主动探索和目标搜索来说，这类可补全的 3D scene graph 是比单纯 occupancy 更结构化的 world model。",
+          "methodHighlights": [
+            "hierarchical 3D scene graph prediction from partial observations",
+            "room-layer generation for floor plan and traversability",
+            "object-layer layout modeling with graph diffusion"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D scene graph",
+            "robotics",
+            "scene generation",
+            "world model"
+          ]
+        },
+        {
+          "title": "3D-DefectBench: A Controlled Factorial Study of Vision-Language Model Evaluation Pipelines for Fine-Grained 3D Generation Defects",
+          "authors": "Zhenyu Zhao, Nanshan Jia, Jihyeon Je, Yifu Tang, Alvin Chan, Michael Spedden, Michael V. Palleschi, Sui Huang, Jingshen Wang, Zeyu Zheng",
+          "arxivUrl": "https://arxiv.org/abs/2607.10826",
+          "published": "2026-07-12T16:41:24Z | [Submitted on 12 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.CV, cs.AI, cs.GR",
+          "summary": "3D-DefectBench 面向生成式 3D 系统的自动评测可靠性。它不只比较整体偏好，而是定义九类细粒度二值缺陷，覆盖几何、纹理和 prompt adherence。作者用 factorial design 系统改变 VLM、相机协议、视觉输入和 prompt schema，分析评测 pipeline 的每个环节如何影响判断。对 3D 生成研究，这篇提醒大家评测器本身需要可诊断，而不能只把 VLM 当黑箱裁判。",
+          "methodHighlights": [
+            "nine fine-grained binary defect labels for 3D generation outputs",
+            "factorial analysis over VLM, camera protocol, input evidence and prompt schema",
+            "diagnostic benchmark for automated 3D asset evaluation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D generation",
+            "evaluation",
+            "VLM judge",
+            "geometry defects"
+          ]
+        },
+        {
+          "title": "Towards Predictive, Aligned, and Scalable Robot Learning",
+          "authors": "Peijun Tang, Shangjin Xie, Baifu Huang, Binyan Sun, Haotian Yang, Kuncheng Luo, Weiqi Jin, Shilin Fang, Jianan Wang",
+          "arxivUrl": "https://arxiv.org/abs/2607.11270",
+          "published": "2026-07-13T08:53:34Z | [Submitted on 13 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO, cs.AI",
+          "summary": "这篇提出 Lumo-2，一个 latent world-action model，用潜空间中的世界动态推理来生成动作。作者认为动作质量受 latent space geometry 支配，而传统 reconstruction-based action tokenization 会偏向低层信号保真，导致动作语义与可控性错位。Lumo-2 试图把物理 grounded visual transitions 作为跨模态对齐的共同基底。对机器人 foundation model 来说，它把“预测世界”和“生成动作”放在同一个潜空间几何问题中处理。",
+          "methodHighlights": [
+            "latent world-action model for predictive robot learning",
+            "physically grounded visual transitions as cross-modal alignment substrate",
+            "latent-space geometry analysis beyond reconstruction-biased action tokenization"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world model",
+            "robot learning",
+            "Physical AI",
+            "latent action",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "WALA Learning Executable Latent Actions from Action-Labeled Demonstrations and Action-Free Videos",
+          "authors": "Jiahao Liu, Zhongpu Xia, Shuai Tian, Huangrui Li, Yuhang Zheng, Ning Ma, Xin Fu, Xiaotian Liu, Jing Li, Yixian Li, ShangQing Zhou, Zebin Xing, Linbo Wang, Chaoyue Li, Haoran Li, Dongbin Zhao",
+          "arxivUrl": "https://arxiv.org/abs/2607.11397",
+          "published": "2026-07-13T11:02:04Z | [Submitted on 13 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO",
+          "summary": "WALA 关注如何从带动作标签的 demonstrations 和无动作视频中学习 executable latent actions。它把 action-labeled data 与 action-free videos 结合，试图降低机器人动作学习对昂贵动作标注的依赖。论文强调 latent actions 需要可执行，而不仅是视频预测中的隐变量。对 embodied world model 来说，这是把公开视频先验转化为机器人动作空间的一条路线。",
+          "methodHighlights": [
+            "latent action learning from action-labeled demonstrations and action-free videos",
+            "bridging video-only data with executable robot actions",
+            "action abstraction for embodied policy learning"
+          ],
+          "projectUrl": "https://liujiahao2077.github.io/WALA.github.io",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "latent action",
+            "robot manipulation",
+            "world model",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "See like a Robot: Robot-Centric Pointmaps for Vision-Language-Action Models",
+          "authors": "Byungkun Lee, Dongyoon Hwang, Dongjin Kim, Hojoon Lee, Minho Park, Jaegul Choo",
+          "arxivUrl": "https://arxiv.org/abs/2607.11498",
+          "published": "2026-07-13T12:50:32Z | [Submitted on 13 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO, cs.AI",
+          "summary": "See like a Robot 提出 robot-centric pointmaps，用更贴近机器人执行的 3D-aware 表示支持 VLA 模型。相比直接把图像特征交给策略，pointmap 让模型以机器人中心坐标理解空间、目标和可达性。论文目标是弥合通用视觉语言表示与动作执行所需几何之间的缺口。对 VLA 系统来说，它强调视觉输入不应只语义化，也要保持可操作的空间度量。",
+          "methodHighlights": [
+            "robot-centric pointmap representation for VLA models",
+            "geometry-aware visual input aligned with action execution",
+            "spatial grounding for robot policy learning"
+          ],
+          "projectUrl": "https://davian-robotics.github.io/pointmap/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "pointmap",
+            "robotics",
+            "3D perception",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "EgoSteer: A Full-Stack System Towards Steerable Dexterous Manipulation from Egocentric Videos",
+          "authors": "Yifan Zhong, Zhang Chen, Tianrui Guan, Fanlian Zeng, Yuyao Ye, Tianjia He, Ka Nam Lui, Jiayi Li, Tingrui Zhang, Ruilin Yan, Xinhao Ji, Guangyu Zhao, Wenjie Lou, Jiayuan Zhang, Yuanpei Chen, Yaodong Yang",
+          "arxivUrl": "https://arxiv.org/abs/2607.09701",
+          "published": "2026-06-21T16:16:02Z | [Submitted on 21 Jun 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO",
+          "summary": "EgoSteer 是从第一人称人类视频扩展灵巧 VLA 预训练到真实机器人后训练的全栈系统。它的 EgoSmith 数据管线将野外 egocentric videos 处理成大规模、语言对齐且动作更准确的预训练数据，再结合 teleoperation 和 human-in-the-loop correction。模型侧使用 world-model-enhanced VLA，并通过 DAgger 做真实机器人修正。虽然 arXiv dateline 早于本周，但它出现在 2026-07-14 官方 cs.RO new 列表中，本次按公告批次透明标注。",
+          "methodHighlights": [
+            "EgoSmith pipeline for large-scale egocentric video-to-robot data curation",
+            "world-model-enhanced VLA for steerable dexterous manipulation",
+            "real-robot post-training with teleoperation and DAgger refinement"
+          ],
+          "projectUrl": "https://egosteer.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "dexterous manipulation",
+            "VLA",
+            "egocentric video",
+            "world model",
+            "human-object interaction"
+          ]
+        },
+        {
+          "title": "Action Map Policy: Learning 3D Closed-loop Manipulation via Pixel Classification",
+          "authors": "Haojie Huang, Zhang Ye, Linfeng Zhao, Boce Hu, Mingxi Jia, Yu Qi, Ahmed Agha, Dian Wang, Robert Platt, Robin Walters",
+          "arxivUrl": "https://arxiv.org/abs/2607.10706",
+          "published": "2026-07-12T10:58:06Z | [Submitted on 12 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO, cs.AI, cs.CV, cs.LG",
+          "summary": "Action Map Policy 将 3D closed-loop manipulation 转写成图像空间的像素分类问题。核心想法是把 3D actions 投影到相机平面，让每个像素位置成为离散类，从而避免直接离散高维连续动作导致词表爆炸。这样既保留多模态动作选择，又能达到毫米级精度。对机器人视觉策略来说，它提供了一种把 3D 动作空间压回多视角图像证据的实用表示。",
+          "methodHighlights": [
+            "projects 3D actions onto camera image planes",
+            "pixel classification formulation for closed-loop manipulation",
+            "multi-modal action prediction without high-dimensional token explosion"
+          ],
+          "projectUrl": "https://haojhuang.github.io/amp_page/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D manipulation",
+            "robot policy",
+            "pixel action map",
+            "closed-loop control"
+          ]
+        },
+        {
+          "title": "A Minimalist Retargeting-Guided Reinforcement Learning Recipe for Dexterous Manipulation",
+          "authors": "Yunhai Feng, Natalie Leung, Jiaxuan Wang, Lujie Yang, Haozhi Qi, Preston Culbertson",
+          "arxivUrl": "https://arxiv.org/abs/2607.11874",
+          "published": "2026-07-13T17:56:08Z | [Submitted on 13 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO, cs.AI, cs.LG",
+          "summary": "REGRIND 研究人手示范到灵巧机器人手策略的最简 retargeting-guided RL recipe。它从单个人类示范出发，保留 hand-object spatial and contact relationships，得到机器人参考轨迹，再在仿真中训练 residual RL policy 跟踪 object-centric keypoints。经过系统辨识后策略可 zero-shot 转移到硬件。对手物交互和 dexterous manipulation 来说，它强调接触关系比逐关节模仿更关键。",
+          "methodHighlights": [
+            "retargets single human hand-object demonstration to robot reference",
+            "preserves spatial/contact relations with object-centric keypoints",
+            "residual RL in simulation with zero-shot hardware transfer"
+          ],
+          "projectUrl": "https://yunhaifeng.com/REGRIND",
+          "codeUrl": "https://github.com/yunhaif/regrind",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "dexterous manipulation",
+            "human-object interaction",
+            "hand-object interaction",
+            "RL",
+            "sim-to-real"
+          ]
+        },
+        {
+          "title": "GraspGraphNet: Graph-Structured Multi-Embodiment Dexterous Grasp Generation",
+          "authors": "Yeonseo Lee, Taeyeop Lee, Hyosup Shin, Guebin Hwang, Sungho Jo",
+          "arxivUrl": "https://arxiv.org/abs/2607.11031",
+          "published": "2026-07-13T02:54:09Z | [Submitted on 13 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO",
+          "summary": "GraspGraphNet 用 URDF 派生的运动学图表示不同机器人手，实现跨 embodiment 的灵巧抓取生成。它结合层级物体表面编码、可微正运动学和 dynamic world-edge message passing，直接生成可执行 palm poses 与关节配置。方法用 conditional flow matching 在可执行状态空间中建模，避免后处理优化、IK 和 retargeting。对多手型抓取泛化来说，图结构显式建模了手的拓扑差异。",
+          "methodHighlights": [
+            "URDF-derived kinematic graph for each dexterous hand",
+            "hierarchical object surface encoding plus differentiable forward kinematics",
+            "conditional flow matching in executable grasp state space"
+          ],
+          "projectUrl": "https://lysees.github.io/graspgraphnet-page",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "dexterous grasping",
+            "robot hand",
+            "human-object interaction",
+            "graph model",
+            "3D geometry"
+          ]
+        },
+        {
+          "title": "TAC-LOCO: Unified Whole-Body Control for Quadrupedal TACtile-Informed LOCO-Manipulation",
+          "authors": "Muqun Hu, Yuhao Zhou, Kabir Ray Malik, Chi Lin, Won Suk Lee, Yu She, Yan Gu",
+          "arxivUrl": "https://arxiv.org/abs/2607.10132",
+          "published": "2026-07-11T05:45:24Z | [Submitted on 11 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO",
+          "summary": "TAC-LOCO 将分布式触觉引入四足全身 loco-manipulation。它不是只优化运动学轨迹，而是把 tactile-informed contact 作为控制策略的重要反馈，用于抓取、推动或与环境接触的复合任务。对于 Physical AI，这类工作说明腿足/全身机器人需要把触觉接触纳入状态估计和控制闭环。它与手物交互论文共同指向“接触是可学习表示，而非噪声”。",
+          "methodHighlights": [
+            "unified whole-body control for tactile-informed loco-manipulation",
+            "contact-aware policy learning for quadrupedal robot interaction",
+            "tactile feedback integrated into locomotion and manipulation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "tactile sensing",
+            "loco-manipulation",
+            "robotics",
+            "Physical AI",
+            "contact"
+          ]
+        },
+        {
+          "title": "ActiveFly-Bench: Aligning Embodied Question Answering with Vision-Language-Action for Aerial Embodied Perception",
+          "authors": "Weichen Zhang, Shiquan Yu, Yinan Zhu, Peizhi Tang, Shilong Ji, Zhiyuan Deng, Tianyi Lyu, Haoyang Wang, Xin Zeng, Chen Gao, Yong Li, Xinlei Chen",
+          "arxivUrl": "https://arxiv.org/abs/2607.10180",
+          "published": "2026-07-11T07:58:04Z | [Submitted on 11 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO, cs.AI",
+          "summary": "ActiveFly-Bench 为 UAV embodied perception 定义从高层问答到行为规划再到细粒度控制的三层任务。数据来自真实和仿真户外环境，并配套 ActiveFly 闭环 UAV agent。评测显示当前 VLM/VLA 模型在主动调整视角、行为规划和真实任务完成上仍有明显短板。对三维视觉来说，它强调 aerial embodied perception 的核心不是单帧识别，而是空间探索和视角选择。",
+          "methodHighlights": [
+            "benchmark bridging Air-EQA, observation behavior planning and UAV control",
+            "real plus simulated outdoor environments",
+            "closed-loop UAV agent integrating VLM reasoning and fine-grained control"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "embodied AI",
+            "UAV",
+            "VLA",
+            "active perception",
+            "robotics"
+          ]
+        },
+        {
+          "title": "Is Energy Guidance All You Need? Training-Free Norm Injection for Driving World Models",
+          "authors": "Xiyan Su, Frank Diermeyer, Markus Lienkamp",
+          "arxivUrl": "https://arxiv.org/abs/2607.10781",
+          "published": "2026-07-12T14:17:42Z | [Submitted on 12 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.CV, cs.RO",
+          "summary": "这篇研究 driving world models 能否在不重新训练 backbone 的情况下被交通规范控制。作者用 differentiable energy functions 在采样时引导 rectified-flow driving world model，让 planned trajectory 遵守反事实刹车等规范。实验也发现视频生成未必会完全跟随被引导的轨迹，暴露出轨迹与视频联合建模的一致性问题。对世界模型来说，它提醒我们 controllability 不能只看动作输出，还要检查生成视觉是否同步服从物理/规范约束。",
+          "methodHighlights": [
+            "training-free energy guidance for rectified-flow driving world models",
+            "sampling-time norm injection into planned ego trajectory",
+            "analysis of mismatch between steered trajectory and generated video"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "world model",
+            "autonomous driving",
+            "controllability",
+            "video generation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "More Structure, Not More Capacity: Object-Centric Representations for Visuomotor Imitation Learning",
+          "authors": "Yi Li, Alexandre Chapin, Liming Chen, Jan Peters, Alap Kshirsagar",
+          "arxivUrl": "https://arxiv.org/abs/2607.09825",
+          "published": "2026-07-10T10:35:24Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO, cs.AI",
+          "summary": "这篇论文比较 object-centric slot representations 与全局/patch 视觉特征在 visuomotor imitation learning 中的作用。作者在 ManiSkill3 PickCube-v1 中冻结编码器和策略结构，发现 SPOT object-centric 表示明显优于 dense DINO global-feature baseline。更多 tokens 本身没有带来收益，关键是表示是否按对象组织。对机器人操作来说，它支持“结构化物体表示比盲目增大视觉容量更重要”的判断。",
+          "methodHighlights": [
+            "frozen object-centric slot representation for visuomotor imitation",
+            "controlled ManiSkill3 PickCube-v1 evaluation under fixed policy setup",
+            "comparison against global and dense DINO features"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "visuomotor learning",
+            "object-centric representation",
+            "robot manipulation",
+            "simulation"
+          ]
+        },
+        {
+          "title": "TS-Mask VLA: 2D Temporal-Spatial Masking for Vision-Language-Action Model with Effective Bridging",
+          "authors": "Shengzhuo Yang, Ronghao Yu, Chuanjie Lv, Linpeng Peng, Hang Yu, Jie Ren, Jiajun Lv, Yong Liu",
+          "arxivUrl": "https://arxiv.org/abs/2607.09818",
+          "published": "2026-07-10T07:06:02Z | [Submitted on 10 Jul 2026] | official announcement batch: 2026-07-14 (Tuesday, 14 July 2026 official arXiv new listing)",
+          "categories": "cs.RO, cs.AI, cs.CV",
+          "summary": "TS-Mask VLA 认为 token-based VLA 的 next-token action generation 容易忽略动作序列的时空结构。它提出 temporal-spatial masking，在视觉语言表示与动作之间建立更有效的桥接，同时显式建模动作序列结构。论文虽标题含 2D，但任务落在具身机器人 VLA，并被 cs.RO/cs.CV/cs.AI 收录。对长时程操作来说，它强调动作 tokenization 需要空间和时间上的归纳偏置。",
+          "methodHighlights": [
+            "temporal-spatial masking for VLA action sequence modeling",
+            "bridging vision-language representations and robot actions",
+            "explicit action structure modeling beyond next-token prediction"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "spatiotemporal action",
+            "embodied AI"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-07-13",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-07-13",
