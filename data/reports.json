@@ -1,6 +1,1072 @@
 {
-  "updatedAt": "2026-07-20",
+  "updatedAt": "2026-07-21",
   "reports": [
+    {
+      "date": "2026-07-21",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-07-21",
+      "shortTitle": "3D Vision / Physical AI",
+      "summary": "最近一个官方批次筛选出 45 篇相关论文；HOI/4D 重建、3DGS 工程化、几何化 world models 和接触型 VLA 是主线。",
+      "trends": [
+        "今天的三维生成最亮眼的是“可用于交互/仿真”的场景与动作生成：HarmoHOI 把多视角 HOI 视频和 3D point tracks 共同生成，Text2Villa 强调物理约束的多层室内环境，Scene-SAM3D 则把多视图真实场景资产生成做成 training-free 流程。",
+        "3DGS 继续从表示质量转向工程闭环：ExploreGS 解释 blur trap，TopoGS 加入平面拓扑，FF-ProCams 做可重光照 inverse rendering，CaT-GS/SPARE-GS/packet-loss 3D Gaussian compression 分别处理渲染效率、资源预算和网络传输鲁棒性。",
+        "world model 与 VLA 今日明显几何化：GeoWorldAD、Depth-Regularized JEPA、World Action Model test-time scaling、PAVXploreRL 都把深度、一致性或物理可行性作为模型评估/训练信号，而不是只看视频生成或动作预测。",
+        "机器人操作主线集中在“持久物体状态 + 接触记忆 + 几何终态质量”：Persistent 3D Object Tokens、FM-VLA、Foresight Residual RL、BoxTwin、tight assembly planning 和 grasp compliance 都在补 VLA 对接触、状态验证和下游可行性的短板。",
+        "最值得深入阅读的是 HarmoHOI、ReViV、GeoWorldAD、Text2Villa、BoxTwin、Persistent 3D Object Tokens、FM-VLA、RynnBrain 1.1、VIDAR、ExploreGS、VGOcc 和 Fine-Detail Monocular Geometry；它们共同指向一个方向：3D 表示正在成为生成系统、世界模型和机器人闭环控制之间的共同状态语言。"
+      ],
+      "topPapers": [
+        "HarmoHOI: Harmonizing Appearance and 3D Motion for Multi-view Hand-Object Interaction Synthesis",
+        "ReViV: Reconstructing the Viewer and the View in 4D from Monocular Egocentric Video",
+        "GeoWorldAD: Geometry World Action Model for Autonomous Driving",
+        "Text2Villa: Hierarchical Generation of 3D Indoor Environments with Physics-Aware Analysis-by-Synthesis",
+        "BoxTwin: Learning Elastoplastic Articulated Object Dynamics from Videos",
+        "Closing the Loop in Humanoid VLA: Persistent 3D Object Tokens for Verifiable Loco-Manipulation",
+        "FM-VLA: Force-based Memory for Vision-Language-Action Models in Contact-Rich Manipulation",
+        "RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model",
+        "VIDAR: Visual-Inertial Dense Alignment and Reconstruction via a Geometric Foundation Model",
+        "Exploration Matters for Escaping the Blur Trap in 3D Gaussian Splatting",
+        "VGOcc: Learning Visual-Geometric Gaussians for Vision-Centric 3D Driving Occupancy Prediction",
+        "Fine-Detail Monocular Geometry Estimation with Self-Guided Sparse Volumetric Refinement"
+      ],
+      "markdownPath": "reports/arxiv/2026-07-21.md",
+      "papers": [
+        {
+          "title": "HarmoHOI: Harmonizing Appearance and 3D Motion for Multi-view Hand-Object Interaction Synthesis",
+          "authors": "Lingwei Dang, Juntong Li, Zonghan Li, Hongwen Zhang, Liang An, Wei Min, Yebin Liu, Qingyao Wu",
+          "arxivUrl": "https://arxiv.org/abs/2607.17097",
+          "published": "2026-07-19T06:41:53Z",
+          "categories": "cs.CV",
+          "summary": "HarmoHOI 面向多视角手-物交互生成，把同步 RGB 视频和全局对齐 3D point tracks 放进同一个扩散框架。论文的关键判断是：HOI 视频要做到多视角一致，必须显式建模跨视角共享的三维几何与运动，而不是只依赖 2D 视频先验。它把 point tracks 表示成 pseudo-video，并用 Global Motion Aligning Diffusion 将粗轨迹细化到 metric-scale 3D trajectory，对 embodied AI 中从人类交互视频合成训练数据很有价值。",
+          "methodHighlights": [
+            "Mixture of Multi-view Diffusion Transformer 联合生成 RGB 与 3D point tracks",
+            "point tracks pseudo-video 表示以缩小 2D/3D 先验域差",
+            "Global Motion Aligning Diffusion 细化全局 3D 运动一致性"
+          ],
+          "projectUrl": "https://droliven.github.io/HarmoHOI_project",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "3D motion",
+            "3D generation",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "ReViV: Reconstructing the Viewer and the View in 4D from Monocular Egocentric Video",
+          "authors": "Xiaozhong Lyu, Gen Li, Zhiyin Qian, Xucong Zhang, Marc Pollefeys, Siyu Tang",
+          "arxivUrl": "https://arxiv.org/abs/2607.17790",
+          "published": "2026-07-20T10:22:53Z",
+          "categories": "cs.CV, cs.AI",
+          "summary": "ReViV 从单目 egocentric video 中同时重建观看者和视野，是一个 viewer-and-view 的 4D 重建框架。它把 RGB、相机轨迹、gaze、全身动作、手部动作和深度放在统一的 Masked Generative Egocentric Transformer 中建模，避免把相机跟踪、人身运动和场景深度拆成独立任务。对 AR/机器人学习而言，这类 holistic ego 4D 表示能把人如何看、如何动、如何接触环境统一成可监督状态。",
+          "methodHighlights": [
+            "single-feed-forward egocentric 4D reconstruction",
+            "joint distribution over RGB, camera, gaze, body, hand, depth",
+            "在 HoloAssist、HOT3D、ARCTIC、Aria Digital Twin、TACO 上验证"
+          ],
+          "projectUrl": "https://reviv4d.github.io/",
+          "codeUrl": "https://reviv4d.github.io/",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "4D reconstruction",
+            "egocentric vision",
+            "hand motion",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "GeoWorldAD: Geometry World Action Model for Autonomous Driving",
+          "authors": "Songyan Zhang, Jinyuan Tian, Hanbing Li, Daqi Liu, Hao Chen, Wenhui Huang, Fang Li, Guang Chen, Hangjun Ye, Long Chen, Kuiyuan Yang, Chen Lv",
+          "arxivUrl": "https://arxiv.org/abs/2607.17521",
+          "published": "2026-07-20T03:56:07Z",
+          "categories": "cs.RO",
+          "summary": "GeoWorldAD 把自动驾驶规划放回 ego-aligned 3D space 中，强调 Vision/Video-Action 模型需要显式几何 grounding。模型同时使用当前 geometry 和 latent future geometry tokens，既约束碰撞安全，也预测短时场景演化以避免过度保守。它说明 driving world model 的核心竞争点正在从视频预测质量转向可执行轨迹与未来三维占用/自由空间的一致性。",
+          "methodHighlights": [
+            "ego-aligned 3D geometry grounding for trajectory planning",
+            "latent future geometry tokens model short-horizon scene evolution",
+            "multi-scale present/future geometry iterative trajectory refinement"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "autonomous driving",
+            "3D geometry",
+            "planning"
+          ]
+        },
+        {
+          "title": "Text2Villa: Hierarchical Generation of 3D Indoor Environments with Physics-Aware Analysis-by-Synthesis",
+          "authors": "Xiang Tang, Ruotong Li, Xiaopeng Fan",
+          "arxivUrl": "https://arxiv.org/abs/2607.17145",
+          "published": "2026-07-19T09:01:20Z",
+          "categories": "cs.GR",
+          "summary": "Text2Villa 做文本到多层室内 3D 环境生成，目标是解决多房间、垂直连通和任意多边形边界等传统 scene generation 难点。宏观层面使用多层建筑数据微调 autoregressive layout generator，微观层面用 Affordance-driven Physical-Semantic Scene Graph 表达支撑、容纳和碰撞约束。它把 MLLM 语义推理、几何碰撞检测和 analysis-by-synthesis 闭环优化结合起来，对仿真和 embodied training environment 生成很直接。",
+          "methodHighlights": [
+            "hierarchical text-to-3D indoor scene generation",
+            "A-PSSG encodes physical affordance and semantic constraints",
+            "MLLM-guided closed-loop analysis-by-synthesis asset placement"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D generation",
+            "scene generation",
+            "physics-aware AI",
+            "simulation"
+          ]
+        },
+        {
+          "title": "BoxTwin: Learning Elastoplastic Articulated Object Dynamics from Videos",
+          "authors": "Heng Zhang, Gehan Zheng, Kaifeng Zhang, Jay Song, Shivansh Patel, Sonny Hu, Yunzhu Li, Changxi Zheng, Peter Yichen Chen",
+          "arxivUrl": "https://arxiv.org/abs/2607.17132",
+          "published": "2026-07-19T08:37:40Z",
+          "categories": "cs.RO",
+          "summary": "BoxTwin 面向 elastoplastic articulated objects，从视频中学习可预测、可交互的数字孪生。论文强调这类物体不仅有 articulation，还会出现非线性弹性、塑性屈服和损伤累积，常规刚体或简单可变形模型很难覆盖。它把视频驱动重建、physics-aware constitutive model identification 和长时序后接触行为模拟串起来，对机器人折叠、双臂操作和可变形物体控制很重要。",
+          "methodHighlights": [
+            "video-driven reconstruction of elastoplastic articulated objects",
+            "physics-aware constitutive model identification",
+            "long-horizon post-contact plastic behavior prediction"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "articulated objects",
+            "digital twin",
+            "Physical AI",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "Depth-Regularized JEPA World Models Learn More Transferable Representations from Real Outdoor Robot Data",
+          "authors": "Usman M. Khan",
+          "arxivUrl": "https://arxiv.org/abs/2607.16314",
+          "published": "2026-07-15T00:58:45Z",
+          "categories": "cs.CV, cs.LG, cs.RO",
+          "summary": "这篇工作把 depth 作为几何先验加入 JEPA world model 训练，目标是在真实户外机器人视频上学到更可迁移的 latent dynamics。它将深度监督、SIGReg latent regularizer 和 training-only overparameterization 结合，用视觉里程计 probe、surprise detection 和 multi-step rollout fidelity 评估表示质量。虽然 API 提交日期早于今日，但它出现在今天官方 cs.CV new 批次中；对 world model 研究的启发是几何先验仍然能显著提高开放环境下的动态预测稳定性。",
+          "methodHighlights": [
+            "depth-regularized JEPA world model from outdoor robot video",
+            "SIGReg promotes diverse but geometry-consistent latent dynamics",
+            "frozen visual odometry probes and rollout fidelity evaluation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "depth",
+            "robot data",
+            "embodied perception"
+          ]
+        },
+        {
+          "title": "Closing the Loop in Humanoid VLA: Persistent 3D Object Tokens for Verifiable Loco-Manipulation",
+          "authors": "Peng Ren, Haoyang Ge, Jiang Zhao, Cong Huang, Yukun Shi, Pei Chi, Kai Chen",
+          "arxivUrl": "https://arxiv.org/abs/2607.18016",
+          "published": "2026-07-20T14:52:46Z",
+          "categories": "cs.RO",
+          "summary": "这篇 Humanoid VLA 工作把长期 loco-manipulation 中的 object-state divergence 定义为核心问题：机器人在移动、遮挡和接触后仍要验证物体状态。Persistent Object Tokenization 维护 role-indexed 3D object tokens，把任务对象作为持续物理实体跟踪，而不是只依赖当前帧感知。它对 VLA 很关键，因为长程任务的失败常来自状态验证缺失，而非单步动作生成不足。",
+          "methodHighlights": [
+            "persistent role-indexed 3D object tokens",
+            "closed-loop verification for humanoid loco-manipulation",
+            "object-state divergence formulation across motion/contact/occlusion"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "humanoid",
+            "3D object tokens",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "Scene-SAM3D: Multi-View Scene Asset Generation Without Fine-Tuning",
+          "authors": "Yuqi Zhang, Yadan Luo, Xiangyu Sun, Fengyi Zhang, Zi Huang, Xin Tan",
+          "arxivUrl": "https://arxiv.org/abs/2607.16805",
+          "published": "2026-07-18T12:51:17Z",
+          "categories": "cs.CV",
+          "summary": "Scene-SAM3D 把单图 3D 生成模型 SAM3D 扩展到 calibrated multi-view scene asset generation，并且不做额外 fine-tuning。它针对真实场景中的遮挡、冗余观测和跨视角不一致，引入训练自由的多视角融合与场景资产生成流程。对具身仿真和机器人操作数据构建来说，这类从多视图直接生成可用 3D scene assets 的方法很实用。",
+          "methodHighlights": [
+            "training-free extension of SAM3D to multi-view scenes",
+            "calibrated multi-view observations for scene asset generation",
+            "targets embodied simulation/manipulation/navigation assets"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/xibi777/Scene-SAM3D",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D generation",
+            "scene assets",
+            "multi-view",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "Splat-based 3D Scene Reconstruction with Extreme Motion-blur",
+          "authors": "Hyeonjoong Jang, Dongyoung Choi, Donggun Kim, Woohyun Kang, Min H. Kim",
+          "arxivUrl": "https://arxiv.org/abs/2607.16926",
+          "published": "2026-07-18T18:41:02Z",
+          "categories": "cs.CV",
+          "summary": "这篇工作处理低光照和长曝光下的 extreme motion blur RGB-D 3D reconstruction。传统 COLMAP/pose estimation 在强运动模糊下会失效，论文用 splat-based 表示和针对模糊的重建策略提升相机位姿与颜色质量。它对机器人夜间/低照度建图很有意义，因为实际部署时 blur 往往比 benchmark 更严重。",
+          "methodHighlights": [
+            "splat-based RGB-D reconstruction under extreme motion blur",
+            "handles pose failure and blurry color input",
+            "released KAIST-VCLAB implementation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/KAIST-VCLAB/gs-extreme-motion-blur",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "Gaussian Splatting",
+            "motion blur",
+            "RGB-D"
+          ]
+        },
+        {
+          "title": "VIDAR: Visual-Inertial Dense Alignment and Reconstruction via a Geometric Foundation Model",
+          "authors": "Diyari Mohammed Salih, Lingxiang Hu, Naima AitOufroukh-Mammar, Fabien Bonardi",
+          "arxivUrl": "https://arxiv.org/abs/2607.17171",
+          "published": "2026-07-19T10:12:09Z",
+          "categories": "cs.RO",
+          "summary": "VIDAR 将 SVO+IMU 的 metric odometry 与 Depth Anything 3 的 dense geometry 结合，目标是让单目 foundation model 的细节恢复获得稳定尺度。视觉惯性前端提供 camera poses、scale 和 world frame，foundation model 则贡献局部稠密几何，最终融合成全局重建。它代表一种务实路线：不完全端到端替代 SLAM，而是把 foundation depth 当成可度量系统中的几何增强器。",
+          "methodHighlights": [
+            "visual-inertial dense reconstruction with SVO+IMU metric anchor",
+            "Depth Anything 3 aligned across time",
+            "global reconstruction from metric poses plus dense local geometry"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "dense reconstruction",
+            "visual-inertial",
+            "depth foundation model",
+            "SLAM"
+          ]
+        },
+        {
+          "title": "Plenoptic Condensation: A Novel Approach to Generalized Scene Reconstruction",
+          "authors": "Brevin Tilmon, Alex DeJournett, John Leffingwell, Scott Ackerson",
+          "arxivUrl": "https://arxiv.org/abs/2607.18151",
+          "published": "2026-07-20T16:50:19Z",
+          "categories": "cs.CV",
+          "summary": "Plenoptic Condensation 提出 Generalized Scene Reconstruction 的多阶段表示，从低表达力的 soupy scene elements 逐步凝聚成更结构化、更高表达力的 scene elements。它强调 Reality Models 需要 spatially varying representational power，才能同时处理边缘、反射和平滑表面。论文展示了手机和无人机采集的 in-the-wild 重建，并突出可测量细微损伤的能力，说明重建表示正在从好看走向可量测。",
+          "methodHighlights": [
+            "multi-stage condensation from low-power to structured scene elements",
+            "spatially varying representational power for Reality Models",
+            "in-the-wild phone/drone reconstruction and measurement"
+          ],
+          "projectUrl": "https://quidient.github.io/pcon-2026.html",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "scene reconstruction",
+            "neural rendering",
+            "measurement",
+            "3D representation"
+          ]
+        },
+        {
+          "title": "Exploration Matters for Escaping the Blur Trap in 3D Gaussian Splatting",
+          "authors": "Chengbo Wang, Guozheng Ma, Jinhong Wu, Tie Ji, Yizhen Lao",
+          "arxivUrl": "https://arxiv.org/abs/2607.17965",
+          "published": "2026-07-20T14:05:54Z",
+          "categories": "cs.CV",
+          "summary": "ExploreGS 研究 3DGS 优化中的 Blur Trap，即显式 Gaussian 表示在非凸优化中容易被梯度偏置带到模糊局部最优。论文将 blur trap 分成 far-side 与 near-side 两类，并用 Random Seeding 与 Random Splitting 两个简单探索算子缓解。它提醒 3DGS 的提升不只来自网络或压缩，也来自对 densification/splitting 优化动力学的重新理解。",
+          "methodHighlights": [
+            "mathematical analysis of 3DGS optimization bias",
+            "Random Seeding for far-side blur trap",
+            "Random Splitting for near-side blur trap"
+          ],
+          "projectUrl": "https://chengbo-wang.github.io/ExploreGS/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3DGS",
+            "optimization",
+            "novel view synthesis",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "TopoGS: Planar Reconstruction via Topology-aware 3D Gaussian Splatting",
+          "authors": "Shanshan Pan, Jiale Chen, Yilin Liu, Hui Huang",
+          "arxivUrl": "https://arxiv.org/abs/2607.16838",
+          "published": "2026-07-18T14:27:49Z",
+          "categories": "cs.CV, cs.GR",
+          "summary": "TopoGS 将拓扑约束显式加入 3D Gaussian Splatting 的 planar reconstruction。现有 planar 3DGS 往往把平面作为离散集合，容易产生碎片化和边界错位；TopoGS 从多视图 segmentation 中提取全局 2D topological relationships，并把 Gaussian primitives 绑定到结构元素上。对室内重建、CAD/设计和可编辑地图来说，这种 topology-aware 表示比纯视觉质量更有后处理价值。",
+          "methodHighlights": [
+            "topology-aware planar reconstruction in 3DGS",
+            "global 2D topological relationships from multi-view segmentations",
+            "Gaussian primitives anchored to structural elements"
+          ],
+          "projectUrl": "https://vcc.tech/research/2026/TopoGS",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3DGS",
+            "planar reconstruction",
+            "topology",
+            "structured geometry"
+          ]
+        },
+        {
+          "title": "FF-ProCams: Feed-Forward Gaussian Splatting for Projector-Camera System",
+          "authors": "Ziyao Wang, Yuqi Li, Wenxing Zheng, Jiaying Chen, Chong Wang",
+          "arxivUrl": "https://arxiv.org/abs/2607.17803",
+          "published": "2026-07-20T10:42:16Z",
+          "categories": "cs.CV",
+          "summary": "FF-ProCams 面向 projector-camera 系统，用 feed-forward 3D Gaussian inverse rendering 替代耗时的 per-scene optimization。模型从稀疏多视图观测聚合几何与光度线索，并预测可重光照的 Gaussian representation。它把 3DGS 推向主动感知、投影映射和空间 AR 场景，重点是让表示能随 projector illumination 改变而不是固定 baked appearance。",
+          "methodHighlights": [
+            "feed-forward relightable 3D Gaussian inverse rendering",
+            "hybrid Mamba2-Transformer encoder for cross-view cues",
+            "projector-aware Gaussian representation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/CPREgroup/FF-ProCams/",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3DGS",
+            "inverse rendering",
+            "projector-camera",
+            "spatial AR"
+          ]
+        },
+        {
+          "title": "CaT-GS: Efficient 3DGS Rendering for Large Scale Scenes via Inter-frame Caching and Tile Scheduling",
+          "authors": "Tingjia Zhang, Bo Chen, Shengzhong Liu, Fan Wu, Guihai Chen",
+          "arxivUrl": "https://arxiv.org/abs/2607.17842",
+          "published": "2026-07-20T11:33:51Z",
+          "categories": "cs.CV, cs.AI",
+          "summary": "CaT-GS 关注大规模场景下 3DGS 渲染的系统瓶颈。论文指出 tile-based rasterization 存在跨帧预处理冗余、视角遮挡冗余和 tile 负载不均衡，并提出 inter-frame caching 与 tile scheduling。对实时大场景和机器人视角流渲染来说，这类系统优化可能比单纯压缩 Gaussian 数量更直接影响部署。",
+          "methodHighlights": [
+            "speculative multi-frame preprocessing",
+            "inter-frame caching for consecutive views",
+            "tile scheduling to reduce rasterization load imbalance"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3DGS",
+            "rendering",
+            "large-scale scenes",
+            "systems"
+          ]
+        },
+        {
+          "title": "SPARE-GS: Structural Parsimony and Resource Efficiency for 3D Gaussian Splatting",
+          "authors": "Zhang Chen, Shuai Wan, Fuzheng Yang, Jiazhi Xia, Weiyao Lin, Junhui Hou",
+          "arxivUrl": "https://arxiv.org/abs/2607.16624",
+          "published": "2026-07-18T03:55:12Z",
+          "categories": "cs.CV",
+          "summary": "SPARE-GS 将 3DGS 中 primitive proliferation 视为全局预算约束优化问题。方法估计各空间区域的 capacity-normalized demand，并根据预算偏差协调 densification、pruning 和 termination。它的价值在于把 Gaussian 数量分配从启发式局部规则推进到资源效率明确的结构演化策略。",
+          "methodHighlights": [
+            "global budget-constrained formulation for 3DGS structure",
+            "capacity-normalized regional demand estimation",
+            "coordinated densification/pruning/adaptive termination"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3DGS",
+            "compression",
+            "resource efficiency",
+            "novel view synthesis"
+          ]
+        },
+        {
+          "title": "Packet-Loss Robust 3D Gaussian Compression via Atomic Packaging and GNN-based Error Concealment",
+          "authors": "Yuxuan Tao, Xuerui Ma, Hao Zhang, Chunhua Peng",
+          "arxivUrl": "https://arxiv.org/abs/2607.17916",
+          "published": "2026-07-20T13:13:38Z",
+          "categories": "cs.GR, cs.CV, cs.MM",
+          "summary": "这篇 3D Gaussian compression 工作关注网络传输中的 packet loss，而不是离线压缩率。Atomic packaging 将每个 anchor 的属性打包，避免部分属性丢失造成严重不一致；GNN-based error concealment 则在解码端做 prior-aware attribute inpainting。随着 3DGS 进入云渲染、远程机器人和 XR 串流，这种 transmission robustness 会越来越重要。",
+          "methodHighlights": [
+            "anchor-level atomic packaging for packet-loss robustness",
+            "stratified random grouping disperses missing anchors",
+            "GNN-based attribute error concealment"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3DGS",
+            "compression",
+            "streaming",
+            "error concealment"
+          ]
+        },
+        {
+          "title": "VGOcc: Learning Visual-Geometric Gaussians for Vision-Centric 3D Driving Occupancy Prediction",
+          "authors": "Junhong Lin, Xianda Guo, Kangli Wang, Yuqi Ye, Xiaoyu Liang, Yanlun Peng, Wei Gao",
+          "arxivUrl": "https://arxiv.org/abs/2607.18078",
+          "published": "2026-07-20T15:46:30Z",
+          "categories": "cs.CV",
+          "summary": "VGOcc 做 vision-centric 3D driving occupancy prediction，用 Visual-Geometric Gaussians 表示多相机场景。论文认为只依赖图像域特征会限制 Gaussian occupancy 的体素推理能力，因此把 foundation models 提供的视觉与几何线索加入 primitive 初始化和 refinement。它对自动驾驶三维占用预测的启发是：稀疏 Gaussian 表示需要更强几何监督，而不是只追求表示稀疏。",
+          "methodHighlights": [
+            "visual-geometric Gaussian primitives for 3D occupancy",
+            "foundation-model visual and geometric cues",
+            "primitive initialization and refinement for surround-view driving"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/JHLin42in/VGOcc",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D occupancy",
+            "Gaussian representation",
+            "autonomous driving",
+            "3D perception"
+          ]
+        },
+        {
+          "title": "RayOcc: Occlusion-Aware Ray Occupancy Estimation via Gaussian Mixture Intensity",
+          "authors": "Junho Kim, Seongwon Lee",
+          "arxivUrl": "https://arxiv.org/abs/2607.17660",
+          "published": "2026-07-20T08:10:58Z",
+          "categories": "cs.CV",
+          "summary": "RayOcc 把 camera-only 3D semantic occupancy 中的单 ray 建模改成多标签存在预测。论文认为一条相机 ray 上可能同时有多个被遮挡表面，因此单一 dominant depth hypothesis 不足以表达真实体积场景。它用非归一化 Gaussian mixture intensity 和 Poisson event formulation 得到区间占用概率，对处理遮挡和多层结构很有价值。",
+          "methodHighlights": [
+            "occlusion-aware ray occupancy estimation",
+            "Gaussian mixture intensity along each ray",
+            "Poisson event formulation for interval-wise occupancy"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D occupancy",
+            "occlusion",
+            "autonomous driving",
+            "volumetric perception"
+          ]
+        },
+        {
+          "title": "CNS-Edit++: Category-Agnostic 3D Editing with Coupled Neural Shape Representation",
+          "authors": "Jingyu Hu, Weilong Yan, Zhengzhe Liu, Haipeng Li, Ka-Hei Hui, Hao, Zhang, Chi-Wing Fu",
+          "arxivUrl": "https://arxiv.org/abs/2607.16577",
+          "published": "2026-07-18T01:29:50Z",
+          "categories": "cs.CV, cs.GR",
+          "summary": "CNS-Edit++ 做 category-agnostic 3D shape editing，将全局 latent semantics 和 3D neural feature volume 组合成 Coupled Neural Shape 表示。它把原先偏 category-specific 的 CNS-Edit 推向更通用的 3D foundation model 场景，并支持局部细节编辑与结构级修改。对 3D 生成后处理来说，这类可控编辑能力是从一次性生成走向可迭代设计的关键。",
+          "methodHighlights": [
+            "Coupled Neural Shape with global latent code plus 3D feature volume",
+            "category-agnostic 3D editing with foundation models",
+            "co-optimization for local and semantic shape edits"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D editing",
+            "3D generation",
+            "neural shape",
+            "foundation models"
+          ]
+        },
+        {
+          "title": "Autoregressive B-Rep Shape Generation with Parametric Surfaces",
+          "authors": "Dafei Qin, Rui Xu, Zeyu Shen, Kaichun Qiao, Hongyang Lin, Qixuan Zhang, Huaijin Pi, Lan Xu, Jingyi Yu, Wenping Wang, Taku Komura",
+          "arxivUrl": "https://arxiv.org/abs/2607.17093",
+          "published": "2026-07-19T06:14:50Z",
+          "categories": "cs.CV",
+          "summary": "ParaCAD 关注 CAD 中原生 B-Rep shape generation，而不是把形状退化成点云或 voxel。方法用 surface-centric tokenization 显式编码每个 face 的 surface type 和连续参数，再全局求交恢复 edges 与 topology。它对机器人装配、可制造物体生成和 CAD-to-simulation pipeline 很有价值，因为保留参数曲面比渲染友好的 mesh 更接近工程使用。",
+          "methodHighlights": [
+            "autoregressive B-Rep generation from point-cloud conditions",
+            "surface-centric tokens preserve native parametric surfaces",
+            "global surface intersection recovers valid edges and topology"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "B-Rep",
+            "CAD generation",
+            "3D generation",
+            "parametric surfaces"
+          ]
+        },
+        {
+          "title": "Feature-Guided Diffusion for Non-Differentiable Inverse Rendering",
+          "authors": "Andrei-Timotei Ardelean, Michael Fischer, Tim Weyrich, Tomáš Iser",
+          "arxivUrl": "https://arxiv.org/abs/2607.17411",
+          "published": "2026-07-19T21:10:59Z",
+          "categories": "cs.GR, cs.LG",
+          "summary": "FIDE 用 feature-guided diffusion 做 non-differentiable inverse rendering，把 renderer 当成黑盒，只要求它能输出图像。相比把每个候选结果压成 scalar loss，方法从 ViT 提取 dense visual features，再训练 diffusion candidate proposal model。它适合那些真实渲染器、物理仿真或材质模型难以微分的场景，为 physics-aware inverse rendering 提供了更通用的搜索框架。",
+          "methodHighlights": [
+            "black-box inverse rendering without differentiable renderer",
+            "ViT dense visual features guide diffusion proposal model",
+            "derivative-free candidate evolution"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "inverse rendering",
+            "diffusion",
+            "physics-aware AI",
+            "graphics"
+          ]
+        },
+        {
+          "title": "Points as Tori: Fast Pointwise Signed Distance for Point Clouds",
+          "authors": "Nicole Feng, Ioannis Gkioulekas, Keenan Crane",
+          "arxivUrl": "https://arxiv.org/abs/2607.16946",
+          "published": "2026-07-18T20:01:10Z",
+          "categories": "cs.GR, cs.CV",
+          "summary": "Points as Tori 提出从带法线点云快速计算 signed distance 的解析参数化方法。它用预训练网络为每个点预测 torus curvature 和 shift parameters，从局部 tori fitting 得到可任意分辨率查询的 SDF。方法避免全局优化和空间离散化，对点云重建、碰撞检测和机器人规划中的快速距离查询很有参考价值。",
+          "methodHighlights": [
+            "local torus fitting for pointwise signed distance",
+            "feed-forward prediction of curvature and shift parameters",
+            "arbitrary-resolution SDF queries without global optimization"
+          ],
+          "projectUrl": "https://nzfeng.github.io/research/PointsAsTori",
+          "codeUrl": "https://nzfeng.github.io/research/PointsAsTori",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "point cloud",
+            "SDF",
+            "geometry processing",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "SaaF: Scene-Specific Ambiguity-Aware 3D Language Fields towards Interactive Real-World Object Retrieval",
+          "authors": "Yuga Yano, Daiju Kanaoka, Hakaru Tamukoh, Yasutomo Kawanishi",
+          "arxivUrl": "https://arxiv.org/abs/2607.16309",
+          "published": "2026-07-14T15:32:10Z",
+          "categories": "cs.CV",
+          "summary": "SaaF 是基于 Gaussian Splatting 的 3D language field，用于服务机器人在真实场景中进行交互式物体检索。它解决两个常见问题：CLIP 特征压缩导致相似物体区分度下降，以及自然语言查询本身存在歧义。通过 metric learning 和 scene-specific ambiguity awareness，它把 open-vocabulary 3D map 往可对话、可澄清的机器人检索系统推进。",
+          "methodHighlights": [
+            "Gaussian Splatting-based 3D language field",
+            "metric learning for instance-discriminative feature space",
+            "ambiguity-aware interactive object retrieval"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D language fields",
+            "Gaussian Splatting",
+            "object retrieval",
+            "robotics"
+          ]
+        },
+        {
+          "title": "CDIS: Cross-Dimensional Class-Agnostic 3D Instance Segmentation via 2D Mask Tracking and 3D-2D Projection Merging",
+          "authors": "Juno Kim, Hye-Jung Yoon, Yesol Park, Byoung-Tak Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2607.17778",
+          "published": "2026-07-20T10:09:12Z",
+          "categories": "cs.CV, cs.AI",
+          "summary": "CDIS 做 zero-shot class-agnostic 3D instance segmentation，目标是让机器人在未知环境中识别未见过的物体实例。方法跟踪跨帧 2D instance masks，再与 3D superpoints 双向关联，形成 2D/3D feedback loop。它避免只把每帧 2D mask 投到 3D 后合并造成的 identity fragmentation，对 manipulation 和 navigation 的开放世界感知有实用价值。",
+          "methodHighlights": [
+            "2D mask tracking plus 3D superpoint association",
+            "cross-dimensional 2D/3D feedback loop",
+            "zero-shot class-agnostic 3D instance segmentation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D instance segmentation",
+            "open-world perception",
+            "robotics",
+            "2D-3D fusion"
+          ]
+        },
+        {
+          "title": "MuViSeg: Multi-View Segment Correspondences from Dense Geometry Priors",
+          "authors": "Denis Fatykhoph, Timur Akhtyamov, Konstantin Pakulev, German Devchich, Gonzalo Ferrer",
+          "arxivUrl": "https://arxiv.org/abs/2607.17938",
+          "published": "2026-07-20T13:35:48Z",
+          "categories": "cs.CV",
+          "summary": "MuViSeg 把多视图对应从 sparse keypoint/pixel level 提升到 segment level。它基于 MASt3R/VGGT 等 dense geometry priors 为分割区域构造描述子，并用 multi-view self-attention 在多个图像的 segment 集合中联合匹配。对对象级建图、拓扑导航和 scene graph 维护来说，segment correspondence 比像素对应更贴近下游语义结构。",
+          "methodHighlights": [
+            "segment-level multi-view correspondence",
+            "frozen MASt3R and VGGT dense geometry priors",
+            "joint self-attention over multi-view segments"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "multi-view",
+            "geometry priors",
+            "segment correspondence",
+            "scene understanding"
+          ]
+        },
+        {
+          "title": "Fine-Detail Monocular Geometry Estimation with Self-Guided Sparse Volumetric Refinement",
+          "authors": "Lingyu Kong, Ruicheng Li, Ruicheng Wang, Sicheng Xu, Chengtang Yao, Jianfeng Xiang, Jiaolong Yang",
+          "arxivUrl": "https://arxiv.org/abs/2607.17967",
+          "published": "2026-07-20T14:07:32Z",
+          "categories": "cs.CV",
+          "summary": "这篇工作针对 monocular geometry estimation 的细节过平滑问题，指出根源在于用 2D 参数化解码 3D geometry 时会混合图像近邻但三维远离的表面特征。Self-Guided Sparse 3D Refinement 将粗 point map 提升到稀疏 3D 空间中 refinement，让特征交互更符合真实三维邻近关系。它对 thin structures、小物体和精细 metric geometry 很关键。",
+          "methodHighlights": [
+            "self-guided sparse 3D refinement for monocular geometry",
+            "lifts coarse point maps from 2D image space to 3D space",
+            "targets thin structures and fine local geometry"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "monocular geometry",
+            "depth",
+            "point map",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "DROID-ANCHOR: Odometry-Anchored Recurrent Metric Depth Estimation",
+          "authors": "Yuxuan Chen, Brook Du",
+          "arxivUrl": "https://arxiv.org/abs/2607.17058",
+          "published": "2026-07-19T04:03:34Z",
+          "categories": "cs.RO, cs.CV",
+          "summary": "DROID-ANCHOR 用 proprioceptive odometry 为 recurrent metric depth estimation 提供尺度锚点。单目 SLAM/flow 系统虽然鲁棒，但天然有 scale ambiguity；论文用 LSTM Update Operator 编码高频 odometry，并在 backend 中用学习到的不确定性平衡视觉重投影和里程计约束。它对移动机器人来说很实用，因为许多平台都有轮速/IMU 等低成本里程计，可以补单目视觉尺度漂移。",
+          "methodHighlights": [
+            "odometry-anchored recurrent metric depth estimation",
+            "LSTM update operator encodes high-frequency odometry",
+            "uncertainty-aware metric backend balances visual and odometry cues"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "metric depth",
+            "SLAM",
+            "odometry",
+            "robot navigation"
+          ]
+        },
+        {
+          "title": "GLidE-SLAM: GL-Accelerated Indirect-Direct Embedded SLAM",
+          "authors": "Carlos A. Pinheiro de Sousa, Heiko Hamann, Oliver Deussen",
+          "arxivUrl": "https://arxiv.org/abs/2607.16897",
+          "published": "2026-07-18T17:32:40Z",
+          "categories": "cs.RO",
+          "summary": "GLidE-SLAM 面向 embedded visual SLAM，把直接跟踪和间接建图分离。系统在中间帧上用 OpenGL ES compute shaders 做 GPU-accelerated direct tracking，将 CPU 留给 map extension 与全局一致性维护。对无人机、可穿戴 XR 和小型机器人而言，这种 vendor-agnostic 嵌入式实现路线比只提高 benchmark 精度更接近部署问题。",
+          "methodHighlights": [
+            "hybrid indirect-direct monocular SLAM",
+            "GPU-accelerated direct tracking on intermediate frames",
+            "OpenGL ES 3.1 compute shaders for embedded devices"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "SLAM",
+            "embedded robotics",
+            "visual odometry",
+            "XR"
+          ]
+        },
+        {
+          "title": "Does Robust VIO Need More Learning? Geometry-Verified Visual Measurements under Distribution Shift",
+          "authors": "Yangyang Ning, Shu Liang, Quanbo Ge, Tianchen Deng, Yuhua Qi, Shenghai Yuan",
+          "arxivUrl": "https://arxiv.org/abs/2607.17956",
+          "published": "2026-07-20T13:57:44Z",
+          "categories": "cs.RO",
+          "summary": "这篇 VIO 工作提出一个克制的问题：在 distribution shift 下，鲁棒 VIO 是否真的需要把更多估计环节学习化。方法只让 SEA-RAFT 生成 dense stereo correspondences 和 uncertainty，而 temporal tracking、geometric verification 与 state estimation 仍保持显式几何。它对 Physical AI 很有启发，因为可靠部署常常需要学习前端与几何后端之间的边界清晰，而不是全栈黑盒化。",
+          "methodHighlights": [
+            "minimal-learning stereo VIO under distribution shift",
+            "SEA-RAFT visual measurements with uncertainty",
+            "explicit temporal tracking, geometric verification and sliding-window estimation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VIO",
+            "geometric verification",
+            "robot navigation",
+            "robustness"
+          ]
+        },
+        {
+          "title": "Cross-Coordinate Correspondence Pruning for Image-to-Point Cloud Registration",
+          "authors": "Xin Liu, Rong Qin, Huipeng Lin, Leizhi Shu, Jin Wu, Chi-Man Vong, Liang Lin, Jufeng Yang",
+          "arxivUrl": "https://arxiv.org/abs/2607.17200",
+          "published": "2026-07-19T11:45:14Z",
+          "categories": "cs.CV",
+          "summary": "这篇 I2P registration 工作关注点云密度对 image-to-point-cloud 粗对应质量的影响。过稀会缺少 inliers，过密又会提高 outlier ratio，因此论文提出 Cross-Coordinate Correspondence Pruning 来缓解密度 trade-off。它对视觉-激光配准、机器人定位和多传感器建图很相关，因为粗匹配阶段常是最终注册精度的瓶颈。",
+          "methodHighlights": [
+            "cross-coordinate correspondence pruning",
+            "density-aware coarse-to-fine image-to-point-cloud registration",
+            "mitigates sparse-inlier/dense-outlier trade-off"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "image-to-point cloud registration",
+            "2D-3D matching",
+            "LiDAR",
+            "localization"
+          ]
+        },
+        {
+          "title": "PRISM: Multimodal Terrain Mapping for Rover Navigation in Unstructured Environments",
+          "authors": "Raul Castilla-Arquillo, Carlos Perez-del-Pulgar, Levin Gerdes, Alfonso Garcia-Cerezo, Miguel A. Olivares-Mendez",
+          "arxivUrl": "https://arxiv.org/abs/2607.16366",
+          "published": "2026-07-17T13:49:59Z",
+          "categories": "cs.RO, cs.AI",
+          "summary": "PRISM 为非结构化环境 rover navigation 构建 RGB-D-T 多模态 terrain mapping 系统。它使用自定义传感器套件采集对齐的 RGB、depth 和 thermal 图像，并用 OmniUnet 做多模态语义地形分割。对户外机器人来说，热成像与深度/视觉融合能提升危险地形区分能力，尤其适合坡地、岩石和低可见度场景。",
+          "methodHighlights": [
+            "RGB-D-T multimodal terrain mapping",
+            "OmniUnet vision transformer for terrain segmentation",
+            "new annotated BASEPROD and LAENTIEC datasets"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "terrain mapping",
+            "rover navigation",
+            "RGB-D-T",
+            "robotics"
+          ]
+        },
+        {
+          "title": "Distilling Global Traversability Priors for Image-based Affordance Prediction in Off-road Environments",
+          "authors": "Matthew Sivaprakasam, Samuel Triest, Micah Nye, Deegan Atha, Shehryar Khattak, David Fan, Wenshan Wang, Sebastian Scherer",
+          "arxivUrl": "https://arxiv.org/abs/2607.17984",
+          "published": "2026-07-20T14:16:17Z",
+          "categories": "cs.RO",
+          "summary": "这篇工作为 off-road navigation 从第一视角图像中蒸馏 long-range traversability priors。它利用卫星图像计算可行导航路径，监督网络预测超出局部 depth sensing range 的可通行 frontiers。对户外导航来说，这相当于把局部几何地图和全局地形先验连接起来，减少 myopic planning。",
+          "methodHighlights": [
+            "long-range traversability-aware frontier prediction",
+            "satellite imagery supervision for FPV affordance learning",
+            "image-based off-road navigation beyond local depth horizon"
+          ],
+          "projectUrl": "https://theairlab.org/ss_frontiers_iros",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "affordance",
+            "traversability",
+            "off-road navigation",
+            "robotics"
+          ]
+        },
+        {
+          "title": "Learning Adaptive Safety Margins for Visual Navigation",
+          "authors": "Junyi Hu, Shuaihang Yuan, Geeta Chandra Raju Bethala, Anthony Tzes, Yi Fang",
+          "arxivUrl": "https://arxiv.org/abs/2607.18200",
+          "published": "2026-07-20T17:40:25Z",
+          "categories": "cs.RO, cs.AI",
+          "summary": "这篇视觉导航工作指出 fixed safety margin 在杂乱室内环境中容易过度保守或过度冒险。方法用 context-conditioned safety critic 对 RGB-D diffusion planner 的候选轨迹排序，并通过 privileged ESDF geometry 训练后蒸馏到 perception-only selector。它的价值在于把几何 clearance、CBF residual 和效率目标放到同一排序器中，用于真实 Unitree G1 humanoid 导航。",
+          "methodHighlights": [
+            "adaptive clearance preference critic for visual navigation",
+            "CBF residual, detour-ratio and ESDF matching terms",
+            "teacher-student distillation from privileged ESDF to perception-only selection"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "visual navigation",
+            "RGB-D",
+            "diffusion planner",
+            "humanoid"
+          ]
+        },
+        {
+          "title": "From Perception to Assistance: Open-Vocabulary Shared Autonomy for Robotic Manipulation",
+          "authors": "Murilo Vinicius da Silva, Ricardo V. Godoy, Juliano Negri, Gustavo J. G. Lahr, Ranulfo Bezerra, Marcelo Becker",
+          "arxivUrl": "https://arxiv.org/abs/2607.17323",
+          "published": "2026-07-19T16:15:14Z",
+          "categories": "cs.RO, cs.CV, cs.HC, eess.SY",
+          "summary": "这篇 shared-autonomy manipulation 工作用单个 RGB-D 相机理解操作者手臂/手势，并在开放词表目标选择后辅助机械臂对齐目标。它面向工业遥操作中的深度感知不足和碰撞风险问题，将感知、意图识别和局部辅助控制结合。虽然含 cs.HC 分类，但入选原因是 RGB-D、机器人操作和 open-vocabulary 物体辅助强相关，并非普通 HCI。",
+          "methodHighlights": [
+            "single RGB-D camera captures arm motion and hand gestures",
+            "open-vocabulary target specification",
+            "shared-autonomy assistance for cluttered manipulation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "robot manipulation",
+            "RGB-D",
+            "shared autonomy",
+            "open-vocabulary"
+          ]
+        },
+        {
+          "title": "FM-VLA: Force-based Memory for Vision-Language-Action Models in Contact-Rich Manipulation",
+          "authors": "Ruicheng Li, Qixiu Li, Ruichun Ma, Yu Deng, Lin Luo, Zhiying Du, Jianfeng Xiang, Huizhi Liang, Ruicheng Wang, Jiaolong Yang, Baining Guo",
+          "arxivUrl": "https://arxiv.org/abs/2607.18231",
+          "published": "2026-07-20T17:58:31Z",
+          "categories": "cs.RO",
+          "summary": "FM-VLA 为接触丰富操作中的 VLA 加入 force-based memory，解决视觉记忆难以区分小幅接触事件的问题。方法用 VAE 将 force histories 编码为 compact force memory tokens，并把它们作为 action expert 的额外条件。它在隐藏积木、按按钮和按次数擦盘子等 memory-dependent 任务上显示轻量力觉历史能显著提升非马尔可夫操作成功率。",
+          "methodHighlights": [
+            "VAE force memory tokens from force time series",
+            "additional conditioning for VLA action expert",
+            "targets contact-rich non-Markovian manipulation"
+          ],
+          "projectUrl": "https://qft-333.github.io/FM-VLA-Page/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "force sensing",
+            "contact-rich manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Foresight Residual RL for Long-Horizon Robot Manipulation with Vision-Language-Action Models",
+          "authors": "Yuhan Liu, Xinyu Zhang, Litao Liu, Abdeslam Boularias",
+          "arxivUrl": "https://arxiv.org/abs/2607.16506",
+          "published": "2026-07-17T21:00:28Z",
+          "categories": "cs.RO, cs.LG",
+          "summary": "Foresight Residual RL 研究 frozen VLA base policy 在长程、紧公差、接触丰富装配中的失败模式。论文指出只给子任务 sparse success reward 会让每个技能孤立变好，但串联后仍然失败，因为当前子任务终态对下游技能可能很脆弱。它用 foresight residual RL 强化终态质量，是把大 VLA prior 与任务级几何/接触可行性结合的方向。",
+          "methodHighlights": [
+            "residual RL over frozen VLA base policy",
+            "foresight-aware rewards for downstream subtask robustness",
+            "long-horizon contact-rich assembly focus"
+          ],
+          "projectUrl": "https://jaysparrow.github.io/foresight-residual-rl",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "contact-rich assembly",
+            "reinforcement learning"
+          ]
+        },
+        {
+          "title": "Test-Time Scaling for World Action Models via Zero-Shot Geometric Evaluation",
+          "authors": "Zesen Zhao, Minkyoung Cho, Hui shen, Boyuan Zheng, Kunxiao Gao, Yulong Cao, Z. Morley Mao",
+          "arxivUrl": "https://arxiv.org/abs/2607.17454",
+          "published": "2026-07-20T01:05:02Z",
+          "categories": "cs.RO",
+          "summary": "这篇工作把 test-time scaling 引入 World Action Models，核心是执行动作前用额外算力评估 rollout 是否值得信任。方法用 zero-shot geometric evaluation，按 cross-view depth reprojection consistency 等几何指标选择 sampled rollouts。它说明机器人世界模型的推理预算可以由几何一致性门控，而不是只依赖语言/视觉得分。",
+          "methodHighlights": [
+            "selective test-time scaling for World Action Models",
+            "Best-of-N rollout selection",
+            "zero-shot cross-view depth reprojection consistency"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot control",
+            "geometric evaluation",
+            "test-time scaling"
+          ]
+        },
+        {
+          "title": "PAVXploreRL: Physical-Action-Visual World Model Reinforcement Learning with Action Exploration",
+          "authors": "Han Wang, Zijun Wang, Shuoshuo Xue, Rui Cao, Fenjiao Cheng, Xiaodang Liang, Roy Ka-Wei Lee",
+          "arxivUrl": "https://arxiv.org/abs/2607.16602",
+          "published": "2026-07-18T02:42:27Z",
+          "categories": "cs.CV",
+          "summary": "PAVXploreRL 关注 action-conditioned world models 在 embodied AI 中是否同时满足 physical plausibility、action adherence 和 visual fidelity。它强调只用 in-distribution action-video pairs 会限制模型对 OOD actions 的动态理解，并通过 action exploration 增强学习信号。对机器人策略评估来说，这类 PAV 目标能帮助 world model 更像可用的模拟器，而不是只生成好看的视频。",
+          "methodHighlights": [
+            "Physical-Action-Visual world model objective",
+            "action exploration for OOD dynamics",
+            "world-model reinforcement learning for policy evaluation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/Social-AI-Studio/PAVXploreRL",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "world models",
+            "Physical AI",
+            "embodied AI",
+            "reinforcement learning"
+          ]
+        },
+        {
+          "title": "RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model",
+          "authors": "Kehan Li, Bohan Hou, Minghao Zhu, Tianyi Zhang, Zesen Cheng, Zhikai Wang, Sicong Leng, Xin Li, Xiao Lin, Biying Yao, Minghua Zeng, Jiangpin Liu, Ronghao Dang, Jiayan Guo, Siteng Huang, Haoyu Zhao, Heng Ping, Yaxi Zhao, Kexiang Wang, Tong Lu, Shengke Xue, Jiahao Tang, Yulei Wang, Zejing Wang, Jianwei Gao, Shijian Lu, Chengju Liu, Jianfei Yang, Mingxiu Chen, Deli Zhao",
+          "arxivUrl": "https://arxiv.org/abs/2607.17977",
+          "published": "2026-07-20T14:13:27Z",
+          "categories": "cs.RO",
+          "summary": "RynnBrain 1.1 是多尺度 embodied foundation model family，覆盖 2B、9B 和 122B-A10B，并强化时空、物理 grounding。相较前版，它增加 contact-point prediction，并让 2B/9B 原生支持 3D grounding，使表示更贴近机器人操作。项目同时发布 RynnBrain-VLA、GitHub 与模型资源，是今天具身基础模型方向最值得跟踪的系统发布之一。",
+          "methodHighlights": [
+            "embodied foundation models at 2B/9B/122B-A10B scales",
+            "native 3D grounding and contact-point prediction",
+            "RynnBrain-VLA release with project, GitHub and model resources"
+          ],
+          "projectUrl": "https://alibaba-damo-academy.github.io/RynnBrain",
+          "codeUrl": "https://github.com/alibaba-damo-academy/RynnBrain",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "embodied AI",
+            "VLA",
+            "3D grounding",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "World Translation: Minimizing Sim-to-Real Gap with Backward Dynamics Extraction and Unpaired Domain Translation",
+          "authors": "Xinchen Yao, Leixin Chang, Hua Chen",
+          "arxivUrl": "https://arxiv.org/abs/2607.18154",
+          "published": "2026-07-20T16:52:58Z",
+          "categories": "cs.RO",
+          "summary": "World Translation 处理 sim-to-real gap，尤其是接触突变等 partial observability 下历史观测无法恢复隐藏动力学的情况。方法从真实 transition 反向提取 unobservable dynamics information，再做 unpaired simulation/reality domain translation。它在 humanoid、quadruped 和 manipulator 上验证，并做 Go2 真实机器人部署，对仿真训练策略落地很相关。",
+          "methodHighlights": [
+            "backward dynamics extraction from observed transitions",
+            "unpaired domain translation preserving dynamics content",
+            "sim-to-real experiments across humanoid, quadruped and manipulator"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "sim-to-real",
+            "robot dynamics",
+            "Physical AI",
+            "robotics"
+          ]
+        },
+        {
+          "title": "Manifold-Guided Motion Planning for Tight Assemblies",
+          "authors": "Dror Livnat, Michael M. Bilevich, Michal Kleinbort, Dan Halperin",
+          "arxivUrl": "https://arxiv.org/abs/2607.17898",
+          "published": "2026-07-20T12:46:27Z",
+          "categories": "cs.RO",
+          "summary": "这篇 motion planning 工作面向 tight rigid-body assembly，强调可行路径常位于接触点定义的 critical manifold 附近。CMG-RRT 用层次 subdivision 将采样偏向 critical manifold 邻域，并证明在标准 clearance 假设下概率完备。对装配、插入和复杂几何约束操作来说，它提供了一个显式利用接触几何结构的规划器。",
+          "methodHighlights": [
+            "Critical-Manifold Guided RRT for tight assemblies",
+            "adaptive sampling near contact-defined manifolds",
+            "probabilistic completeness and rotational assembly benchmarks"
+          ],
+          "projectUrl": "https://www.cgl.cs.tau.ac.il/projects/tight-assembly-planning",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "motion planning",
+            "contact geometry",
+            "assembly",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "Receiver-Centered Robot-to-Human Handover with Grasp-Aware Object Orientation",
+          "authors": "Federico Biagi, Dario Onfiani, Simone Silenzi, Luigi Biagiotti",
+          "arxivUrl": "https://arxiv.org/abs/2607.17839",
+          "published": "2026-07-20T11:30:03Z",
+          "categories": "cs.RO",
+          "summary": "这篇 robot-to-human handover 工作把接收者作为中心，根据工具和人手姿态调整交接方向。系统使用 LLM 做意图识别，并用 MediaPipe 实时 3D hand tracking，让 Franka cobot 以更适合抓取的姿态递交不对称工具。它虽然偏人机协作，但与 grasp-aware object orientation、3D hand tracking 和安全微交互直接相关。",
+          "methodHighlights": [
+            "receiver-centered adaptive robot handover",
+            "LLM intent recognition plus real-time 3D hand tracking",
+            "grasp-aware orientation for asymmetric tools"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "robot handover",
+            "3D hand tracking",
+            "grasping",
+            "human-robot interaction"
+          ]
+        },
+        {
+          "title": "Retrofitting Existing 3D Objects with Surface-Conforming Capacitive Sensing",
+          "authors": "Andela Ilic, Junpeng Gao, Zhipeng Li, Yijing Jiang, Rachel Schuchert, Manuel Meier, Philipp Herholz, Christian Holz",
+          "arxivUrl": "https://arxiv.org/abs/2607.16739",
+          "published": "2026-07-18T10:02:24Z",
+          "categories": "cs.HC",
+          "summary": "这篇 SIGGRAPH 论文将既有 3D 物体表面改造成可电容感知的多点交互对象，不需要改动物体内部体积。流程先扫描真实物体获得 3D mesh，再在物理和硬件约束下生成/优化 surface-conforming sensor layout，并展开成可裁剪的 2D stencils。虽然分类是 cs.HC，但它本质是 3D 几何、制造和表面传感结合，对 tactile object augmentation 和交互式机器人环境有参考价值。",
+          "methodHighlights": [
+            "scan-to-sensor computational fabrication pipeline",
+            "surface-conforming mutual-capacitance layout on 3D meshes",
+            "unfolding optimized 3D sensor designs into 2D stencils"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D sensing",
+            "tactile sensing",
+            "computational fabrication",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Predicting Grasping Compliance in Robotic Hands through Analytical-Model-Informed Neural Networks",
+          "authors": "Qianwen Zhao, Long Wang",
+          "arxivUrl": "https://arxiv.org/abs/2607.17541",
+          "published": "2026-07-20T04:35:01Z",
+          "categories": "cs.RO",
+          "summary": "这篇工作把抓取从二元 success/failure 推进到 grasping compliance prediction，关注带力工具使用时手、物体和接触如何在负载下变形。方法用 analytical-model-informed neural networks 建模耦合运动学、被动机械和接触条件下的非线性 compliance。对机器人手和工具操作来说，合规性预测比单纯抓稳更接近真实接触任务需求。",
+          "methodHighlights": [
+            "analytical-model-informed neural networks for grasp compliance",
+            "models coupled kinematics, passive mechanics and contact conditions",
+            "targets forceful tool-use behavior in robotic hands"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "grasping",
+            "compliance",
+            "robotic hands",
+            "contact-rich manipulation"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-07-20",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-07-20",
