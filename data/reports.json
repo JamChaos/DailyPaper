@@ -1,6 +1,263 @@
 {
-  "updatedAt": "2026-07-27",
+  "updatedAt": "2026-07-28",
   "reports": [
+    {
+      "date": "2026-07-28",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-07-28",
+      "shortTitle": "3D Vision / Physical AI",
+      "summary": "最新官方批次筛出 10 篇相关论文；embodied data、world models、3D 表示和 HOI 是主线。",
+      "trends": [
+        "embodied data 正在从单一数据集转向“数据配方”思路：Data Pyramid 把 real-robot、UMI、egocentric/exocentric、simulation 和 general VLM 数据放到同一框架里比较。",
+        "world model 更强调触觉、动作和 latent 规划的分工：DeVA、FeelWorld、WorldDiT 和 LeapBot-WA 都在降低“先像素、后控制”的耦合。",
+        "3D 表示继续往 feed-forward 和 compact latent 收缩：GenSplatCodec、MSVS-VAE 和 NSL-SLAM 分别从压缩、重建和深度三条线追求可部署性。",
+        "HOI 与 articulated manipulation 正在回到显式结构：KAI 和 Real-Time Human-Centric World Modeling for Upper-Body Human-Object Interaction 都把运动学或交互状态放回控制接口。",
+        "重点作者/团队本批次未见 Kaiming He、Anpei Chen、Shangzhe Wu、Qianqian Wang、Saining Xie 或 Oxford VGG / Visual Geometry Group 的精确命中。"
+      ],
+      "topPapers": [
+        "Data Pyramid for Embodied Manipulation",
+        "DeVA: Decoupled Video-Action Model with physical guidance for robot policy learning",
+        "FeelWorld: Visuo-Tactile World Model for Hierarchical Contact Prediction and Planning",
+        "KAI: A Kinematic-Aware Interface for Data-Efficient Articulated Object Manipulation",
+        "GenSplatCodec: Feed-Forward Gaussian Splatting Compression via One-Step Diffusion",
+        "MSVS-VAE: Multi-Scale Anchored VecSet for High-Fidelity 3D Reconstruction",
+        "NSL-SLAM: High-Fidelity Neural Structured-Light Depth for Practical SLAM and Reconstruction",
+        "Real-Time Human-Centric World Modeling for Upper-Body Human-Object Interaction",
+        "WorldDiT: A Unified Diffusion Architecture for World and Action Modeling",
+        "LeapBot-WA: World-Anchor Action Models via Predictive Latent Alignments"
+      ],
+      "markdownPath": "reports/arxiv/2026-07-28.md",
+      "papers": [
+        {
+          "title": "Data Pyramid for Embodied Manipulation",
+          "authors": "Yifan Ye, Yankai Fu, Yaoxu Lv, Bohan Hou, Jun Cen, Lingdong Kong, Duo Zheng, Tianxing Chen, Jiaming Liu, Ziang Cao, Yunfan Lou, Wei Chow, Xian Sun, Yingshuo Wang, Kuangzhi Ge, Xiaowei Chi, Xidong Zhang, Zhibo Pang, Yiwu Zhong, Sirui Han, Zhihe Lu, Weihao Yuan, Qifeng Chen, Michael Yu Wang, Yao Mu, Ziwei Liu, Jianfei Yang, Ping Luo, Shanghang Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2607.24744",
+          "published": "2026-07-27T17:59:58Z",
+          "categories": "cs.RO, cs.CV",
+          "summary": "Embodied agents 不能像网页视觉模型那样直接吞下全网数据，因为它们需要把观察和物理状态、动作绑在一起。论文把 embodied data 组织成五类互补来源：real-robot、UMI-style、egocentric/exocentric、simulation 和 general vision-language data。作者进一步从数据质量、多样性、可复用性和物理保真度几个维度分析数据配方如何影响感知、推理、规划、动作生成和 world prediction，并总结了 6 个开放问题。",
+          "methodHighlights": [
+            "五源 embodied data pyramid",
+            "数据 recipe 与能力映射分析",
+            "六个开放挑战"
+          ],
+          "projectUrl": "https://jasper-aaa.github.io/embodied-data-pyramid/",
+          "codeUrl": "https://github.com/Jasper-aaa/Awesome-Embodied-Data-Pyramid",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "embodied data",
+            "world models",
+            "robot learning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "DeVA: Decoupled Video-Action Model with physical guidance for robot policy learning",
+          "authors": "Mengqi Zhang, Sahil Khose, Simar Kareer, Yuchen Song, Unnat Jain, Judy Hoffman",
+          "arxivUrl": "https://arxiv.org/abs/2607.24159",
+          "published": "2026-07-27T08:37:35Z",
+          "categories": "cs.RO, cs.CV",
+          "summary": "通用机器人操作需要预判视觉场景在执行语言指令时如何变化。DeVA 把视频分支和动作分支解耦成两个专家，再把多层视频特征转移到动作分支，同时用 affordance 和 depth 这类物理显著信号监督中间表征。论文显示，这种做法比统一式 backbone 更容易优化，也能在仿真和真实部署中更快收敛、以更少数据获得更好表现。",
+          "methodHighlights": [
+            "decoupled video-action experts",
+            "multi-level feature transfer",
+            "physically salient guidance (affordance/depth)"
+          ],
+          "projectUrl": "https://deva-model.github.io/",
+          "codeUrl": "https://github.com/Mq-Zhang1/deva",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "video-action models",
+            "robot manipulation",
+            "Physical AI",
+            "VLA"
+          ]
+        },
+        {
+          "title": "FeelWorld: Visuo-Tactile World Model for Hierarchical Contact Prediction and Planning",
+          "authors": "Wenxuan Ma, Chaofan Zhang, Chao Xue, Yinghao Cai, Guocai Yao, Shaowei Cui, Shuo Wang",
+          "arxivUrl": "https://arxiv.org/abs/2607.24267",
+          "published": "2026-07-27T11:00:26Z",
+          "categories": "cs.RO",
+          "summary": "视觉 world model 往往能想象外观变化，却很难表达接触状态，而触觉正是 contact-rich 任务里的关键变量。FeelWorld 把 contact state、3D tactile latent 和 slip state 组织成层次化状态，并用共享 latent dynamics 联合预测未来视觉和触觉。它再配合 contact-gated asymmetric attention、autoregressive rollouts 和 context noise injection，让模型在长时序滚动时更稳，并支持接触感知的规划。",
+          "methodHighlights": [
+            "hierarchical visuo-tactile state space",
+            "contact-gated asymmetric attention",
+            "contact-aware CEM planning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "visuo-tactile",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "KAI: A Kinematic-Aware Interface for Data-Efficient Articulated Object Manipulation",
+          "authors": "Yaping Li, Zhaxizhuoma, Qiaojun Yu, Jia Zeng, Dahua Lin, Jiangmiao Pang",
+          "arxivUrl": "https://arxiv.org/abs/2607.24493",
+          "published": "2026-07-27T14:29:47Z",
+          "categories": "cs.RO",
+          "summary": "articulated object manipulation 难点不只是看清物体，而是抓住它的运动学结构。KAI 引入一个 kinematic-aware interface 作为中间表示，把几何和运动学先验塞进策略学习流程。这样做能显著提升样本效率，在较少示范下仍维持高成功率，并且还能用人类交互视频做 co-training 来增强真实场景泛化。",
+          "methodHighlights": [
+            "kinematic-aware intermediate interface",
+            "geometric + kinematic priors",
+            "action-agnostic video co-training"
+          ],
+          "projectUrl": "https://li-yaping.github.io/KAI/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "articulated objects",
+            "robot manipulation",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "GenSplatCodec: Feed-Forward Gaussian Splatting Compression via One-Step Diffusion",
+          "authors": "Qiang Hu, Zhenlong Wu, Lei Huang, Zihan Zheng, Xiaoyun Zhang, Wenjun Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2607.24403",
+          "published": "2026-07-27T13:20:26Z",
+          "categories": "cs.CV",
+          "summary": "feed-forward 3D Gaussian Splatting 虽然避免了逐场景优化，但生成的高斯体积太大，不利于存储和传输。GenSplatCodec 把低比特率压缩重新表述为 geometry-guided generative decoding，用双流结构-外观编码器和一阶生成解码器重建视角一致的高质量高斯表示。它的重点不只是压缩率，而是把重建结构和生成细节放在同一个 codec 里协同优化。",
+          "methodHighlights": [
+            "dual-stream Gaussian codec",
+            "geometry-guided one-step decoding",
+            "three-stage optimization"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3DGS",
+            "compression",
+            "novel view synthesis",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "MSVS-VAE: Multi-Scale Anchored VecSet for High-Fidelity 3D Reconstruction",
+          "authors": "Dehao Hao, Kaiyi Zhang, Tanghui Jia, Xiangjun Gao, Dongyu Yan, Weikai Chen, Zeyu Hu, Lingting Zhu, Yingda Yin, Runze Zhang, Li Yuan, Xin Wang, Long Quan",
+          "arxivUrl": "https://arxiv.org/abs/2607.24436",
+          "published": "2026-07-27T13:45:22Z",
+          "categories": "cs.CV",
+          "summary": "高保真 3D 生成模型越来越受底层 3D VAE 质量制约。MSVS-VAE 仍然保持 set-based latent 的紧凑性，但通过 hierarchical point-shuffle upsampling 逐步加密 latent，再用局部几何聚合解码把细节补回来。结果是它在保持 compact 的前提下显著提升了重建质量，接近甚至超过更重的 voxel-based VAE。",
+          "methodHighlights": [
+            "hierarchical VecSet densification",
+            "AVS-Conv local aggregation",
+            "multi-scale query decoding"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "3D generative modeling",
+            "latent VAE",
+            "geometry"
+          ]
+        },
+        {
+          "title": "NSL-SLAM: High-Fidelity Neural Structured-Light Depth for Practical SLAM and Reconstruction",
+          "authors": "Jiaheng Li, Binsheng Zhang, Xinhai Chang, Wenzheng Chen",
+          "arxivUrl": "https://arxiv.org/abs/2607.24495",
+          "published": "2026-07-27T14:31:55Z",
+          "categories": "cs.CV",
+          "summary": "structured-light 摄像头已经很普遍，但真正可部署的 SLAM 还需要更稳的深度和更简单的系统设计。NSL-SLAM 先用更强的 neural structured-light depth 提升深度质量，再把深度作为主跟踪信号，只在几何退化时加入少量视觉对应和轻量 BA。它在合成和真实场景上都给出更稳的轨迹和更好的重建结果，同时还能在线运行。",
+          "methodHighlights": [
+            "stronger neural structured-light depth",
+            "depth-centric SLAM pipeline",
+            "sparse correspondences + lightweight BA"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "SLAM",
+            "depth",
+            "3D reconstruction",
+            "robotics"
+          ]
+        },
+        {
+          "title": "Real-Time Human-Centric World Modeling for Upper-Body Human-Object Interaction",
+          "authors": "Chaonan Ji, Jinwei Qi, Peng Zhang, Bang Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2607.23517",
+          "published": "2026-07-26T07:34:14Z",
+          "categories": "cs.CV",
+          "summary": "HOI 生成正在从“让人和物一起动”走向“显式控制交互状态”。这篇工作把连续的人体状态和离散的交互状态分开建模：前者用多尺度 motion latent 融合上半身、手和脸，后者用语言编码的离散状态表示 no contact、grasp 这类交互命令。系统最终还能蒸馏成实时流式推理，在细粒度手-物协调上比单纯动作复现更实用。",
+          "methodHighlights": [
+            "continuous/discrete joint control",
+            "multi-scale motion encoding",
+            "language-encoded interaction states"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "world models",
+            "video generation"
+          ]
+        },
+        {
+          "title": "WorldDiT: A Unified Diffusion Architecture for World and Action Modeling",
+          "authors": "Sen Wang, R. Gnana Praveen, Bidhan Roy, Marcos Villagra",
+          "arxivUrl": "https://arxiv.org/abs/2607.23909",
+          "published": "2026-07-27T00:55:10Z",
+          "categories": "cs.LG, cs.RO",
+          "summary": "许多机器人 world model 仍然依赖大规模预训练 VLM 作为动作骨干，但这会抬高参数和训练复杂度。WorldDiT 用一个统一的 diffusion transformer 同时生成 action chunks 和未来 RGB patch 预测，把世界建模和控制目标压到同一个 backbone 里。它在 LIBERO 系列任务上给出了很强的参数-成功率折中，适合作为后续 scaling study 的轻量基线。",
+          "methodHighlights": [
+            "unified diffusion world-action model",
+            "action chunk + future RGB prediction",
+            "parameter-efficient baseline"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "world models",
+            "robot control",
+            "diffusion policies",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "LeapBot-WA: World-Anchor Action Models via Predictive Latent Alignments",
+          "authors": "Pei Liu, Nan Zheng, Lang Zhang, Daojie Peng, Yanan Zhang, Feilong Kong, Mingyue Feng, Jiachao Liu, Yaonong Wang, Qifeng Chen, Jun Ma",
+          "arxivUrl": "https://arxiv.org/abs/2607.23969",
+          "published": "2026-07-27T03:36:45Z",
+          "categories": "cs.RO",
+          "summary": "生成式 world-action model 很容易把算力浪费在重建任务无关的像素细节上。LeapBot-WA 把核心表示切到 latent predictive space，用 JEPA 风格的 world anchor 表达抽象物理动态，再用 isotropic semantic autoencoder 和 asymmetric MoT 把 latent 空间整形成更适合 diffusion 的流形。训练时有 privileged dynamics expert 帮忙，推理时这条分支可以裁掉，因此既高效又更稳。",
+          "methodHighlights": [
+            "predictive latent world-anchor",
+            "ISAE manifold shaping",
+            "asymmetric MoT with prunable dynamics expert"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/LeapWM/leapbot-wa",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "world models",
+            "robot control",
+            "embodied intelligence",
+            "Physical AI"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-07-27",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-07-27",
