@@ -1,6 +1,314 @@
 {
-  "updatedAt": "2026-07-28",
+  "updatedAt": "2026-07-29",
   "reports": [
+    {
+      "date": "2026-07-29",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-07-29",
+      "shortTitle": "3D Vision / Physical AI",
+      "summary": "最新官方批次筛出 12 篇相关论文；VLA 3D priors、world-action models、3DGS simulation 和可微接触是主线。",
+      "trends": [
+        "3D priors 正在进入 VLA / WAM 的训练中间层，而不是只作为独立感知模块：SAM3D-Guided Alignment 用 frozen 3D teacher 提供物体级几何监督，HiFi-UMI 则用更准确的 UMI 采集链路让 robot-free 数据直接支撑真实机器人部署。",
+        "World-action model 的问题焦点从“生成像素是否逼真”转向“哪些视觉动态对控制有用”：DC-WAM、INTACT 和 πR^2 分别从动态监督、intent-to-action 映射和实时闭环三个角度减少未来视频预测与控制之间的摩擦。",
+        "3D Gaussian Splatting 继续向仿真与反射场景扩展：SONG 把 3DGS 用作社交导航平台的场景/行人表示，PanoLess 用 surface-aligned 2D Gaussian splats 从局部反射视角恢复环境光照与几何线索。",
+        "机器人 Physical AI 更强调系统级数据和物理可微工具链：Transformer Transformer 把 embodiment、state 和 action 统一 token 化做机器人协同设计，contact implicit differentiation 则把 MuJoCo/MJX 接触求导引入 residual MPC。",
+        "重点作者/团队本批次未见 Kaiming He、Anpei Chen、Shangzhe Wu、Qianqian Wang、Saining Xie 或 Oxford VGG / Visual Geometry Group 的精确命中。"
+      ],
+      "topPapers": [
+        "SAM3D-Guided Object-Centric Representation Alignment for Vision-Language-Action Models",
+        "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone",
+        "DC-WAM: Dynamic-Centric Visual Supervision and Reasoning for World-Action Models",
+        "INTACT: Isomorphic Intent-to-Action Learning for Search-Free World Models",
+        "SONG: A Photorealistic 3D Gaussian Simulation Platform for Benchmarking Social Navigation",
+        "Wonder: Video World Model Done Better",
+        "PanoLess: Environment Reconstruction from Partial Reflective Views",
+        "Transformer Transformer: A Unified Model for Motion-Conditioned Robot Co-design",
+        "πR^2: Reactive Real-time Flow Policies",
+        "Amortising Trajectory Optimisation for Residual MPC via Implicit Contact Differentiation",
+        "Track-Leakage-Free Hold-Out Self-Validation for Photogrammetric Reconstruction: Protocol, Sensitivity, and Limits",
+        "S2A2: Audio-Visual Imitation Learning for Manipulation Tasks Using Acoustic Spatial Information"
+      ],
+      "markdownPath": "reports/arxiv/2026-07-29.md",
+      "papers": [
+        {
+          "title": "SAM3D-Guided Object-Centric Representation Alignment for Vision-Language-Action Models",
+          "authors": "Zonghe Liu, Shanyuan Jie, Xiaoquan Sun, Chen Cao, Zetian Xu, Zongsheng Liu, Jiayu Chen",
+          "arxivUrl": "https://arxiv.org/abs/2607.25912",
+          "published": "2026-07-28T16:05:32Z",
+          "categories": "cs.RO, cs.AI",
+          "summary": "现有 VLA 模型多依赖 2D vision-language backbone，在遮挡、尺度变化和精确空间交互时缺少物体级 3D 理解。论文在 π0 上加入 object-centric 3D representation alignment：先定位任务物体并生成 mask，再用 frozen SAM3D teacher 提取 dense object-level 3D 表示，监督中间视觉特征。推理时不需要深度、点云、mask、SAM3D 或额外 3D 模块，因此保持原始 RGB-language-to-action 管线。LIBERO、CALVIN 和真实长程操作实验都显示该几何监督对目标切换和空间交互有明显帮助。",
+          "methodHighlights": [
+            "frozen SAM3D 3D teacher",
+            "object-centric dense alignment",
+            "test-time 纯 RGB-language-action 推理"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "3D understanding",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone",
+          "authors": "Simple AI, Yuteng Wei, Jinming Ma, Jiawei Wang, Weitao Zhou, Yushen Zuo, Ke Rui, Minglei Li, Jinhao Zhang, Zhikang Pan, Xiang Wang, Haoran Jia, Huan Du, Zicheng Zeng, Jun Ma, Guiyu Qin, Di Zhang, Xiaofei Li",
+          "arxivUrl": "https://arxiv.org/abs/2607.25895",
+          "published": "2026-07-28T15:52:02Z",
+          "categories": "cs.RO, cs.CV, cs.LG",
+          "summary": "HiFi-UMI 重新设计 robot-free 数据生产链路：头戴式离线 stereo-inertial SLAM、原生 inter-gripper relative pose、微秒级同步触发和双手广角相机，让轨迹和视野精度接近部署需求。论文展示了 zero-robot post-training：只用 HiFi-UMI demonstrations 后训练的策略可以直接部署到真实机器人。结果说明，提升 robot-free 数据保真度可能比继续混入少量真实机器人 anchor 更有杠杆。",
+          "methodHighlights": [
+            "high-fidelity UMI capture",
+            "3 mm workspace-local end-effector accuracy",
+            "zero-robot post-training across VLA/WAM backbones"
+          ],
+          "projectUrl": "https://cloud.simpleai.tech/simple-world-lab/hifi-umi/",
+          "codeUrl": "",
+          "datasetUrl": "https://huggingface.co/datasets/simple-world-lab/HiFi-UMI-2K",
+          "priority": "高",
+          "areaTags": [
+            "UMI",
+            "robot manipulation",
+            "embodied AI",
+            "VLA",
+            "world-action models"
+          ]
+        },
+        {
+          "title": "DC-WAM: Dynamic-Centric Visual Supervision and Reasoning for World-Action Models",
+          "authors": "Haoyuan Ji, Lingxiang Fan, Shang Su, Yinqiao Lu, Mengkai Shi, Jun Gao, Shuo Feng",
+          "arxivUrl": "https://arxiv.org/abs/2607.25918",
+          "published": "2026-07-28T16:08:50Z",
+          "categories": "cs.RO",
+          "summary": "DC-WAM 重新分配 RGB 视频分支的监督与计算，让 world-action model 更关注由动作导致的视觉动态。它用 temporal-difference flow matching 和 trajectory-guided weighting 强化 gripper、物体和接触区域的变化，再用 DynaRoute 给动态相关 token 加 attention bias。这个方向把 world-action model 从“看起来像未来”推进到“学到对控制有用的未来”。",
+          "methodHighlights": [
+            "dynamic-centric future visual supervision",
+            "trajectory-guided weighting",
+            "DynaRoute token-wise dynamic attention bias"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "world-action models",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "INTACT: Isomorphic Intent-to-Action Learning for Search-Free World Models",
+          "authors": "Junhan Sun, Hao Zhao, Guofeng Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2607.26056",
+          "published": "2026-07-28T17:59:40Z",
+          "categories": "cs.RO",
+          "summary": "INTACT 把 action-labeled、reward-free trajectories 转成 intent-to-action interface，用 JEPA 风格的 latent intent 表示连接局部 transition intent 和 future goal intent。它通过 isomorphic local/goal grammar、shared parameters 和 asymmetric endpoint gradients，把表示学习和控制对齐到可直接采样的 action law。官方 LeWM 任务上，zero-search 模型已经能给出很强成功率，说明搜索不一定是 latent world model 控制接口的必需品。",
+          "methodHighlights": [
+            "search-free intent-to-action JEPA",
+            "isomorphic local/goal motion-intent grammar",
+            "direct distributional action law"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "intent-to-action",
+            "robot control",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "SONG: A Photorealistic 3D Gaussian Simulation Platform for Benchmarking Social Navigation",
+          "authors": "Weiqi Huang, Dianyi Yang, Jiaxin Li, Shuangyi Dong, Hao Xu, Zan Wang, Wei Liang",
+          "arxivUrl": "https://arxiv.org/abs/2607.25219",
+          "published": "2026-07-28T02:51:24Z",
+          "categories": "cs.RO",
+          "summary": "SONG 用 3D Gaussian Splatting 同时表示场景和 avatar，并用 LLM 生成语义化行人轨迹，再由轨迹条件 motion generator 合成自然行人动作。它还构建 SONG-Bench，把导航效果、安全性和社会合规性拆开评估。论文的核心价值是把 photorealistic 3D representation 引入 embodied social navigation 基准，而不是只做静态新视角合成。",
+          "methodHighlights": [
+            "3DGS scene/avatar simulation",
+            "LLM-grounded pedestrian trajectories",
+            "effectiveness/safety/social-compliance metric suite"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3DGS",
+            "simulation",
+            "social navigation",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "Wonder: Video World Model Done Better",
+          "authors": "Jiacong Xu, Hanwen Jiang, Zhixin Shu, Kalyan Sunkavalli, Vishal M. Patel, Yiqun Mei",
+          "arxivUrl": "https://arxiv.org/abs/2607.26037",
+          "published": "2026-07-28T17:45:25Z",
+          "categories": "cs.CV, cs.GR",
+          "summary": "Wonder 面向实时、可控相机的 video world model：给定图片或条件视频后，用户可以交互式移动相机、探索未见区域并回访已见区域。系统用 dense coordinate field 做 camera conditioning，把运动和方向 cue 直接渲染为空间对齐的视觉证据，并用 sparse attention memory 支持长程上下文检索。对于三维生成和可交互 world model，这篇工作值得关注其“控制接口 + 长程记忆 + 实时生成”的系统设计。",
+          "methodHighlights": [
+            "dense coordinate field camera conditioning",
+            "sparse attention memory",
+            "rectified self-forcing distillation for long rollouts"
+          ],
+          "projectUrl": "https://wonder-world-model.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "video generation",
+            "camera control",
+            "3D generation"
+          ]
+        },
+        {
+          "title": "PanoLess: Environment Reconstruction from Partial Reflective Views",
+          "authors": "Ahitagni Das, Ashok Veeraraghavan, Vivek Boominathan",
+          "arxivUrl": "https://arxiv.org/abs/2607.25362",
+          "published": "2026-07-28T07:13:11Z",
+          "categories": "cs.CV",
+          "summary": "PanoLess 用 surface-aligned 2D Gaussian splats 先恢复 normal、albedo、depth 等 buffer，再通过反射方向查询 neural cubemap 来重建环境图。它额外输出 visibility map，标明哪些环境方向真正受观测约束，减少 partial-view 场景里的幻觉。该工作对机器人从偶然反射、镜面和玻璃中恢复隐藏环境也有启发。",
+          "methodHighlights": [
+            "surface-aligned 2D Gaussian splats",
+            "neural cubemap environment map",
+            "visibility map for partial reflective observations"
+          ],
+          "projectUrl": "https://vb-glee.github.io/panoless/",
+          "codeUrl": "https://github.com/vb-glee/panoless",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "3DGS",
+            "neural rendering",
+            "reflective geometry"
+          ]
+        },
+        {
+          "title": "Transformer Transformer: A Unified Model for Motion-Conditioned Robot Co-design",
+          "authors": "Huy Ha, C. Karen Liu, Shuran Song",
+          "arxivUrl": "https://arxiv.org/abs/2607.25798",
+          "published": "2026-07-28T14:47:14Z",
+          "categories": "cs.RO",
+          "summary": "Transformer Transformer 把 robot embodiment、state 和 action 统一 token 化为 RoboTokens，并训练 diffusion transformer 在不同 embodiment space 中生成机器人设计和控制器。模型不绑定单一 reward，而是作为 dynamics model，通过 Dynamics Self-Guidance 把 reward-specific value 反馈到 embodiment diffusion。论文还制造了优化后的 ALOHA 设计，展示了从生成式 co-design 到实体机器人的闭环。",
+          "methodHighlights": [
+            "RoboTokens unified tokenization",
+            "motion-conditioned embodiment diffusion",
+            "Dynamics Self-Guidance for reward-specific design"
+          ],
+          "projectUrl": "https://transformer-transformer.github.io",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot co-design",
+            "embodied AI",
+            "diffusion",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "πR^2: Reactive Real-time Flow Policies",
+          "authors": "Sungjae Park, Shubham Tulsiani",
+          "arxivUrl": "https://arxiv.org/abs/2607.26055",
+          "published": "2026-07-28T17:59:31Z",
+          "categories": "cs.RO, cs.AI, cs.LG",
+          "summary": "πR^2 把 action-chunking flow policy 的 conditioning 拆成快速通道和慢速通道：proprioception 可每个 tick 更新，vision-language feature 异步更新并允许滞后。它还把 in-flight actions 当作 inpainting conditioning，用 latency-adaptive flow schedule 单步输出后续动作。该设计对实时机器人操作尤其关键，因为它试图保留大模型策略能力，同时恢复闭环反应性。",
+          "methodHighlights": [
+            "fast proprioception / slow vision-language channels",
+            "latency-adaptive flow schedule",
+            "one-step reactive action emission"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "flow policies",
+            "real-time control",
+            "VLA"
+          ]
+        },
+        {
+          "title": "Amortising Trajectory Optimisation for Residual MPC via Implicit Contact Differentiation",
+          "authors": "Daniel Layeghi, Thomas Corberes, Calum Arnott, Aditya Kamireddypalli, Hashim Al-Obaidi, Steve Tonneau, Michael Mistry",
+          "arxivUrl": "https://arxiv.org/abs/2607.24959",
+          "published": "2026-07-27T18:05:46Z",
+          "categories": "cs.RO, cs.DC, cs.LG, eess.SY, math.OC",
+          "summary": "论文在 MuJoCo MJX 中实现 AD-assisted implicit derivative，对 tolerance-converged contact solution 的 stationarity residual 应用 IFT 求导，避免 unroll 和手工 KKT。它进一步用 optimizer distillation 把 full-horizon iLQR 摊销成 policy，再指导 short-horizon residual iLQR。对于 Physical AI 来说，这是一条把可微接触、MPC 和策略学习连接起来的实用路线。",
+          "methodHighlights": [
+            "IFT-based implicit contact derivative",
+            "constant-ish compiled memory vs unrolled AD",
+            "optimizer distillation for residual MPC"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/calumarnott/mujoco",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "differentiable simulation",
+            "contact",
+            "MPC",
+            "robot control",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Track-Leakage-Free Hold-Out Self-Validation for Photogrammetric Reconstruction: Protocol, Sensitivity, and Limits",
+          "authors": "Behnam Asadi",
+          "arxivUrl": "https://arxiv.org/abs/2607.24852",
+          "published": "2026-07-25T17:00:11Z",
+          "categories": "cs.CV, cs.RO",
+          "summary": "论文提出 track-leakage-free hold-out protocol：保留部分图像，再只用至少被两个保留图像观测过的 3D points 做 re-localization，避免测试视图用到自己贡献的结构。实验表明这个自一致信号能检查内部几何一致性，但会饱和，且对 coherent global distortion 不敏感。它提醒三维重建系统不能把 self-consistency 当作 absolute accuracy 或通用失败检测器。",
+          "methodHighlights": [
+            "track-level leakage barrier",
+            "hold-out re-localization confidence",
+            "negative result on self-consistency saturation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D reconstruction",
+            "photogrammetry",
+            "SLAM",
+            "geometry"
+          ]
+        },
+        {
+          "title": "S2A2: Audio-Visual Imitation Learning for Manipulation Tasks Using Acoustic Spatial Information",
+          "authors": "Kaneyoshi Hiratsuka, Benjamin Yen, Ryosuke Kojima",
+          "arxivUrl": "https://arxiv.org/abs/2607.26047",
+          "published": "2026-07-28T17:56:07Z",
+          "categories": "cs.RO",
+          "summary": "S2A2 设计 acoustic-aware manipulation tasks，要求机器人通过声音定位或识别操作目标，并提出 Spatial-Spectral Audio Action 框架把视觉特征、声源空间信息和声学信号融合进 imitation policy。作者把 ACT、Diffusion Policy、VQ-BeT 和 π0 等策略接入该框架，在仿真和真实机器人上验证了 position + timbre 场景下的收益。",
+          "methodHighlights": [
+            "acoustic-aware manipulation tasks",
+            "spatial-spectral audio action fusion",
+            "plug-in wrapper for ACT / Diffusion Policy / VQ-BeT / π0"
+          ],
+          "projectUrl": "https://azuma413.github.io/projects/s2a2",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "robot manipulation",
+            "audio-visual learning",
+            "imitation learning",
+            "Physical AI"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-07-28",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-07-28",
