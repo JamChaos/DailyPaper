@@ -1,6 +1,363 @@
 {
-  "updatedAt": "2026-07-29",
+  "updatedAt": "2026-07-30",
   "reports": [
+    {
+      "date": "2026-07-30",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-07-30",
+      "shortTitle": "3D Vision / Physical AI",
+      "summary": "最新官方批次筛出 14 篇相关论文；world-state 数据、3DGS/重建、VLA 闭环和物理 latent 是主线。",
+      "trends": [
+        "今日最强信号是 world model 数据从“视频帧序列”转向“显式世界状态”：CG-World 把语义、空间结构、骨骼/控制器、物理缓存、接触事件和 counterfactual branch 放进同一协议，直接服务可控生成、动作预测和 embodied policy transfer。",
+        "三维生成与仿真继续合流：Genie Sim PanoWorld 从单张全景图生成可漫游 3D Gaussian 室内世界，StructureGS 和 AtlasLC 则分别把 3DGS 推向 articulated object reconstruction 与 XR object asset compression。",
+        "VLA / WAM 的关注点明显偏向部署闭环：TurboVLA 追求低延迟小显存，CheckVLA 用 action-conditioned world model 做执行时风险校验，Enfold 把 future generator 的中间计算蒸馏到当前表征里以减少推理开销。",
+        "“物理是否真的进了 latent”成为 world model 评估主题：ContactFlow 用 3D 接触点作为跨 embodiment action condition，Physical Parameter Identifiability 论文则用可证伪协议说明预测目标决定 latent 能保留哪些物理量。",
+        "3D vision 基础设施仍在补强：VidMap 把视频时序约束、dense matching 和 monocular depth priors 结合到 uncalibrated video SfM；FPSGen 用 BEV prior 和 transport flow 做更灵活的点云场景生成。",
+        "重点作者/团队本批次未见 Kaiming He、Anpei Chen、Shangzhe Wu、Qianqian Wang、Saining Xie 或 Oxford VGG / Visual Geometry Group 的精确命中；相关作者检索结果均早于 2026-07-30 批次，因此未纳入正文。"
+      ],
+      "topPapers": [
+        "CG-World: A Large-Scale World-State Dataset and Protocol for World Models",
+        "ContactFlow: A video action conditioning that transfers across embodiments",
+        "CheckVLA: Execution-Time Verification with Action-Conditioned World Model for Long-Horizon Mobile Manipulation",
+        "Enfold: Folding World-Generator Computation into Predictive Representations for Efficient Embodied Control",
+        "Genie Sim PanoWorld: An Infinite Indoor 3D World Generation Pipeline via Panoramic Scene Modeling and Simulation",
+        "StructureGS: Structure-aware Gaussian Splatting for Articulated Object Reconstruction",
+        "VidMap: Exploiting Temporal Structure for Video-Based Structure-from-Motion",
+        "TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090 with <1 GB VRAM",
+        "What Can Latent World Models Know? Physical Parameter Identifiability in Multimodal Predictive Representations",
+        "FPSGen: Flexible Point Cloud Scene Generation with BEV-Supported Transport Flows"
+      ],
+      "markdownPath": "reports/arxiv/2026-07-30.md",
+      "papers": [
+        {
+          "title": "CG-World: A Large-Scale World-State Dataset and Protocol for World Models",
+          "authors": "Yiming Cai, Fangjie Yu, Meiqing Yu, Ziyue Shi, Pengfei Yuan, Yong Guo",
+          "arxivUrl": "https://arxiv.org/abs/2607.26452",
+          "published": "2026-07-29T04:06:28Z",
+          "categories": "cs.AI, cs.CV, cs.GR",
+          "summary": "World models 如果只看视频、机器人轨迹或仿真日志，通常只能学到局部状态。CG-World 从工业 CG 生产管线导出大规模 world-state 数据，把语义、空间结构、骨骼/控制器状态、运动曲线、相机、光照、物理缓存、接触事件和多通道渲染统一对齐。它还定义 factual、observation intervention、action intervention、mechanism intervention 和 strict counterfactual branches，使模型能学习干预和反事实关系。论文把数据用于几何条件视频生成、动作预测和闭环 VLA 迁移，价值在于为 Physical AI 提供比像素更结构化的监督接口。",
+          "methodHighlights": [
+            "850K temporally aligned world-state segments",
+            "显式 latent state / observation / event / branch metadata",
+            "counterfactual branch lineage for intervention learning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "embodied AI",
+            "Physical AI",
+            "simulation",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "Genie Sim PanoWorld: An Infinite Indoor 3D World Generation Pipeline via Panoramic Scene Modeling and Simulation",
+          "authors": "Yongxin Su, Linjie Hou, Feng Wang, Jialin Tang, Zhijun Li, Qian Wang, Maoqing Yao",
+          "arxivUrl": "https://arxiv.org/abs/2607.26646",
+          "published": "2026-07-29T09:08:16Z",
+          "categories": "cs.CV",
+          "summary": "Genie Sim PanoWorld 试图从单张 360 度全景图生成可自由漫游的高保真 3D 室内世界，而不需要逐场景优化或多视角采集。系统先用 NavMesh 规划可控 SE(3) 漫游轨迹，再把几何 warp 条件注入 latent video diffusion，生成长短轨迹混合训练下的全景视频。随后 feed-forward panoramic reconstructor 将视频提升为 3D Gaussian scene，支持实时自由视角漫游。它把全景视频生成和三维重建明确接到 embodied AI simulation-ready asset 上，是今天最值得关注的 3D 生成系统之一。",
+          "methodHighlights": [
+            "trajectory-controllable panoramic video generation",
+            "dense geometry-warped conditioning",
+            "feed-forward lifting to 3D Gaussian scene"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D generation",
+            "3DGS",
+            "neural rendering",
+            "simulation",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "StructureGS: Structure-aware Gaussian Splatting for Articulated Object Reconstruction",
+          "authors": "Gahye Lee, Gyoonseo Kim, Wonjong Jang, Jooeun Son, Seungyong Lee",
+          "arxivUrl": "https://arxiv.org/abs/2607.26889",
+          "published": "2026-07-29T13:18:38Z",
+          "categories": "cs.GR, cs.CV, cs.RO",
+          "summary": "StructureGS 面向 articulated objects 的 3D Gaussian reconstruction，核心难点是几何、外观和运动参数在优化中互相缠绕。论文引入 object-part oriented bounding boxes，为每个部件施加空间一致性和结构连接约束，减少仅靠 photometric supervision 带来的边界模糊和几何伪影。这些 structure-aware losses 让各部件在指定区域内保持紧凑，并保留相邻部件的物理接触关系。对于手-物/机器人操作中的可动部件建模，这篇比普通 3DGS NVS 更接近可交互结构理解。",
+          "methodHighlights": [
+            "oriented bounding boxes for movable parts",
+            "spatial coherence loss",
+            "structural connectivity loss for plausible part contacts"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3DGS",
+            "articulated objects",
+            "3D reconstruction",
+            "robot manipulation"
+          ]
+        },
+        {
+          "title": "VidMap: Exploiting Temporal Structure for Video-Based Structure-from-Motion",
+          "authors": "Zador Pataki, Paul-Edouard Sarlin, Marc Pollefeys",
+          "arxivUrl": "https://arxiv.org/abs/2607.27194",
+          "published": "2026-07-29T17:58:04Z",
+          "categories": "cs.CV, cs.RO",
+          "summary": "VidMap 针对任意长、未标定视频的 metric camera pose 与重建问题，试图结合 SLAM 的时序约束和离线 SfM 的全局优化。它把视频帧顺序作为 loop closure 的一等信息，同时利用 wide-baseline dense image matching 和 monocular depth priors 增强初始化与尺度恢复。论文宣称在极端运动、视觉对称和未知相机内参场景下，优于多类 SLAM/SfM 基线。对从互联网视频扩展导航、场景理解和三维重建训练数据很有价值。",
+          "methodHighlights": [
+            "video-order-aware offline SfM",
+            "wide-baseline dense matching",
+            "metric monocular depth priors in global optimization"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/cvg/vidmap",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "SfM",
+            "3D reconstruction",
+            "SLAM",
+            "video understanding",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "ContactFlow: A video action conditioning that transfers across embodiments",
+          "authors": "Sami Azirar, Enrico Pallotta, Jan Nogga, Jürgen Gall, Sven Behnke, Hermann Blum",
+          "arxivUrl": "https://arxiv.org/abs/2607.26579",
+          "published": "2026-07-29T07:59:47Z",
+          "categories": "cs.RO, cs.CV",
+          "summary": "ContactFlow 把 manipulation video world model 的 action condition 从具体机器人外形中抽离出来，改为 3D contact points 在 actor 与目标物体之间的轨迹。这样 human demonstrations 和不同 robot embodiments 可以共享同一种接触条件，减少手形、夹爪或机械臂外观差异带来的迁移障碍。系统用这种表示训练视频生成式 world model，再通过 propose-imagine-verify-act 管线让 VLM 评估预测 rollout 后执行。它对 human-object interaction 到 robot manipulation 的跨 embodiment 数据利用尤其关键。",
+          "methodHighlights": [
+            "embodiment-agnostic 3D contact-point trajectories",
+            "human/robot object-interaction video conditioning",
+            "propose-imagine-verify-act world-model pipeline"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "human-object interaction",
+            "HOI",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "CheckVLA: Execution-Time Verification with Action-Conditioned World Model for Long-Horizon Mobile Manipulation",
+          "authors": "Yushan Liu, Peibo Sun, Xintao Chao, Zhenyang Yang, Yifan Xie, Lingfeng Zhang, Shoujie Li, Chenyu Tang, Fang Chen, Xiao-Ping Zhang, Wenbo Ding",
+          "arxivUrl": "https://arxiv.org/abs/2607.26789",
+          "published": "2026-07-29T11:31:33Z",
+          "categories": "cs.RO",
+          "summary": "CheckVLA 关注长程 mobile manipulation 中 action chunk 开环执行的问题：一旦真实观察偏离预期，剩余动作仍可能继续放大错误。论文单独训练并冻结 action-conditioned world model，用它对已派发动作的预期观察变化做执行时校验。它再用 conformal calibration 控制误报概率，并通过 latency-aware hard prefixing 只重写仍可部署的 action suffix。这个方向把 world model 作为闭环安全/纠偏模块，而不是只作为训练辅助预测头。",
+          "methodHighlights": [
+            "frozen action-conditioned world model for execution checking",
+            "conformal episode-level false-alarm control",
+            "latency-aware action suffix repair"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "world models",
+            "mobile manipulation",
+            "robotics",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Enfold: Folding World-Generator Computation into Predictive Representations for Efficient Embodied Control",
+          "authors": "Weili Zeng, Yitong Xing, Fulong Liu, Chengqun Yang, Antao Xiang, Feng Tian, Jingnan Gao, Jisong Cai, Xin Wang, Xiaomin Wu, Yao Mu, Yichao Yan",
+          "arxivUrl": "https://arxiv.org/abs/2607.26657",
+          "published": "2026-07-29T09:17:33Z",
+          "categories": "cs.RO",
+          "summary": "Enfold 提出一个很实用的观点：world generator 的价值不一定在于每步都生成未来视频，而在于它构造未来时产生的中间计算。训练时，模型把 generator 在处理观察到的未来轨迹时暴露出的多层状态蒸馏给一个 current-only encoder。部署时 action prediction 不再执行昂贵生成器，而直接使用已经“折叠”进当前表征的预测性结构。论文在 LIBERO、RoboTwin2.0 和真实机器人任务上报告显著降延迟，说明 WAM 可以转化为可部署的控制表征教师。",
+          "methodHighlights": [
+            "distill future-generator intermediate states",
+            "current-only predictive representation",
+            "generator-free deployment with lower action latency"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot control",
+            "VLA",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090 with <1 GB VRAM",
+          "authors": "Hengyi Xie, Chenfei Yao, Xianjin Wu, Xuanyang Xi, Yiping Tang, Di Xu, Yingying Zhu, Dingkang Liang, Xiang Bai, Han Ding",
+          "arxivUrl": "https://arxiv.org/abs/2607.27205",
+          "published": "2026-07-29T17:59:58Z",
+          "categories": "cs.CV, cs.RO",
+          "summary": "TurboVLA 直接挑战当前 LLM-centric VLA 的 V-to-L-to-A 路线，认为每次策略调用都把视觉送进大语言模型空间会造成过高显存和延迟。它把路线改成直接的 V+L-to-A：视觉和语言分别编码，再通过轻量双向 vision-language interaction 形成任务条件表征，最后由小 decoder 输出连续 action chunks。论文报告 0.2B 参数、RTX 4090 上约 31.2 ms 延迟和 0.9 GB VRAM，同时在 LIBERO 达到 97.7% 平均成功率。对真正高频闭环机器人部署，这是比继续堆大 VLA 更务实的路线。",
+          "methodHighlights": [
+            "direct V+L-to-A mapping",
+            "lightweight bidirectional vision-language interaction",
+            "0.2B-parameter real-time action-chunking VLA"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/H-EmbodVis/TurboVLA",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "efficient inference",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "HumanCLAW: Can Vision-Language Models Act Through a Body?",
+          "authors": "Siyao Li, Jiawei Gu, Shuai Liu, Kairui Hu, Zekun Li, Linjie Li, Chengcheng Tang, Po-Chen Wu, Ivan Shugurov, Lingni Ma, Michael Zollhoefer, Sizhe An, Abhay Mittal, Amy Zhao, Ranjay Krishna, Manling Li, Ziwei Liu, Chuan Guo",
+          "arxivUrl": "https://arxiv.org/abs/2607.27180",
+          "published": "2026-07-29T17:51:36Z",
+          "categories": "cs.CV, cs.RO",
+          "summary": "HumanCLAW 评估 VLM 是否能“通过身体行动”，但把低层控制失败与高层动作决策失败解耦。框架让 off-the-shelf VLM 每步发出 atomic skill command，再转成带重力和碰撞后果的短时连续全身运动，从而更清楚地测量模型是否知道身体在哪里、到没到目标、是否撞到障碍。HumanCLAW-Bench 含 41 个室内场景、1218 个长程 egocentric find-navigate-interact episodes。结果显示当前 VLM 主要缺 embodied self-awareness，而不是单纯看不见目标。",
+          "methodHighlights": [
+            "decoupled VLM action decision vs motor execution",
+            "full-body egocentric physical interaction benchmark",
+            "1218 long-horizon indoor episodes"
+          ],
+          "projectUrl": "https://human-claw.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "embodied AI",
+            "VLM evaluation",
+            "navigation",
+            "physical interaction"
+          ]
+        },
+        {
+          "title": "Explicit Kinematic Guidance from Analytic Concepts for Vision-Language-Action Models",
+          "authors": "Mingyang Sun, Jiude Wei, Xiujian Liang, Qichen He, Donglin Wang, Cewu Lu, Jianhua Sun",
+          "arxivUrl": "https://arxiv.org/abs/2607.26513",
+          "published": "2026-07-29T06:24:25Z",
+          "categories": "cs.RO",
+          "summary": "这篇论文认为 VLA 只依赖 2D 输入时会缺少可执行的 3D 物体结构和常识。它构建 Concept Expert，把 Vision Foundation Models 提供的 3D 信息转成 Analytic Concepts，即可编程的对象蓝图，估计初始运动学和结构参数。操控过程中，VLA 继续跟踪这些动态概念参数，并用它们提供 dense programmatic rewards 与精确空间指导。对于 articulated object manipulation 和高精度操作，这种显式结构指导比纯端到端视觉 token 更可解释。",
+          "methodHighlights": [
+            "Concept Expert builds executable Analytic Concepts",
+            "3D VFM-derived kinematic/structural parameters",
+            "programmatic rewards and spatial guidance for VLA post-training"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "kinematics",
+            "articulated objects",
+            "robot manipulation",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "What Can Latent World Models Know? Physical Parameter Identifiability in Multimodal Predictive Representations",
+          "authors": "Kaizhen Tan, Xin Xu, Siru Tao, Hanzhe Hong, Yang Feng, Heqing Du",
+          "arxivUrl": "https://arxiv.org/abs/2607.27017",
+          "published": "2026-07-29T15:15:30Z",
+          "categories": "cs.LG, cs.RO",
+          "summary": "论文提出一个重要问题：latent world model 预测未来时，究竟学进了哪些物理参数。作者在 POKEWORLD 中构造视觉相同但质量、阻力、接触刚度不同的物体，先证明这些参数可从原始观察恢复，再检查训练后的 latent 是否真的包含它们。结果显示输入决定哪些信息可能被知道，预测目标决定哪些信息会被保留；例如接触刚度只有在预测触觉时进入 latent。它提醒我们，给 world model 更多数据不一定能自动获得物理理解，目标设计才是关键。",
+          "methodHighlights": [
+            "certificate-gated physical-parameter identifiability protocol",
+            "POKEWORLD hidden mass/drag/stiffness interventions",
+            "input-target factorial validation on RH20T"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "physics-aware AI",
+            "robot learning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "SpatialQ: Understanding 3D Gaussian Splatting Scene Quality via Visual-based MLLM",
+          "authors": "Jingxuan Su, Shenglin Wang, Tiesong Zhao, Ge Li, Wei Gao",
+          "arxivUrl": "https://arxiv.org/abs/2607.26595",
+          "published": "2026-07-29T08:14:40Z",
+          "categories": "cs.CV",
+          "summary": "SpatialQ 聚焦 3DGS scene quality assessment，指出 3DGS 质量不仅是单张渲染图的感知保真度，还包括场景结构和跨视角一致性。方法用 VGGT-based encoder 加质量头学习 3D-aware quality representation，并联合深度、点云相关结构信息来建模几何质量。随后将原图、深度图、点云渲染和相机参数送入 Qwen-based MLLM，做更有依据的多模态质量推理。它对 3DGS 资产自动筛查和生成系统评估比较实用。",
+          "methodHighlights": [
+            "VGGT-based 3D-aware quality encoder",
+            "multi-view aggregation for cross-view consistency",
+            "Qwen-based grounded MLLM quality reasoning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3DGS",
+            "quality assessment",
+            "3D reconstruction",
+            "MLLM"
+          ]
+        },
+        {
+          "title": "FPSGen: Flexible Point Cloud Scene Generation with BEV-Supported Transport Flows",
+          "authors": "Wenzhe He, Meng Wang, JiaWei Qian, Jinfeng Xu, Ying Liu, Ruihui Li",
+          "arxivUrl": "https://arxiv.org/abs/2607.26645",
+          "published": "2026-07-29T09:06:01Z",
+          "categories": "cs.CV, cs.AI",
+          "summary": "FPSGen 解决 outdoor point cloud scene generation 中 partial scan 初始化导致的稀疏和遮挡偏置。它先从可用条件预测 BEV prior，包括 density、height 和 mask，再从 density map 采样生成 BEV-supported point source，使无条件生成和多种 cue-conditioned 生成共享同一初始化机制。随后 teacher-student approximate optimal transport 学习更直的 transport velocity field。对自动驾驶仿真、三维场景补全和点云生成，这篇的价值在于把布局先验和点级生成路径合在一起。",
+          "methodHighlights": [
+            "BEV density/height/mask prior",
+            "BEV-supported point source independent of partial scans",
+            "teacher-student approximate optimal transport"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "point cloud generation",
+            "3D generation",
+            "outdoor scenes",
+            "autonomous driving"
+          ]
+        },
+        {
+          "title": "AtlasLC: Fast Codec-Ready Compression of Object-Centric 3D Gaussian Splatting",
+          "authors": "ByungHyun Kim, Jinwoo Jeon, Woontack Woo",
+          "arxivUrl": "https://arxiv.org/abs/2607.26525",
+          "published": "2026-07-29T06:43:17Z",
+          "categories": "cs.GR",
+          "summary": "AtlasLC 关注 object-centric 3DGS 在 XR 资产库中的真实部署成本，而不只是图像质量。它不需要原始图像、相机位姿或逐资产优化，直接对已发布 Gaussian assets 做 source-free、training-free compression。方法结合 local-competition pruning、deterministic atlas packing 和轻量 sort-based conditional transport，减少 atlas 准备和映射重排瓶颈。它提示 3DGS compression 需要同时看 payload、decode latency、runtime FPS、深度/轮廓几何和资产准备时间。",
+          "methodHighlights": [
+            "source-free training-free object-centric 3DGS compression",
+            "local-competition pruning",
+            "deterministic atlas packing with shared coordinate backbone"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3DGS",
+            "compression",
+            "XR assets",
+            "3D vision"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-07-29",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-07-29",
