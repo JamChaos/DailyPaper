@@ -1,6 +1,559 @@
 {
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-08-03",
   "reports": [
+    {
+      "date": "2026-08-03",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-03",
+      "shortTitle": "3D Vision / Physical AI",
+      "summary": "官方 2026-08-03 批次筛出 16 篇相关论文；3D 生成/重建、world models 和机器人操作是主线。",
+      "trends": [
+        "3D 资产链条继续分化：Meshy T2 把原生 mesh 生成推到 flow matching，FocusGS 把已训练 3D Gaussian asset 的局部修补/确定性编辑做成 spatial delta，FillGS 和 OASIS 则分别处理 4DGS 观测缺口和单图手部 avatar 重建。",
+        "world model 方向更强调 action conditioning 而不是全未来重建：BWM 做低成本高保真 robot simulator，Auto-JEPA 只预测影响 ego action 的 scene intent，Mirror Learning 则把第三人称视频变成可执行 policy 数据。",
+        "3D 场景理解和几何估计继续向“先几何、后学习”靠拢：Group-UFD Occ 用长尾监督稳住室内 occupancy，CorrelationFlow 直接用几何相关峰做 LiDAR scene flow，说明很多视觉任务正在回到可解释的几何基线。",
+        "机器人操作的关键词从“更大模型”变成“语义-几何-执行闭环”：SAGP、TransGraspNet、AREA3D、DuetHOI 分别从 affordance、透明物体、主动重建和 HOI motion generation 切入，RynnBrain 1.1 则把 3D grounding 和 contact-point prediction 塞进 embodied foundation model。",
+        "物理约束不再只是损失项，而是模型目标：AquaJEPA 把多模态 validity 纳入 underwater world model，Physics from Video 直接讨论 ODE 参数可识别性，给 latent world model 的“能学到什么物理”提供理论边界。",
+        "重点作者/团队检索中，Kaiming He、Anpei Chen、Shangzhe Wu、Qianqian Wang、Saining Xie 与 Oxford VGG / Visual Geometry Group 本批次未见精确命中。"
+      ],
+      "topPapers": [
+        "BWM: A Low-Cost High-Fidelity World Simulator for Robot Learning",
+        "Meshy T2: Fast Native Mesh Generation with Flow Matching",
+        "FocusGS: Spatial Delta Layers for Local Repair and Deterministic Editing of Trained 3D Gaussian Assets",
+        "FillGS: Filling Observation Gaps in 4D Gaussian Splatting via Viewpoint-Time Selection and Generative Refinement",
+        "OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting",
+        "Auto-JEPA: A Latent World Model of Continuous Intent for End-to-End Autonomous Driving",
+        "TransGraspNet: Physically and Geometrically Consistent Manipulation of Transparent Labware",
+        "AREA3D: Active Reconstruction Agent with Unified Feed-Forward 3D Perception and Vision-Language Guidance",
+        "DuetHOI: Language-Guided Bimanual Hand--Object Motion Generation with Articulation Planning and Contact Refinement",
+        "RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model",
+        "Physics from Video: Identifiability of Time-Invariant Second-Order ODEs under Minimal Trajectory Conditions"
+      ],
+      "markdownPath": "reports/arxiv/2026-08-03.md",
+      "papers": [
+        {
+          "title": "Meshy T2: Fast Native Mesh Generation with Flow Matching",
+          "authors": [
+            "Jiale Xu",
+            "Rendong Liang",
+            "Yuhao Long",
+            "Siyuan Shen",
+            "Zangyueyang Xian",
+            "Zeyi Xu",
+            "Yuanming Hu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.28675",
+          "published": "2026-07-28T16:33:54Z",
+          "categories": [
+            "cs.GR",
+            "cs.CV"
+          ],
+          "summary": "Meshy T2 把 3D 网格生成从 autoregressive token 序列转向 flow matching。它使用 vertex-set mesh VAE，把每个 vertex 编成连续 latent token，再用 coarse-to-fine cascade 一次性解码顶点、边和面。这样既保留了 artist-style topology，又避免了量化和 welding 带来的误差与推理开销。",
+          "methodHighlights": [
+            "flow matching native mesh generation",
+            "vertex-set mesh VAE with one token per vertex",
+            "coarse-to-fine cascade without autoregressive mesh tokenization"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/meshy-dev/meshy-t2",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D generation",
+            "mesh generation",
+            "graphics",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "FocusGS: Spatial Delta Layers for Local Repair and Deterministic Editing of Trained 3D Gaussian Assets",
+          "authors": [
+            "Yiqun Pan",
+            "Yukun Shi"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.28834",
+          "published": "2026-07-30T20:59:45Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "FocusGS 不是再做一个更大的 3DGS 重建器，而是给训练好的 Gaussian asset 加一层可维护的局部修补接口。它把 repair 和 deterministic editing 都统一成 spatial delta，前者只增量添加局部 bases，后者用 erase-insert factorization。论文强调 spatial gradient starvation 是局部维护的主要瓶颈，并在 ROI PSNR 上给出稳定收益。",
+          "methodHighlights": [
+            "composite spatial delta layers for trained assets",
+            "additive local repair and erase-insert editing",
+            "local ROI PSNR improvement against spatial gradient starvation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D editing",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "FillGS: Filling Observation Gaps in 4D Gaussian Splatting via Viewpoint-Time Selection and Generative Refinement",
+          "authors": [
+            "Takashi Otonari",
+            "Toshihiko Yamasaki"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.29284",
+          "published": "2026-07-31T10:57:07Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "FillGS 关注 4DGS 在稀疏视角和大运动下的观测缺口。它先按 rendering sensitivity 和 motion-aware density 主动选虚拟视角，再对生成结果做与已采集观测一致的过滤和 refinement。核心点是把“补视角”从被动 heuristic 改成面向时空稀疏区域的主动选择。",
+          "methodHighlights": [
+            "spatiotemporal viewpoint-time selection",
+            "generative refinement with observation-aware filtering",
+            "active exploration of sparse 4DGS regions"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/yu-ni1989/ELFSS-AR",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "4D Gaussian Splatting",
+            "dynamic scenes",
+            "3D reconstruction",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting",
+          "authors": [
+            "Zhisheng Han",
+            "Shiyao Wu",
+            "Jiayan Qiu",
+            "Yakun Ju",
+            "Lu Liu",
+            "Le Zhang",
+            "Pengfei Feng",
+            "Huiyu Zhou",
+            "Zheheng Jiang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.29633",
+          "published": "2026-07-31T17:09:46Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "OASIS 面向单图手部头像重建，重点处理严重自遮挡和关节驱动变形。它把输入观测和 3D 手几何显式对齐，构造成 geometry-aligned visual evidence tokens，再在 3D Gaussian Splatting 上做重建。相较 NeRF 式体渲染，它更强调稀疏单视图下的细节保真和推理效率。",
+          "methodHighlights": [
+            "geometry-aligned visual evidence tokens",
+            "occlusion-aware tokenization",
+            "3DGS hand avatar reconstruction from a single image"
+          ],
+          "projectUrl": "https://mova-hand.github.io/MOVA/",
+          "codeUrl": "https://github.com/ivyyy77/OASIS",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "hand-object interaction",
+            "3D Gaussian Splatting",
+            "3D reconstruction"
+          ]
+        },
+        {
+          "title": "Group-wise Supervision with Focal-Dice Loss for Long-Tailed Indoor Semantic Occupancy Prediction",
+          "authors": [
+            "Qi Zheng",
+            "Zihuang Su",
+            "Xiao Pan"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.28935",
+          "published": "2026-07-31T01:32:45Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Group-UFD Occ 解决的是室内 3D semantic occupancy 的长尾分类问题。它通过层级语义分组和 main-expert heads 让尾类获得更强的表示约束，再用 unified focal-dice loss 把难样本和尾类 voxel 重新拉回训练重点。它更像是 3D 场景理解的工程化补丁，而不是新的重建范式。",
+          "methodHighlights": [
+            "hierarchical semantic grouping for tail classes",
+            "main-expert prediction heads",
+            "unified focal-dice loss for hard voxels"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D occupancy",
+            "embodied AI",
+            "3D vision",
+            "scene understanding"
+          ]
+        },
+        {
+          "title": "CorrelationFlow: A Training-Free Geometric Approach for LiDAR Scene Flow Estimation",
+          "authors": [
+            "Minh-Quan Dao",
+            "Yancong Lin",
+            "Julie Stephany Berrio Perez",
+            "Holger Caesar"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.29237",
+          "published": "2026-07-31T10:14:08Z",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "CorrelationFlow 把 LiDAR scene flow 从 feed-forward 学习问题改回几何问题。方法先做 connected-component 分割，再在 BEV occupancy 上做 correlation maximization，直接把物体运动当作相关峰去恢复。这样做的价值是训练成本低，而且对稀疏、远距和高速目标不依赖同类方法常见的损失假设。",
+          "methodHighlights": [
+            "connected-component partitioning of LiDAR objects",
+            "correlation maximization on BEV occupancy images",
+            "training-free motion recovery and point propagation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "scene flow",
+            "LiDAR",
+            "3D vision",
+            "embodied perception"
+          ]
+        },
+        {
+          "title": "BWM: A Low-Cost High-Fidelity World Simulator for Robot Learning",
+          "authors": [
+            "BWM Team"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.29302",
+          "published": "2026-07-31T11:18:17Z",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "BWM 把 world model 直接做成机器人可用的高保真模拟器。它把初始环境、动态历史和 action trajectory 绑在一起做自回归预测，再用 trajectory replay 和 overlapping clip sampling 构造 action-aligned 训练片段。这个方向的重点不是“看起来像视频”，而是能否作为便宜、可控、可扩展的数据引擎服务 manipulation 学习。",
+          "methodHighlights": [
+            "action-conditioned world simulator",
+            "history + action conditioning for autoregressive rollout",
+            "trajectory replay and overlapping clip sampling"
+          ],
+          "projectUrl": "https://huggingface.co/BLM-Lab/Boundless-World-Model",
+          "codeUrl": "https://github.com/boundless-large-model/boundless-world-model",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot manipulation",
+            "embodied AI",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Auto-JEPA: A Latent World Model of Continuous Intent for End-to-End Autonomous Driving",
+          "authors": [
+            "Jiwei Yang",
+            "Zhengxian Chen",
+            "Chaosheng Huang",
+            "Jun Li"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.29031",
+          "published": "2026-07-31T05:10:23Z",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "Auto-JEPA 的出发点是：自动驾驶里的 world model 不必重建完整未来，只要抓住影响 ego action 的场景特征。它学习连续的 intent embedding，再从固定 trajectory memory 中检索可执行轨迹，由 scene-conditioned module 排序。整个系统保持视觉编码器冻结，也不依赖显式 perception annotation。",
+          "methodHighlights": [
+            "continuous intent embedding via joint-embedding prediction",
+            "trajectory retrieval from fixed memory",
+            "frozen visual encoder with no explicit perception labels"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "autonomous driving",
+            "embodied AI",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Mirror Learning",
+          "authors": [
+            "Yunpeng Liu",
+            "Matthew Niedoba",
+            "Oluwanifemi A. Adekanye",
+            "Jason Yoo",
+            "Yingchen He",
+            "Berend Zwartsenberg",
+            "Frank Wood"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.28737",
+          "published": "2026-07-30T18:00:31Z",
+          "categories": [
+            "cs.LG",
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "Mirror Learning 把 imitation learning 从 first-person 数据推进到 third-person observation。它先用视频 diffusion 学一个 perspective transformation，把观察者视角“投射”到执行者视角，再用 inverse dynamics 在学习者控制空间里恢复动作序列。结果是把被动观察转成 pseudo first-person expert data，适合数据稀缺的 embodied policy 学习。",
+          "methodHighlights": [
+            "perspective transformation learned with video diffusion",
+            "inverse dynamics in learner control space",
+            "pseudo first-person expert data from third-person videos"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "embodied AI",
+            "robot learning",
+            "video generation",
+            "world models"
+          ]
+        },
+        {
+          "title": "SAGP: Semantic Affordance-Guided Grasp Planning via Coarse-Zone VLM Reasoning",
+          "authors": [
+            "Muhayy Ud Din",
+            "Irfan Hussain"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.29374",
+          "published": "2026-07-31T12:59:05Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "SAGP 试图把语义 affordance 和几何 grasp planning 接到一起。它引入 coarse-zone abstraction，让 VLM 先在较粗粒度上判断可抓区域，再把语义推理落到几何一致的抓取规划上。相比直接回归抓取位姿，这条路线更强调“抓哪儿”而不只是“怎么抓”。",
+          "methodHighlights": [
+            "coarse-zone abstraction layer",
+            "VLM semantic reasoning for affordances",
+            "training-free geometry-consistent grasp planning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "grasp planning",
+            "robot manipulation",
+            "Physical AI",
+            "vision-language"
+          ]
+        },
+        {
+          "title": "AquaJEPA: Action-Conditioned Multimodal Predictive Representations for Underwater Robot Dynamics",
+          "authors": [
+            "Alan-Barsag Gazzaev",
+            "Alexey Gavrilov",
+            "Sergey Muravyov"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.29393",
+          "published": "2026-07-31T13:11:11Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "AquaJEPA 把 underwater robot dynamics 当成一个 action-conditioned multimodal prediction 问题。它联合 RGB、前视声呐和 proprioception，并显式建模 sensor validity，去预测未来 latent target 和计划所需的速度/声呐 profile。这个设计很适合水下这种视觉可靠性剧烈波动的物理环境。",
+          "methodHighlights": [
+            "multimodal predictive representation",
+            "sensor validity gating",
+            "action-conditioned latent target for receding-horizon planning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "world models",
+            "robotics",
+            "Physical AI",
+            "underwater robotics"
+          ]
+        },
+        {
+          "title": "TransGraspNet: Physically and Geometrically Consistent Manipulation of Transparent Labware",
+          "authors": [
+            "Hailing Hu",
+            "Mingyi Zhu",
+            "Yiquan An",
+            "Yifei Tian",
+            "Tianyou Zuo",
+            "Lifeng Zhou"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.29567",
+          "published": "2026-07-31T15:55:45Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "TransGraspNet 针对透明实验室器皿这种几何和物理都敏感的操作场景。它把边界、表面和任务一致性串成一个 perception-to-execution pipeline，避免深度 bleeding、表面扭曲和偏心抓取一路传到执行端。这个方法的价值在于把“看清楚”和“抓稳”放进同一条约束链。",
+          "methodHighlights": [
+            "boundary consistency",
+            "surface consistency",
+            "physically and geometrically consistent manipulation pipeline"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/CarlDegio/STAGE",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "Physical AI",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "AREA3D: Active Reconstruction Agent with Unified Feed-Forward 3D Perception and Vision-Language Guidance",
+          "authors": [
+            "Tianling Xu",
+            "Shengzhe Gan",
+            "Leslie Gu",
+            "Yuelei Li",
+            "Fangneng Zhan",
+            "Hanspeter Pfister"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2512.05131",
+          "published": "2025-11-28T06:17:02Z",
+          "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.RO"
+          ],
+          "summary": "AREA3D 把 active reconstruction 从纯几何启发式推进到 feed-forward 3D perception + VLM guidance 的组合。它把 view uncertainty 从底层 reconstructor 里解耦出来，再用语义指导去选更信息密度高的视角。相比被动重建，这更像一个会主动采样三维世界的 agent。",
+          "methodHighlights": [
+            "feed-forward 3D reconstructor with uncertainty decoupling",
+            "VLM-guided informative view selection",
+            "active viewpoint planning for reconstruction"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/TianlingXu/AREA3D",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "active reconstruction",
+            "embodied AI",
+            "vision-language"
+          ]
+        },
+        {
+          "title": "DuetHOI: Language-Guided Bimanual Hand--Object Motion Generation with Articulation Planning and Contact Refinement",
+          "authors": [
+            "Zhi Wang",
+            "Yuyan Liu",
+            "Liu liu",
+            "Ruonan Liu",
+            "Ruixuan Liu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2603.08390",
+          "published": "2026-03-09T13:47:06Z",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "DuetHOI 面向双手 articulated-object interaction generation。它先从语言和物体几何预测 contact intent，再用 articulation planning 给出轨迹级参考，最后用 compact hand-pose tokens 生成全局交互。它把 HOI 从纯序列建模拆成 contact、articulation 和 global motion 三层。",
+          "methodHighlights": [
+            "contact intent prediction from language and geometry",
+            "articulation planning with trajectory-level reference",
+            "contact refinement for bimanual HOI generation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "hand-object interaction",
+            "robot manipulation",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model",
+          "authors": [
+            "Kehan Li",
+            "Bohan Hou",
+            "Minghao Zhu",
+            "Tianyi Zhang",
+            "Zesen Cheng",
+            "Zhikai Wang",
+            "Sicong Leng",
+            "Xin Li",
+            "Xiao Lin",
+            "Biying Yao",
+            "Minghua Zeng",
+            "Jiangpin Liu",
+            "Ronghao Dang",
+            "Jiayan Guo",
+            "Siteng Huang",
+            "Haoyu Zhao",
+            "Heng Ping",
+            "Yaxi Zhao",
+            "Tong Zhao",
+            "Kexiang Wang",
+            "Tong Lu",
+            "Shengke Xue",
+            "Jiahao Tang",
+            "Yulei Wang",
+            "Zejing Wang",
+            "Jianwei Gao",
+            "Shijian Lu",
+            "Chengju Liu",
+            "Jianfei Yang",
+            "Mingxiu Chen",
+            "Deli Zhao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.17977",
+          "published": "2026-07-20T14:13:27Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "RynnBrain 1.1 是一组 embodied foundation models，覆盖 2B、9B 和 122B-A10B 尺度。相较 1.0，它把 contact-point prediction 和 native 3D grounding 加进统一的物理和时空框架，让表示更贴近机器人操作。再往上，它的 RynnBrain-VLA 还统一了 cross-embodiment action space，并已经落到真实机器人平台上。",
+          "methodHighlights": [
+            "spatio-temporal physically grounded framework",
+            "contact-point prediction and native 3D grounding",
+            "cross-embodiment action space with deployed VLA"
+          ],
+          "projectUrl": "https://alibaba-damo-academy.github.io/RynnBrain",
+          "codeUrl": "https://github.com/alibaba-damo-academy/RynnBrain",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "embodied AI",
+            "3D grounding",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Physics from Video: Identifiability of Time-Invariant Second-Order ODEs under Minimal Trajectory Conditions",
+          "authors": [
+            "Yuanyuan Wang",
+            "Wenjie Wang",
+            "Kun Zhang",
+            "Mingming Gong"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2606.00115",
+          "published": "2026-05-27T13:22:29Z",
+          "categories": [
+            "cs.CV",
+            "cs.LG",
+            "stat.ML"
+          ],
+          "summary": "这篇工作问的是：只看视频，能不能真的恢复时间不变二阶 ODE 的物理参数。作者给出结构可识别性条件、最少轨迹要求和 latent 线性化证书，把“未来预测学到了什么物理”这个问题变成可证明的识别问题。对 world model 来说，它不是再加一个损失，而是直接说明什么信息在理论上可恢复、什么不行。",
+          "methodHighlights": [
+            "structural identifiability of second-order ODEs",
+            "latent-state affine certificate",
+            "variance-floor regularizer for decoder-free training"
+          ],
+          "projectUrl": "https://remind-applied.github.io/",
+          "codeUrl": "https://github.com/wenjiewang3/PhysicsFromVideo",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "physics-aware AI",
+            "video understanding",
+            "Physical AI"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-07-31",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-07-31",
