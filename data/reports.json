@@ -1,6 +1,526 @@
 {
-  "updatedAt": "2026-08-03",
+  "updatedAt": "2026-08-04",
   "reports": [
+    {
+      "date": "2026-08-04",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-04",
+      "shortTitle": "3DGS / WAM / HOI",
+      "summary": "官方 2026-08-04 批次筛出 15 篇相关论文；3DGS、WAM/VLA、HOI 与接触建模是主线。",
+      "trends": [
+        "3D Gaussian Splatting 继续从渲染资产变成可执行空间表示：MANGO-Grasp 用 geometry-oriented 3D Gaussians 做跨手型抓取，Swimm3R 和 DerainSplat 把介质退化纳入 3DGS/SfM，Stipple 推向实时增量 SLAM/XR。",
+        "world-action model 的焦点转向低延迟、几何对齐和闭环执行：SG-WAM 在 geometry-aware policy latent space 中预测未来，Faster-WAM 证明轻量 action head 可接深视频骨干，DreamTrajectory 用轨迹 world model 做测试时 action chunk 选择。",
+        "VLA/机器人操作开始显式建模看哪里和视角一致性：AtVLA 用 register tokens 与不确定触发高分辨率重看，OC-VLA++ 用单目几何约束 paired-view action equivariance，STAR-VLM 用雷达监督补足速度尺度。",
+        "HOI 与接触建模今天有互补方向：PhotoHOI 从单图和语言合成 3D 手-物交互，RF-HOI 用 mmWave + RFID 做非视觉 HOI 识别，CSLC 把球体机器人表示中的点接触扩展为 distributed contact patch。",
+        "重点作者/团队检索中，Kaiming He、Anpei Chen、Shangzhe Wu、Qianqian Wang、Saining Xie 与 Oxford VGG / Visual Geometry Group 本批次未见精确命中。"
+      ],
+      "topPapers": [
+        "MANGO-Grasp: Mahalanobis Fields over Geometry-Oriented 3D Gaussians for Cross-Embodiment Dexterous Grasping",
+        "Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction",
+        "Stipple: Real-Time Incremental Gaussian Splatting with Visual-Inertial Tracking",
+        "SG-WAM: Self-Guided World Modeling in Geometry-Aware Policy Space",
+        "DreamTrajectory: Trajectory-Guided Action Generation with World Model Alignment for Mobile Manipulation",
+        "Faster-WAM: Do World Action Models Need Deep Action Modules?",
+        "PhotoHOI: Synthesizing 3D Hand-Object Interactions from a Single RGB Photograph",
+        "Look Where It Matters: Adaptive Visual Refinement for Vision-Language-Action Models"
+      ],
+      "markdownPath": "reports/arxiv/2026-08-04.md",
+      "papers": [
+        {
+          "title": "MANGO-Grasp: Mahalanobis Fields over Geometry-Oriented 3D Gaussians for Cross-Embodiment Dexterous Grasping",
+          "authors": [
+            "Heng Zhang",
+            "Kevin Yuchen Ma",
+            "Mike Zheng Shou",
+            "Weisi Lin",
+            "Yan Wu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.02014",
+          "published": "2026-08-03T10:12:15Z",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "MANGO-Grasp 面向跨 embodiment 的多指灵巧抓取，把物体表示成按局部几何复杂度自适应分配的 surface-aligned 3D Gaussian primitives，同时把机器人手表示成带形态和运动学信息的 surface keypoints。训练时用 keypoint-primitive 对之间的 Mahalanobis fields 作为交互目标，推理时用这些场指导抓取优化。它把 3DGS 从可视化表示推进到几何-接触-执行的中间表示。",
+          "methodHighlights": [
+            "geometry-oriented 3D Gaussian object primitives",
+            "morpho-kinematic robot descriptors",
+            "Mahalanobis interaction fields for grasp realization"
+          ],
+          "projectUrl": "https://connor-zh.github.io/MANGO-Grasp/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "robot manipulation",
+            "dexterous grasping",
+            "Physical AI",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction",
+          "authors": [
+            "Minseong Kweon",
+            "Junaed Sattar"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.00950",
+          "published": "2026-08-02T03:01:15Z",
+          "categories": [
+            "cs.CV",
+            "cs.RO",
+            "eess.IV"
+          ],
+          "summary": "Swimm3R 解决水下 3D 重建中散射和衰减导致的 SfM/3DGS 崩溃问题。它从 in-air 几何先验中蒸馏 feed-forward backbone，再用 physics head 回归水下成像参数、相机位姿和恢复后的点云。Underwater Beta Splatting 用 Beta primitives 和 scattering-aware geometric gradients 获得更稳定的水下几何表达，并建立 Barbados underwater video dataset 验证复杂水下环境。",
+          "methodHighlights": [
+            "medium-aware SfM",
+            "physics head for underwater image formation",
+            "Underwater Beta Splatting with scattering-aware gradients"
+          ],
+          "projectUrl": "https://mnseong.github.io/swimm3r.github.io",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "3D Gaussian Splatting",
+            "robotics",
+            "physics-aware AI",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "Stipple: Real-Time Incremental Gaussian Splatting with Visual-Inertial Tracking",
+          "authors": [
+            "Kilian Northoff",
+            "Mateo de Mayo",
+            "Daniel Cremers"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.00931",
+          "published": "2026-08-02T02:17:05Z",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "Stipple 把 3DGS 和 visual-inertial tracking 合到实时增量重建框架里。它利用 Basalt 风格的 VIO/VI-SLAM 跟踪提供在线位姿，并基于 Brush 的高效 3DGS 实现做增量训练。相比离线 3DGS 的重预处理和长训练，它更适合机器人、XR 和需要即时反馈的现场重建。",
+          "methodHighlights": [
+            "visual-inertial tracking + incremental 3DGS",
+            "Basalt-style tracking with Brush-based splatting backend",
+            "real-time simultaneous tracking and reconstruction"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "SLAM",
+            "3D reconstruction",
+            "robotics",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "SG-WAM: Self-Guided World Modeling in Geometry-Aware Policy Space",
+          "authors": [
+            "Ruiteng Zhao",
+            "Zhengshen Zhang",
+            "Yue Su",
+            "Wenshuo Wang",
+            "Jiahui Li",
+            "Zhiyuan Yang",
+            "Francis E. H. Tay",
+            "Marcelo H. Ang",
+            "Haiyue Zhu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.01397",
+          "published": "2026-08-02T17:25:08Z",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "SG-WAM 认为 WAM 的未来预测应该发生在 action-relevant 且 geometry-aware 的 policy representation 中。它引入 dynamics tokens 和 Self-Guided World Predictor，由 EMA policy backbone 生成稳定预测目标。几何监督进一步结构化图像 token，使未来 latent prediction 与动作生成、空间变化保持一致。",
+          "methodHighlights": [
+            "action-conditioned dynamics tokens",
+            "self-guided EMA latent targets",
+            "geometry-grounded policy image-token representations"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot manipulation",
+            "embodied AI",
+            "geometry-aware policy",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "Faster-WAM: Do World Action Models Need Deep Action Modules?",
+          "authors": [
+            "Liheng Ma",
+            "Rui Heng Yang",
+            "Zhanguang Zhang",
+            "Mateo Clemente",
+            "Ziwen Hu",
+            "Tongtong Cao",
+            "Yingxue Zhang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.02365",
+          "published": "2026-08-03T15:11:21Z",
+          "categories": [
+            "cs.AI",
+            "cs.LG",
+            "cs.RO"
+          ],
+          "summary": "Faster-WAM 质疑 WAM 中 action module 是否必须和视频 backbone 一样深。它提出 Dock of Transformer，把预训练视频 Transformer 当作 representation hub，再通过 docking interface 接入轻量输出头。单层 action head 连接 30 层视频 backbone 后，在保持性能的同时把端到端推理降到 66.5 ms。",
+          "methodHighlights": [
+            "Dock of Transformer architecture",
+            "single-layer action head on deep video backbone",
+            "low-latency WAM inference with layer-wise feature docking"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot manipulation",
+            "VLA",
+            "embodied AI",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "DreamTrajectory: Trajectory-Guided Action Generation with World Model Alignment for Mobile Manipulation",
+          "authors": [
+            "Zheng Yang",
+            "Wenjie Zhang",
+            "Xiangyu Chen",
+            "Wenxuan Song",
+            "Xianpeng Wang",
+            "Yihang Kang",
+            "Wen Chen",
+            "Lujia Wang",
+            "Renjing Xu",
+            "Xiaowen Chu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.01381",
+          "published": "2026-08-02T17:02:48Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "DreamTrajectory 面向移动操作中 base 和 arm 需要协同、且接触条件连续变化的问题。它让 action expert 同时预测 intention-level end-effector trajectory 和 whole-body action chunk，用显式轨迹约束大动作空间搜索。测试时再用轻量 trajectory world model 预测候选 action chunk 会产生的轨迹，并执行 search-predict-score 选择最符合计划的动作。",
+          "methodHighlights": [
+            "trajectory-guided whole-body action chunks",
+            "lightweight trajectory world model",
+            "test-time search-predict-score refinement"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "mobile manipulation",
+            "robot manipulation",
+            "articulated objects",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Look Where It Matters: Adaptive Visual Refinement for Vision-Language-Action Models",
+          "authors": [
+            "Jin Cui",
+            "Yanbin Hu",
+            "Xinyue Long",
+            "Linkai Li",
+            "Boran Zhao",
+            "Pengju Ren"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.02197",
+          "published": "2026-08-03T13:18:36Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "AtVLA 把 VLA 操作失败的一部分归因于视觉 encoder 中的注意力伪影和有限 global-token 容量。它插入 learnable register tokens 承载 embodied spatial information，并恢复 patch token 的空间注意力分布。对于动作候选分歧较大的高不确定场景，它再用 action-conditioned attention rollout 找到任务相关区域，裁剪高分辨率重编码后再生成动作。",
+          "methodHighlights": [
+            "embodied spatial register tokens",
+            "uncertainty-gated local visual refinement",
+            "action-conditioned attention rollout for target crops"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "embodied AI",
+            "spatial intelligence",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "DerainSplat: Feed-Forward Clean 3D Gaussian Splatting from Sparse Rainy Views",
+          "authors": [
+            "Fuzhen Jiang",
+            "Changyue Shi",
+            "Chuxiao Yang",
+            "Xinyuan Hu",
+            "Wenjie Ye",
+            "Minghao Chen"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.02191",
+          "published": "2026-08-03T13:15:37Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "DerainSplat 把稀疏 rainy views 下的 3DGS 重建定义为 3D deraining，而不是简单的 2D 图像恢复预处理。它构建多视角 derain 数据合成管线，显式模拟 overcast illumination、depth-dependent haze、rain streaks 和 lens raindrops。weather net 预测 weather factors 后生成 scene/radiance support，分别调制跨视角 cost-volume matching 和 depth-aligned appearance fusion。",
+          "methodHighlights": [
+            "feed-forward clean 3DGS from sparse rainy inputs",
+            "privileged weather-factor synthesis",
+            "support-guided cost-volume and radiance fusion"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D reconstruction",
+            "embodied AI",
+            "autonomous driving",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "D^2-4DGS: Dual-Depth Guided Sparse-Camera 4D Gaussian Splatting",
+          "authors": [
+            "Jijian Zhao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.01588",
+          "published": "2026-08-03T01:46:19Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "D^2-4DGS 解决 sparse-camera dynamic 4DGS 中几何约束不足、结构缺失和 floating Gaussians 问题。它同时使用 dense 但尺度不稳定的 monocular depth，以及稀疏但坐标一致的 multi-view geometric depth。可靠 anchor 同时用于 pruning、depth supervision 和 under-reconstructed 区域 densification。",
+          "methodHighlights": [
+            "dual-source depth priors",
+            "consistency-aware pruning and supervision",
+            "RGB-D joint optimization for sparse-camera 4DGS"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "4D Gaussian Splatting",
+            "dynamic scenes",
+            "3D reconstruction",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "PhotoHOI: Synthesizing 3D Hand-Object Interactions from a Single RGB Photograph",
+          "authors": [
+            "Zhenhao Zhang",
+            "Jiajun Zhang",
+            "Wei Min",
+            "Yebin Liu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.01905",
+          "published": "2026-08-03T08:39:31Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "PhotoHOI 从单张 RGB 照片和开放词汇语言指令合成 3D 手-物交互序列。它先用 VLM 把图像和指令解析成结构化任务，包括交互对象、目标区域和空间关系。随后恢复 task-relevant 3D scene，并基于物体状态、支撑关系和周围几何规划平滑、collision-aware 的物体轨迹。",
+          "methodHighlights": [
+            "single-photo + language 3D HOI synthesis",
+            "task-relevant scene recovery",
+            "collision-aware object trajectory and hand motion generation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "hand-object interaction",
+            "3D generation",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "RF-HOI: Recognize Human-Object Interaction with Radio Frequency Signals",
+          "authors": [
+            "Lihao Wang",
+            "Linlu Gao",
+            "Jiacan Yu",
+            "Yanyu Lin",
+            "Yifan Yin",
+            "Jianxin Wang",
+            "Tianmin Shu",
+            "Renjie Zhao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.00289",
+          "published": "2026-07-31T20:58:00Z",
+          "categories": [
+            "cs.AI",
+            "cs.RO"
+          ],
+          "summary": "RF-HOI 没有使用视觉输入，而是用 mmWave radar 和 RFID 组合识别人-物交互。mmWave 负责动作动态，RFID 帮助识别被交互物体，两者融合后同时解决 action recognition 和 target identification。作者还开发模拟器生成多模态 RF HOI 数据，再用少量真实数据微调。",
+          "methodHighlights": [
+            "mmWave + RFID multimodal RF sensing",
+            "simulated RF HOI data for scalable training",
+            "privacy-robust human-object interaction recognition"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "embodied AI",
+            "robotics",
+            "RF sensing"
+          ]
+        },
+        {
+          "title": "STAR-VLM: Spatiotemporal Grounding Vision-Language Models for Motion and Velocity Estimation via Automotive Radar Supervision",
+          "authors": [
+            "Pou-Chun Kung",
+            "Aryaman Rao",
+            "Utkrisht Sahai",
+            "Hemanth Murali",
+            "Yi Liu",
+            "Rui-Yu Lin",
+            "Katherine A. Skinner"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.01535",
+          "published": "2026-08-02T23:02:06Z",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "STAR-VLM 关注 VLM 在自动驾驶动态场景中的度量运动推理能力。作者用低成本汽车雷达提供 motion 和 metric velocity supervision，把雷达的距离/速度信息蒸馏进 VLM 的时空 grounding。对 embodied/autonomous driving 系统来说，这类监督能减少 synthetic-only 或 LiDAR-heavy pipeline 的 sim-to-real 风险。",
+          "methodHighlights": [
+            "automotive radar-supervised VLM grounding",
+            "metric velocity estimation",
+            "spatiotemporal reasoning for dynamic driving scenes"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "autonomous driving",
+            "embodied AI",
+            "spatiotemporal reasoning",
+            "VLM",
+            "robotics"
+          ]
+        },
+        {
+          "title": "Scene2Sound: Auditory-Grounded Soundscape Generation for 3D Gaussian Worlds",
+          "authors": [
+            "Masaki Yoshida",
+            "Ren Togo",
+            "Takahiro Ogawa",
+            "Miki Haseyama"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.00463",
+          "published": "2026-08-01T06:04:34Z",
+          "categories": [
+            "cs.CV",
+            "cs.MM",
+            "cs.SD"
+          ],
+          "summary": "Scene2Sound 给 3D Gaussian world 加上空间一致的声景，是 3D 世界生成从视觉扩展到多模态体验的方向。它从输入 3DGS world 中选择覆盖场景的多视角，识别可能发声的对象，并用 Gaussian set matching 把多视角 detection 关联成持久 3D instance。每个声源被锚定到 3D 位置，因此用户移动视角时声音不会像单图音频生成那样漂移。",
+          "methodHighlights": [
+            "auditory grounding in 3DGS worlds",
+            "Gaussian set matching for 3D sound-source association",
+            "training-free spatially consistent soundscape generation"
+          ],
+          "projectUrl": "https://masaki-lmd.github.io/scene2sound/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D generation",
+            "multimodal world models",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "OC-VLA++: Monocular Geometry-Guided Cross-View Consistency for Viewpoint-Robust Robotic Manipulation",
+          "authors": [
+            "Tianyi Zhang",
+            "Ziyang Gong",
+            "Zhenjie Yang",
+            "Zhe Qian",
+            "Haonan Duan"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.01066",
+          "published": "2026-08-02T08:06:20Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "OC-VLA++ 处理有限相机覆盖下 VLA 对训练视角过拟合的问题。它在 OC-VLA 的 camera-coordinate action grounding 基础上，引入 geometry-guided paired-view supervision 和 cross-view action-equivariance objective。给定同一操作场景的几何相关视角，模型被训练成让 camera-space predictions 对应同一个 robot-frame action。",
+          "methodHighlights": [
+            "monocular geometry-guided paired views",
+            "cross-view action-equivariance",
+            "viewpoint-robust camera-space action grounding"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "geometry-aware policy",
+            "embodied AI",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "Compliant Sphere Lattice Contact: Distributed Contact Modeling for Sphere-Based Robot Representations",
+          "authors": [
+            "Nataliya Nechyporenko",
+            "Ava Abderezaei",
+            "Alessandro Roncone"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.00263",
+          "published": "2026-07-31T20:11:14Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "CSLC 面向 robotics contact planning 中常见的 sphere-based robot representation。传统 sphere 表示便于快速碰撞检测和可微几何，但点接触无法刻画接触面积、压力分布、旋转刚度和摩擦矩。作者把机器人表面建成由 anchor 和 lateral springs 连接的 compliant lattice of surface spheres，使其与物体接触时形成分布式变形接触斑。",
+          "methodHighlights": [
+            "compliant lattice over sphere representations",
+            "distributed contact patch modeling",
+            "solver-agnostic validation for contact planning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "robot manipulation",
+            "contact modeling",
+            "grasping",
+            "robotics"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-08-03",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-03",
