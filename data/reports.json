@@ -1,6 +1,378 @@
 {
-  "updatedAt": "2026-08-04",
+  "updatedAt": "2026-08-05T00:00:00Z",
   "reports": [
+    {
+      "date": "2026-08-05",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-05",
+      "shortTitle": "3D生成 / 重建 / Physical AI",
+      "summary": "官方 2026-08-05 批次筛出 10 篇相关论文；3D 生成/重建、世界模型、HOI 与 Physical AI 是主线。",
+      "trends": [
+        "3D 多模态基础模型在向“统一理解-生成-编辑”收拢：Hunyuan3D-Buffalo 把 3D 理解、文本生成、指令编辑和 part generation 放到一个框架里，Qwen-3D 则把几何编码、长上下文推理和 3D grounding 接到同一条链路上。",
+        "3D 场景生成与重建更强调全局一致性和可测量性：Global Graph-Validated Optimization 用图结构和全局搜索替代局部 pairwise 约束，LiteMVS 把 foundation priors 注入多视图几何，3DGSI-Assessor 则直接把 3DGS 的几何/颜色失真拆成可评估维度。",
+        "World model / Physical AI 正在往“可部署系统”走，而不只是更强的 policy head：PhyAI 处理 edge/cloud/onboard 的统一推理，Track4Action 把 world-centric 3D tracker 的时序几何变化蒸馏进 VLA。",
+        "HOI 和具身操作开始从单物体演示扩展到多物体、articulated objects 和人形机器人技能转移：RoboReact 把生成式视频和 depth-aware 3D 重建接到 humanoid skill acquisition，Surface Keypoint Representation 则把交互对象表示显式化到 surface keypoint trajectories 和 contact field。"
+      ],
+      "topPapers": [
+        "Hunyuan3D-Buffalo 1.0: A Unified Multimodal Model for Scalable 3D Generation, Understanding, and Editing",
+        "Qwen-3D: A Generalist 3D Vision-Language Model for Spatial Understanding",
+        "Global Graph-Validated Optimization for VLM-based 3D Indoor Scene Generation",
+        "LiteMVS: Efficient Multi-View Stereo with Foundation Distillation and Expert Aggregation",
+        "EditFlow3D: Automated Local Editing of 3D Assets with Trajectory Preservation",
+        "PhyAI: Real-Time Physical AI at the Edge, Scalable Rollouts in the Cloud",
+        "Track4Action: Distilling World-Centric 3D Tracker into Vision-Language-Action Policies",
+        "RoboReact: Agentic Skill Distillation from Generated Egocentric Videos for Generalizable Whole-Body Manipulation",
+        "Surface Keypoint Representation for Multi-Object and Articulated Human-Object Interaction Generation"
+      ],
+      "markdownPath": "reports/arxiv/2026-08-05.md",
+      "papers": [
+        {
+          "title": "Hunyuan3D-Buffalo 1.0: A Unified Multimodal Model for Scalable 3D Generation, Understanding, and Editing",
+          "authors": [
+            "Junliang Ye",
+            "Kenkun Liu",
+            "Guocun Wang",
+            "Yang Li",
+            "Yansong Qu",
+            "Chunshi Wang",
+            "Jingwei Xu",
+            "Yunhan Yang",
+            "Zibo Zhao",
+            "Jiachen Xu",
+            "Jiaao Yu",
+            "Lifu Wang",
+            "Zhihao Liang",
+            "Zhuo Chen",
+            "Chunchao Guo"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.02711",
+          "published": "2026-08-03T17:57:11Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "这篇工作把 3D 理解、文本到 3D 生成、指令式 3D 编辑和 text-grounded part generation 统一进一个框架，目标是把 3D 建模从单点任务推进到统一多模态体系。作者构建了 8700 万规模的 3D 多模态语料，并用 Hunyuan3D-VLM 负责语义、结构和空间理解，用 Hunyuan3D DiT 做高保真 3D 合成。实验显示它在 text-to-3D 和 3D editing 上达到很强结果，而且理解能力还能反过来帮助编辑。",
+          "methodHighlights": [
+            "unified 3D multimodal training",
+            "Hunyuan3D-VLM + Hunyuan3D DiT",
+            "source-conditioned 3D editing / part generation"
+          ],
+          "projectUrl": "https://tencent-hunyuan.github.io/Hunyuan3D-Buffalo1.0/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D generation",
+            "3D editing",
+            "3D vision",
+            "multimodal 3D"
+          ]
+        },
+        {
+          "title": "Qwen-3D: A Generalist 3D Vision-Language Model for Spatial Understanding",
+          "authors": [
+            "Lucy Lin",
+            "Ayush Jain",
+            "Yifan Liu",
+            "Katerina Fragkiadaki"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.02980",
+          "published": "2026-08-04T00:32:09Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Qwen-3D 试图把 3D 几何当成视觉流的压缩与对齐机制，让多视角和长时间步的信息在一个 world-aligned representation 里融合。它在 Qwen backbone 上加 3D Rotary Positional Embeddings，使注意力直接在 3D 场景空间里运作，而不是被分散到独立图像帧上。为了把语言和几何真正接起来，作者又加入 query-based segmentation decoder，让语言 grounding、实例分割和 VQA 共享同一套 3D 表示。",
+          "methodHighlights": [
+            "3D RoPE",
+            "geometry-aware decoding",
+            "query-based 3D segmentation decoder"
+          ],
+          "projectUrl": "https://qwen-3d.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D vision",
+            "3D vision-language model",
+            "spatial understanding",
+            "multimodal"
+          ]
+        },
+        {
+          "title": "Global Graph-Validated Optimization for VLM-based 3D Indoor Scene Generation",
+          "authors": [
+            "Jialu Huang",
+            "Yingxuan You",
+            "Fei Wang",
+            "Zheng Dang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.03064",
+          "published": "2026-08-04T03:24:09Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "这篇论文处理 open-vocabulary 3D indoor layout generation，重点不是再堆局部关系，而是让全局布局在语义和物理上都站得住。作者先用图结构中间表示把场景关系显式化，再用 Global Semantic Verification 去清理矛盾配置，最后用 Global Physical Feasibility Search 结合 evolutionary search 和 gradient refinement 做全局优化。它的核心价值是把 3D 场景生成从“局部看起来对”推进到“全局也一致、也可行”。",
+          "methodHighlights": [
+            "graph-based intermediate representation",
+            "Global Semantic Verification",
+            "evolutionary search + gradient refinement"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D scene generation",
+            "3D indoor scene generation",
+            "Physical AI",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "LiteMVS: Efficient Multi-View Stereo with Foundation Distillation and Expert Aggregation",
+          "authors": [
+            "Tianbao Zhang",
+            "Zeyu Liu",
+            "Shuyu Wu",
+            "Fanxing Li",
+            "Zhaoxin Fan",
+            "Wenjun Wu",
+            "Danping Zou"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.03851",
+          "published": "2026-08-04T15:54:32Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "LiteMVS 盯住的是实时 3D 感知里的老问题：纯几何 correspondence 在纹理稀少或重复区域会失效，而纯 monocular prior 又缺少稳定的多视图约束。它把轻量分割模型和大规模 vision foundation model 蒸馏来的语义/结构先验注入 plane-sweep MVS，并用 Mixture-of-Experts 在不同深度假设间做自适应聚合。这样一来，它不仅改善静态场景深度估计和 3D reconstruction，也给后续 4D 表示学习提供了更稳的几何底座。",
+          "methodHighlights": [
+            "plane-sweep geometric reasoning",
+            "semantic cost volume + MoE",
+            "foundation-model distillation for geometry"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "multi-view stereo",
+            "depth estimation",
+            "3D vision"
+          ]
+        },
+        {
+          "title": "EditFlow3D: Automated Local Editing of 3D Assets with Trajectory Preservation",
+          "authors": [
+            "Rui Nie",
+            "Chuang Wang",
+            "Haitao Zhou",
+            "Jiahe Song",
+            "Buyu Li",
+            "Sheng Wang",
+            "Qian Yu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.03179",
+          "published": "2026-08-04T06:16:17Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "EditFlow3D 把局部 3D 编辑做成一个训练-free 流程，核心不是直接在 3D 空间里硬改，而是先用 VLM 读懂编辑意图，再生成视觉 guidance image 和 refined 3D mask。随后它用 mask-guided differential flow 聚焦目标区域，并用 step-wise trajectory preservation 保住非目标区域的结构和外观。相比直接替换中间特征，这种做法更稳，也把 3D editing 从“能改”推进到“改得像、改得少”。",
+          "methodHighlights": [
+            "VLM-guided localization",
+            "mask-guided differential flow",
+            "step-wise trajectory preservation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D editing",
+            "3D assets",
+            "3D vision",
+            "generative 3D"
+          ]
+        },
+        {
+          "title": "3DGSI-Assessor: A Large-Scale Dataset and An LMM-based Method for 3D Gaussian Splatting Image Quality Assessment",
+          "authors": [
+            "Yuke Xing",
+            "Jiarui Wang",
+            "William Gordon",
+            "Zhu Li",
+            "Guangtao Zhai",
+            "Yiling Xu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.03279",
+          "published": "2026-08-04T07:53:14Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "3DGS 已经成了实时 novel view synthesis 的主力表示，但压缩后的失真类型和传统 IQA 指标并不对齐，尤其是几何和颜色会出现不同维度上的退化。作者因此构建了 3DGS-IEval-15K+，把整体、几何、颜色三个维度分开标注，再用 LMM 做单次前向预测。这个方向的意义很直接：当 3DGS 进入部署阶段，评价体系本身也要变成 3DGS-aware，而不是只看一个总分。",
+          "methodHighlights": [
+            "3DGS-IEval-15K+ multi-dimensional IQA dataset",
+            "LMM-based quality assessment",
+            "overall / geometry / color prediction"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/YukeXing/3DGSI-Assessor",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "benchmark",
+            "3D vision",
+            "quality assessment"
+          ]
+        },
+        {
+          "title": "PhyAI: Real-Time Physical AI at the Edge, Scalable Rollouts in the Cloud",
+          "authors": [
+            "Chenghua Wang",
+            "Daliang Xu",
+            "Dongqi Cai",
+            "Duojin Sun",
+            "Hao Zhang",
+            "Haoze Qian",
+            "Huaiyuan Zhang",
+            "Jinshuo Cui",
+            "Kezhao Zhao",
+            "Longxi Gao",
+            "Mengwei Xu",
+            "Rongjie Yi",
+            "Tianyue Zhang",
+            "Weikai Xie",
+            "Xiyuan Tan",
+            "Xuanzhe Liu",
+            "Yingying Qin",
+            "Yiwen Lu",
+            "Yuan Yao",
+            "Yuezhi Zu",
+            "Yunhan Guo",
+            "Ziqi Guo"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.03682",
+          "published": "2026-08-04T13:53:48Z",
+          "categories": [
+            "cs.AI",
+            "cs.RO"
+          ],
+          "summary": "PhyAI 关注的是 Physical AI 的部署层，而不是单个 policy 的离线指标。它把 edge、cloud、onboard 这些不同运行场景统一到一个 runtime 里，用 model adapters 承担架构相关逻辑，同时共享图执行、kernels、memory management 和并行服务。论文不仅跑通了 VLA 和 WAM，还给出 control-time Roofline 来区分 inference-bound 和 environment-bound control，这让系统优化目标变得更明确。",
+          "methodHighlights": [
+            "adapter-based unified runtime",
+            "shared graph execution / kernels / memory stack",
+            "control-time Roofline"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/mingti-org/phyai",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "world models",
+            "robot manipulation",
+            "runtime"
+          ]
+        },
+        {
+          "title": "Track4Action: Distilling World-Centric 3D Tracker into Vision-Language-Action Policies",
+          "authors": [
+            "Chenyi Wang",
+            "Xinkai Wang",
+            "Bokai Lin",
+            "Jialin Tian",
+            "Fucheng Zhang",
+            "Cewu Lu",
+            "Lixin Yang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.03727",
+          "published": "2026-08-04T14:25:13Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "Track4Action 解决的是 VLA 里一个常见缺口：动作标签告诉模型“做什么”，却没告诉它这些动作在 3D 世界里到底改了什么。作者把 aligned demonstration clip 里的几何、运动、可见性和相机变化蒸馏成 world-centric 3D tracker feature，再用 track queries 把这个特征从当前 observation 中对齐出来，去条件化 flow-matching action head。这样一来，3D tracker 只在训练时提供 privileged supervision，部署时仍然是 tracker-free 的 VLA。",
+          "methodHighlights": [
+            "world-centric 3D tracker supervision",
+            "track queries + shared alignment space",
+            "feature-wise gated flow-matching action head"
+          ],
+          "projectUrl": "https://wing0night.github.io/track4action-project-page",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D tracking",
+            "vision-language-action",
+            "robot manipulation",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "RoboReact: Agentic Skill Distillation from Generated Egocentric Videos for Generalizable Whole-Body Manipulation",
+          "authors": [
+            "Shuliang He",
+            "Shuai Wang",
+            "Bo Yue",
+            "Junchi Teng",
+            "Changyu Wang",
+            "Guiliang Liu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.03387",
+          "published": "2026-08-04T09:37:06Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "RoboReact 想把生成式视频模型变成 humanoid skill acquisition 的数据引擎。它从单个 egocentric RGB-D 观察出发，先生成人类操作视频，再通过 depth-aware 3D reconstruction 抽取 geometry-preserving interaction keyframes，并把这些技能 retarget 到高自由度 humanoid 平台。为了让想象出来的计划能落地，它又加了 online object-centric re-grounding 和 VLM-guided refinement loop，在几何偏差和执行偏差出现时继续修正。",
+          "methodHighlights": [
+            "egocentric video generation",
+            "depth-aware 3D reconstruction",
+            "online object-centric re-grounding"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "humanoid",
+            "embodied AI",
+            "HOI"
+          ]
+        },
+        {
+          "title": "Surface Keypoint Representation for Multi-Object and Articulated Human-Object Interaction Generation",
+          "authors": [
+            "Xiaogang Peng",
+            "Zeyu Han",
+            "Zichong Meng",
+            "Yiming Xie",
+            "Jihua Zhu",
+            "Gang Hua",
+            "Huaizu Jiang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.03158",
+          "published": "2026-08-04T05:47:07Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "这篇论文把 HOI generation 从单一刚体对象推进到多物体和 articulated objects。它不再把交互对象当成静态 mesh，而是用 surface keypoint trajectories 描述每个刚体组件的运动，再用 spatio-temporal contact distance field 去建模身体各部分在何时、何地接触哪个对象。整个生成过程被拆成对象运动、contact field 预测和 contact-guided whole-body synthesis 三段，因此能自然处理多对象协作和关节机构变化。",
+          "methodHighlights": [
+            "surface keypoint trajectories",
+            "spatio-temporal contact distance field",
+            "contact-guided whole-body synthesis"
+          ],
+          "projectUrl": "https://neu-vi.github.io/SK-HOI",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "articulated objects",
+            "3D vision"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-08-04",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-04",
