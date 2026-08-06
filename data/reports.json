@@ -1,6 +1,543 @@
 {
-  "updatedAt": "2026-08-05T00:00:00Z",
+  "updatedAt": "2026-08-06T00:00:00Z",
   "reports": [
+    {
+      "date": "2026-08-06",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-06",
+      "shortTitle": "3D 感知 / world models / Physical AI",
+      "summary": "官方 2026-08-06 批次筛出 15 篇相关论文；3D 感知与表示、可验证 world models、机器人操作和 Physical AI 是主线。",
+      "trends": [
+        "3D 感知从固定模态堆叠转向按语义和物理属性动态调度：SmartMage、Talk2Sensors 与 HiSC 分别处理模态路由、多传感器 grounding 和空间 token 压缩。",
+        "3D 表示向可渲染、可理解、可操作合一演进：UniWorld-View、ACA-GS、OutLangSplat 和 RORA 将生成视图、动态 3DGS、语言特征与仿真交互连接起来。",
+        "World model 的评价重心转向动作可控性、物理一致性和反事实能力：DreamWAM、CoCo、WorldCycle 和 PhysMind 从状态表征、反事实约束、闭环验证和可执行世界四个层面推进。",
+        "具身系统更重视移动操作的全身协调和跨形态数据选择：MobileWAM 处理 locomotion-manipulation 耦合，SiMDex 证明有选择的数据挖掘优于无差别混合。"
+      ],
+      "topPapers": [
+        "RORA: Realistic Object Reconstruction with Articulation",
+        "UniWorld-View: Large-Baseline View Synthesis via Video Diffusion Models",
+        "DreamWAM: Beyond RGB Future Prediction for World Action Models",
+        "PhysMind: From Video to Executable Worlds for Training-Free Physical Reasoning",
+        "WorldCycle: Self-Verifiable Reinforcement Learning for Long-Horizon Video World Models",
+        "SmartMage: Dynamic Modality Orchestration for 3D Scene Understanding",
+        "OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes",
+        "MobileWAM: Bridging World Action Models to Mobile Manipulation with Chain-of-Foresight"
+      ],
+      "markdownPath": "reports/arxiv/2026-08-06.md",
+      "papers": [
+        {
+          "title": "SmartMage: Dynamic Modality Orchestration for 3D Scene Understanding",
+          "authors": [
+            "Yue Zhang",
+            "Yingzhao Jian",
+            "Yunqiu Xu",
+            "Xiaoxiao Sun",
+            "Hehe Fan"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05137",
+          "published": "2026-08-05T17:56:35Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "SmartMage 根据语义先验、文本-模态对齐和模态质量动态选择 3D 场景理解所需模态，再以模态感知专家路由减少语义噪声和计算浪费。",
+          "methodHighlights": [
+            "Semantic-guided Modality Adaptive Routing",
+            "Modality-Aware Gating Expert",
+            "query-dependent multimodal reasoning"
+          ],
+          "projectUrl": "https://yuecheong.github.io/SmartMage/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D scene understanding",
+            "3D vision",
+            "multimodal reasoning"
+          ]
+        },
+        {
+          "title": "UniWorld-View: Large-Baseline View Synthesis via Video Diffusion Models",
+          "authors": [
+            "Haiyang Zhou",
+            "Wangbo Yu",
+            "Chaoran Feng",
+            "Xunyu Zhou",
+            "Yonghong Tian",
+            "Li Yuan"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.04701",
+          "published": "2026-08-05T11:10:52Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "UniWorld-View 将遮挡感知点云渲染得到的显式 3D guidance 与视频扩散结合，在极稀疏单目输入下生成可控且几何一致的大基线新视角，并服务于动态 3DGS 重建。",
+          "methodHighlights": [
+            "occlusion-aware point cloud rendering",
+            "explicit 3D guidance for diffusion",
+            "large-baseline controllable NVS"
+          ],
+          "projectUrl": "https://zhouhyocean.github.io/uniworld-view/",
+          "codeUrl": "https://github.com/PKU-YuanGroup/UniWorld-View",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "view synthesis",
+            "3D Gaussian Splatting",
+            "video diffusion"
+          ]
+        },
+        {
+          "title": "RORA: Realistic Object Reconstruction with Articulation",
+          "authors": [
+            "Hyesung Lee",
+            "Youngseon Lee",
+            "Kyutae Lee",
+            "Dongjun Lee",
+            "Yongseok Lee"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.04842",
+          "published": "2026-08-05T13:36:58Z",
+          "categories": [
+            "cs.RO",
+            "cs.GR"
+          ],
+          "summary": "RORA 从单个静态物体视频重建带关节结构的仿真资产，以 3DGS 负责渲染、mesh 负责物理交互，并自动建议候选关节轴。",
+          "methodHighlights": [
+            "3DGS + mesh hybrid simulation asset",
+            "human-in-the-loop part grouping",
+            "automatic joint-axis suggestion"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "articulated objects",
+            "robot manipulation",
+            "simulation"
+          ]
+        },
+        {
+          "title": "DreamWAM: Beyond RGB Future Prediction for World Action Models",
+          "authors": [
+            "Shanglin Yuan",
+            "Weiheng Zhao",
+            "Xin Shi",
+            "Haoyi Jiang",
+            "Xianda Guo",
+            "Liu Liu",
+            "Wenyu Liu",
+            "Wei Sui",
+            "Xinggang Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.04996",
+          "published": "2026-08-05T16:04:23Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "DreamWAM 将 world model 的未来状态显式拆成 appearance、motion、geometry 和 semantics，用训练期 beyond-RGB 监督提升 RGB-only 部署在未见扰动下的机器人操作鲁棒性。",
+          "methodHighlights": [
+            "structured future-state prediction",
+            "VideoDiT/ActionDiT shared attention",
+            "training-time geometry and semantics supervision"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/hustvl/DreamWAM",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "world action models",
+            "robot manipulation",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "PhysMind: From Video to Executable Worlds for Training-Free Physical Reasoning",
+          "authors": [
+            "Chen Yang",
+            "Shenxiang Zeng",
+            "Haoyang Zhao",
+            "Zhouyuan Xu",
+            "Youquan He",
+            "Haoyu Li",
+            "Mingyi Deng",
+            "Jiansheng Fan",
+            "Chen Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.04575",
+          "published": "2026-08-05T08:05:22Z",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "summary": "PhysMind 从视频恢复动态场景、mesh、6D 姿态和连续时间解析动力学，构建可执行世界以支持训练免费的物理与反事实推理。",
+          "methodHighlights": [
+            "object-centric dynamic reconstruction",
+            "continuous-time analytic dynamics",
+            "question-conditioned executable world"
+          ],
+          "projectUrl": "https://physmind.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "physical reasoning",
+            "3D reconstruction",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "WorldCycle: Self-Verifiable Reinforcement Learning for Long-Horizon Video World Models",
+          "authors": [
+            "Bohai Gu",
+            "Yueyang Yuan",
+            "Taiyi Wu",
+            "Dazhao Du",
+            "Jian Liu",
+            "Xiaoyi Pang",
+            "Jie Zhang",
+            "Xiaocheng Lu",
+            "Haobin Zhong",
+            "Xiaotong Zhao",
+            "Alan Zhao",
+            "Song Guo"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.04964",
+          "published": "2026-08-05T15:34:47Z",
+          "categories": [
+            "cs.AI",
+            "cs.LG"
+          ],
+          "summary": "WorldCycle 用动作与逆动作构成的可逆闭环提供无标注验证信号，以 spatial closure 和 temporal consistency 奖励训练长期视频 world model。",
+          "methodHighlights": [
+            "reversible action cycles",
+            "self-verifiable reinforcement learning",
+            "CycleBench"
+          ],
+          "projectUrl": "https://nevsnev.github.io/Worldcycle/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "reinforcement learning",
+            "long-horizon planning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "Beyond Reprojection Error: Camera Calibration with 3D Targets",
+          "authors": [
+            "Dennis Ruppel",
+            "Hasan Kutlu",
+            "Kai A. Neumann",
+            "Martin Knuth",
+            "Pedro Santos",
+            "Andreas Weinmann",
+            "Arjan Kuijper"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05066",
+          "published": "2026-08-05T17:12:21Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "这篇工作用 scene rays、reconstruction error 和 intersection error 评估面向 3D 重建的相机标定，并以 icosahedron 3D target 改善空间射线一致性。",
+          "methodHighlights": [
+            "ray-based calibration metrics",
+            "generalized distortion model",
+            "icosahedral 3D target"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "camera calibration",
+            "geometric vision"
+          ]
+        },
+        {
+          "title": "MobileWAM: Bridging World Action Models to Mobile Manipulation with Chain-of-Foresight",
+          "authors": [
+            "Zehua Fan",
+            "Junjie He",
+            "Wenxuan Song",
+            "Xi Wang",
+            "Wenqi Lyu",
+            "Linge Zhao",
+            "Fuhao Li",
+            "Zihan You",
+            "Yifei Yang",
+            "Kaiming Xu",
+            "Qi Jiang",
+            "Yue Jiang",
+            "Haoang Li",
+            "Cheng Chi",
+            "Bailin Li",
+            "Yan Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.04657",
+          "published": "2026-08-05T10:12:37Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "MobileWAM 将 VideoDiT 与动作专家结合，通过 locomotion/manipulation mixture experts 和 Chain-of-Foresight 处理移动操作中的全身协调。",
+          "methodHighlights": [
+            "layerwise joint attention",
+            "locomotion/manipulation mixture experts",
+            "Chain-of-Foresight"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world action models",
+            "mobile manipulation",
+            "embodied AI",
+            "robotics"
+          ]
+        },
+        {
+          "title": "Overcoming Statistical Bias in Action-Controllable World Models",
+          "authors": [
+            "Yuhong Shi",
+            "Zhenhao Chu",
+            "Jie Wei",
+            "Jun Hao",
+            "Jianyi Liu",
+            "Jingwen Fu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.04653",
+          "published": "2026-08-05T10:10:36Z",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "CoCo 通过多步和动作-空间反事实一致性，抑制 world model 依赖视觉惯性而忽略动作因果的统计捷径，并用 ARC、DE 和 Mini-SSMB 测量可控性。",
+          "methodHighlights": [
+            "multi-step counterfactual consistency",
+            "action-spatial counterfactual consistency",
+            "ARC/DE/Mini-SSMB evaluation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robotics",
+            "counterfactual reasoning",
+            "action controllability"
+          ]
+        },
+        {
+          "title": "HiSC: Hierarchical Spatial Clustering Token Compression for Efficient 3D Scene Understanding",
+          "authors": [
+            "Jiuhe Qu",
+            "Yingping Liang",
+            "Ying Fu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.04610",
+          "published": "2026-08-05T09:15:43Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "HiSC 用几何-语义空间图合并跨视角冗余 token，再做层级 cluster pruning，在保留实例细节的同时将 3D VLM token 数量减少超过 90%。",
+          "methodHighlights": [
+            "spatial graph-based merging",
+            "spatial clustering-based pruning",
+            "geometry-semantic token compression"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/elecreak/HiSC",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D scene understanding",
+            "3D VLM",
+            "efficient inference"
+          ]
+        },
+        {
+          "title": "ACA-GS: Adaptive-Capacity Anchored Gaussian Splatting for Compact Dynamic Radiance Fields",
+          "authors": [
+            "Seunghyeon Song",
+            "Joo Chan Lee",
+            "Chanung Park",
+            "Jun Young Jeong",
+            "Minseo Lee",
+            "Eunbyung Park",
+            "Jong Hwan Ko"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.04581",
+          "published": "2026-08-05T08:47:48Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "ACA-GS 根据局部时空复杂度动态调整 anchor 的 Gaussian 数量和特征通道，在动态辐射场中降低存储而不牺牲视觉质量。",
+          "methodHighlights": [
+            "adaptive anchor cardinality",
+            "adaptive anchor feature masking",
+            "complexity-aware dynamic radiance-field compression"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "4D Gaussian Splatting",
+            "dynamic radiance fields",
+            "3DGS compression"
+          ]
+        },
+        {
+          "title": "OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes",
+          "authors": [
+            "Xia Yan",
+            "He Wu",
+            "Yanghui Xu",
+            "Zizhao Wu",
+            "Jiazhou Chen"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.04560",
+          "published": "2026-08-05T07:54:22Z",
+          "categories": [
+            "cs.CV",
+            "cs.GR"
+          ],
+          "summary": "OutLangSplat 用 2D-3D 双分支语言表示和贡献/一致性感知聚合，将开放词汇 3DGS 扩展到遮挡严重的 UAV 户外场景。",
+          "methodHighlights": [
+            "2D-3D dual-branch language representation",
+            "region-based alignment",
+            "contribution/consistency-aware aggregation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D language grounding",
+            "UAV vision",
+            "outdoor scene understanding"
+          ]
+        },
+        {
+          "title": "Talk2Sensors: 3D Visual Grounding in Autonomous Driving via Sensor-Adaptive Physical Cue Matching",
+          "authors": [
+            "Runwei Guan",
+            "Di Tian",
+            "Ningwei Ouyang",
+            "Ruixiao Zhang",
+            "Shaofeng Liang",
+            "Haocheng Zhao",
+            "Lianqing Zheng",
+            "Xiaokai Bai",
+            "Guotao Wang",
+            "Daizong Liu",
+            "Henghui Ding",
+            "Hui Xiong"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.04568",
+          "published": "2026-08-05T07:58:35Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Talk2Sensors 发布 camera、LiDAR、4D radar 多传感器 3D grounding 数据集，并用 TSFormer 按语言 query 动态仲裁 appearance、geometry 和 motion cues。",
+          "methodHighlights": [
+            "sensor-adaptive 3D grounding",
+            "language-routed property sampling",
+            "sparse-preserving modality arbitration"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D visual grounding",
+            "autonomous driving",
+            "multi-sensor fusion",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "HelloWorld: Enabling Socially Interactive Characters in Video World Models",
+          "authors": [
+            "Liangyang Ouyang",
+            "Ruicong Liu",
+            "Xuangeng Chu",
+            "Kaipeng Zhang",
+            "Yoichi Sato"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05070",
+          "published": "2026-08-05T17:14:19Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "HelloWorld 用自生成视频自蒸馏训练社交交互角色，并用时间局部化的 cross-attention 调制响应用户触发的镜头朝向、挥手和问候动作。",
+          "methodHighlights": [
+            "self-distillation from generated interaction clips",
+            "camera-pose conditioning",
+            "temporally localized cross-attention modulation"
+          ],
+          "projectUrl": "https://github.com/AlayaLab/HelloWorld",
+          "codeUrl": "https://github.com/AlayaLab/HelloWorld",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "video world models",
+            "social interaction",
+            "interactive agents"
+          ]
+        },
+        {
+          "title": "SiMDex: Mining Similar Egocentric Videos for Cross-Embodiment Dexterous Manipulation",
+          "authors": [
+            "Nie Lin",
+            "Takehiko Ohkawa",
+            "Sijin Chen",
+            "Ruoshi Wen",
+            "Zhuohang Li",
+            "Liqun Huang",
+            "Zhengming Zhu",
+            "Yiming Bao",
+            "Yunfei Li",
+            "Minjie Cai",
+            "Xiao Ma",
+            "Wei Xu",
+            "Yoichi Sato"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.04196",
+          "published": "2026-08-04T19:55:12Z",
+          "categories": [
+            "cs.RO",
+            "cs.CV",
+            "cs.LG"
+          ],
+          "summary": "SiMDex 将人类 egocentric 数据选择建模为推荐问题，从约 3200 万样本中挖掘约 149 万条任务相关视频，提升跨 embodiment 灵巧操作成功率。",
+          "methodHighlights": [
+            "similarity-based data mining",
+            "three-stage recall-ranking-re-ranking",
+            "morphology-agnostic VLA post-training"
+          ],
+          "projectUrl": "https://lin-nie.github.io/SiMDex/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "dexterous manipulation",
+            "embodied AI",
+            "VLA",
+            "cross-embodiment learning"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-08-05",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-05",
