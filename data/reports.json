@@ -1,6 +1,538 @@
 {
-  "updatedAt": "2026-08-06T00:00:00Z",
+  "updatedAt": "2026-08-07T00:00:00Z",
   "reports": [
+    {
+      "date": "2026-08-07",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-07",
+      "shortTitle": "3D 表示 / world models / Physical AI",
+      "summary": "官方 2026-08-07 公告批次筛出 15 篇相关论文；3D 表示复用、物理 world models、机器人操作接口和 Physical AI 评测是主线。",
+      "trends": [
+        "3D 表示从重建后渲染走向可理解、可压缩、可复用：CDSeg、G²ARD-GS 与 OmniMech 分别连接语义标签、Gaussian 几何和工业 CAD。",
+        "World model 监督从像素预测转向物理状态与动作因果：HERA、LAWM-3D、PhyLatent、SR-JEPA 与 Robust-WAM 处理历史、几何、动力学和语义未来。",
+        "几何 grounding 正在直接接到控制接口：CoordRefer 先确定坐标系，VLAff 从人类视频抽取 3D affordance，UA-NWM 则把不确定性纳入导航决策。",
+        "GAUGE 表明 Physical AI 需要测量驱动的物理诊断，而不仅是视频逼真度或单一成功率。"
+      ],
+      "topPapers": [
+        "LAWM-3D: Learning 3D-Aware Latent Actions from Human Videos for Generalizable Robot World Models",
+        "GAUGE: A Measurement-Grounded Benchmark for Physical Fidelity in Simulation Engines and Video World Models",
+        "CDSeg: A Renderable Gaussian Carrier for Image-to-3D Label Transfer",
+        "G²ARD-GS: Geometry-Guided Anchor-Regularized Gaussian Splatting Distillation",
+        "HERA: Historical Evidence Routing Adapter for Physical Prediction in Latent World Models",
+        "VLAff: Vision-Language-Affordance Model for Unified Actionable Affordances"
+      ],
+      "markdownPath": "reports/arxiv/2026-08-07.md",
+      "papers": [
+        {
+          "title": "CDSeg: A Renderable Gaussian Carrier for Image-to-3D Label Transfer",
+          "authors": [
+            "Wentao Sun",
+            "Yiping Chen",
+            "Zhengsen Xu",
+            "Jonathan Li",
+            "John S. Zelek"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05482",
+          "published": "2026-08-06T00:07:40Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "CDSeg 将 Gaussian primitive 作为可渲染标签载体，通过像素—primitive 可见性对应关系融合多视图 2D mask，并把标签返回点云、Gaussian 场景或新视角。",
+          "methodHighlights": [
+            "Gaussian label carrier",
+            "renderer-derived visibility",
+            "multi-view voting and local filtering"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "3D Gaussian Splatting",
+            "open-vocabulary 3D understanding"
+          ]
+        },
+        {
+          "title": "HERA: Historical Evidence Routing Adapter for Physical Prediction in Latent World Models",
+          "authors": [
+            "Yuanruyi",
+            "Yue Cao",
+            "Haojia Gao",
+            "Guanqiu Guo",
+            "Ziyuezhang",
+            "Shangqin",
+            "Junbo Tan",
+            "Bokui Chen",
+            "Xueqian Wang",
+            "Zhuo Zou"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05523",
+          "published": "2026-08-06T02:01:05Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "HERA 用 RRPM 将与当前预测相关的历史 patch memory 选择性路由到冻结的 latent predictor，改善遮挡下的物理预测和固定相机连续性。",
+          "methodHighlights": [
+            "historical evidence routing",
+            "register-routed patch memory",
+            "frozen predictor adaptation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "physical prediction",
+            "occlusion reasoning",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "OmniMech: All-in-one Multimodal Mechanical Benchmark for 3D Reconstruction",
+          "authors": [
+            "Taiting Lu",
+            "Runze Liu",
+            "Ziwei Dong",
+            "Sisong Bei",
+            "Jingying Zeng",
+            "Mingjia Wang",
+            "Zhenghao Li",
+            "Kaiyuan Lin",
+            "Yi-Shan Wu",
+            "Yangshoudu Zheng",
+            "Hongxing Pan",
+            "Kai Zhang",
+            "Guoliang Shi",
+            "Ling Ma",
+            "Yifan Yang",
+            "Jiaying Lu",
+            "Qi He",
+            "Sung-Liang Chen",
+            "Yi-Chao Chen",
+            "Yincheng Jin",
+            "Mahanth Gowda"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05539",
+          "published": "2026-08-06T02:36:22Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "OmniMech 提供超过 251,000 张带尺寸公差的工程图及配对 CAD、multi-view、mesh、STEP、B-rep 和语义标注，评测可执行 CAD 合成与细粒度 3D 重建。",
+          "methodHighlights": [
+            "drawing-to-CAD benchmark",
+            "STEP/B-rep and multi-view pairing",
+            "tool-augmented geometry verification"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "CAD generation",
+            "industrial vision",
+            "multimodal agents"
+          ]
+        },
+        {
+          "title": "Hierarchical Flow Matching for 3D Point Cloud Generation",
+          "authors": [
+            "Linhao Wang",
+            "Qichang Zhang",
+            "Ye Su",
+            "Hao Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05557",
+          "published": "2026-08-06T03:23:49Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "HFM 将 3D 点云生成拆为 latent 全局形状流和条件细节流，两层均采用 OT flow matching，使 ShapeNet/ModelNet 上的生成兼顾拓扑、局部几何和少步采样。",
+          "methodHighlights": [
+            "bilevel flow matching",
+            "global shape latent flow",
+            "conditional point detail flow"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D generation",
+            "point cloud generation",
+            "flow matching"
+          ]
+        },
+        {
+          "title": "CoordRefer: Coordinate-Aware 3D Visual Grounding from Multiview Images",
+          "authors": [
+            "Haijie Li",
+            "Jiaxin Zhang",
+            "Dave Zhenyu Chen",
+            "Youyu Chen",
+            "Yanmin Wu",
+            "Jian Zhang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05569",
+          "published": "2026-08-06T03:40:17Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "CoordRefer 将多视图 3D grounding 的坐标系选择与 3D 框回归解耦，再用 3D-IoU 奖励的 GRPO 对齐两阶段预测，显著改善 ScanRefer 定位。",
+          "methodHighlights": [
+            "coordinate-frame selection",
+            "coordinate-conditioned box regression",
+            "3D-IoU reward GRPO"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D visual grounding",
+            "geometric reasoning",
+            "multiview vision"
+          ]
+        },
+        {
+          "title": "Uncertainty-Aware World Model for Aerial Image-Goal Navigation",
+          "authors": [
+            "Deyi Zhu",
+            "Haoyu Fan",
+            "Yinan Zhu",
+            "Weichen Zhang",
+            "Shilin Ma",
+            "Xinlei Chen",
+            "Yansong Tang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05597",
+          "published": "2026-08-06T04:43:53Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "UA-NWM 用 uncertainty subspace 表示航拍导航的可能未来，并把预测—目标差异分成可解释不确定性与不可解释 residual，以低延迟方式选择更可靠的轨迹。",
+          "methodHighlights": [
+            "uncertainty-subspace futures",
+            "conditional OOD trajectory scoring",
+            "low-latency aerial navigation"
+          ],
+          "projectUrl": "https://duryi.github.io/UA-NWM-Project-Page",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "embodied AI",
+            "visual navigation",
+            "uncertainty modeling"
+          ]
+        },
+        {
+          "title": "G²ARD-GS: Geometry-Guided Anchor-Regularized Gaussian Splatting Distillation",
+          "authors": [
+            "Puyuan Zhang",
+            "Jianming Huang",
+            "Wenkai Ye",
+            "Wei Dong"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05704",
+          "published": "2026-08-06T07:46:49Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "G²ARD-GS 将 dense Gaussian prior 合并成 surface-aware、固定拓扑的紧凑表示，并在恢复外观时保留 anchor 几何约束，兼顾 3DGS 压缩与下游注册。",
+          "methodHighlights": [
+            "surface-aware consolidation",
+            "fixed-topology appearance recovery",
+            "geometry-aware view selection"
+          ],
+          "projectUrl": "https://patrick1159.github.io/gardGS-page/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D reconstruction",
+            "scene compression",
+            "geometric registration"
+          ]
+        },
+        {
+          "title": "LAWM-3D: Learning 3D-Aware Latent Actions from Human Videos for Generalizable Robot World Models",
+          "authors": [
+            "Jiarui Yang",
+            "Jiale Zhange",
+            "Jiawei Li",
+            "Hang Guo",
+            "Wen Huang",
+            "Jinpeng Wang",
+            "Peidong Liu",
+            "Shu-Tao Xia"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05706",
+          "published": "2026-08-06T07:47:01Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "LAWM-3D 通过多视角不变 action token、3D foundation 对齐和 RGB-D 防捷径重建，让人类视频学习出的 latent actions 携带更可靠的几何与运动信息。",
+          "methodHighlights": [
+            "3D-aware latent action tokenization",
+            "3D foundation feature alignment",
+            "anti-shortcut RGB-D reconstruction"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "3D-aware representation",
+            "robot learning",
+            "embodied AI"
+          ]
+        },
+        {
+          "title": "PhyLatent: Learning Dynamics-Relevant Representations for JEPA World Models",
+          "authors": [
+            "Xi Zeng",
+            "Haojie Ren",
+            "Ziying Song"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05720",
+          "published": "2026-08-06T08:02:15Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "PhyLatent 诊断 JEPA 中物理不变性、可辨识性和反事实动力学坍塌，并以三条训练路径把 latent 表示对齐到状态、未来和动作后果。",
+          "methodHighlights": [
+            "three collapse diagnostics",
+            "physical and counterfactual training pathways",
+            "MPC-oriented latent state learning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "JEPA",
+            "physical reasoning",
+            "robot control"
+          ]
+        },
+        {
+          "title": "SR-JEPA: Learning Predictive Latent State in 3D Scenes",
+          "authors": [
+            "Zihan Zhou",
+            "Qifu Wen",
+            "Xi Zeng"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05774",
+          "published": "2026-08-06T09:09:16Z",
+          "categories": [
+            "cs.CV",
+            "cs.LG"
+          ],
+          "summary": "SR-JEPA 直接查询 point-native JEPA 的预测路径，在移除物体后从其质心 query 读取缺失实体 latent，展示了上下文相关、可组合的 3D predictive state。",
+          "methodHighlights": [
+            "point-native JEPA",
+            "queryable missing-entity latent",
+            "context-dependent 3D predictive state"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D scene understanding",
+            "world models",
+            "JEPA",
+            "predictive representation"
+          ]
+        },
+        {
+          "title": "Ordered Diffusion for 3D Human Registration",
+          "authors": [
+            "Mattia Masiero",
+            "Ilya A. Petrov",
+            "Daniel Cremers",
+            "Gerard Pons-Moll",
+            "Riccardo Marin"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05804",
+          "published": "2026-08-06T09:39:54Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "ODin 将受噪声、遮挡和软组织不确定性影响的 3D 人体 registration 建模为保留模板点序的条件 diffusion，生成更合理的对齐几何并缩短注册时间。",
+          "methodHighlights": [
+            "distributional 3D registration",
+            "ordered point-cloud diffusion",
+            "global/local/positional conditioning"
+          ],
+          "projectUrl": "https://riccardomarin.github.io/odin/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "3D human",
+            "diffusion",
+            "geometric alignment"
+          ]
+        },
+        {
+          "title": "HoloWorld: Unified Indoor-Outdoor Urban World Generation",
+          "authors": [
+            "Xiaobin Huang",
+            "Zilong Huang",
+            "Yang Luo",
+            "Hongchao Fan",
+            "Yiping Chen",
+            "Ting Han"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05879",
+          "published": "2026-08-06T11:00:38Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "HoloWorld 维护跨尺度 world context，把城市外部街区、建筑 footprint 和室内布局放进同一生成链路，保持室内外对应与跨街区连续性。",
+          "methodHighlights": [
+            "persistent cross-scale world context",
+            "indoor-outdoor correspondence",
+            "geometry-constrained interior generation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D generation",
+            "world models",
+            "urban scene generation",
+            "spatial consistency"
+          ]
+        },
+        {
+          "title": "Robust-WAM: Bridging Generative Pretraining and Semantic Foresight in World-Action Models",
+          "authors": [
+            "Haodong Yan",
+            "Junfeng Li",
+            "Junjie He",
+            "Zhide Zhong",
+            "MingMing Yu",
+            "Wenxuan Song",
+            "Jiaguan Zhu",
+            "Yangyang Zheng",
+            "Yuqiao Du",
+            "Jiadi You",
+            "Yingjie Cai",
+            "Xu Yan",
+            "Guanyi Zhao",
+            "Bingbing Liu",
+            "Haoang Li"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05903",
+          "published": "2026-08-06T11:31:56Z",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "Robust-WAM 保留视频生成预训练的 VAE path，同时将未来帧的 appearance-invariant semantic foresight 对齐到 action stream，提升视觉扰动下的机器人控制。",
+          "methodHighlights": [
+            "semantic foresight alignment",
+            "action-stream query tokens",
+            "VAE generative pretraining with robust dynamics"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world action models",
+            "robot manipulation",
+            "robust control",
+            "Physical AI"
+          ]
+        },
+        {
+          "title": "GAUGE: A Measurement-Grounded Benchmark for Physical Fidelity in Simulation Engines and Video World Models",
+          "authors": [
+            "Shuai Wang",
+            "Yaxin Feng",
+            "Xuekun Jiang",
+            "Shihan Tian",
+            "Ningyu Yan",
+            "Xing Shen",
+            "Chaoyang Lyu",
+            "Hui Wang",
+            "Yunsong Zhou",
+            "Hanqing Wang",
+            "Jiangmiao Pang",
+            "Yang Xiang",
+            "Xing Gao",
+            "Chunhua Shen",
+            "Weinan Zhang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05948",
+          "published": "2026-08-06T12:19:38Z",
+          "categories": [
+            "cs.AI",
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "GAUGE 用真实轨迹、校准物理元数据和不确定性标注，统一诊断仿真器与视频 world model 在碰撞、摩擦、动量、接触和形变上的物理偏差。",
+          "methodHighlights": [
+            "real-world-grounded controlled tasks",
+            "physics-law consistency and parameter recovery",
+            "joint simulator/world-model diagnosis"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "physics-aware AI",
+            "world models",
+            "robotics",
+            "simulation"
+          ]
+        },
+        {
+          "title": "VLAff: Vision-Language-Affordance Model for Unified Actionable Affordances",
+          "authors": [
+            "Jihoon Oh",
+            "Kento Kawaharazuka",
+            "Kei Okada"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.05215",
+          "published": "2026-08-05T10:15:55Z",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "VLAff 从人类 egocentric 视频中用 3D-SfM 和手部 mesh 重建提取视觉、抓取与轨迹 affordance，输出可结合 3D 场景直接执行的机器人动作。",
+          "methodHighlights": [
+            "3D-SfM and hand-mesh affordance extraction",
+            "unified visual/grasp/trajectory prediction",
+            "embodiment-agnostic actionable interface"
+          ],
+          "projectUrl": "https://ojh6404.github.io/vlaff/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "affordance",
+            "human-object interaction",
+            "3D vision",
+            "embodied AI"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-08-06",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-06",
