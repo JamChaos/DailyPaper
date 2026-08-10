@@ -52,6 +52,10 @@
                 <span id="statHigh">0</span>
                 <small>High Priority</small>
               </div>
+              <div>
+                <span id="statWatch">0</span>
+                <small>Watchlist Hits</small>
+              </div>
             </div>
           </div>
           <div class="masthead-media" aria-hidden="true">
@@ -84,6 +88,12 @@
               <option value="hoi">HOI</option>
             </select>
           </label>
+          <label>
+            <span>Watchlist</span>
+            <select id="watchFilter">
+              <option value="all">All groups</option>
+            </select>
+          </label>
         </section>
 
         <div class="content-grid">
@@ -112,6 +122,15 @@
               </div>
 
               <p id="reportSummary" class="report-summary"></p>
+
+              <section class="watchlist-panel" aria-labelledby="watchlist-title">
+                <div class="section-heading compact">
+                  <p class="eyebrow">Watchlist</p>
+                  <h3 id="watchlist-title">重点三维视觉组提示</h3>
+                </div>
+                <p id="watchlistSummary" class="watchlist-summary"></p>
+                <div id="watchlistHits" class="watchlist-hits"></div>
+              </section>
 
               <div class="trend-row" id="trendRow"></div>
 

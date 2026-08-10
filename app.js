@@ -2,9 +2,11 @@ const els = {
   statReports: document.querySelector("#statReports"),
   statPapers: document.querySelector("#statPapers"),
   statHigh: document.querySelector("#statHigh"),
+  statWatch: document.querySelector("#statWatch"),
   searchInput: document.querySelector("#searchInput"),
   priorityFilter: document.querySelector("#priorityFilter"),
   areaFilter: document.querySelector("#areaFilter"),
+  watchFilter: document.querySelector("#watchFilter"),
   reportList: document.querySelector("#reportList"),
   emptyState: document.querySelector("#emptyState"),
   reportDetail: document.querySelector("#reportDetail"),
@@ -12,6 +14,8 @@ const els = {
   reportTitle: document.querySelector("#reportTitle"),
   markdownLink: document.querySelector("#markdownLink"),
   reportSummary: document.querySelector("#reportSummary"),
+  watchlistSummary: document.querySelector("#watchlistSummary"),
+  watchlistHits: document.querySelector("#watchlistHits"),
   trendRow: document.querySelector("#trendRow"),
   topPicks: document.querySelector("#topPicks"),
   paperList: document.querySelector("#paperList"),
@@ -23,7 +27,47 @@ const state = {
   search: "",
   priority: "all",
   area: "all",
+  watch: "all",
 };
+
+const watchGroups = [
+  {
+    id: "kaiming-he",
+    name: "Kaiming He",
+    shortName: "Kaiming He",
+    needles: ["kaiming he", "何恺明", "何凯明"],
+  },
+  {
+    id: "anpei-chen",
+    name: "Anpei Chen",
+    shortName: "Anpei Chen",
+    needles: ["anpei chen", "陈安培"],
+  },
+  {
+    id: "shangzhe-wu",
+    name: "Shangzhe Wu",
+    shortName: "Shangzhe Wu",
+    needles: ["shangzhe wu", "吴尚哲"],
+  },
+  {
+    id: "qianqian-wang",
+    name: "Qianqian Wang",
+    shortName: "Qianqian Wang",
+    needles: ["qianqian wang", "王倩倩"],
+  },
+  {
+    id: "saining-xie",
+    name: "Saining Xie",
+    shortName: "Saining Xie",
+    needles: ["saining xie", "谢赛宁"],
+  },
+  {
+    id: "oxford-vgg",
+    name: "Oxford Visual Geometry Group (VGG)",
+    shortName: "Oxford VGG",
+    needles: ["visual geometry group", "oxford vgg", "oxford university visual geometry"],
+  },
+];
 
 const areaNeedles = {
   "3d": ["3d", "三维", "重建", "生成", "渲染", "gaussian", "splatting", "nerf"],
@@ -46,7 +90,7 @@ function priorityClass(priority) {
 function createEl(tag, className, text) {
   const el = document.createElement(tag);
   if (className) el.className = className;
-  if (text !== undefined) el.textContent = text;
+  if (text !== undefined) el.textContent = Array.isArray(text) ? text.join(", ") : text;
   return el;
 }
 
@@ -65,11 +109,45 @@ function paperSearchText(paper) {
     paper.categories,
     paper.priority,
     paper.areaTags,
+    paper.affiliations,
+    paper.affiliation,
+    paper.institutions,
+    paper.labs,
+    paper.groups,
   ]
     .flat()
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
+}
+
+function paperWatchText(paper) {
+  return [
+    paper.authors,
+    paper.affiliations,
+    paper.affiliation,
+    paper.institutions,
+    paper.labs,
+    paper.groups,
+    paper.projectUrl,
+    paper.codeUrl,
+    paper.datasetUrl,
+  ]
+    .flat()
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+}
+
+function getPaperWatchHits(paper) {
+  const text = paperWatchText(paper);
+  const declared = Array.isArray(paper.watchGroups) ? paper.watchGroups.map(String) : [];
+  return watchGroups.filter(
+    (group) =>
+      declared.includes(group.id) ||
+      declared.some((item) => item.toLowerCase() === group.name.toLowerCase()) ||
+      group.needles.some((needle) => text.includes(needle)),
+  );
 }
 
 function paperMatches(paper) {
@@ -78,7 +156,9 @@ function paperMatches(paper) {
   const priorityOk = state.priority === "all" || paper.priority === state.priority;
   const areaOk =
     state.area === "all" || areaNeedles[state.area].some((needle) => text.includes(needle));
-  return queryOk && priorityOk && areaOk;
+  const watchOk =
+    state.watch === "all" || getPaperWatchHits(paper).some((group) => group.id === state.watch);
+  return queryOk && priorityOk && areaOk && watchOk;
 }
 
 function reportPapers(report) {
@@ -90,6 +170,21 @@ function renderStats() {
   els.statReports.textContent = state.reports.length;
   els.statPapers.textContent = papers.length;
   els.statHigh.textContent = papers.filter((paper) => paper.priority === "高").length;
+  els.statWatch.textContent = papers.filter((paper) => getPaperWatchHits(paper).length).length;
+}
+
+function populateWatchFilter() {
+  const current = state.watch;
+  els.watchFilter.replaceChildren(createEl("option", "", "All groups"));
+  els.watchFilter.firstElementChild.value = "all";
+
+  watchGroups.forEach((group) => {
+    const option = createEl("option", "", group.name);
+    option.value = group.id;
+    els.watchFilter.append(option);
+  });
+
+  els.watchFilter.value = watchGroups.some((group) => group.id === current) ? current : "all";
 }
 
 function renderArchive() {
@@ -124,11 +219,15 @@ function renderTopPicks(report) {
   const picks = report.topPapers || [];
 
   if (!picks.length) {
-    els.topPicks.append(renderPill("No top picks yet"));
+    els.topPicks.append(createEl("p", "empty-copy", "No top picks yet"));
     return;
   }
 
-  picks.forEach((pick) => els.topPicks.append(renderPill(pick)));
+  picks.forEach((pick, index) => {
+    const item = createEl("div", "top-pick");
+    item.append(createEl("span", "top-pick-index", String(index + 1)), createEl("span", "", pick));
+    els.topPicks.append(item);
+  });
 }
 
 function renderTrends(report) {
@@ -136,11 +235,45 @@ function renderTrends(report) {
   const trends = report.trends || [];
 
   if (!trends.length) {
-    els.trendRow.append(renderPill("Trend pending"));
+    els.trendRow.append(createEl("p", "empty-copy", "Trend pending"));
     return;
   }
 
-  trends.forEach((trend) => els.trendRow.append(renderPill(trend)));
+  trends.forEach((trend) => els.trendRow.append(createEl("p", "trend-item", trend)));
+}
+
+function renderWatchlist(report) {
+  const papers = report.papers || [];
+  const matches = papers.flatMap((paper) =>
+    getPaperWatchHits(paper).map((group) => ({ group, paper })),
+  );
+  const groupCounts = new Map(watchGroups.map((group) => [group.id, 0]));
+  matches.forEach(({ group }) => groupCounts.set(group.id, groupCounts.get(group.id) + 1));
+
+  els.watchlistHits.replaceChildren();
+  const activeGroups = watchGroups.filter((group) => groupCounts.get(group.id));
+
+  if (!activeGroups.length) {
+    els.watchlistSummary.textContent = "本日报暂无重点组命中；后续会继续扫描作者、机构和项目页信息。";
+  } else {
+    els.watchlistSummary.textContent = `本日报命中 ${matches.length} 条重点组关联，共 ${activeGroups.length} 个监测对象。`;
+  }
+
+  watchGroups.forEach((group) => {
+    const count = groupCounts.get(group.id);
+    const button = createEl("button", "watch-chip", count ? `${group.shortName} · ${count}` : group.shortName);
+    button.type = "button";
+    button.disabled = !count;
+    button.title = count ? `筛选 ${group.name}` : `${group.name} · 本日报未命中`;
+    button.classList.toggle("is-active", state.watch === group.id);
+    button.classList.toggle("is-muted", !count);
+    button.addEventListener("click", () => {
+      state.watch = state.watch === group.id ? "all" : group.id;
+      els.watchFilter.value = state.watch;
+      renderReportDetail();
+    });
+    els.watchlistHits.append(button);
+  });
 }
 
 function renderResources(paper) {
@@ -216,10 +349,13 @@ function renderPaperFacts(paper) {
 function renderPaper(paper, index) {
   const card = createEl("article", "paper-card");
   const meta = createEl("div", "paper-meta");
+  const watchHits = getPaperWatchHits(paper);
   meta.append(
     renderPill(`#${index + 1}`),
     renderPill(paper.priority || "低", priorityClass(paper.priority)),
   );
+  watchHits.forEach((group) => meta.append(renderPill(`重点组 · ${group.shortName}`, "watch-pill")));
+  card.classList.toggle("has-watch-match", watchHits.length > 0);
 
   const title = createEl("h4", "", paper.title || "Untitled paper");
   const authors = createEl("p", "authors", paper.authors || "Authors unavailable");
@@ -260,6 +396,7 @@ function renderReportDetail() {
 
   renderTrends(report);
   renderTopPicks(report);
+  renderWatchlist(report);
 
   els.paperList.replaceChildren();
   const papers = reportPapers(report);
@@ -289,6 +426,7 @@ async function loadReports() {
     state.reports = [];
   }
 
+  populateWatchFilter();
   render();
 }
 
@@ -304,6 +442,11 @@ els.priorityFilter.addEventListener("change", (event) => {
 
 els.areaFilter.addEventListener("change", (event) => {
   state.area = event.target.value;
+  renderReportDetail();
+});
+
+els.watchFilter.addEventListener("change", (event) => {
+  state.watch = event.target.value;
   renderReportDetail();
 });
 
