@@ -67,6 +67,42 @@ const watchGroups = [
     shortName: "Oxford VGG",
     needles: ["visual geometry group", "oxford vgg", "oxford university visual geometry"],
   },
+  {
+    id: "eth-cvg",
+    name: "ETH Zürich Computer Vision and Learning Group (CVG)",
+    shortName: "ETH CVG",
+    needles: ["computer vision and learning group", "eth zurich", "eth zürich", "marc pollefeys", "konrad schindler"],
+  },
+  {
+    id: "tuebingen-avg",
+    name: "University of Tübingen Autonomous Vision Group (AVG)",
+    shortName: "Tübingen AVG",
+    needles: ["autonomous vision group", "university of tubingen", "university of tübingen", "andreas geiger"],
+  },
+  {
+    id: "uw-grail",
+    name: "University of Washington Graphics and Imaging Lab",
+    shortName: "UW Graphics & Imaging",
+    needles: ["graphics and imaging lab", "noah snavely", "brian curless"],
+  },
+  {
+    id: "stanford-ci",
+    name: "Stanford Computational Imaging / 3D Vision",
+    shortName: "Stanford 3D Vision",
+    needles: ["stanford computational imaging", "gordon wetzstein"],
+  },
+  {
+    id: "mpi-perceiving-systems",
+    name: "MPI-IS Perceiving Systems",
+    shortName: "MPI-IS Perceiving",
+    needles: ["perceiving systems", "mpi for intelligent systems", "michael black"],
+  },
+  {
+    id: "nvidia-research",
+    name: "NVIDIA Research",
+    shortName: "NVIDIA Research",
+    needles: ["nvidia research", "nvidia research lab"],
+  },
 ];
 
 const areaNeedles = {
