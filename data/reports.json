@@ -1,6 +1,585 @@
 {
-  "updatedAt": "2026-08-11T00:00:00Z",
+  "updatedAt": "2026-08-12T00:00:00Z",
   "reports": [
+    {
+      "date": "2026-08-12",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-12",
+      "shortTitle": "多流 WAM / 语义 3DGS / HOI",
+      "summary": "官方 2026-08-12 公告批次筛出 16 篇；几何与失败因果进入 WAM，3DGS 连接语义、表面和物理仿真。",
+      "trends": [
+        "WAM 从 RGB 预测器变成多层次状态模型：4D-WAM、FACT、JEPA-WAM 与 Flex-π 分别注入几何、失败因果、阶段语义和多流监督。",
+        "3DGS 扩张为语义接口、几何修复和仿真载体：LEGO、TRACE-GS、CasDeblurGS、Gaussian Sculpting 与 WildFireGS 覆盖完整链路。",
+        "具身研究强调显式 3D grounding 和数据效率：Semantic-3DGS、Space Tokens、BooST 与 Surgical WAM 分别处理定位、推理、技能迁移和视频预训练。",
+        "HOI 与双臂操作走向连续 latent 和不完全观测，统一生成编辑能力并减少对完整对象模型的依赖。"
+      ],
+      "topPapers": [
+        "Flex-π: A Multi-Stream World-Action Model with Compute Flexibility",
+        "FACT: Failure-Aware Causal Training for World-Action Models",
+        "Gaussian Sculpting: End-to-End Controllable Surface Reconstruction via Field Optimization",
+        "MAD-HOI: Masked Autoregressive Diffusion for Generating Articulated Hand Object Interactions from Text",
+        "WildFireGS: Physics-Based Wildfire Simulation in Large-Scale Semantics-Enriched Gaussian Splatting Forest Scenes",
+        "Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting"
+      ],
+      "markdownPath": "reports/arxiv/2026-08-12.md",
+      "papers": [
+        {
+          "title": "LEGO: Leveled Language Gaussian Splatting",
+          "authors": [
+            "Yuning Peng",
+            "Haiping Wang",
+            "Yuan Liu",
+            "Yipeng Lu",
+            "Zhen Dong",
+            "Bisheng Yang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.10057",
+          "published": "2026-08-10T17:59:21Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "LEGO 将多视图 SAM 粒度重组为 3D 一致层级，以 CLIP grounding 和逐层语言场景图支持开放词汇理解与空间推理。",
+          "methodHighlights": [
+            "multi-view granularity re-grading",
+            "3D-consistent hierarchy",
+            "CLIP grounding",
+            "language scene graphs"
+          ],
+          "projectUrl": "https://pz0826.github.io/LEGO-Webpage/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D scene understanding",
+            "open-vocabulary segmentation"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "4D-WAM: 4D Consistent World Modeling for Autonomous Driving",
+          "authors": [
+            "Jiacheng Fu",
+            "Yibo Yuan",
+            "Meng Tian",
+            "Yue Li",
+            "Jiangtong Zhu",
+            "Jianhua Han",
+            "Yueyi Zhang",
+            "Jianwu Fang",
+            "Jianru Xue",
+            "Hang Xu",
+            "Zhiwei Xiong"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.10107",
+          "published": "2026-08-10T18:14:52Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "4D-WAM 用几何基础模型提供训练期 4D 一致性监督，并强化早期决策时刻，在无额外推理成本下改善自动驾驶预测与规划。",
+          "methodHighlights": [
+            "geometric foundation model supervision",
+            "4D consistency loss",
+            "decision-oriented timestep sampling",
+            "zero extra inference cost"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "4D representation",
+            "autonomous driving",
+            "embodied AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "MAD-HOI: Masked Autoregressive Diffusion for Generating Articulated Hand Object Interactions from Text",
+          "authors": [
+            "Ananya Bal",
+            "Kartik Sharma",
+            "Ethan Lai",
+            "Samyak Tiwari",
+            "Liza Dahiya",
+            "Chaitanya Chawla",
+            "Laszlo A. Jeni"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.10162",
+          "published": "2026-08-10T19:30:59Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "MAD-HOI 在解耦连续 latent 中结合 masked AR 与 flow matching，统一支持变长 HOI 生成、组合动作、补全、插值和终止预测。",
+          "methodHighlights": [
+            "disentangled continuous HOI latent",
+            "masked autoregression",
+            "flow matching",
+            "unified completion and EOM"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "human-object interaction",
+            "hand-object interaction",
+            "motion generation"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "FACT: Failure-Aware Causal Training for World-Action Models",
+          "authors": [
+            "Quanquan Peng",
+            "Yutong Liang",
+            "Rui Yan",
+            "Nicklas Hansen",
+            "Xiaolong Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.10232",
+          "published": "2026-08-10T21:10:46Z",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.LG"
+          ],
+          "summary": "FACT 让失败 rollout 监督动作的因果后果，同时预测未来视频与任务进度，减少成功数据偏置导致的未来幻觉。",
+          "methodHighlights": [
+            "action-conditioned causal prediction",
+            "failure-rollout supervision",
+            "task-progress prediction",
+            "candidate scoring"
+          ],
+          "projectUrl": "https://fact-wam.github.io/",
+          "codeUrl": "https://github.com/Bariona/FACT",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world-action models",
+            "robot manipulation",
+            "causal learning",
+            "embodied AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Chain of Spatial Thoughts: Modality-Agnostic Spatial Grounding for Vision Language Models",
+          "authors": [
+            "Hunter Schofield",
+            "Mohammed Elmahgiubi",
+            "Mohammad Mahdavian",
+            "Richard Shi",
+            "Jinjun Shan",
+            "Amir Rasouli",
+            "Dongfeng Bai"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.10278",
+          "published": "2026-08-10T22:20:07Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Space Tokens 把场景几何和对象空间属性蒸馏为可解码连续 token，无需额外推理模块即可增强 VLM 空间推理。",
+          "methodHighlights": [
+            "Space Tokens",
+            "scene/object geometry distillation",
+            "decodable representation",
+            "architecture-agnostic integration"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D geometry",
+            "spatial reasoning",
+            "vision-language models",
+            "embodied AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "TRACE-GS: On-Policy Trajectory Distillation with Privileged Geometric Conditioning for Sparse-View 3DGS Restoration",
+          "authors": [
+            "Linlian Jiang",
+            "Yuchen Xi",
+            "Sadman Rakib Pinon",
+            "Ruigang Yang",
+            "Yang Wang",
+            "Xinxin Zuo"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.10286",
+          "published": "2026-08-10T22:43:06Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "TRACE-GS 让拥有额外几何的教师沿稀疏视角学生自己的 rollout 提供逐状态监督，修复 train-inference 轨迹覆盖缺口。",
+          "methodHighlights": [
+            "on-policy trajectory distillation",
+            "privileged geometry",
+            "state-wise denoising alignment",
+            "training-only teacher"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "sparse-view reconstruction",
+            "novel view synthesis"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "CasDeblurGS: Cascaded 2D-to-3D Multi-View Consistency for 3D Gaussian Splatting from Two Blurry Images",
+          "authors": [
+            "Haeyun Choi",
+            "Minhyuk Jang",
+            "I-Gil Kim"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.10345",
+          "published": "2026-08-11T01:13:21Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "CasDeblurGS 以遮挡感知 2D 对应和临时 pose-free 3DGS 级联指导，从两张无位姿模糊图像恢复一致 3D 场景。",
+          "methodHighlights": [
+            "two-blurry-view reconstruction",
+            "occlusion-aware filtering",
+            "pose-free 3DGS",
+            "cascaded 2D-to-3D guidance"
+          ],
+          "projectUrl": "https://haeyun-choi.github.io/Cascaded2D3D_page/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D reconstruction",
+            "deblurring",
+            "novel view synthesis"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Real-World Cooperative Bimanual Dexterous Grasp of Large Objects from Single-View Observations",
+          "authors": [
+            "Ziming Li",
+            "Mingxuan Wu",
+            "Jiaqi Zhang",
+            "Hongfei Li",
+            "Yan Gan",
+            "Deqiang Ouyang",
+            "Ning Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.10383",
+          "published": "2026-08-11T02:24:27Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "该框架从单视图分割点云生成双臂关节级抓取构型，并结合规划与在线修正，在不依赖完整 3D 模型时抓取大型未见物体。",
+          "methodHighlights": [
+            "multimodal bimanual dataset",
+            "point-cloud-conditioned DDPM",
+            "motion planning",
+            "online grasp refinement"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "robot manipulation",
+            "bimanual grasping",
+            "dexterous manipulation",
+            "3D perception"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "A second-order theory of texture for depth from focus",
+          "authors": [
+            "Sreekar Ranganathan",
+            "Ioannis Gkioulekas"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.10411",
+          "published": "2026-08-11T02:56:55Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文以波动光学解释微观几何产生的二阶纹理，并用窄带滤镜增强其对比度，从而改善无纹理场景的被动聚焦深度重建。",
+          "methodHighlights": [
+            "wave-optics texture theory",
+            "microgeometry speckle",
+            "narrowband filtering",
+            "passive depth from focus"
+          ],
+          "projectUrl": "https://imaging.cs.cmu.edu/second-order-texture/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "depth estimation",
+            "3D reconstruction",
+            "computational imaging",
+            "imaging physics"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "BooST: Bridging Semantics and Motions for Efficient Skill Transfer",
+          "authors": [
+            "Jusuk Lee",
+            "Daesol Cho",
+            "Jonghun Shin",
+            "Seungyeon Yoo",
+            "Jonghae Park",
+            "Taekbeom Lee",
+            "H. Jin Kim"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.10600",
+          "published": "2026-08-11T07:35:12Z",
+          "categories": [
+            "cs.RO",
+            "cs.CV",
+            "cs.LG"
+          ],
+          "summary": "BooST 以 cross-modal VQ-VAE 统一技能语义和运动动力学，再蒸馏为轻量策略，实现少样本跨任务与跨域迁移。",
+          "methodHighlights": [
+            "semantics-motion bridge",
+            "cross-modal VQ-VAE",
+            "skill distillation",
+            "few-shot adaptation"
+          ],
+          "projectUrl": "https://boost-robots.github.io/",
+          "codeUrl": "https://github.com/boost-robots",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "robot learning",
+            "skill transfer",
+            "robot manipulation",
+            "embodied AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Gaussian Sculpting: End-to-End Controllable Surface Reconstruction via Field Optimization",
+          "authors": [
+            "Ke Jiaxin",
+            "Juncheng Liu",
+            "Yi Wang",
+            "Zhouhui Lian",
+            "Bin Liu",
+            "Shengfa Wang",
+            "Xiangjia He"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.10602",
+          "published": "2026-08-11T07:42:24Z",
+          "categories": [
+            "cs.CV",
+            "cs.GR"
+          ],
+          "summary": "Gaussian Sculpting 把 Gaussians 锚定到演化 SDF 表面，以双层联合优化和多分辨率细分修复有限视角下缺失或冗余几何。",
+          "methodHighlights": [
+            "surface-anchored Gaussians",
+            "bi-level SDF/3DGS optimization",
+            "surface constraints",
+            "multi-resolution subdivision"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "3D Gaussian Splatting",
+            "surface reconstruction",
+            "neural rendering"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting",
+          "authors": [
+            "Huosen Ou",
+            "Dongni Song",
+            "Yuncong Wang",
+            "Tao Zhou",
+            "Yiding Ji"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.10756",
+          "published": "2026-08-11T10:16:30Z",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "系统以可刷新 Semantic-3DGS 统一主动感知、语言 3D 定位、可达性底座定位和 VLA 控制，提升真实移动操作鲁棒性。",
+          "methodHighlights": [
+            "active Semantic-3DGS",
+            "language-conditioned 3D localization",
+            "reachability-aware positioning",
+            "late-block semantic injection"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "robot manipulation",
+            "open-vocabulary grounding",
+            "embodied AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "JEPA-WAM: Stage-Level Joint-Embedding Prediction for World-Action Models in Robot Manipulation",
+          "authors": [
+            "Xiao Liu",
+            "Yuguang Yang",
+            "Xi Wang",
+            "Kai Jiang",
+            "Cheng Chi",
+            "Yong Xu",
+            "Wenchao Ding",
+            "Yilun Chen",
+            "Yan Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.10780",
+          "published": "2026-08-11T10:33:12Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "JEPA-WAM 在短时物理未来之外预测下一任务阶段的语义 latent，使 world-action model 同时学习局部执行和长程进展。",
+          "methodHighlights": [
+            "dual future representation",
+            "frozen V-JEPA2",
+            "goal-conditioned Stage-JEPA",
+            "stage-efficient control"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world-action models",
+            "JEPA",
+            "robot manipulation",
+            "embodied AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Flex-π: A Multi-Stream World-Action Model with Compute Flexibility",
+          "authors": [
+            "Ge Yan",
+            "Jinghao Liu",
+            "Yuzhi Fan",
+            "Lei Cai",
+            "Minwen Liao",
+            "Jesse Zhang",
+            "Dieter Fox"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.10860",
+          "published": "2026-08-11T12:33:51Z",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "Flex-π 在共享视频 VAE latent 中联合建模 RGB、3D pointmap、对象语义和动作，并允许同一模型按算力裁剪输入输出流。",
+          "methodHighlights": [
+            "shared RGB/pointmap latent",
+            "multi-stream denoising",
+            "Mixture-of-Transformers",
+            "compute-flexible dropout"
+          ],
+          "projectUrl": "https://flex-pi.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world-action models",
+            "3D geometry",
+            "robot manipulation",
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "WildFireGS: Physics-Based Wildfire Simulation in Large-Scale Semantics-Enriched Gaussian Splatting Forest Scenes",
+          "authors": [
+            "Nienke Driessen",
+            "Joris Rijsdijk",
+            "Sören Pirk",
+            "Wojtek Palubicki",
+            "Dominik L. Michels",
+            "Michael Weinmann"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.11100",
+          "published": "2026-08-11T16:08:59Z",
+          "categories": [
+            "cs.GR"
+          ],
+          "summary": "WildFireGS 在语义增强 3DGS 森林中原生运行粒子燃烧、传热和冷却模拟，把真实场景重建直接转化为野火数字孪生。",
+          "methodHighlights": [
+            "simulation-native semantic 3DGS",
+            "fuel/material attributes",
+            "particle combustion",
+            "rain cooling and firebreaks"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "physics simulation",
+            "digital twins",
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Surgical WAM: A World-Action Model for Data-Efficient Surgical Robot Learning",
+          "authors": [
+            "Wenrui Bao",
+            "Tianyun Jiang",
+            "Zhiben Chen",
+            "Ser-Nam Lim",
+            "Peter D. Peng",
+            "Yuzhang Shang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.11204",
+          "published": "2026-08-11T17:59:13Z",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CV"
+          ],
+          "summary": "Surgical WAM 先用无动作内窥镜视频学习视觉动力学，再以固定动作标注预算微调，并以滚动时域闭环执行手术操作。",
+          "methodHighlights": [
+            "action-free video pretraining",
+            "joint observation/action generation",
+            "receding-horizon control",
+            "data-efficient surgical learning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world-action models",
+            "surgical robotics",
+            "robot manipulation",
+            "embodied AI"
+          ],
+          "watchGroups": []
+        }
+      ]
+    },
     {
       "date": "2026-08-11",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-11",
