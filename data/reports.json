@@ -1,6 +1,443 @@
 {
-  "updatedAt": "2026-08-12T00:00:00Z",
+  "updatedAt": "2026-08-14T00:00:00Z",
   "reports": [
+    {
+      "date": "2026-08-14",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-14",
+      "shortTitle": "空间 3DGS / 物理 HOI / 可控世界模型",
+      "summary": "官方 2026-08-14 公告批次筛出 16 篇；显式几何、接触力与动作忠实性成为 3D 和 Physical AI 主线。",
+      "trends": [
+        "世界模型围绕控制有效状态重构：DreamX-Phi、BrainWAM 与 ContactGuard 分别强化刚体动作忠实性、语义-动力学协调和接触前安全预测。",
+        "3D 表示强调显式空间结构与可编辑性：LocusGS、GeoUP 与 SCULPT 从 anchor、重建 latent 和减法式部件生成切入。",
+        "Physical AI 评测从像素质量转向物理和长期目标：HumanoidVLN 与 PlayWorld 纳入 embodiment、控制器、空间持久性和状态演化。",
+        "HOI 与跨 embodiment 学习开始补齐接触和力，EgoPHI 与 H2R-Bench 分别提供稠密物理估计和系统诊断。"
+      ],
+      "topPapers": [
+        "DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation",
+        "EgoPHI: Estimating Contact and Force from Egocentric Vision",
+        "LocusGS: Spatially Grounded Tokens for Feed-Forward 3D Gaussian Splatting",
+        "SCULPT: Subtractive Composition for 3D Part Generation",
+        "ContactGuard: Pre-Contact Execution Monitoring with Action-Conditioned Latent World Models",
+        "PlayWorld: Benchmarking World Models with Agent Players over Long-Horizon Objectives"
+      ],
+      "markdownPath": "reports/arxiv/2026-08-14.md",
+      "papers": [
+        {
+          "title": "MV2: Multi-View Multi-Vehicle Driving Dataset for Novel View Synthesis",
+          "authors": [
+            "Sanjay Bhargav Dharavath",
+            "Hanvitha Saraswathi Mukkamala",
+            "Faizan Farooq Khan",
+            "Ioannis Kakogeorgiou",
+            "Aditya Arun",
+            "C V Jawahar",
+            "Zakaria Laskar"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.12442",
+          "published": "2026-08-12T16:02:32Z",
+          "categories": ["cs.CV"],
+          "summary": "MV2 用汽车、踏板车和无人机的同步异轨采集构建动态道路 NVS 基准，以 SfM 和人工像素对应验证 50 个场景的相机位姿。",
+          "methodHighlights": [
+            "multi-vehicle synchronized capture",
+            "cross-trajectory NVS protocol",
+            "SfM registration",
+            "manual pose verification"
+          ],
+          "projectUrl": "https://mv2-dataset.github.io/",
+          "codeUrl": "https://github.com/sanjay-810/MV2dataset",
+          "datasetUrl": "https://huggingface.co/datasets/sanjay810/mv2-dataset",
+          "priority": "中",
+          "areaTags": ["novel view synthesis", "3D reconstruction", "autonomous driving", "dataset"],
+          "watchGroups": []
+        },
+        {
+          "title": "FUSE: Active Functional Affordance Grounding through Adaptive Semantic-Geometric Evidence Acquisition",
+          "authors": ["Zhou Chen", "Sathyanarayanan N. Aakur"],
+          "arxivUrl": "https://arxiv.org/abs/2608.12683",
+          "published": "2026-08-13T00:51:09Z",
+          "categories": ["cs.RO", "cs.CV"],
+          "summary": "FUSE 让具身智能体按功能查询主动选取视角，以不确定性搜索和学习式规划器获得语义-几何 affordance 证据。",
+          "methodHighlights": [
+            "active functional grounding",
+            "semantic-geometric evidence acquisition",
+            "uncertainty-driven exploration",
+            "amortized planning"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": ["embodied AI", "affordance grounding", "active perception", "robotics"],
+          "watchGroups": []
+        },
+        {
+          "title": "LocusGS: Spatially Grounded Tokens for Feed-Forward 3D Gaussian Splatting",
+          "authors": ["Wenyu Li", "Sidun Liu", "Tongrui Hu", "Peng Qiao", "Yong Dou"],
+          "arxivUrl": "https://arxiv.org/abs/2608.12825",
+          "published": "2026-08-13T04:59:36Z",
+          "categories": ["cs.CV"],
+          "summary": "LocusGS 为 Gaussian query 增加中心和支持半径组成的 3D anchor，以几何偏置和局部解码提升 feed-forward 3DGS 的空间一致性。",
+          "methodHighlights": [
+            "explicit 3D anchor state",
+            "progressive anchor refinement",
+            "anchor-to-ray geometric bias",
+            "anchor-centered decoding"
+          ],
+          "projectUrl": "https://leo-frank.github.io/LocusGS_viewer/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": ["3D Gaussian Splatting", "novel view synthesis", "feed-forward reconstruction"],
+          "watchGroups": []
+        },
+        {
+          "title": "BrainWAM: Action-Space Coordination of Semantic Priors and Predictive Dynamics for Autonomous Driving",
+          "authors": [
+            "Bing Zhan",
+            "Shuyao Shang",
+            "Jiahao Gu",
+            "Shuo Lu",
+            "Yuan Xu",
+            "Zhao Wang",
+            "Yida Wang",
+            "Xueyang Zhang",
+            "Kun Zhan",
+            "Lue Fan",
+            "Zhaoxiang Zhang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.12854",
+          "published": "2026-08-13T05:56:17Z",
+          "categories": ["cs.RO", "cs.AI", "cs.CV"],
+          "summary": "BrainWAM 将 VLA 语义先验和 WAM 预测动力学分成专门通路，再在动作表示上协调，并以异步 flow 降低规划延迟。",
+          "methodHighlights": [
+            "specialized action pathways",
+            "action-space coordination",
+            "asynchronous rectified flow",
+            "decoupled video/action denoising"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": ["world-action models", "VLA", "autonomous driving", "embodied AI"],
+          "watchGroups": []
+        },
+        {
+          "title": "HumanoidVLN: A Physics-Grounded Simulator and Benchmark for Vision-Language Navigation Across Diverse Humanoid Embodiments",
+          "authors": [
+            "Quan-Dung Pham",
+            "Anh Dao",
+            "The-Anh Nguyen",
+            "Minh Nguyen-Dinh",
+            "Phuong Nam Dang",
+            "Tri Pham",
+            "Hung Tran",
+            "Bach Dao",
+            "Tuyen P. Le",
+            "Truong Nguyen",
+            "Quan Nguyen"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.12860",
+          "published": "2026-08-13T06:16:05Z",
+          "categories": ["cs.RO"],
+          "summary": "HumanoidVLN 在 3DGS/艺术场景中联合评估人形机器人形态、双足控制器和 VLN 模型，并以 Unitree G1 进行 sim-to-real 验证。",
+          "methodHighlights": [
+            "physics-grounded humanoid VLN",
+            "embodiment-specific locomotion",
+            "3DGS environments",
+            "sim-to-real validation"
+          ],
+          "projectUrl": "https://humanoid-vln.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": ["embodied AI", "vision-language navigation", "physics simulation", "humanoid robotics", "3D Gaussian Splatting"],
+          "watchGroups": []
+        },
+        {
+          "title": "PixSDS: Why Latent SDS Makes Noisy Pixels",
+          "authors": ["Vsevolod Skorokhodov"],
+          "arxivUrl": "https://arxiv.org/abs/2608.12997",
+          "published": "2026-08-13T09:20:58Z",
+          "categories": ["cs.CV"],
+          "summary": "PixSDS 将 text-to-3D 的 latent SDS 伪影归因于 VAE-induced pixel drift，并以解码 lookahead 修复像素空间梯度。",
+          "methodHighlights": [
+            "VAE-induced pixel drift diagnosis",
+            "latent lookahead decoding",
+            "VAE-consistent gradient repair",
+            "renderer-agnostic correction"
+          ],
+          "projectUrl": "https://sevashasla.github.io/pixsds-webpage/",
+          "codeUrl": "https://github.com/sevashasla/PixSDS",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": ["3D generation", "text-to-3D", "score distillation sampling", "diffusion models"],
+          "watchGroups": []
+        },
+        {
+          "title": "EgoPHI: Estimating Contact and Force from Egocentric Vision",
+          "authors": ["Andela Ilic", "Rachel Schuchert", "Yijing Jiang", "Christian Holz"],
+          "arxivUrl": "https://arxiv.org/abs/2608.13014",
+          "published": "2026-08-13T09:34:08Z",
+          "categories": ["cs.CV", "cs.GR", "cs.HC", "cs.RO"],
+          "summary": "EgoPHI 从单目第一视角和对象几何估计手物网格上的稠密 3D 接触与力，并以物理仿真监督和真实传感物体检验迁移。",
+          "methodHighlights": [
+            "dense 3D contact and force",
+            "egocentric monocular inference",
+            "physics-based force supervision",
+            "articulated hand-object meshes"
+          ],
+          "projectUrl": "https://siplab.org/projects/EgoPHI",
+          "codeUrl": "https://github.com/eth-siplab/EgoPHI",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": ["HOI", "human-object interaction", "hand-object interaction", "contact", "Physical AI"],
+          "watchGroups": []
+        },
+        {
+          "title": "H2R-Bench: Benchmarking Human-to-Robot Manipulation Video Generation in World Models",
+          "authors": [
+            "Dingyi Rong",
+            "Yue Shi",
+            "Chaofan Ma",
+            "Jiezhang Cao",
+            "Zongrui Wang",
+            "Zeyu Zhang",
+            "Yao Mu",
+            "Guangtao Zhai",
+            "Ning Liu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.13049",
+          "published": "2026-08-13T10:14:33Z",
+          "categories": ["cs.RO", "cs.CV"],
+          "summary": "H2R-Bench 从任务、事件、功能接触、形态和视频质量五方面诊断世界模型将人类操作视频转换为机器人 embodiment 的能力。",
+          "methodHighlights": [
+            "cross-embodiment video generation",
+            "source-grounded annotations",
+            "functional-contact metric",
+            "five-axis diagnosis"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": ["world models", "robot manipulation", "human-object interaction", "cross-embodiment transfer"],
+          "watchGroups": []
+        },
+        {
+          "title": "Semantic Radiance Fields as Simulators for Spatial Reasoning in Real-World Scenes",
+          "authors": [
+            "Nico Heider",
+            "Michał Jan Włodarczyk",
+            "Katarzyna Wasielewska-Michniewska",
+            "Przemysław Hołda",
+            "Martin Schieck",
+            "Marcin Paprzycki",
+            "Maria Ganzha",
+            "Bogdan Franczyk"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.13095",
+          "published": "2026-08-13T11:01:09Z",
+          "categories": ["cs.RO", "cs.CV"],
+          "summary": "Semantic Radiance Fields 将真实重建中的几何、外观和语义统一为可渲染、可查询的空间推理模拟器，并向物理引擎提供 occupancy。",
+          "methodHighlights": [
+            "semantic radiance field simulator",
+            "2D-to-3D semantic lifting",
+            "joint geometry and identity",
+            "free-space queries"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": ["neural rendering", "3D reconstruction", "simulation", "spatial reasoning", "embodied AI"],
+          "watchGroups": []
+        },
+        {
+          "title": "S2-HWM: Sparse Event-Structured Hierarchical World Model for Long-Horizon Surgical Robot Manipulation",
+          "authors": ["Shuzhe Zhang", "Xin Zhu", "Yinling Qian", "Qiong Wang"],
+          "arxivUrl": "https://arxiv.org/abs/2608.13103",
+          "published": "2026-08-13T11:29:20Z",
+          "categories": ["cs.RO", "eess.SY"],
+          "summary": "S2-HWM 从 primitive latent trajectory 学习稀疏事件边界，以变长 event transition 协调 manager 与 worker，延伸手术操作的长期想象。",
+          "methodHighlights": [
+            "sparse event evidence",
+            "hierarchical manager-worker",
+            "variable-duration segmentation",
+            "event transition model"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": ["world models", "surgical robotics", "robot manipulation", "long-horizon planning"],
+          "watchGroups": []
+        },
+        {
+          "title": "Geometry-Grounded Unified 3D Perception for Autonomous Driving",
+          "authors": ["Longfei Xu", "Xiaohui Wang", "Zehao Huang", "Han Li", "Ya Yang", "Naiyan Wang", "Si Liu"],
+          "arxivUrl": "https://arxiv.org/abs/2608.13147",
+          "published": "2026-08-13T12:17:50Z",
+          "categories": ["cs.CV"],
+          "summary": "GeoUP 将 VGGT 重建 latent 适配到流式多相机驾驶，以 raymap 和分解 attention 统一深度、3D 检测与语义占据。",
+          "methodHighlights": [
+            "VGGT reconstruction latent",
+            "self/temporal/view attention",
+            "calibration-aware raymaps",
+            "unified 3D task heads"
+          ],
+          "projectUrl": "https://buaa-colalab.github.io/geoup_page",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": ["3D perception", "3D reconstruction", "autonomous driving", "depth estimation", "occupancy prediction"],
+          "watchGroups": []
+        },
+        {
+          "title": "ContactGuard: Pre-Contact Execution Monitoring with Action-Conditioned Latent World Models",
+          "authors": ["Gehan Zheng", "Matthew Johnson-Roberson", "Weiming Zhi"],
+          "arxivUrl": "https://arxiv.org/abs/2608.13438",
+          "published": "2026-08-13T16:25:54Z",
+          "categories": ["cs.RO", "cs.AI", "cs.CV"],
+          "summary": "ContactGuard 沿策略动作在 latent space 预测接触后结果，以未标注轨迹预训练和少量失败标注实现接触前中止。",
+          "methodHighlights": [
+            "pre-contact failure prediction",
+            "action-conditioned latent rollout",
+            "unlabelled trajectory pretraining",
+            "policy-agnostic abort signal"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": ["world models", "robot manipulation", "contact", "robot safety", "Physical AI"],
+          "watchGroups": []
+        },
+        {
+          "title": "DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation",
+          "authors": [
+            "DreamX Team",
+            "Rui Chen",
+            "Xiangxiang Chu",
+            "Geng Li",
+            "Jifan Li",
+            "Qingfeng Shi",
+            "Datao Tang",
+            "Jing Tang",
+            "Jun Wang",
+            "Pengfei Zhang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.13489",
+          "published": "2026-08-13T17:18:09Z",
+          "categories": ["cs.CV", "cs.RO"],
+          "summary": "DreamX-Phi 以 per-arm SE(3)、depth branch 和对象一致性 teacher 约束操作视频未来，再蒸馏为少步世界模型。",
+          "methodHighlights": [
+            "per-arm SE(3) encoding",
+            "depth-conditioned geometry",
+            "SAM3/V-JEPA consistency",
+            "few-step distillation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/AMAP-ML/DreamX-Phi",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": ["world models", "robot manipulation", "action-conditioned video", "3D geometry", "embodied AI"],
+          "watchGroups": []
+        },
+        {
+          "title": "AlayaWorld: Interactive Long-Horizon World Modeling - Full Technical Report (v1.1)",
+          "authors": [
+            "AlayaWorld Team",
+            "Kaipeng Zhang",
+            "Chuanhao Li",
+            "Yifan Zhan",
+            "Yongtao Ge",
+            "Yuanyang Yin",
+            "Jiaming Tan",
+            "Kang He",
+            "Liaoyuan Fan",
+            "Mingliang Zhai",
+            "Ruicong Liu",
+            "Xiaojie Xu",
+            "Xuangeng Chu",
+            "Zhen Li",
+            "Zhengyuan Lin",
+            "Zhixiang Wang",
+            "Zian Meng",
+            "Zihui Gao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.13492",
+          "published": "2026-08-13T17:21:03Z",
+          "categories": ["cs.AI"],
+          "summary": "AlayaWorld v1.1 用 streaming 3D point cache 和 causal VAE 连续记忆重构长时交互条件，并统一训练与推理的编码协议。",
+          "methodHighlights": [
+            "streaming 3D point cache",
+            "causal re-rendered memory",
+            "motion-aware conditioning",
+            "hard memory dropout"
+          ],
+          "projectUrl": "https://alaya-lab.github.io/AlayaWorld/",
+          "codeUrl": "https://github.com/AlayaLab/AlayaWorld",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": ["world models", "interactive video generation", "3D memory", "long-horizon generation"],
+          "watchGroups": []
+        },
+        {
+          "title": "SCULPT: Subtractive Composition for 3D Part Generation",
+          "authors": ["Sikuang Li", "Chen Yang", "Jiemin Fang", "Jiazhong Cen", "Yuhe Wei", "Jichen Pang", "Wei Shen", "Qi Tian"],
+          "arxivUrl": "https://arxiv.org/abs/2608.13541",
+          "published": "2026-08-13T17:55:04Z",
+          "categories": ["cs.CV", "cs.GR"],
+          "summary": "SCULPT 每轮联合生成抽取部件与剩余对象，以可重叠 sparse support 的减法式组合保持部件边界和整体重组质量。",
+          "methodHighlights": [
+            "subtractive part composition",
+            "joint part/remainder denoising",
+            "overlapping sparse supports",
+            "adaptive part count"
+          ],
+          "projectUrl": "https://sculpt-part.github.io/",
+          "codeUrl": "https://github.com/sculpt-part/SCULPT",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": ["3D generation", "part-aware generation", "3D assets", "structured generation"],
+          "watchGroups": []
+        },
+        {
+          "title": "PlayWorld: Benchmarking World Models with Agent Players over Long-Horizon Objectives",
+          "authors": [
+            "Kaixin Ding",
+            "Xi Chen",
+            "Minghong Cai",
+            "Zhiyuan Xu",
+            "Yiyang Wang",
+            "Yuxiang Lu",
+            "Junyi Li",
+            "Shuyang Chen",
+            "Yuan Gao",
+            "Xin Tao",
+            "Pengfei Wan",
+            "Hengshuang Zhao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.13552",
+          "published": "2026-08-13T17:59:30Z",
+          "categories": ["cs.CV"],
+          "summary": "PlayWorld 让多模态 Agent Player 在 171 个场景中完成长期目标，比较世界模型的几何、交互和隐藏状态演化。",
+          "methodHighlights": [
+            "agent-player evaluation",
+            "long-horizon objectives",
+            "geometry and interaction fidelity",
+            "state evolution tests"
+          ],
+          "projectUrl": "https://kxding.github.io/project/PlayWorld/",
+          "codeUrl": "https://github.com/kxding/PlayWorld",
+          "datasetUrl": "https://huggingface.co/datasets/jocelynd/playworld-bench",
+          "priority": "高",
+          "areaTags": ["world models", "interactive environments", "long-horizon evaluation", "spatial consistency"],
+          "watchGroups": []
+        }
+      ]
+    },
     {
       "date": "2026-08-12",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-12",
