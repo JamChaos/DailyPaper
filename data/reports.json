@@ -1,6 +1,614 @@
 {
-  "updatedAt": "2026-08-14T00:00:00Z",
+  "updatedAt": "2026-08-17T00:00:00Z",
   "reports": [
+    {
+      "date": "2026-08-17",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-17",
+      "shortTitle": "显式世界状态 / 结构化 3D / 跨 embodiment 操作",
+      "summary": "官方 2026-08-17 公告批次筛出 16 篇；显式 3D 状态、结构先验与可验证 Physical AI 成为主线。",
+      "trends": [
+        "世界模型从直接生成像素转向显式、可检查的中间状态，Marionette、hint² 与 Onto-EV-WM 分别强化 3D 状态、时序逻辑和闭环验证。",
+        "3D 重建与渲染强化结构先验：HiCo-GS 改善 octree 跨层通信，RGBX-Next 用 G-buffer 连接经典几何与生成式渲染。",
+        "机器人学习聚焦动态决策与跨 embodiment 数据，AdvDex、FlatLab 和 ReflexVLA 分别从统一动作空间、仿真基准和低延迟未来预测切入。",
+        "自动驾驶与导航评测补齐遮挡结构、跨域 3D proposal 和事件等价性，代表工作包括 GhostPoint、MAGneT-3D 与 SSP。"
+      ],
+      "topPapers": [
+        "Marionette: Predicting World States, Rendering Geometry, Painting Appearance",
+        "HiCo-GS: Hierarchical Context Aggregation and Geometric Consistency for Octree Gaussian Splatting",
+        "RGBX-Next: Towards Realistic Generative Rendering from G-Buffers",
+        "AdvDex: Learning Dexterous Manipulation from Human Demonstrations via Joint-Aligned Actions and Adversarial Learning",
+        "OccPlanner: Goal-Aware Occupancy-Conditioned Diffusion Planner for Pixel-Goal Navigation",
+        "hint²: Hierarchical World Models for Inference-Time Temporal Logic Guidance"
+      ],
+      "markdownPath": "reports/arxiv/2026-08-17.md",
+      "papers": [
+        {
+          "title": "Marionette: Predicting World States, Rendering Geometry, Painting Appearance",
+          "authors": [
+            "Zian Meng",
+            "Zhen Li",
+            "Chuanhao Li",
+            "Qiang Li",
+            "Kaipeng Zhang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.14530",
+          "published": "2026-08-14T17:48:16Z",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "summary": "Marionette 不再让视频生成器隐式维护姿态、几何和遮挡，而是先预测由多实体骨架、根轨迹和旋转组成的 276 维显式 3D 世界状态。",
+          "methodHighlights": [
+            "explicit articulated 3D state",
+            "two-stage autoregressive dynamics",
+            "zero-parameter geometric renderer",
+            "control-conditioned video diffusion",
+            "state-level repair"
+          ],
+          "projectUrl": "https://alayalab.github.io/Marionette/",
+          "codeUrl": "https://github.com/AlayaLab/Marionette",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "3D geometry",
+            "articulated objects",
+            "video generation",
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "GhostPoint: Self-Supervised Representation Learning by Hallucinating Occluded LiDAR Structure",
+          "authors": [
+            "Mohamed Abdelsamad",
+            "Bin Yang",
+            "Michael Ulrich",
+            "Miao Zhang",
+            "Yakov Miron",
+            "Alexandru Paul Condurache",
+            "Abhinav Valada"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.14428",
+          "published": "2026-08-14T16:10:35Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "GhostPoint 指出 LiDAR 自监督学习只约束可见回波，导致表示偏向表面分割而难以迁移到需要补全形状的 3D detection。",
+          "methodHighlights": [
+            "occluded-structure hallucination",
+            "instance voxel dilation",
+            "dual teacher supervision",
+            "LiDAR self-supervised pretraining"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D perception",
+            "LiDAR",
+            "self-supervised learning",
+            "autonomous driving"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "MAGneT-3D: Monocular and Domain-Generalizable Temporal 3D Detection",
+          "authors": [
+            "Mohamed Kotb",
+            "Johannes Meier",
+            "Christoph Reich",
+            "Oussema Dhaouadi",
+            "Luis Denninger",
+            "Daniel Cremers"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.14282",
+          "published": "2026-08-14T13:09:07Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "MAGneT-3D 研究单目视频 3D detection 在跨数据集时因可学习 query 过拟合训练视场和空间分布而失效的问题。",
+          "methodHighlights": [
+            "domain-robust anchor generation",
+            "temporal refinement",
+            "identity merging",
+            "cross-dataset 3D detection benchmark"
+          ],
+          "projectUrl": "https://tum-vision.github.io/magnet-3d/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D detection",
+            "monocular video",
+            "domain generalization",
+            "autonomous driving"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "HiCo-GS: Hierarchical Context Aggregation and Geometric Consistency for Octree Gaussian Splatting",
+          "authors": [
+            "Wei Zhang",
+            "Shengkai Yu",
+            "Shiqiang Gong",
+            "Qi Zhang",
+            "Qiang Li",
+            "Qi Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.14136",
+          "published": "2026-08-14T09:41:58Z",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "summary": "HiCo-GS 聚焦城市级 octree anchor Gaussian Splatting 中不同层级独立优化造成的色漂与纹理过平滑。",
+          "methodHighlights": [
+            "cross-level context aggregation",
+            "parent-self-child fusion",
+            "depth-normal consistency",
+            "edge-aware smoothness",
+            "China-Pagoda dataset"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/WZ-CS/HiCo-GS",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "novel view synthesis",
+            "3D reconstruction",
+            "urban scenes"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Owner3D: Ownership-Guided Style Writing for Training-Free Localized 3D Stylization",
+          "authors": [
+            "Suchang Tao",
+            "Kaifeng Shi",
+            "Zhiyan Liu",
+            "Zhuoyuan Jiang",
+            "Yuqi Ouyang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.14078",
+          "published": "2026-08-14T08:41:13Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Owner3D 解决 LRM triplane 中目标与非目标表面共享特征导致局部风格泄漏的问题。",
+          "methodHighlights": [
+            "ownership-guided style writing",
+            "boundary dual slots",
+            "surface-first texture readout",
+            "training-free localized stylization"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D generation",
+            "3D stylization",
+            "large reconstruction models",
+            "triplane"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "RGBX-Next: Towards Realistic Generative Rendering from G-Buffers",
+          "authors": [
+            "Zheng Zeng",
+            "Marco Salvi",
+            "Lifan Wu",
+            "Jan Novák",
+            "Daqi Lin",
+            "Saeed Hadadan",
+            "Yichen Sheng",
+            "Robert Pottorff",
+            "Shiqiu Liu",
+            "Ravi Ramamoorthi",
+            "Ling-Qi Yan",
+            "Miloš Hašan"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.13929",
+          "published": "2026-08-14T03:57:52Z",
+          "categories": [
+            "cs.CV",
+            "cs.GR"
+          ],
+          "summary": "RGBX-Next 以传统渲染得到的 G-buffer 作为精确几何控制接口，把扩散模型改造成可控的 learned renderer。",
+          "methodHighlights": [
+            "G-buffer-conditioned generation",
+            "unified forward/inverse rendering",
+            "DiT renderer finetuning",
+            "image/video/stream support"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "generative rendering",
+            "neural rendering",
+            "inverse rendering",
+            "G-buffer",
+            "video generation"
+          ],
+          "watchGroups": [
+            "nvidia-research"
+          ]
+        },
+        {
+          "title": "Strand-based Hairstyle Generation via Large Reconstruction and Multimodal Models",
+          "authors": [
+            "Conghui Hao",
+            "Tao Huang",
+            "Yuefan Shen",
+            "Tongtong Wang",
+            "Zhongtian Zheng",
+            "Kui Wu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.13679",
+          "published": "2026-08-13T18:22:08Z",
+          "categories": [
+            "cs.GR"
+          ],
+          "summary": "该工作从单张图像生成可直接用于编辑和物理模拟的 strand-level 发型几何。",
+          "methodHighlights": [
+            "single-view strand reconstruction",
+            "LRM/LMM orchestration",
+            "classical geometry processing",
+            "simulation-ready hair representation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D generation",
+            "human reconstruction",
+            "digital humans",
+            "geometry processing"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "ForgeWM: Progressive Causal Training for Few-Step Action-Conditioned Video World Models",
+          "authors": [
+            "Xinye Li",
+            "Lingshuai Lin",
+            "Lei Wang",
+            "Liuzhou Zhang",
+            "Jialin Cui",
+            "Qingshan Li",
+            "Guanchu Wang",
+            "Qingbin Liu",
+            "Xi Chen",
+            "Jiang Bian",
+            "Wai Lam"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.14022",
+          "published": "2026-08-14T07:13:34Z",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "summary": "ForgeWM 把双向 action-conditioned video generator 逐步转成 1、2、4 步的低延迟因果世界模型。",
+          "methodHighlights": [
+            "progressive causal training",
+            "causal consistency distillation",
+            "on-policy distribution matching",
+            "few-step interactive generation",
+            "replay refinement"
+          ],
+          "projectUrl": "https://asdfo123.github.io/ForgeWM",
+          "codeUrl": "https://github.com/asdfo123/ForgeWM",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "action-conditioned video",
+            "interactive generation",
+            "embodied AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Reflex: Enabling Fast and Predictive Vision-Language-Action Models for Reaction-Critical Manipulation",
+          "authors": [
+            "Yuxuan Chen",
+            "Wanruo Zhang",
+            "Xiao Li"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.14379",
+          "published": "2026-08-14T15:19:04Z",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "Reflex 提出六个动态操作任务组成的 ReflexBench，显式解耦 simulator stepping 与 robot control，并可配置同步、异步推理延迟。",
+          "methodHighlights": [
+            "reaction-critical benchmark",
+            "latent future prediction",
+            "multi-frame temporal fusion",
+            "latency-aware evaluation",
+            "CUDA Graph deployment"
+          ],
+          "projectUrl": "https://reflexvla.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "VLA",
+            "robot manipulation",
+            "embodied AI",
+            "dynamic interaction"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Accelerating Large-scale Bundle Adjustment for LiDAR Mapping via Parallel Computing",
+          "authors": [
+            "Yixi Cai",
+            "Rundong Li",
+            "Yuhan Xie",
+            "Qingwen Zhang",
+            "Patric Jensfelt",
+            "Fu Zhang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.14266",
+          "published": "2026-08-14T12:43:05Z",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "论文提出面向大规模 LiDAR mapping 的全并行 bundle adjustment 框架。",
+          "methodHighlights": [
+            "asynchronous point-cloud loading",
+            "bottom-up voxelization",
+            "parallel MM optimization",
+            "GPU LiDAR bundle adjustment"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/Ecstasy-EC/GPU-BALM",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D reconstruction",
+            "LiDAR mapping",
+            "bundle adjustment",
+            "SLAM"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "OccPlanner: Goal-Aware Occupancy-Conditioned Diffusion Planner for Pixel-Goal Navigation",
+          "authors": [
+            "Binling Huang",
+            "Nianjin Ye",
+            "Xi Yang",
+            "Liang Hu",
+            "Zhou Huang",
+            "Shuang Wei",
+            "Longrui Yang",
+            "Yanchi Chen",
+            "Lanpeng Jia"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.14160",
+          "published": "2026-08-14T10:15:07Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "OccPlanner 处理 pixel-goal navigation 中目标像素没有深度和可通行性的问题。",
+          "methodHighlights": [
+            "pixel-to-metric goal grounding",
+            "local 3D occupancy conditioning",
+            "diffusion planning",
+            "video-derived occupancy labels",
+            "sim-to-real evaluation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "embodied AI",
+            "3D occupancy",
+            "navigation",
+            "diffusion planning",
+            "robotics"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "FlatLab: A Unified Methodology Framework and Simulation-Based Benchmark for Robotic Manipulation of Flat Objects",
+          "authors": [
+            "Xingyu Zhu",
+            "Wenshuo Han",
+            "Zhouyu Wang",
+            "Yuran Wang",
+            "Ruihai Wu",
+            "Hao Dong",
+            "Fan Tang",
+            "Hechang Chen",
+            "Hyung Jin Chang",
+            "Yixing Gao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.14049",
+          "published": "2026-08-14T07:55:55Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "FlatLab 面向平面薄物体难抓取、材质与几何变化大的操作问题，将策略生成与动作执行解耦。",
+          "methodHighlights": [
+            "strategy/execution decoupling",
+            "point-cloud contrastive learning",
+            "composable action primitives",
+            "rigid/deformable simulation benchmark"
+          ],
+          "projectUrl": "https://flatlab-web.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "robot manipulation",
+            "physics simulation",
+            "deformable objects",
+            "embodied AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "AdvDex: Learning Dexterous Manipulation from Human Demonstrations via Joint-Aligned Actions and Adversarial Learning",
+          "authors": [
+            "Zhiyue Zhao",
+            "Jingyi Wu",
+            "Hairuo Liu",
+            "Mingyu Liu",
+            "Liyang Li",
+            "Hengdi Zhang",
+            "Tong He",
+            "Zhengxue Cheng"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.14028",
+          "published": "2026-08-14T07:19:06Z",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "AdvDex 用统一 VLA 框架同时学习人类与机器人示范，减少昂贵机器人遥操作数据的依赖。",
+          "methodHighlights": [
+            "OmniShare human demonstrations",
+            "joint-aligned action space",
+            "cross-embodiment VLA",
+            "domain-adversarial representation learning",
+            "tactile supervision"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "dexterous manipulation",
+            "hand-object interaction",
+            "HOI",
+            "VLA",
+            "embodied AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Ontology-Grounded World Models for Failure Diagnosis and Closed-Loop Repair in Physical AI Systems",
+          "authors": [
+            "Kailin Wang",
+            "Haoxiang Jie",
+            "Yaoyuan Yan",
+            "Jiacheng Zhou",
+            "Zhiyou Heng"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.13901",
+          "published": "2026-08-14T03:13:57Z",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "Onto-EV-WM 不是替换原世界模型，而是在其上增加 ontology-grounded diagnosis 和 verification-gated correction 接口。",
+          "methodHighlights": [
+            "ontology-grounded diagnosis",
+            "typed failure records",
+            "route-aware correction",
+            "predicate-gated verification",
+            "closed-loop retry protocol"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "world models",
+            "Physical AI",
+            "robotics",
+            "failure recovery"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "hint²: Hierarchical World Models for Inference-Time Temporal Logic Guidance",
+          "authors": [
+            "Moritz Zoellner",
+            "Anastasios Manganaris",
+            "Ahmed H. Qureshi",
+            "Rohan Paleja"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.13678",
+          "published": "2026-08-13T18:22:08Z",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "summary": "hint² 用分层世界模型在推理时引导短 horizon 操作策略满足长时 Linear Temporal Logic 规范。",
+          "methodHighlights": [
+            "hierarchical world models",
+            "LTL automaton guidance",
+            "high-level proposition transitions",
+            "low-level safety dynamics",
+            "real-robot validation"
+          ],
+          "projectUrl": "https://anonymous-hint2.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "world models",
+            "robot manipulation",
+            "temporal logic",
+            "robot safety",
+            "embodied AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "SSP: An Event-Matched Syn2Sim2Phy Cross-Domain Evaluation Framework for Autonomous Driving VLA Models",
+          "authors": [
+            "Haojie Feng",
+            "Peizhi Zhang",
+            "Xinrui Zhang",
+            "Zhuoren Li",
+            "Junpeng Huang",
+            "Xiurong Wang",
+            "Dongxiao Yin",
+            "Yuxiang Zhang",
+            "Junfan Zhu",
+            "Lu Xiong"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.14024",
+          "published": "2026-08-14T07:15:16Z",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "SSP 认为合成、仿真和实车域若使用不同场景，测到的差异会混合场景变化与真实 domain sensitivity。",
+          "methodHighlights": [
+            "event-matched Syn2Sim2Phy",
+            "scenario transfer audit",
+            "unified semantic/trajectory outputs",
+            "safety-critical VLA evaluation"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "VLA",
+            "autonomous driving",
+            "simulation",
+            "Physical AI",
+            "sim-to-real"
+          ],
+          "watchGroups": []
+        }
+      ]
+    },
     {
       "date": "2026-08-14",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-14",
