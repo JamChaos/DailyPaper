@@ -1,6 +1,1938 @@
 {
-  "updatedAt": "2026-08-21T12:21:45+08:00",
+  "updatedAt": "2026-08-24T12:00:00+08:00",
   "reports": [
+    {
+      "date": "2026-08-24",
+      "title": "arXiv 三维视觉工作日报｜2026-08-24",
+      "shortTitle": "3D视觉日报 08-24",
+      "summary": "最新公告批次覆盖 75 篇三维视觉、视频生成、世界模型与 Physical AI 论文。",
+      "trends": "本批次呈现三条主线：物理与触觉约束驱动的机器人学习；3D/4D 重建、可动画人和几何基础模型；视频生成可信度、身份保持与世界模型控制。",
+      "topPapers": [
+        "ViTacPhys: Physical Property-Aware Grasping from Human Visual-Tactile Demonstrations",
+        "VT-MUSE: Multimodal Unified Sequential Visuotactile Representation Learning for Manipulation",
+        "PhysCaP: Grounding Code-as-Policy Agent with Physics-Informed Exploration",
+        "DiGS-Avatar: Single-Image Animatable 3D Human Reconstruction via UV-Space Diffusion",
+        "Identity-Preserving Text-to-Video Generation via Agentic Enhancement and Semantic Repair",
+        "VisTa3D: A Dataset and Benchmark for Thin Object Reconstruction from Vision, Tactile, and 3D Point Clouds",
+        "ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation",
+        "TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction"
+      ],
+      "markdownPath": "reports/arxiv/2026-08-24.md",
+      "papers": [
+        {
+          "title": "Mining beyond Earth with Space Robots: Exploration, Sampling, and Extraction",
+          "authors": [
+            "Dong Li",
+            "Dujun Nie",
+            "Xiaotong Zhang",
+            "Ruilin Wang",
+            "Yuchen Li",
+            "Chang Ge",
+            "Chao Xiong",
+            "Kaichang Di",
+            "Andreas Nüchter",
+            "Levente Kovács",
+            "Qingquan Li",
+            "Shirong Ge",
+            "Fei-Yue Wang",
+            "Long Chen"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21358",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "Space resource acquisition and utilization, commonly referred to as Space Mining, represent critical pathways for enabling sustained human exploration and unlocking commercial opportunities in space. These resources mainly include helium-3, water, mineral resources on the Moon and Mars, and abundant mineral deposits on asteroids. Due to the harsh conditions of space, communication delays, and high launch costs, the development of autonomous robotic systems is critical to achieving efficient, cost-effective space mining.",
+          "methodHighlights": "Space resource acquisition and utilization, commonly referred to as Space Mining, represent critical pathways for enabling sustained human exploration and unlocking commercial opportunities in space.；These resources mainly include helium-3, water, mineral resources on the Moon and Mars, and abundant mineral deposits on asteroids.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "ViTacPhys: Physical Property-Aware Grasping from Human Visual-Tactile Demonstrations",
+          "authors": [
+            "Yiwen Liu",
+            "Yujun Zhu",
+            "Kui Jia",
+            "Zhao Liao",
+            "Yangwei You",
+            "Shuaijun Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21355",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "Recent vision-based action models have demonstrated strong capabilities in complex manipulation, but they rarely leverage explicit object physical properties to adapt their policies. We introduce ViTacPhys, a visual-tactile framework and data acquisition system that estimates object mass and friction-coefficient classes, together with continuous stiffness, from human manipulation demonstrations. Trained on data from 60 rigid and deformable objects, ViTacPhys combines temporal visual-tactile modeling, cross-attention multimodal fusion, and a semantic prior derived from a vision-language model.",
+          "methodHighlights": "Recent vision-based action models have demonstrated strong capabilities in complex manipulation, but they rarely leverage explicit object physical properties to adapt their policies.；We introduce ViTacPhys, a visual-tactile framework and data acquisition system that estimates object mass and friction-coefficient classes, together with continuous stiffness, from human manipulation demonstrations.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Video Generation",
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Across-Design Uncertainty in Short Pricing Panels: Evidence from Simulated Price Trajectories",
+          "authors": [
+            "Pedro Cadahia Delgado"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21334",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.LG",
+            "econ.EM"
+          ],
+          "summary": "Short observational pricing panels can contain many observations while offering only a small number of distinct price movements. This paper studies the inferential consequences of that distinction in a synthetic data-generating process calibrated to a sparse pricing regime. We separate uncertainty conditional on a realised price trajectory from variation in estimation error across alternative trajectories generated by the same pricing process.",
+          "methodHighlights": "Short observational pricing panels can contain many observations while offering only a small number of distinct price movements.；This paper studies the inferential consequences of that distinction in a synthetic data-generating process calibrated to a sparse pricing regime.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "Anatomy-Informed Neural Networks: Encoding Anatomic Priors in Loss and Architecture, with an SE(3) Formulation of Guidewire-Induced Aortoiliac Deformation",
+          "authors": [
+            "David P. Stonko"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21332",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI",
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "Deep-learning models of anatomy can be numerically plausible yet anatomically impossible, and they generalize poorly when data are scarce. We introduce Anatomy-Informed Neural Networks (AINN), in which soft anatomic priors enter as penalty terms in the loss (e.g., a branching penalty that treats a renal transplant artery off the iliac instead of the aorta as unexpected rather than impossible), in direct analogy to a physics-informed neural network, and hard anatomic priors (e.g., continuity of the vessel) are built into the architecture and state representation, making such invalid predictions impossible by construction wherever the prior admits architectural enforcement. We develop it on a clinical test case with limited data: how the aortoiliac tree deforms when a stiff wire is introduced endoluminally.",
+          "methodHighlights": "Deep-learning models of anatomy can be numerically plausible yet anatomically impossible, and they generalize poorly when data are scarce.；We introduce Anatomy-Informed Neural Networks (AINN), in which soft anatomic priors enter as penalty terms in the loss (e.g., a branching penalty that treats a renal transplant artery off the iliac instead of the aorta as unexpected rather than impossible), in direct analogy to a physics-informed neural network, and hard anatomic priors (e.g., continuity of the vessel) are built into the architecture and state representation, making such invalid predictions impossible by construction wherever the prior admits architectural enforcement.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "NeSAM: Neuro-Symbolic Kinodynamics with Soil Adaptation for Off-Road Mobility",
+          "authors": [
+            "Chenhui Pan",
+            "Tong Xu",
+            "Francesco Cancelliere",
+            "Xuesu Xiao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21330",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "Accurate prediction of off-road vehicle motion over deformable terrain remains challenging because sinkage, slip, and traction vary with local soil conditions. Existing learning-based kinodynamic models directly approximate vehicle-terrain interactions from data but do not explicitly represent soil mechanics and offer limited physical interpretability. To address these limitations, we present NeSAM, a neuro-symbolic framework that combines differentiable Bekker-Wong terramechanics with learned terrain representations and a Transformer-based residual dynamics model for long-horizon, six degree-of-freedom kinodynamic prediction.",
+          "methodHighlights": "Accurate prediction of off-road vehicle motion over deformable terrain remains challenging because sinkage, slip, and traction vary with local soil conditions.；Existing learning-based kinodynamic models directly approximate vehicle-terrain interactions from data but do not explicitly represent soil mechanics and offer limited physical interpretability.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Event-Time Confounding Under Bursty Human Dynamics",
+          "authors": [
+            "Michael Iannelli",
+            "Alan Ai"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21294",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.HC",
+            "stat.ME"
+          ],
+          "summary": "Studies of digital behavior often align users at moments they choose, such as opening an AI assistant, clicking a recommendation, or visiting a product page, and interpret higher activity afterward as an event effect. We show how this creates an endogenous time zero: the event occurs during an ongoing task episode, so the aligned curve can trace episode continuation rather than a response to the event. In same-user, cross-surface web logs, AI, shopping, news, coding, and reference events are all preceded by broad activity increases that peak before time zero.",
+          "methodHighlights": "Studies of digital behavior often align users at moments they choose, such as opening an AI assistant, clicking a recommendation, or visiting a product page, and interpret higher activity afterward as an event effect.；We show how this creates an endogenous time zero: the event occurs during an ongoing task episode, so the aligned curve can trace episode continuation rather than a response to the event.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "VT-MUSE: Multimodal Unified Sequential Visuotactile Representation Learning for Manipulation",
+          "authors": [
+            "Congsheng Xu",
+            "Qiaochu Yang",
+            "Fangyuan Shi",
+            "Yifan Han",
+            "Baijun Chen",
+            "Yiming Wang",
+            "Haonan Zhao",
+            "Daolin Ma",
+            "Xiaokang Yang",
+            "Hesheng Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21290",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "We propose VT-MUSE, a Multimodal Unified SEquential representation learning framework for visuotactilemanipulation. Existing approaches often encode visual and tactile observations independently before fusion, limiting their ability to capture fine-grained cross-modal dependencies. Moreover, most methods focus on observations at the current time step and overlook the temporal evolution of contact.",
+          "methodHighlights": "We propose VT-MUSE, a Multimodal Unified SEquential representation learning framework for visuotactilemanipulation.；Existing approaches often encode visual and tactile observations independently before fusion, limiting their ability to capture fine-grained cross-modal dependencies.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "TRACE-C: Rank-Calibrated Relational Anomaly Detection for Multi-Stream Operational Telemetry",
+          "authors": [
+            "Matthew Faucher"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21251",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.LG",
+            "stat.ML"
+          ],
+          "summary": "Operational telemetry can be jointly anomalous while every individual stream stays inside its familiar range. TRACE-C is an auditable strictly-prior rank-calibrated detector for aligned multi-stream telemetry: same-regime rolling median/MAD residuals feed three window channels -- a maximum normalized local sum, a Gaussian copula-form dependence contrast on robust-z residuals, and a worst standardized AR(1) innovation -- whose channel ranks are Fisher-aggregated and ranked against earlier aggregates. We evaluate six Great Britain grid streams with a January-April 2019 fit, July-December 2019 development evidence, and a 2020 hold-out frozen before inspection.",
+          "methodHighlights": "Operational telemetry can be jointly anomalous while every individual stream stays inside its familiar range.；TRACE-C is an auditable strictly-prior rank-calibrated detector for aligned multi-stream telemetry: same-regime rolling median/MAD residuals feed three window channels -- a maximum normalized local sum, a Gaussian copula-form dependence contrast on robust-z residuals, and a worst standardized AR(1) innovation -- whose channel ranks are Fisher-aggregated and ranked against earlier aggregates.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Just Noticeable Difference Modeling for Token Compression in Vision-Language-Action Models",
+          "authors": [
+            "Zhuoyuan Li",
+            "Rui Zhao",
+            "Jin Wang",
+            "Hanwei Zhu",
+            "Cong Zhang",
+            "Giuseppe Valenzise",
+            "Weisi Lin",
+            "Kin-Man Lam"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21247",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "Token compression has become a key technique for reducing the inference cost of large foundation models, with approaches such as token pruning and KV-cache reuse widely adopted in vision-language models and recently explored for embodied agents. In embodied agents, tokens not only support perception and semantic understanding but also directly affect latency-sensitive closed-loop robot action prediction. Existing schemes typically guide compression using redundancy or importance cues, such as visual similarity, attention scores, and saliency.",
+          "methodHighlights": "Token compression has become a key technique for reducing the inference cost of large foundation models, with approaches such as token pruning and KV-cache reuse widely adopted in vision-language models and recently explored for embodied agents.；In embodied agents, tokens not only support perception and semantic understanding but also directly affect latency-sensitive closed-loop robot action prediction.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Enhancing LLMs in Predictive Political QA with Semi-Structured Data",
+          "authors": [
+            "Yinan Liu",
+            "Zihan Zhou",
+            "Zichun Jin",
+            "Xinyu Wang",
+            "Bin Wang",
+            "Xiaochun Yang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21218",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI",
+            "cs.CL",
+            "cs.IR"
+          ],
+          "summary": "Predictive political question answering (QA), such as predicting how a political actor will vote, goes beyond factual lookup. External political resources offer rich historical evidence, but rarely contain the answer itself. Existing LLM augmentation methods, including actor-profile-based simulation and knowledge graph evidence injection, improve political reasoning but largely treat external resources as knowledge-based evidence, leaving prediction-relevant signals under-modeled.",
+          "methodHighlights": "Predictive political question answering (QA), such as predicting how a political actor will vote, goes beyond factual lookup.；External political resources offer rich historical evidence, but rarely contain the answer itself.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "Curriculum-Aware Interpolate-then-Refine: Learned Physiological Time-Series Imputation under Realistic Missingness",
+          "authors": [
+            "Yu-Chao Huang",
+            "Haochen Zhang",
+            "Nicholas Konz",
+            "Tianlong Chen"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21207",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.LG",
+            "cs.AI"
+          ],
+          "summary": "Imputing physiological time series (arterial blood pressure, blood glucose, etc.) is essential for addressing the missingness that pervades clinical data. Yet modern imputation methods perform poorly in this domain: a recent benchmark found that simple linear interpolation outperformed every learned imputer on real-world clinical signals with realistic gaps. We show that this reflects two properties of physiological missingness that generic imputers ignore: gaps may occur when the signal is clinically extreme rather than typical, and gap lengths can easily span orders of magnitude.",
+          "methodHighlights": "Imputing physiological time series (arterial blood pressure, blood glucose, etc.) is essential for addressing the missingness that pervades clinical data.；Yet modern imputation methods perform poorly in this domain: a recent benchmark found that simple linear interpolation outperformed every learned imputer on real-world clinical signals with realistic gaps.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Beyond Imitation: Self-Improving Robot Policies via Off-Policy Q-Planning",
+          "authors": [
+            "Varun Giridhar",
+            "Anant Khandelwal",
+            "Jeremy A. Collins",
+            "Ignat Georgiev",
+            "Animesh Garg"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21204",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "summary": "Behaviour Cloning (BC) has driven remarkable progress in robot manipulation, yet it is fundamentally limited by its inability to self-improve: a policy that fails cannot learn from that failure without additional human demonstrations. Reinforcement Learning fine-tuning offers a path to self-improvement but has proven difficult to scale to the multi-billion-parameter models underpinning modern robot policies. We propose Q-Planning, which equips a large visuomotor BC policy with a small off-policy Q-function.",
+          "methodHighlights": "Behaviour Cloning (BC) has driven remarkable progress in robot manipulation, yet it is fundamentally limited by its inability to self-improve: a policy that fails cannot learn from that failure without additional human demonstrations.；Reinforcement Learning fine-tuning offers a path to self-improvement but has proven difficult to scale to the multi-billion-parameter models underpinning modern robot policies.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Anchored Regularized Direct Least Squares (ARDLS): Integrating Established Prioritization Operators for Priority Elicitation in the Analytic Hierarchy Process",
+          "authors": [
+            "Kevin Kam Fung Yuen"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21187",
+          "published": "2026-08-21",
+          "categories": [
+            "math.OC",
+            "cs.AI",
+            "math.NA"
+          ],
+          "summary": "Pairwise reciprocal matrices are fundamental to the Analytic Hierarchy Process (AHP), a decision-making model. While the Direct Least Squares (DLS) method provides an intuitive mechanism for deriving priority vectors without complex transformations, the DLS provides multiple solutions. Under high levels of inconsistency, such as cyclic contradictions, this non-convexity yields multiple distinct global minima, resulting in unstable priority rankings that critically depend on initial algorithmic guesses.",
+          "methodHighlights": "Pairwise reciprocal matrices are fundamental to the Analytic Hierarchy Process (AHP), a decision-making model.；While the Direct Least Squares (DLS) method provides an intuitive mechanism for deriving priority vectors without complex transformations, the DLS provides multiple solutions.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "From Search Agents to Dissemination Interfaces: Understanding Human Trust in Health Information from Conversational Search",
+          "authors": [
+            "Xin Sun",
+            "Rongjun Ma",
+            "Xiaochang Zhao",
+            "Janne Lindqvist",
+            "Jan de Wit",
+            "Zhuying Li",
+            "Abdallah El Ali",
+            "Jos A. Bosch"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21177",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.HC"
+          ],
+          "summary": "Large Language Models (LLMs) deployed through Conversational User Interfaces (CUIs) are transforming health information-seeking by offering immediate, interactive experiences compared to traditional search engines like Google. However, how trust is influenced by both the types of search agents and the interface used to disseminate the information remains underexplored. This research integrates two mixed-methods studies (lab sessions and interviews) to comprehensively explore trust perceptions in health information across different search agents and dissemination interfaces.",
+          "methodHighlights": "Large Language Models (LLMs) deployed through Conversational User Interfaces (CUIs) are transforming health information-seeking by offering immediate, interactive experiences compared to traditional search engines like Google.；However, how trust is influenced by both the types of search agents and the interface used to disseminate the information remains underexplored.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "SRL-MPC: Shape-Aware Reinforcement Learned Model Predictive Control",
+          "authors": [
+            "Ruihua Han",
+            "Rui Gao",
+            "Zhe Liu",
+            "Xinyi Wang",
+            "Chang Chen",
+            "Shuai Wang",
+            "Qi Hao",
+            "Jia Pan",
+            "Hengshuang Zhao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21175",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "Safe and efficient shape-aware navigation in heterogeneous crowds and robot fleets remains challenging. Traditional approaches often assume homogeneous robots, sparse workspaces, simplified geometry, offline computation, or handcrafted parameters to make the problem tractable, which limits their deployment in dense crowd scenarios. Toward this end, we propose Shape-Aware Reinforcement Learned Model Predictive Control (SRL-MPC), a method for safe, efficient, and adaptive navigation in crowds with heterogeneous shapes without geometry simplification.",
+          "methodHighlights": "Safe and efficient shape-aware navigation in heterogeneous crowds and robot fleets remains challenging.；Traditional approaches often assume homogeneous robots, sparse workspaces, simplified geometry, offline computation, or handcrafted parameters to make the problem tractable, which limits their deployment in dense crowd scenarios.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Thermo-FL: Thermal-Aware Robust Federated Fine-Tuning of Large Language Models for Edge AI",
+          "authors": [
+            "Shiva Shrestha",
+            "Kazi Shaharair Sharif",
+            "Zongxing Xie",
+            "Jiajing Huang",
+            "Anhao Xiang",
+            "Honghui Xu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21172",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.LG",
+            "cs.DC"
+          ],
+          "summary": "Federated fine-tuning enables large language models to adapt on edge devices without centralizing private data, but practical deployments must address hardware instability and adversarial update corruption together. Thermally constrained clients may throttle, slow local training, or delay synchronous aggregation, while Byzantine clients and communication-layer adversaries can corrupt the updates used to form the global model. To address these challenges, we present Thermo-FL, a thermal-aware federated LoRA fine-tuning framework that uses device temperature as an active control signal for local adapter training and sparse update transmission.",
+          "methodHighlights": "Federated fine-tuning enables large language models to adapt on edge devices without centralizing private data, but practical deployments must address hardware instability and adversarial update corruption together.；Thermally constrained clients may throttle, slow local training, or delay synchronous aggregation, while Byzantine clients and communication-layer adversaries can corrupt the updates used to form the global model.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Distilling Black-Box Machine Learning into a Small, Self-Explaining Language Model for Learning Analytics",
+          "authors": [
+            "Chenguang Pan",
+            "Airui Meng",
+            "Youmi Suk"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21165",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.HC",
+            "cs.CY"
+          ],
+          "summary": "Learning analytics increasingly relies on flexible machine learning (ML), but the model opacity and the burden of deployment prevent these tools from reaching educational practice. We propose a two-stage fine-tuning pipeline that distills a fitted black-box estimator and its post hoc interpretation (the mentor) into a small, open-weight large language model (LLM; the mentee) that returns an individual-level estimate and explains in natural language. The design is estimator-agnostic and paired with a faithfulness-first evaluation framework that audits every narration against the attribution it claims to describe.",
+          "methodHighlights": "Learning analytics increasingly relies on flexible machine learning (ML), but the model opacity and the burden of deployment prevent these tools from reaching educational practice.；We propose a two-stage fine-tuning pipeline that distills a fitted black-box estimator and its post hoc interpretation (the mentor) into a small, open-weight large language model (LLM; the mentee) that returns an individual-level estimate and explains in natural language.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "Stream3Dv2: Geometric-Semantic Fusion Enhanced Streaming Zero-Shot 3D Scene Understanding",
+          "authors": [
+            "Jie Xu",
+            "Na Zhao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21136",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Recently, open-vocabulary zero-shot 3D scene understanding using vision foundation models has emerged as a promising alternative to data-intensive supervised methods. However, deploying these models in real-world scenarios is severely hindered by their inability to efficiently handle streaming RGB-D inputs and their inherent vulnerability to noise 2D segmentation masks. To address these critical limitations, we propose Stream3Dv2, a novel training-free framework designed for robust streaming 3D perception.",
+          "methodHighlights": "Recently, open-vocabulary zero-shot 3D scene understanding using vision foundation models has emerged as a promising alternative to data-intensive supervised methods.；However, deploying these models in real-world scenarios is severely hindered by their inability to efficiently handle streaming RGB-D inputs and their inherent vulnerability to noise 2D segmentation masks.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Gaussian-Mixture Latent Flow for Stochastic 3D Human Motion Prediction",
+          "authors": [
+            "Yue Ma",
+            "Frederick W. B. Li",
+            "Xiaohui Liang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21093",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Stochastic human motion prediction aims to forecast future motion distributions. Although recent studies have achieved strong performance in terms of accuracy and diversity, they often overlook plausibility (e.g., resulting in physically unrealistic predictions) and uncertainty quantification, both of which are essential for real-world applications and downstream tasks. To address these issues, we propose a latent flow-based model equipped with a data-driven Gaussian mixture prior that more effectively disentangles diverse human behaviors than conventional single-modal priors.",
+          "methodHighlights": "Stochastic human motion prediction aims to forecast future motion distributions.；Although recent studies have achieved strong performance in terms of accuracy and diversity, they often overlook plausibility (e.g., resulting in physically unrealistic predictions) and uncertainty quantification, both of which are essential for real-world applications and downstream tasks.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Teaching is a Process: The TOSS Framework for Modeling Human Teaching Decisions in Human-Interactive Robot Learning",
+          "authors": [
+            "Bernhard Hilpert",
+            "Kim Baraka",
+            "Joost Broekens"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21083",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO",
+            "cs.HC"
+          ],
+          "summary": "Successful Human-Robot Teaching assumes alignment between robot processing needs and human teaching intent. To better understand this alignment, this work seeks to uncover the underlying logic that humans intuitively apply when teaching. Through an exploratory, bottom-up study with N=34, participants observing two distinct robot Reinforcement Learning (RL) scenarios, we analyze 204 intuitive teaching responses across early, middle, and late learning phases.",
+          "methodHighlights": "Successful Human-Robot Teaching assumes alignment between robot processing needs and human teaching intent.；To better understand this alignment, this work seeks to uncover the underlying logic that humans intuitively apply when teaching.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "AudioWorldSim: Realistic Binaural Audio Datasets For World Models",
+          "authors": [
+            "Luis Vitor Zerkowski",
+            "Luiz Velho"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21075",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.SD",
+            "cs.LG"
+          ],
+          "summary": "This technical report presents AudioWorldSim, an open-source platform designed to generate realistic binaural audio datasets and advance research in audio-based machine learning, particularly world models. Built as a custom extension of Meta's SoundSpaces 2.0 platform, AudioWorldSim leverages their comprehensive acoustics framework, but focuses on the automatic rollout of random agent navigations, as well as implements crucial fixes to how continuous sound is composed. AudioWorldSim is made publicly available to the research community at https://github.com/Luizerko/AudioWorldSim to facilitate reproducibility.",
+          "methodHighlights": "This technical report presents AudioWorldSim, an open-source platform designed to generate realistic binaural audio datasets and advance research in audio-based machine learning, particularly world models.；Built as a custom extension of Meta's SoundSpaces 2.0 platform, AudioWorldSim leverages their comprehensive acoustics framework, but focuses on the automatic rollout of random agent navigations, as well as implements crucial fixes to how continuous sound is composed.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "TracingFlow: A Simulation-Free Trajectory Inference Framework Based on Second-Order Dynamics",
+          "authors": [
+            "Yuhao Sun",
+            "Zekun Wu",
+            "Zixun Huang",
+            "Peijie Zhou"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21070",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.LG",
+            "cs.AI",
+            "q-bio.GN"
+          ],
+          "summary": "Inferring continuous system evolution from sparse temporal snapshots is a key challenge in generative modeling and single-cell omics. While Optimal Transport (OT) is popular, existing frameworks are largely restricted to first-order dynamics, assuming memoryless velocity fields. This limits expressiveness, as first-order systems fail to account for regulatory momentum and time-delayed responses inherent in processes like cell differentiation.",
+          "methodHighlights": "Inferring continuous system evolution from sparse temporal snapshots is a key challenge in generative modeling and single-cell omics.；While Optimal Transport (OT) is popular, existing frameworks are largely restricted to first-order dynamics, assuming memoryless velocity fields.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Robust Validation to Geometric Perturbations for Autonomous Pose Estimation",
+          "authors": [
+            "Gregoire Theau",
+            "Melanie Ducoffe"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21066",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Deploying autonomous systems in safety-critical domains demands guaranteed robustness against physically plausible geometric perturbations rather than abstract pixel-wise noise. In vision-based navigation and autonomous landing, machine learning components require rigorous validation under dynamic operational conditions such as camera rotations and lighting shifts. Extending findings on the failure of first-order spatial attacks in classification, we show that standard gradient-based heuristics (e.g.",
+          "methodHighlights": "Deploying autonomous systems in safety-critical domains demands guaranteed robustness against physically plausible geometric perturbations rather than abstract pixel-wise noise.；In vision-based navigation and autonomous landing, machine learning components require rigorous validation under dynamic operational conditions such as camera rotations and lighting shifts.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "The Cost of a Physics Prior Is Bounded by the Ablation Gap",
+          "authors": [
+            "Boris Kriuk"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21059",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI"
+          ],
+          "summary": "Shape-constrained and physics-informed learning reports an accuracy cost of enforcing a prior and treats it as a property of the prior. We show it is mostly a property of the free features and the validation split. Let P be the excess risk of restricting a hypothesis class to functions with a shape constraint on features S, and D the excess risk of the ablated model that ignores S.",
+          "methodHighlights": "Shape-constrained and physics-informed learning reports an accuracy cost of enforcing a prior and treats it as a property of the prior.；We show it is mostly a property of the free features and the validation split.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "FF-MPCC: High-speed Agile Formation Flight with Model Predictive Contouring Control",
+          "authors": [
+            "Aditya Dandwate",
+            "Vit Kratky",
+            "Parakh M. Gupta",
+            "Martin Saska",
+            "Robert Penicka"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21056",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "Flying in a prescribed formation in an agile manner remains a challenging problem in the field of UAVs, particularly when following highly-demanding trajectories that require flight at platform limits. We address this problem by proposing a novel decentralized approach to formation flight along a given path that integrates formation maintenance into the MPCC framework, allowing UAVs to adapt their progression along complex paths while respecting individual dynamic constraints and maintaining the desired formation. To this end, we introduce a novel reparametrization and synchronization method for dynamic formation geometries together with a decentralized approach to determine the desired positions for the individual UAVs.",
+          "methodHighlights": "Flying in a prescribed formation in an agile manner remains a challenging problem in the field of UAVs, particularly when following highly-demanding trajectories that require flight at platform limits.；We address this problem by proposing a novel decentralized approach to formation flight along a given path that integrates formation maintenance into the MPCC framework, allowing UAVs to adapt their progression along complex paths while respecting individual dynamic constraints and maintaining the desired formation.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "TaPeR: Probabilistic Recovery of Sparse Task Precedence Graphs from a Handful of Demonstrations",
+          "authors": [
+            "Adrian Röfer",
+            "Karla Stepanova",
+            "Abhinav Valada"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21035",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "Long-horizon manipulation tasks are often only partially ordered. For example, when assembling an electronic device, the battery and circuit board may be installed in either order, but both must be in place before the enclosure is closed. Recovering such dependencies enables robots to flexibly reorder subtasks while preserving task validity.",
+          "methodHighlights": "Long-horizon manipulation tasks are often only partially ordered.；For example, when assembling an electronic device, the battery and circuit board may be installed in either order, but both must be in place before the enclosure is closed.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Roadside-Cooperative Autonomous Driving: From Data Platform to Vision-Language End-to-End Reasoning",
+          "authors": [
+            "Yitao Xu",
+            "Tong Wu",
+            "Yiyan Wu",
+            "Guoji Xu",
+            "Yanbo Jiang",
+            "Jiahao Wang",
+            "Zehong Ke",
+            "Junkai Jiang",
+            "Fang Zhang",
+            "Jianqiang Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21032",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "Vehicle-to-Everything (V2X) cooperation enables beyond-line-of-sight perception, mitigating occlusions in single-vehicle sensing. However, existing V2X benchmarks provide limited support for closed-loop evaluation and language-grounded supervision, hindering the development of vision-language models (VLMs) for end-to-end cooperative driving. To address these limitations, we introduce V2XBench, a simulation platform featuring synchronized ego--roadside sensing and closed-loop evaluation, together with Chat-V2XBench, a progressively structured VQA dataset for cooperative reasoning.",
+          "methodHighlights": "Vehicle-to-Everything (V2X) cooperation enables beyond-line-of-sight perception, mitigating occlusions in single-vehicle sensing.；However, existing V2X benchmarks provide limited support for closed-loop evaluation and language-grounded supervision, hindering the development of vision-language models (VLMs) for end-to-end cooperative driving.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "PhysCaP: Grounding Code-as-Policy Agent with Physics-Informed Exploration",
+          "authors": [
+            "Chen-Yu Lin",
+            "Jing-Wen Chen",
+            "Hsueh-En Chang",
+            "Hung-An Chen",
+            "Sheng-Hsun Chang",
+            "Chi-Pin Huang",
+            "Fu-En Yang",
+            "Min-Hung Chen",
+            "Yi-Ting Chen",
+            "Yu-Chiang Frank Wang",
+            "Shao-Hua Sun"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21031",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "We present PhysCaP, a Physics-Informed Code-as-Policy agent for active perception in robotic manipulation. While vision-language-action policies excel at imitating demonstrations, they rely on passive observation and fail to infer latent physical properties critical for manipulation. PhysCaP augments code-as-policy frameworks with a physics-informed exploration layer that enables explicit information-seeking through interaction.",
+          "methodHighlights": "We present PhysCaP, a Physics-Informed Code-as-Policy agent for active perception in robotic manipulation.；While vision-language-action policies excel at imitating demonstrations, they rely on passive observation and fail to infer latent physical properties critical for manipulation.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Triangulation-Free Bundle Adjustment with Graduated Non-Convexity for Camera Pose Refinement from Coarse Priors",
+          "authors": [
+            "Nikolaos Kyriazis"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.21008",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Mobile AR frameworks attach a metric pose prior to every casual phone capture, and turning it into reconstruction-grade poses cheaply on CPU is the step before novel-view synthesis. The least a refiner owes an accurate prior is not to make it worse. The workhorse refiner does.",
+          "methodHighlights": "Mobile AR frameworks attach a metric pose prior to every casual phone capture, and turning it into reconstruction-grade poses cheaply on CPU is the step before novel-view synthesis.；The least a refiner owes an accurate prior is not to make it worse.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Free-Probability Kernels for Zero-Rollout Hyperparameter Selection in Reservoir Computing",
+          "authors": [
+            "Sara Malacarne",
+            "Andrea Ceni",
+            "Claudio Gallicchio"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20998",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.LG",
+            "cs.NE",
+            "stat.ML"
+          ],
+          "summary": "Reservoir computing (RC) couples a fixed recurrent dynamical system with a trained lightweight readout, but this efficiency is partly lost during hyperparameter selection: the recurrent gain, input scale, and leakage rate determine the reservoir's stability and temporal processing regime and are usually tuned through many rollouts. We introduce a deterministic, pilot-informed selector for leaky linear reservoirs followed by coordinate-wise nonlinear features. Free probability yields cross-lag propagation coefficients that summarize how the reservoir mixes past inputs.",
+          "methodHighlights": "Reservoir computing (RC) couples a fixed recurrent dynamical system with a trained lightweight readout, but this efficiency is partly lost during hyperparameter selection: the recurrent gain, input scale, and leakage rate determine the reservoir's stability and temporal processing regime and are usually tuned through many rollouts.；We introduce a deterministic, pilot-informed selector for leaky linear reservoirs followed by coordinate-wise nonlinear features.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Belief Without Behavior: Measuring the Translation of Theory of Mind into Coordinated Social Action in Vision-Language Models",
+          "authors": [
+            "Tonglin Yan",
+            "Gregoire Sergeant-Perthuis",
+            "David Rudrauf"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20975",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI"
+          ],
+          "summary": "Effective social interaction requires agents to translate mental state inferences into coordinated behavioral signals across verbal and nonverbal channels simultaneously. Yet existing benchmarks evaluate theory of mind (ToM) reasoning and embodied behavior in isolation, leaving unmeasured the gap between social inference and social action. We introduce MOSAIC (Multimodal Orchestration of Social Action, Inference, and Communication), a controlled benchmark in which two embodied agents interact across cooperative and competitive scenarios requiring integration of verbal statements, spatial trajectories, gaze direction, and facial expression under systematically varied ToM constraints.",
+          "methodHighlights": "Effective social interaction requires agents to translate mental state inferences into coordinated behavioral signals across verbal and nonverbal channels simultaneously.；Yet existing benchmarks evaluate theory of mind (ToM) reasoning and embodied behavior in isolation, leaving unmeasured the gap between social inference and social action.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Training DeepFilterNet with Accurate Room Acoustic Simulations Improves Single-Channel Speech Enhancement",
+          "authors": [
+            "Alessia Milo",
+            "Georg Götz",
+            "Steinar Guðjónsson",
+            "Daniel Gert Nielsen",
+            "Jesper Pedersen",
+            "Finnur Pind"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20971",
+          "published": "2026-08-21",
+          "categories": [
+            "eess.AS",
+            "cs.LG",
+            "physics.comp-ph"
+          ],
+          "summary": "We investigate how the realism of synthetic room impulse response (RIR) datasets affects the training of DeepFilterNet3 for single-channel speech enhancement. We compare a DNS4 image-source-method (ISM) RIR dataset with a higher-acoustic-fidelity dataset generated using hybrid wave-based and geometrical acoustics simulation. Rather than isolating individual simulation factors, we compare complete RIR generation pipelines while keeping the enhancement model unchanged.",
+          "methodHighlights": "We investigate how the realism of synthetic room impulse response (RIR) datasets affects the training of DeepFilterNet3 for single-channel speech enhancement.；We compare a DNS4 image-source-method (ISM) RIR dataset with a higher-acoustic-fidelity dataset generated using hybrid wave-based and geometrical acoustics simulation.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "Generalizing Soft Tissue Deformation and Force Prediction Across Material Stiffness and Geometry",
+          "authors": [
+            "Madina Kojanazarova",
+            "Sidaty El Hadramy",
+            "Philippe C. Cattin"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20967",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI",
+            "cs.CG",
+            "cs.CV"
+          ],
+          "summary": "Accurate soft tissue simulation is essential for surgical training, pre-operative planning, and haptic feedback systems. While learning-based surrogate models trained on data using the finite element method (FEM) offer a promising path to real-time inference, their reliability depends on well-calibrated constitutive models. Existing approaches neither provide systematic guidance on model selection across stiffness levels, nor generalize across different tissue stiffnesses or geometries.",
+          "methodHighlights": "Accurate soft tissue simulation is essential for surgical training, pre-operative planning, and haptic feedback systems.；While learning-based surrogate models trained on data using the finite element method (FEM) offer a promising path to real-time inference, their reliability depends on well-calibrated constitutive models.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Extractive Summarization for Arabic Documents Using SAraBERT with a Semantic Siamese Similarity Evaluation Metric",
+          "authors": [
+            "Sami Shames El Deen",
+            "Mariette Awad"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20964",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CL",
+            "cs.AI"
+          ],
+          "summary": "In this research, we introduce SAraBERT, an enhanced version of AraBERT which proposes inter-sentence transformer layers for extractive summarization tasks. To ensure that the summaries generated by SAraBERT achieve a high coverage of the document's main ideas, we propose Semantic Siamese Similarity, a novel evaluation metric that measures the level of similarity between two text inputs. We validated using BLEU, ROUGE, and Semantic Siamese similarity on Sarabert and published related models.",
+          "methodHighlights": "In this research, we introduce SAraBERT, an enhanced version of AraBERT which proposes inter-sentence transformer layers for extractive summarization tasks.；To ensure that the summaries generated by SAraBERT achieve a high coverage of the document's main ideas, we propose Semantic Siamese Similarity, a novel evaluation metric that measures the level of similarity between two text inputs.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "Hybrid Roller-Jamming Gripper for Object Acquisition and Retention Under Pose Uncertainty",
+          "authors": [
+            "Yijie Ren",
+            "Guillaume Gourmelen",
+            "Hiroyasu Iwata"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20962",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "In household manipulation, pose uncertainty often results in off-centre or partial initial contact, making reliable object acquisition difficult. Roller-based grippers can actively draw objects inward but often provide limited post-capture stability, whereas granular-jamming grippers require sufficient contact before jamming to achieve strong retention. This paper presents a hybrid roller-jamming gripper that integrates active object intake and post-capture retention within a single gripper.",
+          "methodHighlights": "In household manipulation, pose uncertainty often results in off-centre or partial initial contact, making reliable object acquisition difficult.；Roller-based grippers can actively draw objects inward but often provide limited post-capture stability, whereas granular-jamming grippers require sufficient contact before jamming to achieve strong retention.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "TreeWY: Speculative Verification for Gated DeltaNet Hybrids",
+          "authors": [
+            "Sneha Murthy Ghantasala"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20961",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI",
+            "cs.CL",
+            "cs.DC",
+            "cs.LG",
+            "cs.PF"
+          ],
+          "summary": "Modern open models are hybrids: most layers are linear-attention (Gated DeltaNet, GDN) layers carrying a small fixed-size recurrent state instead of a growing key-value (KV) cache. This makes ordinary decoding memory-efficient, but hurts speculative decoding. To verify a batch of draft tokens and then roll back the rejected ones, today's systems snapshot the full recurrent state at every draft position for GDN layers, and those snapshots cannot be shared across branches of a draft tree, so a wide, high-acceptance tree becomes memory-infeasible.",
+          "methodHighlights": "Modern open models are hybrids: most layers are linear-attention (Gated DeltaNet, GDN) layers carrying a small fixed-size recurrent state instead of a growing key-value (KV) cache.；This makes ordinary decoding memory-efficient, but hurts speculative decoding.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Neural-Primitive: An Efficient End-to-end Local Planner with Primitive-based Imitation Learning for Autonomous Flight",
+          "authors": [
+            "Zhitao Liu",
+            "Guangtong Xu",
+            "Zihan Wang",
+            "Jialiang Hou",
+            "Chao Xu",
+            "Fei Gao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20948",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "Autonomous flight in unknown cluttered environments is hindered by the computation-quality-memory trilemma of onboard trajectory generation. In this paper, we propose an efficient end-to-end local planner via imitation learning. A lightweight offline-primitive-based dataset collection framework is designed to produce safe and high-quality trajectory primitives in non-convex environments.",
+          "methodHighlights": "Autonomous flight in unknown cluttered environments is hindered by the computation-quality-memory trilemma of onboard trajectory generation.；In this paper, we propose an efficient end-to-end local planner via imitation learning.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "Fast Coordinated Bimanual Motion Planning With Hard Constraints",
+          "authors": [
+            "Borna Paro",
+            "Luka Petrović",
+            "Ivan Marković"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20946",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "Bimanual manipulation enables complex tasks but introduces added complexity from the high number of degrees of freedom involved. When handling rigid objects, the relative transformation between the two end effectors must remain fixed throughout the motion, manifesting as a nonlinear equality constraint that confines the feasible configuration space to a measure-zero manifold and challenges conventional motion planners. We propose a fast bimanual motion planning pipeline that enforces this hard transformation constraint continuously along the entire path, using a leader-follower parameterization: the leader's configuration is treated as a free variable, while the follower's is determined via inverse kinematics to satisfy the constraint.",
+          "methodHighlights": "Bimanual manipulation enables complex tasks but introduces added complexity from the high number of degrees of freedom involved.；When handling rigid objects, the relative transformation between the two end effectors must remain fixed throughout the motion, manifesting as a nonlinear equality constraint that confines the feasible configuration space to a measure-zero manifold and challenges conventional motion planners.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "SuppreSensing: Expert-Guided Feature Recalibration and Discrepancy Augmentation for Multimodal Object Detection",
+          "authors": [
+            "Xin Wu",
+            "Zhenyu Gao",
+            "Qiankun Zhang",
+            "Shaoyong Guo"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20944",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Multimodal object detection in remote sensing faces challenges due to semantic heterogeneity and modality-specific noise interference. To this end, we propose SuppreSensing, which reformulates multimodal fusion as a selective collaboration process that jointly models shared information and modality-specific cues. SuppreSensing first designs an Expert-driven Multimodal Feature Recalibration (EMFR) module, which reformulates shared-consensus extraction as an input-adaptive multi-expert selection process to alleviate the symmetry trap in multimodal fusion.",
+          "methodHighlights": "Multimodal object detection in remote sensing faces challenges due to semantic heterogeneity and modality-specific noise interference.；To this end, we propose SuppreSensing, which reformulates multimodal fusion as a selective collaboration process that jointly models shared information and modality-specific cues.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "LHMCF-Net: A Learned Hyperbolic Mean Curvature Flow Network for Medical Images Segmentation",
+          "authors": [
+            "Shuangshuang Duan",
+            "Chunlei He",
+            "Shoujun Huang",
+            "Dexing Kong"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20942",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV",
+            "math-ph"
+          ],
+          "summary": "Motivated by the classical Chan-Vese model and the ability of deep priors to capture complex spatial structures, we develop a segmentation model that leverages learned hyperbolic mean curvature flow (LHMCF) as a mathematical foundation for integrating feature space data fidelity and deep structural priors within a unified high-dimensional framework. The proposed LHMCF model is governed by a second-order dissipative hyperbolic PDE, where the introduction of a velocity field provides inertia and momentum to the evolving interface. This hyperbolic mechanism enables the contour to bypass noise-induced local minima and propagate coherently through low-contrast or ambiguous regions, addressing limitations inherent to first-order parabolic flows.",
+          "methodHighlights": "Motivated by the classical Chan-Vese model and the ability of deep priors to capture complex spatial structures, we develop a segmentation model that leverages learned hyperbolic mean curvature flow (LHMCF) as a mathematical foundation for integrating feature space data fidelity and deep structural priors within a unified high-dimensional framework.；The proposed LHMCF model is governed by a second-order dissipative hyperbolic PDE, where the introduction of a velocity field provides inertia and momentum to the evolving interface.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Graph-Operator World Models for Morphology-Parameter Generalization in Continuous Control",
+          "authors": [
+            "Xu Yang",
+            "Yiqin Yang",
+            "Qianchuan Zhao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20936",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI",
+            "cs.RO"
+          ],
+          "summary": "World models for continuous control are commonly trained for a fixed physical system and can degrade when known morphology parameters such as link lengths, masses, damping, and actuation change. Existing approaches often provide these parameters as conditioning information, but leave unspecified which part of the learned transition should remain reusable and which part should change with morphology. We propose Graph-Operator World Models (GraphOp-WM), a structured world model for generalization across unseen morphology parameters within related articulated robot families.",
+          "methodHighlights": "World models for continuous control are commonly trained for a fixed physical system and can degrade when known morphology parameters such as link lengths, masses, damping, and actuation change.；Existing approaches often provide these parameters as conditioning information, but leave unspecified which part of the learned transition should remain reusable and which part should change with morphology.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "GAP-SAM: A Global Artifact Prior for Generalizable AI-Generated Image Manipulation Localization",
+          "authors": [
+            "Haozhen Yan",
+            "Siyuan Shan",
+            "Zijian Yu",
+            "Youqi Wang",
+            "Yan Hong",
+            "Jun Lan",
+            "Jianfu Zhang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20929",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "AI-generated image manipulation localization identifies edited pixels, but its OOD performance lags behind image-level detection partly because pixel supervision entangles forensic evidence with dataset-specific mask geometry and semantic boundaries. Extending image-level distribution alignment to localization, we construct COCO-ControlNet with source-image Canny edges and depth maps to align semantics and geometry, improving OOD performance across multiple localizers. Yet tighter Mask-VAE Reconstruction Alignment (Mask-VAE) underperforms COCO-ControlNet, showing that VAE reconstruction artifacts transfer poorly to local diffusion-inpainting artifacts.",
+          "methodHighlights": "AI-generated image manipulation localization identifies edited pixels, but its OOD performance lags behind image-level detection partly because pixel supervision entangles forensic evidence with dataset-specific mask geometry and semantic boundaries.；Extending image-level distribution alignment to localization, we construct COCO-ControlNet with source-image Canny edges and depth maps to align semantics and geometry, improving OOD performance across multiple localizers.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Video Generation",
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Scalable Distributed Simulation-Based Testing for Automated Driving Systems",
+          "authors": [
+            "Christian Geller",
+            "Benedikt Haas",
+            "Lutz Eckstein"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20904",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO",
+            "cs.DB",
+            "cs.SE"
+          ],
+          "summary": "Virtual scenario-based testing is a key enabler for validating automated driving systems (ADS) and intelligent transport systems (ITS). However, executing large-scale test suites involving possibly thousands of scenarios remains labor-intensive and difficult to scale. This paper presents an end-to-end, DevOps-driven framework that automates build, deployment, and distributed execution of CARLA-based scenario tests of an ADS on a lightweight Kubernetes cluster.",
+          "methodHighlights": "Virtual scenario-based testing is a key enabler for validating automated driving systems (ADS) and intelligent transport systems (ITS).；However, executing large-scale test suites involving possibly thousands of scenarios remains labor-intensive and difficult to scale.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "IMU-Free Body-Frame State Estimation with Sparse Scene Flow for Quadcopters",
+          "authors": [
+            "Daniel Grønhaug",
+            "Sofie Markeset",
+            "Mathias Kolberg"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20891",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "We present a vision-only state estimation system for X-configuration quadcopters equipped with a canonical stereo camera pair and no inertial sensors. The system operates entirely in the body frame, requiring only synchronised stereo images and motor thrust commands. A continuous-discrete extended Kalman filter on a composite manifold state $\\langle SE(3), \\mathbb{R}^3, \\ldots \\rangle$ maintains estimates of body-frame pose, velocity, angular velocity, gravity, and disturbances, using stationary scene points as implicit inertial references.",
+          "methodHighlights": "We present a vision-only state estimation system for X-configuration quadcopters equipped with a canonical stereo camera pair and no inertial sensors.；The system operates entirely in the body frame, requiring only synchronised stereo images and motor thrust commands.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Coverage-Driven Verification for Safety-by-Design in AI-Based Collision Avoidance Systems",
+          "authors": [
+            "Thomas Stefani",
+            "Johann Maximilian Christensen",
+            "Elena Hoemann",
+            "Frank Köster",
+            "Sven Hallerbach"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20864",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI"
+          ],
+          "summary": "Artificial Intelligence (AI) offers significant potential for future aviation systems; however, its integration into safety-critical applications requires compliance with the aviation sector's stringent safety standards. For AI and Machine Learning (ML)-based systems, the European Union Aviation Safety Agency (EASA) emphasizes the need to demonstrate the representativeness and completeness of the Operational Design Domain (ODD) and the associated data distributions used during development and verification. Despite this requirement, a structured engineering process for defining target distributions and evaluating representativeness within ODDs remains largely unexplored.",
+          "methodHighlights": "Artificial Intelligence (AI) offers significant potential for future aviation systems; however, its integration into safety-critical applications requires compliance with the aviation sector's stringent safety standards.；For AI and Machine Learning (ML)-based systems, the European Union Aviation Safety Agency (EASA) emphasizes the need to demonstrate the representativeness and completeness of the Operational Design Domain (ODD) and the associated data distributions used during development and verification.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "Demonstration-Guided Humanoid Stand-Up on an Emulated Deformable Surface",
+          "authors": [
+            "Aniruddh Kushwah",
+            "Vyankatesh Ashtekar",
+            "Ashish Dutta"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20852",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "This paper presents a reference-guided reinforcement learning framework to generate stand-up motion for a 29-DOF Unitree G1 humanoid on deformable soft ground, using a human demonstration recorded on hard ground. The terrain compliance is modelled using solref and solimp parameters from MuJoCo's rigid body soft-contact model. The rewards consists of (i) reference motion tracking through residual joint-position control and (ii) explicit recovery objectives such as pelvis height, torso uprightness, and the final posture.",
+          "methodHighlights": "This paper presents a reference-guided reinforcement learning framework to generate stand-up motion for a 29-DOF Unitree G1 humanoid on deformable soft ground, using a human demonstration recorded on hard ground.；The terrain compliance is modelled using solref and solimp parameters from MuJoCo's rigid body soft-contact model.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "RAG Deserves an Index: Why Ingest-Time Compilation Beats Query-Time Interpretation",
+          "authors": [
+            "Kyle Wild",
+            "Yusuke Takahashi",
+            "Asako Uraki"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20845",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI",
+            "cs.DB",
+            "cs.IR"
+          ],
+          "summary": "Nearly every retrieval-augmented question-answering system in production ships with a hidden interpreter: on each query a language model re-derives the meaning of raw corpus text and then throws that work away. Cheaper models do not close the gap: per-token prices have fallen by orders of magnitude while inference spend has risen, because context volume grows faster than prices fall. This is the modern equivalent of the full-table scan, and the remedy is the one databases found fifty years ago: do the expensive work once, at write time, into a maintained structure that makes reads cheap.",
+          "methodHighlights": "Nearly every retrieval-augmented question-answering system in production ships with a hidden interpreter: on each query a language model re-derives the meaning of raw corpus text and then throws that work away.；Cheaper models do not close the gap: per-token prices have fallen by orders of magnitude while inference spend has risen, because context volume grows faster than prices fall.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Advantage-level Aggregation Reinforcement Learning for X-point Target Magnetic Configuration Control in an EXL-50U Experiment-Calibrated Simulation Environment",
+          "authors": [
+            "Siqi Ding",
+            "Xuanhe Wang",
+            "Pei Guo",
+            "Guoyang Shi",
+            "Changquan Yu",
+            "Yiting Wang",
+            "Xianming Song",
+            "Xiang Gu",
+            "Zhengyuan Chen",
+            "Lei Xing",
+            "Yapeng Zhang",
+            "Jianguo Chen",
+            "Tianyuan Liu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20834",
+          "published": "2026-08-21",
+          "categories": [
+            "physics.plasm-ph",
+            "cs.AI"
+          ],
+          "summary": "Managing divertor heat loads is a central challenge for compact, high-power tokamaks. To increase local flux expansion and decouple the dissipation volume from the core, EHL-2 adopts the X-point target (XPT) divertor. This requires the secondary X-point to remain on the divertor leg; displacement degrades the topology and exhaust geometry.",
+          "methodHighlights": "Managing divertor heat loads is a central challenge for compact, high-power tokamaks.；To increase local flux expansion and decouple the dissipation volume from the core, EHL-2 adopts the X-point target (XPT) divertor.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Natural Sit-to-Stand Motion Synthesis For Humanoids via Guided Assistance Curricula and Staged Rewards",
+          "authors": [
+            "Meet Pal Singh",
+            "Vyankatesh Ashtekar",
+            "Ashish Dutta"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20823",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "A humanoid has infinitely many ways to stand up from sitting while maintaining balance, making sit-to-stand (STS) a challenging control problem. We synthesise natural humanoid STS motion from scratch using reinforcement learning, without demonstrations or reference trajectories. A single Proximal Policy Optimisation policy learns smooth, human-like rising driven by three complementary components.",
+          "methodHighlights": "A humanoid has infinitely many ways to stand up from sitting while maintaining balance, making sit-to-stand (STS) a challenging control problem.；We synthesise natural humanoid STS motion from scratch using reinforcement learning, without demonstrations or reference trajectories.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "GhostTac: Manipulating Tactile Sensors without Physical Contact",
+          "authors": [
+            "Kun Wang",
+            "Xuancun Lu",
+            "Ruochen Zhou",
+            "Kai Wang",
+            "Tongjun Ye",
+            "Yihao Shao",
+            "Chen Yan",
+            "Xiaoyu Ji",
+            "Wenyuan Xu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20817",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CR",
+            "cs.RO"
+          ],
+          "summary": "Tactile sensors are integral to modern robotic systems, enabling robots to perceive and interact with the physical environment through tactile feedback. However, the physical-layer security of tactile sensors has received little attention. We present GhostTac, the first contactless attack, to the best of our knowledge, that manipulates tactile sensing through electromagnetic interference (EMI).",
+          "methodHighlights": "Tactile sensors are integral to modern robotic systems, enabling robots to perceive and interact with the physical environment through tactile feedback.；However, the physical-layer security of tactile sensors has received little attention.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "CubicSplat: Differentiable Vector Graphics via Error-Bounded Forward Relaxation",
+          "authors": [
+            "Chenglong Liu",
+            "Xin Zhang",
+            "Yimeng Zhu",
+            "Liyang He",
+            "Yixiao Ma",
+            "Yu Su",
+            "Zhenya Huang",
+            "Qi Liu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20803",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.GR",
+            "cs.CV",
+            "cs.LG"
+          ],
+          "summary": "Vector graphics are prized for their resolution independence, compact storage, and direct editability, making differentiable optimization of their parametric primitives an attractive goal. Yet classical rasterization is discontinuous with respect to geometry, and existing remedies that smooth the forward pass demand increasingly elaborate heuristics as scene complexity grows. We trace this fragility to a gradient seesaw: design choices that improve forward geometric exactness can systematically degrade the induced gradient signal, and vice versa.",
+          "methodHighlights": "Vector graphics are prized for their resolution independence, compact storage, and direct editability, making differentiable optimization of their parametric primitives an attractive goal.；Yet classical rasterization is discontinuous with respect to geometry, and existing remedies that smooth the forward pass demand increasingly elaborate heuristics as scene complexity grows.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "CertVLA: Certified Defense against Physical Visual Attacks for Vision-Language-Action Models",
+          "authors": [
+            "Hui Lu",
+            "Zhijie Peng",
+            "Yuqi Lin",
+            "Zaijia Yang",
+            "Jiaming He",
+            "Shuhan Ye",
+            "Yi Yu",
+            "Hanwei Zhu",
+            "Bingquan Shen",
+            "Alex Kot",
+            "Xudong Jiang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20791",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "summary": "Vision-Language-Action (VLA) policies are vulnerable to localized physical perturbations, yet existing certified patch defenses target discrete labels and cannot directly certify continuous, temporally correlated actions. We introduce CertVLA, a certified defense for closed-loop VLA control under bounded patch and texture attacks. CertVLA proposes a calibrated region of behaviorally consistent actions, while deterministic covering masks ensure that at least one checked prediction is attack-free.",
+          "methodHighlights": "Vision-Language-Action (VLA) policies are vulnerable to localized physical perturbations, yet existing certified patch defenses target discrete labels and cannot directly certify continuous, temporally correlated actions.；We introduce CertVLA, a certified defense for closed-loop VLA control under bounded patch and texture attacks.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Rethinking Demonstration Unlearning in Imitation Learning for Robotics",
+          "authors": [
+            "Jiazhuo Li",
+            "Yu Zhang",
+            "Yiming Fei",
+            "Kangkang Dong",
+            "Xiaojun Zhu",
+            "Houde Liu",
+            "Jinze Tao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20784",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "summary": "Imitation learning for robotics depends on human demonstrations, some of which people may later ask to remove. Retraining without them is the natural reference, but its cost grows with policy and dataset scale, motivating cheaper operators that edit a trained policy. Metrics inherited from machine unlearning, such as forgetting loss or a single membership attack, do not establish what an edit removed from a policy acting in closed loop.",
+          "methodHighlights": "Imitation learning for robotics depends on human demonstrations, some of which people may later ask to remove.；Retraining without them is the natural reference, but its cost grows with policy and dataset scale, motivating cheaper operators that edit a trained policy.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "MotionPhys: Detecting AI-Generated Videos via Physical Consistency of Optical-Flow Trajectories",
+          "authors": [
+            "Haojin He",
+            "Hao Tan",
+            "Zichang Tan",
+            "Ajian Liu",
+            "Jun Wan"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20770",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Modern AI video generation models can produce videos with high visual fidelity and seemingly smooth temporal transitions. However, visual realism does not necessarily imply physical motion consistency. Existing generative models mainly optimize distribution matching in pixel or latent spaces, without explicitly enforcing real-world constraints such as inertia, continuous forces, and trajectory geometry.",
+          "methodHighlights": "Modern AI video generation models can produce videos with high visual fidelity and seemingly smooth temporal transitions.；However, visual realism does not necessarily imply physical motion consistency.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Video Generation",
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Beyond Endpoint Gains: A Weight-Delta Audit of Medical Specialization",
+          "authors": [
+            "Praphul Singh",
+            "Shanu Kumar",
+            "Akshat Agarwal"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20768",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI"
+          ],
+          "summary": "Specialist language models are usually understood through endpoint gains: the generalist scores lower, the specialist scores higher, and the difference is treated as evidence of specialization. This leaves the released update itself largely unexamined. We propose a paired weight-delta path audit and apply it to two public, aligned generalist-to-medical-specialist checkpoint pairs: Gemma-3-4B-IT to MedGemma-4B-IT and Qwen2.5-7B-Instruct to HuatuoGPT-o1-7B.",
+          "methodHighlights": "Specialist language models are usually understood through endpoint gains: the generalist scores lower, the specialist scores higher, and the difference is treated as evidence of specialization.；This leaves the released update itself largely unexamined.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "DiGS-Avatar: Single-Image Animatable 3D Human Reconstruction via UV-Space Diffusion",
+          "authors": [
+            "Jiakun Li",
+            "Li Fang",
+            "Hao Zhu",
+            "Fei Hu",
+            "Long Ye",
+            "Yuan Zhang",
+            "Jinyao Yan"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20759",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Single-image 3D human reconstruction often suffers from over-smoothed textures and geometric inconsistencies. While diffusion models improve generative quality, their reliance on multi-view synthesis prior to 3D reconstruction is computationally expensive and prone to view inconsistency. We propose DiGS-Avatar, which reformulates this task as an efficient, diffusion-based UV-latent completion task, ensuring 3D consistency by design.",
+          "methodHighlights": "Single-image 3D human reconstruction often suffers from over-smoothed textures and geometric inconsistencies.；While diffusion models improve generative quality, their reliance on multi-view synthesis prior to 3D reconstruction is computationally expensive and prone to view inconsistency.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Video Generation",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Adaptive Training for Nautical Rules of the Road",
+          "authors": [
+            "Amit Dutta",
+            "Sushil J. Louis"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20751",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.HC"
+          ],
+          "summary": "Knowledge of the nautical rules of the road is essential for safe ship navigation and collision avoidance. We evaluated adaptive and non-adaptive versions of a ship-driving simulation trainer designed to assess and improve students' knowledge and application of these rules. We randomly assigned 30 university students to an adaptive or non-adaptive training condition and measured learning using pretest and post-test scores.",
+          "methodHighlights": "Knowledge of the nautical rules of the road is essential for safe ship navigation and collision avoidance.；We evaluated adaptive and non-adaptive versions of a ship-driving simulation trainer designed to assess and improve students' knowledge and application of these rules.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "Identity-Preserving Text-to-Video Generation via Agentic Enhancement and Semantic Repair",
+          "authors": [
+            "Jiayi Gao",
+            "Changcheng Hua",
+            "Jiaqi Tang",
+            "Yuxin Peng",
+            "Yang Liu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20749",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Identity-preserving video generation aims to synthesize videos that follow natural-language instructions while maintaining the visual identity of a given subject. Recent commercial video generation models have achieved strong visual quality and motion realism, but they still suffer from identity drift, incomplete instruction following, and missing visual details under complex prompts. Since these models are usually closed-source black boxes, directly improving them through parameter optimization is often infeasible.",
+          "methodHighlights": "Identity-preserving video generation aims to synthesize videos that follow natural-language instructions while maintaining the visual identity of a given subject.；Recent commercial video generation models have achieved strong visual quality and motion realism, but they still suffer from identity drift, incomplete instruction following, and missing visual details under complex prompts.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Video Generation"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Generating Multi-view Adversarial Examples for Visual Geometry Grounded Transformer",
+          "authors": [
+            "Qi Song",
+            "Ziyuan Luo",
+            "Haoliang Han",
+            "Renjie Wan"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20748",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "The Visual Geometry Grounded Transformer (VGGT) enables unified feed-forward 3D reconstruction from multi-view images. However, deploying such a high-performance model may expose critical security vulnerabilities. Traditional adversarial perturbations require costly per-scene optimization, while Universal Adversarial Perturbations (UAPs) rely on a single static pattern and fail to effectively attack VGGT.",
+          "methodHighlights": "The Visual Geometry Grounded Transformer (VGGT) enables unified feed-forward 3D reconstruction from multi-view images.；However, deploying such a high-performance model may expose critical security vulnerabilities.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "VisTa3D: A Dataset and Benchmark for Thin Object Reconstruction from Vision, Tactile, and 3D Point Clouds",
+          "authors": [
+            "Shania Guo",
+            "Yeongsik Seo",
+            "Andrew Fu",
+            "Mei Hao",
+            "Iris Xia",
+            "Jiwon Jenny Lee",
+            "Xinyi Mary Xie",
+            "Hyoungseob Park",
+            "Aaron Dollar",
+            "Alex Wong"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20740",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "State-of-the-art 3D reconstruction models, whether from visual, range, or both, tend to underperform on thin objects. This is partially due to the small amount of space such objects occupy in RGB images and in 3D point clouds. To test the extent of their errors, we collected the first thin object dataset comprising of synchronized RGB images, depth maps, and tactile response maps, where each frame is associated with inertial measurements, camera pose and calibration, and groundtruth depth and segmentation maps obtained from laser scanning of thin objects.",
+          "methodHighlights": "State-of-the-art 3D reconstruction models, whether from visual, range, or both, tend to underperform on thin objects.；This is partially due to the small amount of space such objects occupy in RGB images and in 3D point clouds.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation",
+          "authors": [
+            "Siyuan Ma",
+            "Yutian Zhang",
+            "Boshi Zhang",
+            "Qinglian Wu",
+            "Jiaqi Zhai",
+            "Dong Wei",
+            "Xiaojin Huang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20735",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI",
+            "cs.RO"
+          ],
+          "summary": "Manipulating moving objects requires a policy to anticipate contact events, yet vision-language-action (VLA) policies are commonly fine-tuned from the current observation alone. World action models (WAMs) learn predictive dynamics, but running a video-scale teacher or explicitly imagining future frames at deployment is costly. We introduce ForeTime-VLA, a dense pi0.5 policy that distills a future-aware, action-equivalent representation from a frozen Fast-WAM-derived teacher while remaining causal at inference.",
+          "methodHighlights": "Manipulating moving objects requires a policy to anticipate contact events, yet vision-language-action (VLA) policies are commonly fine-tuned from the current observation alone.；World action models (WAMs) learn predictive dynamics, but running a video-scale teacher or explicitly imagining future frames at deployment is costly.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Video Generation",
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Calibrating Criterion Revision in LLM Agents: Failure Modes and a Trace-Anchored Protocol",
+          "authors": [
+            "Guodong Xu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20729",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI",
+            "cs.CL"
+          ],
+          "summary": "Language-model agents can improve after failure or carry text across episodes without revising what counts as success. We study the narrower attribution problem of criterion revision: when criterion K0 accepts an outcome violating a broader commitment B, what observations justify saying that the system formed and persistently used K1? We require five non-compensatory conditions: criterion-failure detection, a model-emitted proposal, new-episode transfer, intervention sensitivity on the claimed carrier, and preservation.",
+          "methodHighlights": "Language-model agents can improve after failure or carry text across episodes without revising what counts as success.；We study the narrower attribution problem of criterion revision: when criterion K0 accepts an outcome violating a broader commitment B, what observations justify saying that the system formed and persistently used K1?",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "AffordAny: Open-World 3D Affordance Grounding from Monocular RGB Images via Vision-Language-Guided Geometric Reasoning",
+          "authors": [
+            "Junqi Wu",
+            "Kaihua Tang",
+            "Xuanwen Chen",
+            "Hongzhi Li",
+            "Jianqiang Huang",
+            "Xian-Sheng Hua"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20720",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Open-world 3D affordance grounding requires localizing functional object parts in 3D given free-form language queries. Existing methods typically assume pre-built object-centric 3D geometry and closed affordance ontologies, limiting deployment from raw RGB observations. We present AffordAny, an end-to-end framework that uses one monocular RGB image to construct large-scale text-conditioned 3D part supervision, ground affordances with a frozen vision-language model (VLM) guided decoder, and improve open-world generalization through pseudo-label self-training.",
+          "methodHighlights": "Open-world 3D affordance grounding requires localizing functional object parts in 3D given free-form language queries.；Existing methods typically assume pre-built object-centric 3D geometry and closed affordance ontologies, limiting deployment from raw RGB observations.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "ArtiMo: Agent-Driven Articulated Mesh Animation",
+          "authors": [
+            "Chunyu Zou",
+            "Peng Dai",
+            "Yi-Hua Huang",
+            "Ze Yuan",
+            "Jingwei Huang",
+            "Yeming Yao",
+            "Xiaojuan Qi"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20699",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Animating articulated 3D meshes via text requires satisfying strict kinematic constraints, modeling causal interactions between parts, and achieving instruction fidelity. Due to the absence of task-specific training data and explicit articulation supervision, existing data-driven mesh animation methods are largely inapplicable to this setting. To address this, we propose ArtiMo, a novel agent-driven framework for text-guided articulated mesh animation.",
+          "methodHighlights": "Animating articulated 3D meshes via text requires satisfying strict kinematic constraints, modeling causal interactions between parts, and achieving instruction fidelity.；Due to the absence of task-specific training data and explicit articulation supervision, existing data-driven mesh animation methods are largely inapplicable to this setting.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Bridging Language and Spherical Space: Object-Centric Control for Text-to-Panorama Generation",
+          "authors": [
+            "Derui Li",
+            "Qian Qiao",
+            "Yuhao Sun",
+            "Wenhao Guo",
+            "Peng Lu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20691",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Panoramic image generation is increasingly important for immersive applications such as virtual reality, augmented reality, and 3D content creation. Unlike perspective images, panoramic images represent a viewer-centered $360^\\circ$ surrounding space, where directional expressions such as left, right, front, and behind play a central role in spatial understanding. However, existing text-to-panorama methods largely rely on implicit spatial reasoning and often fail to faithfully ground object-level directional descriptions in spherical panoramic scenes.",
+          "methodHighlights": "Panoramic image generation is increasingly important for immersive applications such as virtual reality, augmented reality, and 3D content creation.；Unlike perspective images, panoramic images represent a viewer-centered $360^\\circ$ surrounding space, where directional expressions such as left, right, front, and behind play a central role in spatial understanding.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Video Generation",
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Identity-Aware Human-Object Interaction Motion Captioning",
+          "authors": [
+            "Yiming Wang",
+            "Yonghao Dang",
+            "Huilai Li",
+            "Jiawei Tu",
+            "Jianqin Yin"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20690",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "summary": "Existing human-object interaction (HOI) motion captioning methods typically describe what happens while referring to the subject using generic terms such as \"a person\" or \"someone\", without grounding the caption in subject identity. To address this limitation, we introduce Identity-Aware Human-Object Interaction Motion Captioning task. This task requires each generated caption to specify both the subject identity and the corresponding HOI motion.",
+          "methodHighlights": "Existing human-object interaction (HOI) motion captioning methods typically describe what happens while referring to the subject using generic terms such as \"a person\" or \"someone\", without grounding the caption in subject identity.；To address this limitation, we introduce Identity-Aware Human-Object Interaction Motion Captioning task.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Video Generation",
+            "HOI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "VortexChat: An agentic framework for autonomous multi-objective integrated photonic design",
+          "authors": [
+            "Faqian Chong",
+            "Yulun Wu",
+            "Shilong Li",
+            "Andrew Forbes",
+            "Hongsheng Chen",
+            "Song Han"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20688",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI",
+            "physics.optics"
+          ],
+          "summary": "The advancement of modern integrated photonics is frequently bottlenecked by device design workflows that rely heavily on manual simulation and expert intuition. While inverse design offers an alternative, it remains constrained by expert supervision and a lack of end-to-end automation. To address these issues, we present VortexChat, an agentic framework for the autonomous, end-to-end inverse design of integrated photonic devices directly from natural language specifications.",
+          "methodHighlights": "The advancement of modern integrated photonics is frequently bottlenecked by device design workflows that rely heavily on manual simulation and expert intuition.；While inverse design offers an alternative, it remains constrained by expert supervision and a lack of end-to-end automation.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction",
+          "authors": [
+            "Chuanjin Fan",
+            "Wenjie Chang",
+            "Bohao Liao",
+            "Yujia Chen",
+            "Wenfei Yang",
+            "Tianzhu Zhang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20687",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV",
+            "cs.GR"
+          ],
+          "summary": "3D Gaussian Splatting has achieved remarkable success in novel view synthesis. However, extracting high-fidelity surfaces directly from 3DGS remains challenging due to its discrete and unstructured nature. Existing 3DGS-based reconstruction methods typically rely on multi-view geometric consistency or local constraints.",
+          "methodHighlights": "3D Gaussian Splatting has achieved remarkable success in novel view synthesis.；However, extracting high-fidelity surfaces directly from 3DGS remains challenging due to its discrete and unstructured nature.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "CDRL: Certification-Driven Reinforcement Learning for Neutrino Flavor Model Discovery",
+          "authors": [
+            "Piyush Jha",
+            "Jake Rudolph",
+            "Victoria Knapp-Pérez",
+            "Max Fieg",
+            "Aishik Ghosh",
+            "Vijay Ganesh"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20686",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI",
+            "cs.LG",
+            "cs.LO",
+            "hep-ph"
+          ],
+          "summary": "Many scientific discovery problems require searching combinatorial hypothesis spaces under complex domain constraints. Reinforcement learning (RL) offers a promising approach, but existing methods rely on scalar rewards that provide limited information about why candidate solutions fail, leading agents to repeatedly explore invalid regions. We introduce Certification-Driven Reinforcement Learning (CDRL), a framework that leverages structured feedback from symbolic reasoning tools.",
+          "methodHighlights": "Many scientific discovery problems require searching combinatorial hypothesis spaces under complex domain constraints.；Reinforcement learning (RL) offers a promising approach, but existing methods rely on scalar rewards that provide limited information about why candidate solutions fail, leading agents to repeatedly explore invalid regions.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Lightweight Adaptive ReduNet via Hyperspherical Manifold Learning",
+          "authors": [
+            "Zhenglin Huang",
+            "Qifa Yan",
+            "Bin Dai",
+            "Xiaohu Tang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20668",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.LG",
+            "cs.AI"
+          ],
+          "summary": "In recent years, a white-box neural network called ReduNet has been proposed, which employs the maximal coding rate reduction (MCR$^2$) principle to transform raw data into low-dimensional discriminative features via a forward layer-wise construction process. Unlike traditional deep networks that rely on backpropagation, ReduNet explicitly derives the parameters of each layer from the features of its preceding layer, offering a mathematically interpretable paradigm. However, this layer-wise construction often requires a large number of layers for the MCR$^2$ objective to reach a stable value, which increases the parameter storage of the unfolded module.",
+          "methodHighlights": "In recent years, a white-box neural network called ReduNet has been proposed, which employs the maximal coding rate reduction (MCR$^2$) principle to transform raw data into low-dimensional discriminative features via a forward layer-wise construction process.；Unlike traditional deep networks that rely on backpropagation, ReduNet explicitly derives the parameters of each layer from the features of its preceding layer, offering a mathematically interpretable paradigm.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "Predicting Resource Efficient Hamiltonian Decomposition for Continuous-Time Quantum Walk Simulations",
+          "authors": [
+            "Mostafa Atallah",
+            "Rebekah Herrman",
+            "Zain H. Saleem"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20660",
+          "published": "2026-08-21",
+          "categories": [
+            "quant-ph",
+            "cs.LG"
+          ],
+          "summary": "Simulating a continuous-time quantum walk (CTQW) on a graph in the circuit model of quantum computing requires decomposing its Hamiltonian into terms that can be Trotterized into hardware-native gates. We consider two such decompositions: the standard Pauli decomposition and the recently introduced matching decomposition. Prior work suggests that the matching decomposition uses fewer CX gates on sparse graphs, while the Pauli decomposition uses fewer on denser graphs.",
+          "methodHighlights": "Simulating a continuous-time quantum walk (CTQW) on a graph in the circuit model of quantum computing requires decomposing its Hamiltonian into terms that can be Trotterized into hardware-native gates.；We consider two such decompositions: the standard Pauli decomposition and the recently introduced matching decomposition.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [],
+          "watchGroups": []
+        },
+        {
+          "title": "Lift, Associate, and Fuse: A Decision-Centric Framework for 2D-to-3D Foundation Model Transfer",
+          "authors": [
+            "Wentao Sun",
+            "Yiping Chen",
+            "John S. Zelek",
+            "Jonathan Li"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20659",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Methods that transfer predictions from two-dimensional foundation models into three-dimensional segmentation are commonly grouped by task or representation. Those groupings obscure the decisions that determine whether a system remains coherent across views: where image evidence is grounded, when observations become one identity, how semantic and granularity conflicts are handled, which information is fused, and what state survives for later queries. We introduce \\textbf{Lift, Associate, and Fuse (LAF)}, a decision-centric framework that represents a transfer system as five operators: \\textbf{Generate, Associate, Reconcile, Fuse, and Persist/Query}.",
+          "methodHighlights": "Methods that transfer predictions from two-dimensional foundation models into three-dimensional segmentation are commonly grouped by task or representation.；Those groupings obscure the decisions that determine whether a system remains coherent across views: where image evidence is grounded, when observations become one identity, how semantic and granularity conflicts are handled, which information is fused, and what state survives for later queries.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "Nonlinear Model Predictive Control for Trajectory Tracking of Differentially Flat Fixed-Wing Aerial Systems",
+          "authors": [
+            "Nishanth Bobbili",
+            "Pratyaksh Rao",
+            "Luca Morando",
+            "Luca Masci",
+            "Giuseppe Loianno"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20655",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "Planning and control of fixed-wing Unmanned Aerial Vehicles (UAVs) are challenging due to nonlinear dynamics, aerodynamic limits, and environmental disturbances. Differential flatness offers a principled way to generate fast, feasible trajectories, but its use has largely been confined to model-free controllers, which lack predictive capabilities and demand tuning. In this paper, we propose a unified framework that integrates differential flatness-based trajectory generation with Nonlinear Model Predictive Control (NMPC), combining computationally efficient planning with predictive, constraint-aware control.",
+          "methodHighlights": "Planning and control of fixed-wing Unmanned Aerial Vehicles (UAVs) are challenging due to nonlinear dynamics, aerodynamic limits, and environmental disturbances.；Differential flatness offers a principled way to generate fast, feasible trajectories, but its use has largely been confined to model-free controllers, which lack predictive capabilities and demand tuning.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "MV2GF: Multi-view Pedestrian Detection with a Visual Geometric Foundation Model",
+          "authors": [
+            "Taiga Yamane",
+            "Satoshi Suzuki",
+            "Ryo Masumura",
+            "Shota Orihashi",
+            "Tomohiro Tanaka",
+            "Mana Ihori",
+            "Naoki Makishima"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20639",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Multi-View Pedestrian Detection (MVPD) aims to detect pedestrians in the form of a bird's eye view map from multi-view images. Recent MVPD methods adopt a unified framework that projects 2D image features into a 3D world space and aggregates them into a single feature. Although they are effective, they struggle to generalize to unseen camera configurations during training due to two main issues.",
+          "methodHighlights": "Multi-View Pedestrian Detection (MVPD) aims to detect pedestrians in the form of a bird's eye view map from multi-view images.；Recent MVPD methods adopt a unified framework that projects 2D image features into a 3D world space and aggregates them into a single feature.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": []
+        },
+        {
+          "title": "SAGE: A Unified Algebra and Self-Adaptive Execution for AI Functions in SQL",
+          "authors": [
+            "Xiangqi Wang",
+            "Nhan H. Pham",
+            "Oktie Hassanzadeh",
+            "Dharmashankar Subramanian",
+            "Xiangliang Zhang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.20630",
+          "published": "2026-08-21",
+          "categories": [
+            "cs.AI"
+          ],
+          "summary": "SQL systems increasingly expose AI functions for tasks such as classification, extraction, filtering, ranking, retrieval, joining, and summarization. Despite their diverse APIs, these functions play only three relational roles: transforming individual rows, aggregating groups, or generating relationships between row pairs. We present SAGE (Self-Adaptive Generative Execution), a unified logical and physical framework that captures these roles with three typed primitives, AI_SCALAR, AI_AGG, and AI_JOIN, and composes them naturally with standard relational operators.",
+          "methodHighlights": "SQL systems increasingly expose AI functions for tasks such as classification, extraction, filtering, ranking, retrieval, joining, and summarization.；Despite their diverse APIs, these functions play only three relational roles: transforming individual rows, aggregating groups, or generating relationships between row pairs.",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": []
+        }
+      ]
+    },
     {
       "date": "2026-08-21",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-08-21",
