@@ -18,6 +18,9 @@ const els = {
   watchlistHits: document.querySelector("#watchlistHits"),
   trendRow: document.querySelector("#trendRow"),
   topPicks: document.querySelector("#topPicks"),
+  automotiveCollection: document.querySelector("#automotiveCollection"),
+  automotiveCount: document.querySelector("#automotiveCount"),
+  automotivePaperList: document.querySelector("#automotivePaperList"),
   paperList: document.querySelector("#paperList"),
 };
 
@@ -111,7 +114,38 @@ const areaNeedles = {
   robot: ["robot", "机器人", "manipulation", "grasp", "embodied"],
   physical: ["physical", "physics", "物理", "physics-aware", "physical ai"],
   hoi: ["hoi", "human-object", "human object", "hand-object", "hand object", "人-物", "人与物", "交互", "affordance", "grasp"],
+  automotive: ["intelligent driving", "autonomous driving", "automated driving", "self-driving", "adas", "v2x", "vehicle-to-everything", "汽车合集", "automotive collection"],
 };
+
+const drivingNeedles = [
+  "intelligent driving",
+  "autonomous driving",
+  "automated driving",
+  "self-driving",
+  "driving system",
+  "driving scene",
+  "driving policy",
+  "driving planner",
+  "driver assistance",
+  "adas",
+  "v2x",
+  "vehicle-to-everything",
+  "roadside-cooperative",
+  "智能驾驶",
+  "自动驾驶",
+  "辅助驾驶",
+];
+
+const drivingWorldModelNeedles = [
+  "driving world model",
+  "driving world action model",
+  "world model for autonomous driving",
+  "world models for autonomous driving",
+  "world action model for autonomous driving",
+  "world action models for autonomous driving",
+  "自动驾驶世界模型",
+  "驾驶世界模型",
+];
 
 function byDateDesc(a, b) {
   return String(b.date || "").localeCompare(String(a.date || ""));
@@ -155,6 +189,37 @@ function paperSearchText(paper) {
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
+}
+
+function paperDisplayText(paper) {
+  return [paperSearchText(paper), paper.displayGroup, paper.collection]
+    .flat()
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+}
+
+function isDrivingFeaturedPaper(paper) {
+  const text = paperDisplayText(paper);
+  const isDriving = drivingNeedles.some((needle) => text.includes(needle));
+  const isDrivingVla = isDriving && /\bvla\b|vision-language-action/.test(text);
+  const isDrivingWorldModel =
+    drivingWorldModelNeedles.some((needle) => text.includes(needle)) ||
+    (isDriving && /\bworld (?:action )?models?\b|世界模型/.test(text));
+  return isDrivingVla || isDrivingWorldModel;
+}
+
+function isAutomotiveCollectionPaper(paper) {
+  if (isDrivingFeaturedPaper(paper)) return false;
+
+  const text = paperDisplayText(paper);
+  const declaredGroup = String(paper.displayGroup || paper.collection || "").toLowerCase();
+  return (
+    declaredGroup === "automotive" ||
+    text.includes("automotive collection") ||
+    text.includes("汽车合集") ||
+    drivingNeedles.some((needle) => text.includes(needle))
+  );
 }
 
 function paperWatchText(paper) {
@@ -252,7 +317,15 @@ function renderPill(text, className = "") {
 
 function renderTopPicks(report) {
   els.topPicks.replaceChildren();
-  const picks = report.topPapers || [];
+  const papers = report.papers || [];
+  const picks = (report.topPapers || []).filter((pick) => {
+    const normalizedPick = String(pick).trim().toLowerCase();
+    const matchedPaper = papers.find((paper) => {
+      const title = String(paper.title || "").trim().toLowerCase();
+      return title === normalizedPick || title.includes(normalizedPick) || normalizedPick.includes(title);
+    });
+    return !matchedPaper || !isAutomotiveCollectionPaper(matchedPaper);
+  });
 
   if (!picks.length) {
     els.topPicks.append(createEl("p", "empty-copy", "No top picks yet"));
@@ -382,12 +455,12 @@ function renderPaperFacts(paper) {
   return list;
 }
 
-function renderPaper(paper, index) {
+function renderPaper(paper, indexLabel) {
   const card = createEl("article", "paper-card");
   const meta = createEl("div", "paper-meta");
   const watchHits = getPaperWatchHits(paper);
   meta.append(
-    renderPill(`#${index + 1}`),
+    renderPill(indexLabel),
     renderPill(paper.priority || "低", priorityClass(paper.priority)),
   );
   watchHits.forEach((group) => meta.append(renderPill(`重点组 · ${group.shortName}`, "watch-pill")));
@@ -435,14 +508,28 @@ function renderReportDetail() {
   renderWatchlist(report);
 
   els.paperList.replaceChildren();
+  els.automotivePaperList.replaceChildren();
   const papers = reportPapers(report);
+  const automotivePapers = papers.filter(isAutomotiveCollectionPaper);
+  const mainPapers = papers.filter((paper) => !isAutomotiveCollectionPaper(paper));
+
+  els.automotiveCollection.hidden = automotivePapers.length === 0;
+  els.automotiveCount.textContent = `${automotivePapers.length} 篇`;
+  automotivePapers.forEach((paper, index) =>
+    els.automotivePaperList.append(renderPaper(paper, `A${index + 1}`)),
+  );
 
   if (!papers.length) {
     els.paperList.append(createEl("p", "authors", "No papers match the current filters."));
     return;
   }
 
-  papers.forEach((paper, index) => els.paperList.append(renderPaper(paper, index)));
+  if (!mainPapers.length) {
+    els.paperList.append(createEl("p", "authors", "匹配论文已收纳在上方汽车合集。"));
+    return;
+  }
+
+  mainPapers.forEach((paper, index) => els.paperList.append(renderPaper(paper, `#${index + 1}`)));
 }
 
 function render() {
