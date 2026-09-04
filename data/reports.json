@@ -1,6 +1,2621 @@
 {
-  "updatedAt": "2026-09-03T12:16:41+08:00",
+  "updatedAt": "2026-09-04T12:08:47+08:00",
   "reports": [
+    {
+      "date": "2026-09-04",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-09-04",
+      "shortTitle": "持久 3D 世界 / 驾驶 VLA / 机器人想象",
+      "summary": "官方 2026-09-04 公告批次命中 80 篇：主列表 75 篇，汽车合集 5 篇；前序日期补充 0 篇。",
+      "trends": [
+        "三维生成与视频生成正在合流：OctWorld 用持久八叉树三维记忆维持长程世界一致性，FlashRender 则把相机控制的新视角生成压缩到少步推理。",
+        "世界模型从视觉预测走向可控决策：StyleDrive、Drive-HWM、SV-WAM 与 LaPla 分别处理长时一致性、快慢时标、环视动作生成和连续物理动作。",
+        "机器人学习更重视想象调度与物理可用性：WISE 决定何时相信世界模型，JEPA 规划与 GIFT 则把动作和物理结构写入中间表示。",
+        "3DGS 研究同时向高效训练和可编辑表面推进，Laplacian-GS、TruncGradGS、PointGT 与 P-CORE 分别切入频率分层、梯度、纹理和形变一致性。",
+        "评测开始追问可审计物理证据：VeriPhy、Principia、FailBench 与 R2S-Eval 不再只看视觉质量或单一成功率。"
+      ],
+      "topPapers": [
+        "OctWorld: Long-Range World-Consistent Video Generation with Octree-Based 3D Mapping",
+        "FlashRender: Few-Step Generative Rendering via Camera-Controlled Video MeanFlow",
+        "Continuous Actions from Discrete Minds: Latent-Aligned Planning for End-to-End Autonomous Driving",
+        "WISE: World-model-guided Imagination Scheduling for Efficient Post-training of Vision-Language-Action Models",
+        "Stable and Scalable Bundle Adjustment of Holistic 3D Structures",
+        "VeriPhy: Agentic Physical Reasoning for World Model Evaluation and Refinement"
+      ],
+      "markdownPath": "reports/arxiv/2026-09-04.md",
+      "papers": [
+        {
+          "title": "OctWorld: Long-Range World-Consistent Video Generation with Octree-Based 3D Mapping",
+          "authors": [
+            "Zelong Lv",
+            "Sicheng Xu",
+            "Jianfeng Xiang",
+            "Ruicheng Wang",
+            "Yue Dong",
+            "Yu Deng",
+            "Guangzhong Sun",
+            "Jiaolong Yang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03919",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "OctWorld 从单张图像生成可探索的长视频世界，并用持久八叉树地图保存跨片段三维状态。几何记忆在生成过程中持续融合已见区域，使相机离开后再返回时仍能恢复一致的结构与外观。该工作把视频扩散与显式 3D mapping 结合，重点值得检查长程回环、遮挡恢复和地图误差累积。",
+          "methodHighlights": [
+            "OctWorld",
+            "视频生成",
+            "点云／点表示"
+          ],
+          "projectUrl": "https://maxtirerror.github.io/octworldpage/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Generation",
+            "Video Generation",
+            "World Models",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "FlashRender: Few-Step Generative Rendering via Camera-Controlled Video MeanFlow",
+          "authors": [
+            "Byeongjun Park",
+            "Byung-Hoon Kim",
+            "Hyungjin Chung"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03563",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "FlashRender 面向给定目标相机轨迹的视频重拍，将生成式新视角渲染压缩到少步推理。RETA 对齐源视频隐藏表征与相机条件，作者还把采样步依赖的控制误差与 MeanFlow 蒸馏联合处理。实验主张在秒级生成中兼顾轨迹控制、画质和时间一致性，适合与多步视频扩散基线对照。",
+          "methodHighlights": [
+            "FlashRender",
+            "视频生成",
+            "深度与几何约束"
+          ],
+          "projectUrl": "https://byeongjun-park.github.io/FlashRender/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Generation",
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Continuous Actions from Discrete Minds: Latent-Aligned Planning for End-to-End Autonomous Driving",
+          "authors": [
+            "Ruoyu Yao",
+            "Yusen Xie",
+            "Qingzhao Liu",
+            "Pei Liu",
+            "Zewei Yang",
+            "Yipeng Zhu",
+            "Xiaolong Wang",
+            "Jun Ma"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.04070",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "LaPla 研究驾驶 VLA 的离散语义推理如何落到连续、受车辆运动学约束的动作。它用残差 VQ-VAE 学习动作潜空间，但直接回归连续潜变量并由冻结解码器产生轨迹，从而避免码本量化误差和自回归延迟。摘要报告 nuScenes 长时 L2 误差降低 15.52%，并在 AlpaSim 闭环中将成功率提高 33.34 个百分点。",
+          "methodHighlights": [
+            "Continuous Actions from Discrete Minds",
+            "视觉-语言-动作建模",
+            "多视图建模"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Intelligent Driving"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "WISE: World-model-guided Imagination Scheduling for Efficient Post-training of Vision-Language-Action Models",
+          "authors": [
+            "Chenhao Zhang",
+            "Hanyu Zhao",
+            "Hang Cheng",
+            "Tengfei Pan",
+            "Long Zeng"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03681",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "WISE 把世界模型用于 VLA 后训练，但核心不是无差别生成想象，而是决定何时、想象多远以及如何把可靠未来转成监督。方法根据候选行为的不确定性与收益调度想象，并限制世界模型超出可信范围的滚动。该思路把世界模型价值从预测精度转向样本效率和策略改进，适合重点核验可靠性判据与真实机器人收益。",
+          "methodHighlights": [
+            "WISE",
+            "世界模型",
+            "视觉-语言-动作建模"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "World Models",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Stable and Scalable Bundle Adjustment of Holistic 3D Structures",
+          "authors": [
+            "Shaohui Liu",
+            "Rémi Pautrat",
+            "Daniel Barath",
+            "Richard Hartley",
+            "Viktor Larsson",
+            "Marc Pollefeys"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.04026",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文扩展 bundle adjustment，使相机、点、线及更整体的三维结构能够在统一优化中稳定协同。作者针对大规模异构几何的数值条件和稀疏求解设计可扩展实现，并在 LIMAP 代码体系中提供入口。它对城市级重建、结构线约束和弱纹理场景尤其相关，建议关注收敛稳定性及不同结构类型的增益。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "点云／点表示",
+            "深度与几何约束"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/cvg/limap/",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Reconstruction"
+          ],
+          "watchGroups": [
+            "eth-cvg"
+          ],
+          "displayGroup": "main"
+        },
+        {
+          "title": "VeriPhy: Agentic Physical Reasoning for World Model Evaluation and Refinement",
+          "authors": [
+            "Wenzhuo Xu",
+            "Yuchen Zhu",
+            "Chongjian Ge",
+            "Xuan Shen",
+            "Jing Shi",
+            "Jason Kuen",
+            "Yongxin Chen",
+            "Molei Tao",
+            "Christopher McComb",
+            "Noelia Grande Gutiérrez",
+            "Jiuxiang Gu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03153",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "VeriPhy 为生成视频和世界模型构建可审计的物理验证系统，而不是只输出一个质量分数。文本规划器先把提示编译成类型化物理义务，执行阶段再调用冻结的分割、跟踪、深度、计数等专家，并保留逐条证据来源。其三值判定可区分支持、矛盾和未知，适合作为物理视频生成的可定位失败评测接口。",
+          "methodHighlights": [
+            "VeriPhy",
+            "世界模型",
+            "深度与几何约束"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "World Models",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "RoboTok: An Internet-Scale Data Engine for Human Demonstration Retrieval and Dexterous Manipulation Learning",
+          "authors": [
+            "Howard Qian",
+            "Yiting Chen",
+            "Yunfei Xie",
+            "Kejia Ren",
+            "Podshara Chanrungmaneekul",
+            "Gaotian Wang",
+            "Bowen Wen",
+            "Chen Wei",
+            "Kaiyu Hang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03199",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI、Physical 3D，研究《RoboTok: An Internet-Scale Data Engine for Human Demonstration Retrieval and Dexterous Manipulation Learning》所界定的核心问题。作者提出 RoboTok，把策略学习、机器人操作、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "RoboTok",
+            "策略学习",
+            "机器人操作"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Long-Horizon Consistent and Interaction-Aware World Models for Multi-Style End-to-End Driving",
+          "authors": [
+            "Yuxuan Han",
+            "Kunyuan Wu",
+            "Liyunong Yang",
+            "Zilu Wang",
+            "Cansen Jiang",
+            "Yi Xiao",
+            "Liang Hu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03225",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "StyleDrive 用世界模型想象滚动训练多风格端到端驾驶策略。时间一致性正则缓解长时误差累积，交互状态解耦分离与自车相关的信息，轨迹级相对优势支持不同驾驶风格。Bench2Drive 摘要报告驾驶分数 88.44、成功率 66.82，并给出真实自动导引车上的 sim-to-real 演示。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "世界模型",
+            "策略学习"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "World Models",
+            "Intelligent Driving"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Laplacian Frequency Hierarchies for Efficient 3D Gaussian Splatting Training",
+          "authors": [
+            "Yixiong Yang",
+            "Sisheng Zhang",
+            "Qingsong Yan",
+            "Shaohuai Shi",
+            "Qiang Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03334",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Laplacian Frequency Hierarchies 用拉普拉斯图像分解把 3DGS 训练改成由低频到高频的分阶段优化。每阶段完成后归档对应高斯场，后续只拟合更高频残差，从而减少同时活跃的高斯数量。该方案可插接 Taming-3DGS 与 FastGS，摘要报告在 1K/4K 设置下获得约 1.21× 至 1.74× 加速。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "3D Gaussian Splatting",
+            "位姿、里程计与建图"
+          ],
+          "projectUrl": "https://sorenzhang574.github.io/Laplacian-GS/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D Reconstruction"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "BRIDGE: An Open-Source Humanoid Platform via Morphology-Control Co-Design for Physical AI",
+          "authors": [
+            "Jianren Wang",
+            "Letian Qian",
+            "Zikai Wang",
+            "Weiwei Wu",
+            "Junjie Zong",
+            "Abhinav Gupta",
+            "Deepak Pathak"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03497",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "论文聚焦Physical AI，研究《BRIDGE: An Open-Source Humanoid Platform via Morphology-Control Co-Design for Physical AI》所界定的核心问题。作者提出 BRIDGE，把策略学习、物理约束、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "BRIDGE",
+            "策略学习",
+            "物理约束"
+          ],
+          "projectUrl": "https://sites.google.com/view/bridgerobot",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Toward Physically Grounded JEPA World Models for Goal-Conditioned Robotic Planning",
+          "authors": [
+            "Muyuan Liu",
+            "Yue Huang",
+            "Zheng Liang",
+            "Xiang Gao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03565",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.LG"
+          ],
+          "summary": "论文聚焦World Models、Physical AI、Physical 3D，研究《Toward Physically Grounded JEPA World Models for Goal-Conditioned Robotic Planning》所界定的核心问题。作者提出 论文提出的统一方案，把世界模型、物理约束、导航与规划、数据与评测组织进统一的训练、生成、控制或评测流程。摘要给出 100%, 98%, 87% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "世界模型",
+            "物理约束"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "World Models",
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Drive-HWM: Hierarchical World Models for Dynamic-Latent Guided Autonomous Driving",
+          "authors": [
+            "Zhaoxin Fan",
+            "Tianbao Zhang",
+            "Wenjun Wu",
+            "Xiaofeng Wang",
+            "Yeying Jin",
+            "Jian Zhao",
+            "Zheng Zhu",
+            "Shuicheng Yan"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03572",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Drive-HWM 将驾驶世界模型拆成慢速未来表征预测与快速动作生成两个时标。慢模型用动态感知潜变量捕获长时交通演化，快模型依据最新观测联合预测下一帧和即时动作。该设计试图同时获得长程预判和快速闭环响应，NAVSIM v1/v2 的消融用于验证快慢层级与光流监督。",
+          "methodHighlights": [
+            "Drive-HWM",
+            "世界模型",
+            "道路智能驾驶"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "World Models",
+            "Intelligent Driving"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Scaling Bimanual Household Manipulation from 1,500 hours of Demonstrations to On-Policy Corrections",
+          "authors": [
+            "Jiafeng Xu",
+            "Qi Li",
+            "Yan Shen",
+            "Yiyu Ren",
+            "Travis Davies",
+            "Shaowen He",
+            "Ze Wang",
+            "Yifan Yang",
+            "Ran Cheng",
+            "Hao Dong"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03591",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI，研究《Scaling Bimanual Household Manipulation from 1,500 hours of Demonstrations to On-Policy Corrections》所界定的核心问题。作者提出 论文提出的统一方案，把视觉-语言-动作建模、策略学习、机器人操作、数据与评测组织进统一的训练、生成、控制或评测流程。摘要给出 500 hours 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "视觉-语言-动作建模",
+            "策略学习"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "SV-WAM: An Efficient Surround-View World-Action Model for End-to-End Autonomous Driving",
+          "authors": [
+            "Jinyang Wang",
+            "Shiwei Li",
+            "Junjian Wang",
+            "Zhiqiang Deng",
+            "Jianbin Gao",
+            "Yihang Zhao",
+            "Liu Liu",
+            "Yongjia Zhao",
+            "Jinlong Chen",
+            "Huirui Xu",
+            "Yifeng Pan",
+            "Kangwei Liu",
+            "Fan Ren",
+            "Ji Tao",
+            "Minghao Yang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03602",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "SV-WAM 在端到端驾驶中保留六相机环视输入，同时避免部署时生成未来视频的高开销。训练阶段以未来视频作为动作学习的密集监督，动作中心因果掩码阻止动作 token 偷看未来视频，因此推理时可丢弃视频分支。可微行驶区域约束进一步惩罚车身越界，NAVSIMv2 闭环和 nuScenes 开环用于验证规划质量、延迟和零样本迁移。",
+          "methodHighlights": [
+            "SV-WAM",
+            "世界模型",
+            "多视图建模"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "World Models",
+            "Intelligent Driving"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Do Video Generators Track the World Across Segments? A Benchmark and Method for World-State Reasoning in Video Continuation",
+          "authors": [
+            "Yingmao Miao",
+            "Pengfei Zhang",
+            "Chaoran Xu",
+            "Meng Yu",
+            "Jing Tang",
+            "Xiangxiang Chu",
+            "Chao Shen",
+            "Chenhao Lin"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03673",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦Video Generation、World Models，研究《Do Video Generators Track the World Across Segments? A Benchmark and Method for World-State Reasoning in Video Continuation》所界定的核心问题。作者提出 论文提出的统一方案，把视频生成、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "视频生成",
+            "数据与评测"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/AMAP-ML/StateAgent",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Video Generation",
+            "World Models"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "VI3: Grounding Pretrained 3D Foundation Models with Inertial Cues",
+          "authors": [
+            "Ernesto Lozano",
+            "Alberto Jaenal",
+            "Javier Civera"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03824",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦3D Reconstruction、Physical 3D，研究《VI3: Grounding Pretrained 3D Foundation Models with Inertial Cues》所界定的核心问题。作者提出 VI3，把深度与几何约束、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "VI3",
+            "深度与几何约束",
+            "数据与评测"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Reconstruction",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "FWBC-VLA: Force-Aware Whole-Body Compensation for Contact-Rich Loco-Manipulation",
+          "authors": [
+            "Yutian Zhang",
+            "Siyuan Ma",
+            "Liwen Yang",
+            "Yang Li",
+            "Ce Hao",
+            "Haozhen Chi",
+            "Dong We",
+            "Qiaojun Yu",
+            "Dibo Hou"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03889",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "论文聚焦Physical AI、Physical 3D，研究《FWBC-VLA: Force-Aware Whole-Body Compensation for Contact-Rich Loco-Manipulation》所界定的核心问题。作者提出 FWBC-VLA，把视觉-语言-动作建模、策略学习、物理约束、机器人操作组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "FWBC-VLA",
+            "视觉-语言-动作建模",
+            "策略学习"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "MulDP: Multimodal Diffusion Policy for Autonomous Quadruped Parkour Navigation across Complex Terrains",
+          "authors": [
+            "Kangmai Hu",
+            "Yueqi Zhang",
+            "Peng Zhai",
+            "Xiaoyi Wei",
+            "Jiabin Hu",
+            "Zhixiang Liu",
+            "Quancheng Qian",
+            "Lihua Zhang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03984",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI，研究《MulDP: Multimodal Diffusion Policy for Autonomous Quadruped Parkour Navigation across Complex Terrains》所界定的核心问题。作者提出 MulDP，把策略学习、扩散建模、仿真与现实迁移、导航与规划组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "MulDP",
+            "策略学习",
+            "扩散建模"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "GIFT: Guided Intermediate Feature Training via Action-Oriented Structural Supervision for Robotic Manipulation",
+          "authors": [
+            "Yupeng Zheng",
+            "Xiang Li",
+            "Songen Gu",
+            "Yuhang Zheng",
+            "Shuai Tian",
+            "Weize Li",
+            "Linbo Wang",
+            "Chaoyue Li",
+            "Qichao Zhang",
+            "Haoran Li",
+            "Zhongpu Xia",
+            "Ya-Qin Zhang",
+            "Shuicheng Yan",
+            "Dongbin Zhao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.04193",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI、Physical 3D，研究《GIFT: Guided Intermediate Feature Training via Action-Oriented Structural Supervision for Robotic Manipulation》所界定的核心问题。作者提出 GIFT，把世界模型、视觉-语言-动作建模、深度与几何约束、策略学习组织进统一的训练、生成、控制或评测流程。摘要给出 5.2 points, 79.6%, 72.6% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "GIFT",
+            "世界模型",
+            "视觉-语言-动作建模"
+          ],
+          "projectUrl": "https://openphoenix-team.github.io/GIFT-pages",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States",
+          "authors": [
+            "Kang Liao",
+            "Yihang Luo",
+            "Xiao-Ming Wu",
+            "Linyi Jin",
+            "Size Wu",
+            "Chunyu Lin",
+            "Yao Zhao",
+            "Fei Wang",
+            "Wei Li",
+            "Chen Change Loy"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.04196",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦3D Reconstruction、3D Generation、World Models，研究《Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States》所界定的核心问题。作者提出 Puffin-World，把深度与几何约束、仿真与现实迁移、物理约束、数据与评测组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "Puffin-World",
+            "深度与几何约束",
+            "仿真与现实迁移"
+          ],
+          "projectUrl": "https://kangliao929.github.io/projects/puffin-world/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Reconstruction",
+            "3D Generation",
+            "World Models",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction",
+          "authors": [
+            "Chin-Yang Lin",
+            "Yang-Che Sun",
+            "Cheng Sun",
+            "Fu-En Yang",
+            "Min-Hung Chen",
+            "Yen-Yu Lin",
+            "Wei-Chen Chiu",
+            "Yu-Lun Liu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.04201",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦3D Reconstruction，研究《Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction》所界定的核心问题。作者提出 Scal3R，把深度与几何约束、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要给出 1%, 8 hours, 60% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "Scal3R",
+            "深度与几何约束",
+            "位姿、里程计与建图"
+          ],
+          "projectUrl": "https://linjohnss.github.io/scal3r/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Reconstruction"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "WireSeg-32K: A Physics-Grounded Synthetic Dataset for Wire Instance Segmentation",
+          "authors": [
+            "Zilin Dai",
+            "Lehong Wang",
+            "Yi Yang",
+            "Xiang Fei"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03102",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦Physical AI、Physical 3D，研究《WireSeg-32K: A Physics-Grounded Synthetic Dataset for Wire Instance Segmentation》所界定的核心问题。作者提出 WireSeg-32K，把深度与几何约束、仿真与现实迁移、物理约束、数据与评测组织进统一的训练、生成、控制或评测流程。摘要给出 10.2% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "WireSeg-32K",
+            "深度与几何约束",
+            "仿真与现实迁移"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Sensing Which Modality Matters: Evidence-Gated Regularization for Robust VLA Policies",
+          "authors": [
+            "Yue Yang",
+            "Diego Romeres",
+            "Chiori Hori",
+            "Gedas Bertasius",
+            "Daniel Szafir",
+            "Siddarth Jain"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03142",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO",
+            "cs.CV",
+            "cs.LG"
+          ],
+          "summary": "论文聚焦Physical AI，研究《Sensing Which Modality Matters: Evidence-Gated Regularization for Robust VLA Policies》所界定的核心问题。作者提出 Sensing Which Modality Matters，把视觉-语言-动作建模、仿真与现实迁移、物理约束、数据与评测组织进统一的训练、生成、控制或评测流程。摘要给出 12.5%, 16.4%, 31% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "Sensing Which Modality Matters",
+            "视觉-语言-动作建模",
+            "仿真与现实迁移"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Real-Time Shape Control of Multi-Segment Soft Robotic Arms Using Koopman Operators with Global and Local Observables",
+          "authors": [
+            "Jiahe Wang",
+            "Eron Ristich",
+            "Sultan Haidar Ali",
+            "Eric weissman",
+            "Lei Zhang",
+            "Wanxin Jin",
+            "Yi Ren",
+            "Jiefeng Sun"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03175",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO",
+            "eess.SY"
+          ],
+          "summary": "论文聚焦Physical AI，研究《Real-Time Shape Control of Multi-Segment Soft Robotic Arms Using Koopman Operators with Global and Local Observables》所界定的核心问题。作者提出 论文提出的统一方案，把物理约束、位姿、里程计与建图、三维形状与 CAD组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "物理约束",
+            "位姿、里程计与建图"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Following a Unique Path: A Fast Certifier Applied to Outlier-Robust Pose Registration",
+          "authors": [
+            "Connor Holmes",
+            "Abhishek Goudar",
+            "Timothy D. Barfoot"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03222",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦3D Reconstruction、Physical AI，研究《Following a Unique Path: A Fast Certifier Applied to Outlier-Robust Pose Registration》所界定的核心问题。作者提出 Following a Unique Path，把位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "Following a Unique Path",
+            "位姿、里程计与建图"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Reconstruction",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "R2S-Eval: Robot Evaluation with Real-to-Sim Calibration via Vision-Language Models",
+          "authors": [
+            "Yidi Wang",
+            "Feixiang Ruan",
+            "Ruoqu Chen",
+            "Jie Yin",
+            "Yang Yu",
+            "Mengdi Xu",
+            "Kaifeng Zhang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03276",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI，研究《R2S-Eval: Robot Evaluation with Real-to-Sim Calibration via Vision-Language Models》所界定的核心问题。作者提出 R2S-Eval，把视觉-语言-动作建模、策略学习、仿真与现实迁移、物理约束组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "R2S-Eval",
+            "视觉-语言-动作建模",
+            "策略学习"
+          ],
+          "projectUrl": "https://r2s-eval.github.io",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "PointGT: Simultaneous Geometry and Texture Editing for Point-Based Representations",
+          "authors": [
+            "Yanshu Zhang",
+            "George Shramko",
+            "Pratul P. Srinivasan",
+            "Ke Li"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03341",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.GR"
+          ],
+          "summary": "论文聚焦3D Reconstruction、3D Generation，研究《PointGT: Simultaneous Geometry and Texture Editing for Point-Based Representations》所界定的核心问题。作者提出 PointGT，把3D Gaussian Splatting、点云／点表示、深度与几何约束、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "PointGT",
+            "3D Gaussian Splatting",
+            "点云／点表示"
+          ],
+          "projectUrl": "https://zvict.github.io/pointgt/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Reconstruction",
+            "3D Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "P-CORE: Self-Supervised Surface Consistency for Point-Based Neural Editing",
+          "authors": [
+            "Yanshu Zhang",
+            "Shichong Peng",
+            "Mehran Aghabozorgi",
+            "Alireza Moazeni",
+            "Ke Li"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03349",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.GR"
+          ],
+          "summary": "论文聚焦3D Reconstruction、3D Generation，研究《P-CORE: Self-Supervised Surface Consistency for Point-Based Neural Editing》所界定的核心问题。作者提出 P-CORE，把点云／点表示、深度与几何约束、多视图建模、数据与评测组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "P-CORE",
+            "点云／点表示",
+            "深度与几何约束"
+          ],
+          "projectUrl": "https://zvict.github.io/p-core/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Reconstruction",
+            "3D Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "ARTiS: An Adaptive Robotic Gripper for Enhanced Tool Manipulation in Disassembly Applications",
+          "authors": [
+            "Roman Mykhailyshyn",
+            "Domae Yukiyasu",
+            "Harada Kensuke"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03362",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI，研究《ARTiS: An Adaptive Robotic Gripper for Enhanced Tool Manipulation in Disassembly Applications》所界定的核心问题。作者提出 ARTiS，把机器人操作、数据与评测组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "ARTiS",
+            "机器人操作",
+            "数据与评测"
+          ],
+          "projectUrl": "https://romanmykhailyshyn.github.io/artis/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "STARS-GS: Structure-Aware Regularized Gaussian Splatting for Large-Scale Aerial Surface Reconstruction",
+          "authors": [
+            "Bocheng Li",
+            "Wenjuan Zhang",
+            "Jie Pan.Dongxu Han",
+            "Xuesong Ma",
+            "Yiling Yao",
+            "Yaning Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03447",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦3D Gaussian Splatting、3D Reconstruction，研究《STARS-GS: Structure-Aware Regularized Gaussian Splatting for Large-Scale Aerial Surface Reconstruction》所界定的核心问题。作者提出 STARS-GS，把3D Gaussian Splatting、深度与几何约束、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "STARS-GS",
+            "3D Gaussian Splatting",
+            "深度与几何约束"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D Reconstruction"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Air-Ground Collaborative Vision-and-Language Navigation via Shared Bird's-Eye Maps",
+          "authors": [
+            "Shuning Zhang",
+            "Liang Li",
+            "Yunheng Wang",
+            "Tao Wang",
+            "Yihang Kang",
+            "Renjing Xu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03483",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "论文聚焦Physical AI，研究《Air-Ground Collaborative Vision-and-Language Navigation via Shared Bird's-Eye Maps》所界定的核心问题。作者提出 论文提出的统一方案，把视觉-语言-动作建模、深度与几何约束、导航与规划、数据与评测组织进统一的训练、生成、控制或评测流程。摘要给出 77.0%, 27.0%, 50.0% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "视觉-语言-动作建模",
+            "深度与几何约束"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/ZSN2024/AGC-VLN",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "TruncGradGS: Improved 3D Gaussian Splatting via Truncated Gradient Updates",
+          "authors": [
+            "Theo Morales",
+            "Nhat-Quynh Le-Pham",
+            "Robin Atkins",
+            "Binh-Son Hua"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03534",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.GR"
+          ],
+          "summary": "论文聚焦3D Gaussian Splatting、3D Reconstruction，研究《TruncGradGS: Improved 3D Gaussian Splatting via Truncated Gradient Updates》所界定的核心问题。作者提出 TruncGradGS，把3D Gaussian Splatting、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "TruncGradGS",
+            "3D Gaussian Splatting",
+            "数据与评测"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D Reconstruction"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Building Pretraining Data for World Models: An Unreal Engine-Based Pipeline for Action-Conditioned Video Generation",
+          "authors": [
+            "Haoyu Wang",
+            "Songchun Zhang",
+            "Haoran Li",
+            "Haoyang Huang",
+            "Zeyue Xue",
+            "Nan Duan"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03557",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.GR"
+          ],
+          "summary": "论文聚焦Video Generation、World Models、Physical 3D，研究《Building Pretraining Data for World Models: An Unreal Engine-Based Pipeline for Action-Conditioned Video Generation》所界定的核心问题。作者提出 Building Pretraining Data for World Models，把世界模型、视频生成、多视图建模、物理约束组织进统一的训练、生成、控制或评测流程。摘要给出 691 hours, 076 hours 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "Building Pretraining Data for World Models",
+            "世界模型",
+            "视频生成"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Video Generation",
+            "World Models",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "TRaIL-Odom: Tightly Coupled Continuous Time Radar-IMU-LiDAR Odometry with Adaptive Doppler Weighting",
+          "authors": [
+            "Chiyun Noh",
+            "Turcan Tuna",
+            "William Talbot",
+            "Marco Hutter",
+            "Laurent Kneip",
+            "Ayoung Kim"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03561",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦3D Reconstruction、Physical AI，研究《TRaIL-Odom: Tightly Coupled Continuous Time Radar-IMU-LiDAR Odometry with Adaptive Doppler Weighting》所界定的核心问题。作者提出 TRaIL-Odom，把深度与几何约束、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要给出 86.0%, 78.5% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "TRaIL-Odom",
+            "深度与几何约束",
+            "数据与评测"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/ChiyunNoh/TRaIL-Odom",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Reconstruction",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "FailBench: How Reliable are VLMs at Judging Robot Task Success?",
+          "authors": [
+            "Zaruhi Navasardyan",
+            "Tatul Danielyan",
+            "Hrant Davtyan"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03611",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "论文聚焦Physical AI，研究《FailBench: How Reliable are VLMs at Judging Robot Task Success?》所界定的核心问题。作者提出 FailBench，把机器人操作、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要给出 75% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "FailBench",
+            "机器人操作",
+            "数据与评测"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "EraseSAE: Surgical Concept Erasure in Text-to-Video Diffusion Models via Sparse Autoencoders",
+          "authors": [
+            "Xinghao Wang",
+            "Dong Li",
+            "Wei Yu",
+            "Yingwei Pan",
+            "Tao Gong",
+            "Qi Chu",
+            "Nenghai Yu",
+            "Ting Yao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03629",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "summary": "论文聚焦Video Generation，研究《EraseSAE: Surgical Concept Erasure in Text-to-Video Diffusion Models via Sparse Autoencoders》所界定的核心问题。作者提出 EraseSAE，把视频生成、扩散建模、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "EraseSAE",
+            "视频生成",
+            "扩散建模"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/HiDream-ai/EraseSAE",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Stabilizing Camera-Controlled Novel View Synthesis at Inference Time",
+          "authors": [
+            "Prajwal Singh",
+            "Arjun Badola",
+            "Seema Kumari",
+            "Hajime Nagahara",
+            "Shanmuganathan Raman"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03639",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦3D Reconstruction、Video Generation，研究《Stabilizing Camera-Controlled Novel View Synthesis at Inference Time》所界定的核心问题。作者提出 论文提出的统一方案，把视频生成、深度与几何约束、扩散建模组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "视频生成",
+            "深度与几何约束"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Reconstruction",
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Rethinking 3D Noise: Learning 3D-Aware Video Priors via Optimization-Free Morphological Perturbations",
+          "authors": [
+            "Onat Şahin",
+            "Mohammad Altillawi",
+            "George Eskandar",
+            "Carlos Carbone",
+            "Ziyuan Liu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03657",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦3D Gaussian Splatting、3D Reconstruction、3D Generation，研究《Rethinking 3D Noise: Learning 3D-Aware Video Priors via Optimization-Free Morphological Perturbations》所界定的核心问题。作者提出 Rethinking 3D Noise，把3D Gaussian Splatting、视频生成、深度与几何约束、策略学习组织进统一的训练、生成、控制或评测流程。摘要给出 12.5%, 8.0% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "Rethinking 3D Noise",
+            "3D Gaussian Splatting",
+            "视频生成"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Gaussian Splatting",
+            "3D Reconstruction",
+            "3D Generation",
+            "Video Generation",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Observation-Conditioned Latent Energy Priors for Sparse Implicit Neural Shape Completion",
+          "authors": [
+            "Paul Büschl",
+            "Ezequiel de la Rosa",
+            "Julia Wolleb",
+            "Julian McGinnis",
+            "César Nombela-Arrieta",
+            "Bjoern Menze"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03694",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦3D Reconstruction、3D Generation，研究《Observation-Conditioned Latent Energy Priors for Sparse Implicit Neural Shape Completion》所界定的核心问题。作者提出 论文提出的统一方案，把深度与几何约束、数据与评测、位姿、里程计与建图、三维形状与 CAD组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "深度与几何约束",
+            "数据与评测"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Reconstruction",
+            "3D Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "MINERVA: How Small Can a Manipulation Policy Be and Still Solve LIBERO?",
+          "authors": [
+            "Kohei Sendai",
+            "Tatsuya Matsushima",
+            "Yusuke Iwasawa"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03715",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI，研究《MINERVA: How Small Can a Manipulation Policy Be and Still Solve LIBERO?》所界定的核心问题。作者提出 MINERVA，把视觉-语言-动作建模、策略学习、机器人操作、数据与评测组织进统一的训练、生成、控制或评测流程。摘要给出 95.1%, 2.4 points, 94.6% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "MINERVA",
+            "视觉-语言-动作建模",
+            "策略学习"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "RoughSense: Lightweight Terrain-Induced Rover Vibration Prediction Using Point Clouds and IMU Feedback",
+          "authors": [
+            "Gabriel Manuel Garcia",
+            "Stephanie Aravecchia",
+            "Miguel Angel Olivares-Mendez"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03720",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦3D Reconstruction、Physical AI、Physical 3D，研究《RoughSense: Lightweight Terrain-Induced Rover Vibration Prediction Using Point Clouds and IMU Feedback》所界定的核心问题。作者提出 RoughSense，把点云／点表示、深度与几何约束、导航与规划、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "RoughSense",
+            "点云／点表示",
+            "深度与几何约束"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Reconstruction",
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Unfold The World: Factorize 4D Properties in Reinforcing Spatial Reasoning",
+          "authors": [
+            "Yijun Yang",
+            "Shenghe Zheng",
+            "Wenbo Li",
+            "Jianhui Liu",
+            "Haoze Sun",
+            "Yanbing Zhang",
+            "Jiaxiu Jiang",
+            "Lin Song",
+            "Haoyang Huang",
+            "Nan Duan",
+            "Lei Zhu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03729",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦3D Reconstruction、Physical 3D，研究《Unfold The World: Factorize 4D Properties in Reinforcing Spatial Reasoning》所界定的核心问题。作者提出 Unfold The World，把深度与几何约束、多视图建模、策略学习、物理约束组织进统一的训练、生成、控制或评测流程。摘要给出 5.9%, 4.5% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "Unfold The World",
+            "深度与几何约束",
+            "多视图建模"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Reconstruction",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Fill My Mirror: Geometry-Constrained Mirror Inpainting",
+          "authors": [
+            "Ofek Basson",
+            "Shimon Vainer",
+            "Yacov Hel-Or",
+            "Ohad Fried"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03740",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦3D Reconstruction、3D Generation、Physical 3D，研究《Fill My Mirror: Geometry-Constrained Mirror Inpainting》所界定的核心问题。作者提出 Fill My Mirror，把深度与几何约束、扩散建模组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "Fill My Mirror",
+            "深度与几何约束",
+            "扩散建模"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Reconstruction",
+            "3D Generation",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Robot Aware Computational Design of Object Specific Passive Grippers for Additive Manufacturing",
+          "authors": [
+            "Abdullah Yahya Abdullah Omaisan",
+            "Ibrahim Sheikh Mohamed"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03761",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦3D Reconstruction、Physical AI、Physical 3D，研究《Robot Aware Computational Design of Object Specific Passive Grippers for Additive Manufacturing》所界定的核心问题。作者提出 论文提出的统一方案，把深度与几何约束、机器人操作、位姿、里程计与建图、三维形状与 CAD组织进统一的训练、生成、控制或评测流程。摘要给出 97.6% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "深度与几何约束",
+            "机器人操作"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Reconstruction",
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Rethinking World Models for Safety-Critical Embodied Systems",
+          "authors": [
+            "Kailang Ma",
+            "Heye Huang",
+            "Inhi Kim",
+            "Kitae Jang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03774",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.AI",
+            "cs.RO"
+          ],
+          "summary": "论文聚焦World Models、Physical AI、Physical 3D，研究《Rethinking World Models for Safety-Critical Embodied Systems》所界定的核心问题。作者提出 论文提出的统一方案，把世界模型、物理约束、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "世界模型",
+            "物理约束"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "World Models",
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "GraFT: A Training-Free Framework for Spatial Reasoning in Multimodal Large Language Models via 3D Scene Graphs",
+          "authors": [
+            "Junqing Du",
+            "Fernando Ropero",
+            "Erkin Turkoz",
+            "Yanfeng Zhang",
+            "Lu Liu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03892",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.RO"
+          ],
+          "summary": "论文聚焦3D Reconstruction、Physical AI、Physical 3D，研究《GraFT: A Training-Free Framework for Spatial Reasoning in Multimodal Large Language Models via 3D Scene Graphs》所界定的核心问题。作者提出 GraFT，把深度与几何约束、物理约束、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要给出 27%, 65% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "GraFT",
+            "深度与几何约束",
+            "物理约束"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Reconstruction",
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Revisiting Topological Graphs for Macro Action based Closed-loop Reinforcement Learning of Vision Language Navigation in Continuous Environment",
+          "authors": [
+            "Shuhao Ye",
+            "Sitong Mao",
+            "Yuxiang Cui",
+            "Yufei Wei",
+            "Xuan Yu",
+            "Shichao Zhai",
+            "Wen Chen",
+            "Shunbo Zhou",
+            "Rong Xiong",
+            "Yue Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03906",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI，研究《Revisiting Topological Graphs for Macro Action based Closed-loop Reinforcement Learning of Vision Language Navigation in Continuous Environment》所界定的核心问题。作者提出 论文提出的统一方案，把策略学习、导航与规划、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "策略学习",
+            "导航与规划"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Toward Unified Robot Learning: Bridging Representation, Vision-Language-Action, and World Models",
+          "authors": [
+            "Shaunak A. Mehta",
+            "Ananya Hazarika",
+            "Haochen Zhang",
+            "Fan Yang",
+            "Ryo Moriyama",
+            "Wenkai Li",
+            "Yash Patel",
+            "Kanata Suzuki"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03927",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦World Models、Physical AI，研究《Toward Unified Robot Learning: Bridging Representation, Vision-Language-Action, and World Models》所界定的核心问题。作者提出 Toward Unified Robot Learning，把世界模型、视觉-语言-动作建模、策略学习、物理约束组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "Toward Unified Robot Learning",
+            "世界模型",
+            "视觉-语言-动作建模"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "World Models",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Sparse auto-regressive modeling for scene generation from multi-view images",
+          "authors": [
+            "Thomas Lucas",
+            "Maxime Pietrantoni",
+            "Philippe Weinzaepfel",
+            "Wonjune Cho",
+            "Bardienus Pieter Duisterhof",
+            "Vincent Leroy",
+            "Jerome Revaud"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03931",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.LG"
+          ],
+          "summary": "论文聚焦3D Generation，研究《Sparse auto-regressive modeling for scene generation from multi-view images》所界定的核心问题。作者提出 论文提出的统一方案，把3D Gaussian Splatting、多视图建模组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "3D Gaussian Splatting",
+            "多视图建模"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "WorldReward: Reward Modeling for Camera-Conditioned World Models",
+          "authors": [
+            "Yibin Wang",
+            "Zehan Wang",
+            "Junshu Tang",
+            "Zhimin Li",
+            "Yujie Zhou",
+            "Jiazi Bu",
+            "Pengyang Ling",
+            "Feng Han",
+            "Zhixiong Zhang",
+            "Long Xing",
+            "Shengyuan Ding",
+            "Ziang Li",
+            "Cheng Jin",
+            "Yuhang Zang",
+            "Jiaqi Wang",
+            "Tianyu Pang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03952",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦Video Generation、World Models，研究《WorldReward: Reward Modeling for Camera-Conditioned World Models》所界定的核心问题。作者提出 WorldReward，把世界模型、深度与几何约束、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "WorldReward",
+            "世界模型",
+            "深度与几何约束"
+          ],
+          "projectUrl": "https://codegoat24.github.io/WorldReward",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Video Generation",
+            "World Models"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Automated Weld Seam Recognition and 3D Mapping for Robotic Post Processing Using Photogrammetry and Semantic Segmentation",
+          "authors": [
+            "Augustin Raju",
+            "Abilash Madavath",
+            "Chandra Yuvesh Aubeeluck",
+            "Nicolas Pyschny",
+            "Felix Hackelöer",
+            "Florian Zwanzig"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03970",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦3D Reconstruction、Physical AI、Physical 3D，研究《Automated Weld Seam Recognition and 3D Mapping for Robotic Post Processing Using Photogrammetry and Semantic Segmentation》所界定的核心问题。作者提出 论文提出的统一方案，把位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "位姿、里程计与建图"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Reconstruction",
+            "Physical AI",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "DSAQuant: Denoising-Stage-Aligned Quantization-Aware Training for Video Generation",
+          "authors": [
+            "Shuaiting Li",
+            "Zelin Gao",
+            "Haibin Shen",
+            "Yujun Shen",
+            "Haotong Qin",
+            "Yinghao Xu"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.04031",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦Video Generation，研究《DSAQuant: Denoising-Stage-Aligned Quantization-Aware Training for Video Generation》所界定的核心问题。作者提出 DSAQuant，把视频生成、扩散建模、导航与规划、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "DSAQuant",
+            "视频生成",
+            "扩散建模"
+          ],
+          "projectUrl": "https://robbyant-research.github.io/DSAQuant/",
+          "codeUrl": "https://github.com/robbyant-research/DSAQuant",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Adaptive Vision-Language Grasping via Composable Foundation Priors and Generalizable Grasp Synthesis",
+          "authors": [
+            "Sixu Yan",
+            "Shikang Wang",
+            "Binhua Huang",
+            "Xuanlai Tang",
+            "Guohua Fan",
+            "Fan Huang",
+            "Haoxuan Li",
+            "Yongkang Li",
+            "Yuhan Li",
+            "Bencheng Liao",
+            "Zeyu Zhang",
+            "Wenyu Liu",
+            "Hangxin Liu",
+            "Xinggang Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.04096",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CV"
+          ],
+          "summary": "论文聚焦Physical AI，研究《Adaptive Vision-Language Grasping via Composable Foundation Priors and Generalizable Grasp Synthesis》所界定的核心问题。作者提出 论文提出的统一方案，把策略学习、仿真与现实迁移、物理约束、机器人操作组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "策略学习",
+            "仿真与现实迁移"
+          ],
+          "projectUrl": "https://adarobovlg.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "BooM-VVT: Boosting Mask-Free Video Virtual Try-On with Image-Level Pseudo Data",
+          "authors": [
+            "Wei Zhang",
+            "Xin Li",
+            "Peishu Shi",
+            "Jialin Gao",
+            "Xuekang Peng",
+            "Zhichao Lian",
+            "Yeying Jin"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.04120",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦Video Generation，研究《BooM-VVT: Boosting Mask-Free Video Virtual Try-On with Image-Level Pseudo Data》所界定的核心问题。作者提出 BooM-VVT，把视频生成、多视图建模、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "BooM-VVT",
+            "视频生成",
+            "多视图建模"
+          ],
+          "projectUrl": "https://boomvvt.github.io/boomvvt",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Zero-Shot Novel Depth Synthesis Using 3D Foundation Models Scene Representations",
+          "authors": [
+            "Denis M. Akola",
+            "David F. Fouhey"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.04174",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦3D Reconstruction、3D Generation，研究《Zero-Shot Novel Depth Synthesis Using 3D Foundation Models Scene Representations》所界定的核心问题。作者提出 论文提出的统一方案，把深度与几何约束、扩散建模、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "深度与几何约束",
+            "扩散建模"
+          ],
+          "projectUrl": "https://akola-mbey-denis.github.io/Z3D-page/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Reconstruction",
+            "3D Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing",
+          "authors": [
+            "Adheesh Sunil Juvekar",
+            "Onkar Kishor Susladkar",
+            "Kiet A. Nguyen",
+            "Muntasir Wahed",
+            "Nabeel Bashir",
+            "Xiaona Zhou",
+            "Tianjiao Yu",
+            "Vedant Shah",
+            "Ismini Lourentzou"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.04190",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "summary": "论文聚焦Video Generation，研究《One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing》所界定的核心问题。作者提出 One Editor, Many Edits，把视频生成组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "One Editor, Many Edits",
+            "视频生成"
+          ],
+          "projectUrl": "https://plan-lab.github.io/editvid",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Principia: Relational Physics Tests for Video Models",
+          "authors": [
+            "Varun Varma Thozhiyoor",
+            "Shivam Tripathi",
+            "Venkatesh Babu Radhakrishnan",
+            "Anand Bhattad"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.04200",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦Video Generation、World Models、Physical 3D，研究《Principia: Relational Physics Tests for Video Models》所界定的核心问题。作者提出 Principia，把视频生成、物理约束、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要给出 67% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "Principia",
+            "视频生成",
+            "物理约束"
+          ],
+          "projectUrl": "https://principiabench.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Video Generation",
+            "World Models",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation",
+          "authors": [
+            "Adeela Islam",
+            "Zorah Lähner",
+            "Vittorio Murino",
+            "Vladislav Golyanik"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.04202",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦3D Reconstruction，研究《TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation》所界定的核心问题。作者提出 TokenMatch，把深度与几何约束、数据与评测、三维形状与 CAD组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "TokenMatch",
+            "深度与几何约束",
+            "数据与评测"
+          ],
+          "projectUrl": "https://4dqv.mpi-inf.mpg.de/TokenMatch/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Reconstruction"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Seeing Less Is Not Seeing Safely: Privacy Leakage from Task-Scoped Robot Perception Exports",
+          "authors": [
+            "Yuqiao Xu",
+            "Erman Ayday"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03055",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO",
+            "cs.CR"
+          ],
+          "summary": "论文聚焦Physical AI，研究《Seeing Less Is Not Seeing Safely: Privacy Leakage from Task-Scoped Robot Perception Exports》所界定的核心问题。作者提出 Seeing Less Is Not Seeing Safely，把深度与几何约束、导航与规划、数据与评测组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "Seeing Less Is Not Seeing Safely",
+            "深度与几何约束",
+            "导航与规划"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "GPU-Accelerated Astrodynamics World Models for Spacecraft Rendezvous and Proximity Operations",
+          "authors": [
+            "Duncan Eddy",
+            "Isaac R. Ward",
+            "Grace Ra Kim",
+            "Mykel J. Kochenderfer"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03067",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO",
+            "eess.SY"
+          ],
+          "summary": "论文聚焦World Models、Physical AI，研究《GPU-Accelerated Astrodynamics World Models for Spacecraft Rendezvous and Proximity Operations》所界定的核心问题。作者提出 论文提出的统一方案，把世界模型、策略学习、仿真与现实迁移、导航与规划组织进统一的训练、生成、控制或评测流程。摘要给出 53%, 29%, 40% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "世界模型",
+            "策略学习"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "World Models",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Establishing a Dynamic Multimodal HRI Dataset for Engagement Analysis with a Humanoid Robot",
+          "authors": [
+            "Buwan Kim",
+            "Wonse Jo"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03255",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI，研究《Establishing a Dynamic Multimodal HRI Dataset for Engagement Analysis with a Humanoid Robot》所界定的核心问题。作者提出 论文提出的统一方案，把数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "数据与评测",
+            "位姿、里程计与建图"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "When Depth Hurts: Reliability-Aware Geometry Distillation for Depth-Free RGB-D Salient Object Detection",
+          "authors": [
+            "Xuehao Wang",
+            "Jiaxin Hua",
+            "Runmei Li",
+            "Zhenyu Wu",
+            "Chenglizhao Chen",
+            "Ke Gu",
+            "Aimin Hao"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03378",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦3D Reconstruction，研究《When Depth Hurts: Reliability-Aware Geometry Distillation for Depth-Free RGB-D Salient Object Detection》所界定的核心问题。作者提出 When Depth Hurts，把深度与几何约束、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "When Depth Hurts",
+            "深度与几何约束",
+            "数据与评测"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "3D Reconstruction"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Programming and execution of skill-based human-robot-crane collaborative tasks",
+          "authors": [
+            "Taneli Lohi",
+            "Markku Suomalainen",
+            "Roope Mellanen",
+            "Tapio Heikkilä"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03392",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI，研究《Programming and execution of skill-based human-robot-crane collaborative tasks》所界定的核心问题。作者提出 论文提出的统一方案，把三维形状与 CAD组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "三维形状与 CAD"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Mudragen: Geometrically Supervised Generation of Interacting Two-Hand Mudras for Preserving Indian Classical Dance Heritage",
+          "authors": [
+            "Jagadish Kashinath Kamble",
+            "Jayanta Mukhopadhyay",
+            "Debaditya Roy",
+            "Partha Pratim Das"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03415",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.MM"
+          ],
+          "summary": "论文聚焦3D Generation、Physical 3D，研究《Mudragen: Geometrically Supervised Generation of Interacting Two-Hand Mudras for Preserving Indian Classical Dance Heritage》所界定的核心问题。作者提出 Mudragen，把深度与几何约束、扩散建模、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "Mudragen",
+            "深度与几何约束",
+            "扩散建模"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "3D Generation",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Text2Thermal: Physics-Aware Thermal Image Synthesis from Textual Priors",
+          "authors": [
+            "Tayeba Qazi",
+            "Brejesh Lall",
+            "Prerana Mukherjee"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03585",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦Physical 3D，研究《Text2Thermal: Physics-Aware Thermal Image Synthesis from Textual Priors》所界定的核心问题。作者提出 Text2Thermal，把深度与几何约束、扩散建模、物理约束、数据与评测组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "Text2Thermal",
+            "深度与几何约束",
+            "扩散建模"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "QLAUN: A Research-Oriented, Robust, Agile, Modular, and Affordable Torque-Controlled Quadruped Robot",
+          "authors": [
+            "Mohamad S. Moudallal",
+            "Noel J. Maalouf"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03623",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI，研究《QLAUN: A Research-Oriented, Robust, Agile, Modular, and Affordable Torque-Controlled Quadruped Robot》所界定的核心问题。作者提出 QLAUN，把三维形状与 CAD组织进统一的训练、生成、控制或评测流程。摘要给出 12 DoF 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "QLAUN",
+            "三维形状与 CAD"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Local Path Planning and Obstacle Avoidance for an Omnicopter Platform",
+          "authors": [
+            "Mikolaj Helinski",
+            "Spilios Theodoulis",
+            "Mahmoud Hamandi",
+            "Abdullah Mohamed Ali",
+            "Anthony Tzes",
+            "Marija Popovic"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03630",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI，研究《Local Path Planning and Obstacle Avoidance for an Omnicopter Platform》所界定的核心问题。作者提出 论文提出的统一方案，把深度与几何约束、仿真与现实迁移、导航与规划组织进统一的训练、生成、控制或评测流程。摘要给出 79.3%, 41.4% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "深度与几何约束",
+            "仿真与现实迁移"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "DropClick: Semi-Automated One-Click Segmentation for Agricultural Robotic Data",
+          "authors": [
+            "Patrick Zimmer",
+            "Michael Halstead",
+            "Chris McCool"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03680",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI，研究《DropClick: Semi-Automated One-Click Segmentation for Agricultural Robotic Data》所界定的核心问题。作者提出 DropClick，把数据与评测组织进统一的训练、生成、控制或评测流程。摘要给出 5 images, 72.6 points, 50% 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "DropClick",
+            "数据与评测"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "MetaStructAtlas: A Grounded 3D Vision-Language Dataset and Benchmark for Functional and Structural Reasoning in Whole-Body PET/CT",
+          "authors": [
+            "Chenguang Zheng",
+            "Le Xue",
+            "Yichi Zhang",
+            "Wenbo Zhang",
+            "Zehui Ling",
+            "Gang Feng",
+            "Xin Gao",
+            "Yuan Qi",
+            "Yuan Cheng",
+            "Zixin Hu",
+            "Mei Tian"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03690",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦3D Reconstruction，研究《MetaStructAtlas: A Grounded 3D Vision-Language Dataset and Benchmark for Functional and Structural Reasoning in Whole-Body PET/CT》所界定的核心问题。作者提出 MetaStructAtlas，把数据与评测组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "MetaStructAtlas",
+            "数据与评测"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "3D Reconstruction"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "A Multi-Vine Soft Robot Enabling Accessible Working Channel and Steering",
+          "authors": [
+            "Reza Kashef",
+            "Cem Suulker",
+            "Mohammad Sheikh Sofla",
+            "Kaspar Althoefer"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03758",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI，研究《A Multi-Vine Soft Robot Enabling Accessible Working Channel and Steering》所界定的核心问题。作者提出 论文提出的统一方案，把导航与规划、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "导航与规划",
+            "位姿、里程计与建图"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "RealCADBench: Benchmarking Parametric CAD Modeling from Industrial Design Intents",
+          "authors": [
+            "JoyIndustrial VisCAD Team",
+            "Linxin Cai",
+            "Qiuhe Hong",
+            "Zhichao Huang",
+            "Guanlin Li",
+            "Zongzhen Li",
+            "Hongsen Liu",
+            "Yichen Long",
+            "Wei Wang",
+            "Yuchen Wang",
+            "Dongyue Yang",
+            "Huimu Yu",
+            "Xianwen Zhong"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03773",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.CL"
+          ],
+          "summary": "论文聚焦3D Generation，研究《RealCADBench: Benchmarking Parametric CAD Modeling from Industrial Design Intents》所界定的核心问题。作者提出 RealCADBench，把数据与评测、三维形状与 CAD组织进统一的训练、生成、控制或评测流程。摘要给出 632 tasks 等量化结果；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "RealCADBench",
+            "数据与评测",
+            "三维形状与 CAD"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "3D Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "A comparative study on the accuracy & repeatability of mobile robotic platforms for the delivery of precision NDE measurement",
+          "authors": [
+            "SeyedMohammadAmin Nabi Pour",
+            "S. Gareth Pierce",
+            "Randika Vithanage",
+            "Ehsan Mohseni",
+            "David Carswell",
+            "Matthew Shields"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03794",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI，研究《A comparative study on the accuracy & repeatability of mobile robotic platforms for the delivery of precision NDE measurement》所界定的核心问题。作者提出 论文提出的统一方案，把数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "数据与评测",
+            "位姿、里程计与建图"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "VisCAD: A Foundation Model Suite with Multimodal Industrial CAD Intelligence",
+          "authors": [
+            "JoyIndustrial VisCAD Team",
+            "Linxin Cai",
+            "Qiuhe Hong",
+            "Zhichao Huang",
+            "Guanlin Li",
+            "Hongsen Liu",
+            "Ziqi Liu",
+            "Yichen Long",
+            "Luya Wang",
+            "Yuchen Wang",
+            "Wenxiang Wu",
+            "Huimu Yu",
+            "Ning Zhang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03811",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.CL"
+          ],
+          "summary": "论文聚焦3D Generation，研究《VisCAD: A Foundation Model Suite with Multimodal Industrial CAD Intelligence》所界定的核心问题。作者提出 VisCAD，把数据与评测、位姿、里程计与建图、三维形状与 CAD组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "VisCAD",
+            "数据与评测",
+            "位姿、里程计与建图"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "3D Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "A hybrid pipeline for dynamic ontology-based semantic mapping",
+          "authors": [
+            "Konstantinos Dimitropoulos",
+            "Ioannis Hatzilygeroudis"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03891",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦3D Reconstruction、Physical AI，研究《A hybrid pipeline for dynamic ontology-based semantic mapping》所界定的核心问题。作者提出 论文提出的统一方案，把世界模型、深度与几何约束、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "世界模型",
+            "深度与几何约束"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "3D Reconstruction",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Corner Cases: Headland Coverage Path Planning for Autonomous Driving in Arable Farming",
+          "authors": [
+            "Riikka Soitinaho",
+            "Timo Oksanen"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.04103",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI，研究《Corner Cases: Headland Coverage Path Planning for Autonomous Driving in Arable Farming》所界定的核心问题。作者提出 Corner Cases，把导航与规划、道路智能驾驶组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "Corner Cases",
+            "导航与规划",
+            "道路智能驾驶"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Understanding Autonomous Driving Datasets by Describing Differences between Image Subsets in Natural Language",
+          "authors": [
+            "Julian Truetsch",
+            "Felix Hauser",
+            "Christoph Stiller",
+            "Frank Bieder"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03677",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV",
+            "cs.CL",
+            "cs.LG",
+            "cs.NE",
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI、Intelligent Driving、Automotive Collection，研究《Understanding Autonomous Driving Datasets by Describing Differences between Image Subsets in Natural Language》所界定的核心问题。作者提出 论文提出的统一方案，把数据与评测、位姿、里程计与建图、道路智能驾驶组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "数据与评测",
+            "位姿、里程计与建图"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/KIT-MRT/AD-Diff",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive"
+        },
+        {
+          "title": "CauseCollab: Causal Unified and Modality-Agnostic Network for Heterogeneous Collaborative Perception",
+          "authors": [
+            "Weize Li",
+            "Yang Li",
+            "Quan Yuan",
+            "Xiaoyuan Fu",
+            "Guiyang Luo",
+            "Jinglin Li"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03818",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.AI"
+          ],
+          "summary": "论文聚焦Intelligent Driving、Automotive Collection，研究《CauseCollab: Causal Unified and Modality-Agnostic Network for Heterogeneous Collaborative Perception》所界定的核心问题。作者提出 CauseCollab，把数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "CauseCollab",
+            "数据与评测",
+            "位姿、里程计与建图"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive"
+        },
+        {
+          "title": "An Ensemble-Based Self-Taught Learning Approach for Parking Space Classification Under Limited Data",
+          "authors": [
+            "Lucas de Oliveira Cunha",
+            "Joelton Deonei Gotz",
+            "Paulo Lisboa de Almeida",
+            "Andre Gustavo Hochuli"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03258",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "论文聚焦Intelligent Driving、Automotive Collection，研究《An Ensemble-Based Self-Taught Learning Approach for Parking Space Classification Under Limited Data》所界定的核心问题。作者提出 论文提出的统一方案，把数据与评测、位姿、里程计与建图、道路智能驾驶组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "数据与评测",
+            "位姿、里程计与建图"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive"
+        },
+        {
+          "title": "Virtual Testing of Automated Driving Systems through Credible Simulations",
+          "authors": [
+            "Riccardo Dona",
+            "Espedito Rusciano",
+            "Biagio Ciuffo"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.03760",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.RO",
+            "cs.SE"
+          ],
+          "summary": "论文聚焦Physical AI、Intelligent Driving、Automotive Collection，研究《Virtual Testing of Automated Driving Systems through Credible Simulations》所界定的核心问题。作者提出 论文提出的统一方案，把仿真与现实迁移、物理约束、数据与评测、位姿、里程计与建图组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "仿真与现实迁移",
+            "物理约束"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Physical AI",
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive"
+        },
+        {
+          "title": "A Low-Cost, Open Platform for End-to-End Autonomous Driving on a Miniature Ackermann Vehicle",
+          "authors": [
+            "Gustavo Claudio Karl Couto",
+            "Eric Aislan Antonelo",
+            "Gabriel George Zipperer"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.04147",
+          "published": "2026-09-04",
+          "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.RO"
+          ],
+          "summary": "论文聚焦Physical AI、Intelligent Driving、Automotive Collection，研究《A Low-Cost, Open Platform for End-to-End Autonomous Driving on a Miniature Ackermann Vehicle》所界定的核心问题。作者提出 论文提出的统一方案，把策略学习、仿真与现实迁移、物理约束、导航与规划组织进统一的训练、生成、控制或评测流程。摘要报告了与现有方法或任务基线的系统实验比较；建议结合正文重点核验数据划分、闭环条件、泛化范围与失败案例。",
+          "methodHighlights": [
+            "论文提出的统一方案",
+            "策略学习",
+            "仿真与现实迁移"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Physical AI",
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive"
+        }
+      ]
+    },
     {
       "date": "2026-09-03",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-09-03",
