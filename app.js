@@ -210,6 +210,9 @@ function isDrivingFeaturedPaper(paper) {
 }
 
 function isAutomotiveCollectionPaper(paper) {
+  // Reviewed report data takes precedence over legacy keyword inference.
+  if (paper.displayGroup === "main") return false;
+  if (paper.displayGroup === "automotive") return true;
   if (isDrivingFeaturedPaper(paper)) return false;
 
   const text = paperDisplayText(paper);
