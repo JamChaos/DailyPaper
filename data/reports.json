@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-09-08T13:18:42+08:00",
+  "updatedAt": "2026-09-09T12:00:00+08:00",
   "reports": [
+    {
+      "date": "2026-09-09",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-09-09",
+      "shortTitle": "09-09 日报",
+      "summary": "官方尚未发布 2026-09-09 new listings 批次；当天收录 0 篇，前序日期补充 0 篇。",
+      "trends": [
+        "当天无可用官方公告批次，不能基于 2026-09-09 批次形成论文趋势判断。"
+      ],
+      "topPapers": [],
+      "markdownPath": "reports/arxiv/2026-09-09.md",
+      "papers": []
+    },
     {
       "date": "2026-09-08",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-09-08",
