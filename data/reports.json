@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11T12:07:05+08:00",
+  "updatedAt": "2026-09-11T21:19:54+08:00",
   "reports": [
     {
       "date": "2026-09-11",
@@ -31,10 +31,10 @@
           "categories": [
             "cs.CV"
           ],
-          "summary": "本文提出“Recursive Code World Models: Building Complex Worlds through Recursive Scene Programs”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "代码世界模型能把世界写成可执行程序，但复杂三维场景仍难以一次构建完成。RCWM以递归场景程序表示世界，求解器按整体建立、局部递归重建、回到整体修正的流程处理细节，同时共享相机投影并修复层级边界和空间关系。视觉语言编码智能体直接比较参考图与渲染结果，在复杂单图场景重建中优于既有代码式方法。",
           "methodHighlights": [
-            "围绕“Recursive Code World Models: Building Complex Worlds through Recursive Scene Programs”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "用递归场景程序给细粒度结构独立的感知与编辑循环。",
+            "全局-局部-全局求解保持跨层级相机、几何和部件关系一致。"
           ],
           "priority": "高",
           "areaTags": [
@@ -66,10 +66,10 @@
           "categories": [
             "cs.CV"
           ],
-          "summary": "本文提出“ReconPlusGen: Injecting Reconstruction Prior into Multi-view 3D Generation through Noise Inversion and Modulation”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "多视图三维生成既要遵守输入视图中的已知几何，也要补全不可见区域。ReconPlusGen先从多张图像预测规范空间点云，再通过噪声反演把重建几何确定性地注入扩散初值，并调制噪声保留生成自由度。由此模型可同时细化可见表面并对未观测部分作合理补全。",
           "methodHighlights": [
-            "围绕“ReconPlusGen: Injecting Reconstruction Prior into Multi-view 3D Generation through Noise Inversion and Modulation”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "把多视图点云重建结果经噪声反演注入扩散过程。",
+            "对几何噪声进行调制，在观测一致性与生成补全之间取平衡。"
           ],
           "priority": "中",
           "areaTags": [
@@ -101,10 +101,10 @@
           "categories": [
             "cs.CV"
           ],
-          "summary": "本文提出“Tri-DehazeGS: Scene--Medium Decoupled Gaussian Splatting with Transmittance-Aware Optimization”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "雾天多视图重建容易把清洁场景辐射与大气散射混合，并使低透射区域得不到足够梯度。Tri-DehazeGS用高斯基元表示清洁场景，以独立、跨视角共享的三平面场表示参与介质，再用物理散射模型合成雾图。其介质解耦透射梯度补偿在冻结介质后增强远处和浓雾区域监督，真实与合成基准均显示更好的清洁新视角重建。",
           "methodHighlights": [
-            "围绕“Tri-DehazeGS: Scene--Medium Decoupled Gaussian Splatting with Transmittance-Aware Optimization”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "把场景高斯与三平面介质场显式解耦。",
+            "在不改变前向渲染的条件下补偿雾衰减造成的弱梯度。"
           ],
           "priority": "中",
           "areaTags": [
@@ -138,10 +138,10 @@
             "cs.CV",
             "cs.LG"
           ],
-          "summary": "本文提出“HuRo: Robotizing Human Videos for Scalable VLA Pretraining”相关方法，面向cs.RO, cs.CV, cs.LG中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "大规模人类视频比真机数据丰富，但观察和动作与机器人本体并不对齐。HuRo流水线把异构人类视频转换为机器人视角观测和动作轨迹，并补推不同标注层级缺失信号，形成约63万段、1.42亿帧的数据集。四项真实操作中，扩大机器人化预训练将总体完成率从51.5%提升至80.3%，分布外完成率从34.9%提升至72.2%。",
           "methodHighlights": [
-            "围绕“HuRo: Robotizing Human Videos for Scalable VLA Pretraining”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "同时机器人化视觉观察和动作轨迹，缩小人机本体差距。",
+            "以五类人类视频来源构建可扩展VLA预训练数据。"
           ],
           "priority": "中",
           "areaTags": [
@@ -185,10 +185,10 @@
           "categories": [
             "cs.RO"
           ],
-          "summary": "本文提出“Memory as Plans: World-Action Modeling with Memory-Grounded Planning”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "复杂机器人操作常依赖当前画面之前的长期情节，而持续扩大视觉上下文会增加计算并丢失关键信息。MaP-WAM把已完成片段的语言和稀疏视觉记录压缩成下一阶段计划与视觉引导，再由World-Action-Progress模型联合预测动作块和执行进度，实现自适应阶段切换。该设计保持执行器上下文长度近似恒定，在RMBench和真机上分别达到83.3%与78.0%成功率。",
           "methodHighlights": [
-            "围绕“Memory as Plans: World-Action Modeling with Memory-Grounded Planning”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "把长期多模态情节记忆转写为紧凑计划，而非反复输入完整历史。",
+            "联合预测动作与进度，以计划-观测对齐触发闭环阶段转换。"
           ],
           "priority": "高",
           "areaTags": [
@@ -220,10 +220,10 @@
           "categories": [
             "cs.GR"
           ],
-          "summary": "本文提出“ReCHOIR: Contact-guided Human Object Interaction Retargeting to Diverse Characters”相关方法，面向cs.GR中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "把人-物交互动作迁移到不同骨架角色时，必须同时保持人体语义、接触关系和物体轨迹。ReCHOIR用分部位动作嵌入把异构骨架映射到共享潜空间，再以物体几何和接触信号通过残差控制分支重点修正交互部位。并行物体运动解码器输出与目标角色动作对齐的物体轨迹，实现接触一致的HOI联合重定向。",
           "methodHighlights": [
-            "围绕“ReCHOIR: Contact-guided Human Object Interaction Retargeting to Diverse Characters”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "分部位潜空间保留跨骨架的局部动作语义。",
+            "接触引导角色动作，并联合解码与之对齐的物体运动。"
           ],
           "priority": "高",
           "areaTags": [
@@ -257,10 +257,10 @@
             "cs.CV",
             "cs.AI"
           ],
-          "summary": "本文提出“Beyond Visual Quality: Evaluating Physical Consistency under Ego-Motion with EgoGenEval”相关方法，面向cs.CV, cs.AI中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "高保真视觉生成器在自运动过程中仍可能违背几何和场景状态一致性。EgoGenEval包含1400个案例和2360个目标视图，分别测量相机运动服从度与场景状态保持，并用盲测人工判断验证指标。对18个系统的评估及监督微调实验显示，现有模型很难兼顾两项能力，作者据此主张采用带姿态、可见性监督和自条件滚动的轨迹级训练。",
           "methodHighlights": [
-            "围绕“Beyond Visual Quality: Evaluating Physical Consistency under Ego-Motion with EgoGenEval”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "将相机运动执行与场景状态保持拆成两个独立指标。",
+            "实验证明成对教师强制训练不足以学习长期物理一致性。"
           ],
           "priority": "高",
           "areaTags": [
@@ -298,10 +298,10 @@
           "categories": [
             "cs.CV"
           ],
-          "summary": "本文提出“Harnessing Intrinsic Subject-Aware Attention for Controllable Multi-Subject Video Generation”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "多主体视频生成面临身份保持强度不可控和主体语义漂移两类问题。DIAL发现扩散Transformer内部部分注意力块会自然形成主体定位图，并在低噪声阶段用它控制身份保真度，在高噪声阶段自动构建强化学习偏好对。OpenS2V-Eval结果显示，该方法同时改善身份一致性并允许推理时连续调节保真强度。",
           "methodHighlights": [
-            "围绕“Harnessing Intrinsic Subject-Aware Attention for Controllable Multi-Subject Video Generation”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "复用DiT内部注意力形成的主体空间定位信号。",
+            "同一信号分别服务于低噪声控制和高噪声偏好学习。"
           ],
           "priority": "高",
           "areaTags": [
@@ -333,10 +333,10 @@
           "categories": [
             "cs.LG"
           ],
-          "summary": "本文提出“Measuring the Value of World-Model Updates: A Counterfactual Utility Protocol for Continual Adaptation”相关方法，面向cs.LG中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "持续世界模型通常按固定计划或预测误差更新，但单一路径部署无法知道某次更新究竟带来收益还是伤害。Fork ledger在预注册决策点把数据流分成参数更新与保持两条共享随机数的反事实分支，直接记录回报差。三个模拟控制任务中，固定更新机制平均都降低回报，说明触发器应按所选择更新的因果效用而非单纯惊奇度评判。",
           "methodHighlights": [
-            "围绕“Measuring the Value of World-Model Updates: A Counterfactual Utility Protocol for Continual Adaptation”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "以匹配的更新/保持分支让单次世界模型更新价值可观测。",
+            "把崩溃也计入尝试更新的效应，避免幸存者偏差。"
           ],
           "priority": "高",
           "areaTags": [
@@ -368,10 +368,10 @@
           "categories": [
             "cs.RO"
           ],
-          "summary": "本文提出“Morphology-Aware Human Motion Retargeting for Wheeled-Humanoid Loco-Manipulation”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "轮式人形机器人没有腿部关节，不能直接套用面向双足机器人的人体动作重定向。该流程把SMPL-X动作经体型规范化、平面底盘归一化、形态感知差分逆运动学和躯干替代，转换为Galaxea R1 Pro可执行的移动操作；随后解码三轮转向滚动并训练BaseDecode策略。工作给出了从人体数据到物理可跟踪轮式人形动作的完整桥梁，但定量策略比较仍留待后续版本。",
           "methodHighlights": [
-            "围绕“Morphology-Aware Human Motion Retargeting for Wheeled-Humanoid Loco-Manipulation”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "将人体下肢运动重新分配给平面底盘与连续躯干姿态。",
+            "在转向迟滞、加速度和执行器速率约束下解码三轮运动。"
           ],
           "priority": "高",
           "areaTags": [
@@ -403,10 +403,10 @@
           "categories": [
             "cs.CV"
           ],
-          "summary": "本文提出“Multi-Modal Controlled Coherent Motion Generation”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "语音、文本和轨迹同时驱动三维角色时，各模态生成的身体动作容易互相冲突。MOCO在每个扩散去噪步中独立生成各模态动作，按预定义身体区域规则组合后重新加噪，使不同控制信号在后续步骤中持续协调。专门构建的多模态基准表明，该方案无需对齐的多模态训练数据也能生成更同步、自然的角色运动。",
           "methodHighlights": [
-            "围绕“Multi-Modal Controlled Coherent Motion Generation”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "按身体部位解耦并组合语音、文本和轨迹条件。",
+            "在迭代去噪中反复协调各模态动作，而非一次加权融合。"
           ],
           "priority": "高",
           "areaTags": [
@@ -439,10 +439,10 @@
             "cs.CV",
             "cs.LG"
           ],
-          "summary": "本文提出“Vidu S2: Real-Time Interactive, Editable, and Spatial Video Generation”相关方法，面向cs.CV, cs.LG中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "Vidu S2包含实时交互数字角色模型与实时视频编辑模型，并进一步探索空间视频生成。Avatar版本支持720p实时生成、动态更新参考和更强动作指令；Editing版本可实时完成风格、服装、人物及背景替换。作者报告其优于各基线，并提供可交互在线演示。",
           "methodHighlights": [
-            "围绕“Vidu S2: Real-Time Interactive, Editable, and Spatial Video Generation”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "将实时数字角色和流式视频编辑整合到同一代系统。",
+            "动态参考可在生成过程中随时更新，并扩展到空间视频探索。"
           ],
           "priority": "高",
           "areaTags": [
@@ -480,10 +480,10 @@
           "categories": [
             "cs.CV"
           ],
-          "summary": "本文提出“World in World: Explore the World with World Models”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "自回归视频世界模型进行新视角探索时，需要同步原事件、补全新暴露区域，并在重访时恢复先前外观。World in World不重新训练模型，而是在推理时把源视频、目标视角投影、几何渲染和历史生成状态统一成带相机与时间标签的视觉证据，交给冻结模型的自注意力读取。对应路由器和分证据注意力CFG使同一骨干支持相机控制重渲染、长时重访与人体动作迁移。",
           "methodHighlights": [
-            "围绕“World in World: Explore the World with World Models”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "把异构控制证据统一为带时空标签的干净视觉状态。",
+            "以持续点对应和分证据CFG独立调节各控制通道。"
           ],
           "priority": "高",
           "areaTags": [
@@ -516,10 +516,10 @@
             "cs.RO",
             "cs.AI"
           ],
-          "summary": "本文提出“2AM: Grounding Agent-Side Memory as Guidance for Steerable Action Models in Long-Horizon Manipulation”相关方法，面向cs.RO, cs.AI中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "长时机器人操作需要记忆，但记忆不一定必须写入动作策略。2AM让多模态智能体独占任务历史，并把它编译成子任务语言及可选二维抓取、放置和移动提示，由无状态RGB动作模型执行。通过结构化提示标注和扰动训练增强可操控性后，模型在LIBERO-Mem达到76.3%平均完成率。",
           "methodHighlights": [
-            "围绕“2AM: Grounding Agent-Side Memory as Guidance for Steerable Action Models in Long-Horizon Manipulation”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "把长期记忆保留在智能体侧，动作模型保持情节无状态。",
+            "以多时间尺度语言与二维空间提示扩展智能体到VLA的接口带宽。"
           ],
           "priority": "中",
           "areaTags": [
@@ -560,10 +560,10 @@
             "cs.LG",
             "eess.SP"
           ],
-          "summary": "本文提出“3D Point Splatting for mmWave Radar Novel View Synthesis”相关方法，面向cs.CV, cs.GR, cs.LG, eess.SP中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "毫米波雷达新视角合成需要同时满足物理真实性、复数相位输出与多视角优化效率。3DPS从雷达方程推导可微点渲染器，每个定向三维点携带ITU-R材料模型，并把复数相量经预计算点扩散函数泼溅到距离单元。同一场景无需重训即可输出ADC、复数距离剖面和距离-方位图，在六个ColoRadar场景上约三分钟完成单场景训练。",
           "methodHighlights": [
-            "围绕“3D Point Splatting for mmWave Radar Novel View Synthesis”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "从雷达方程而非光学渲染近似推导复数点泼溅。",
+            "显式材料模型与复数输出支持多种雷达产品共享场景表示。"
           ],
           "priority": "中",
           "areaTags": [
@@ -607,10 +607,10 @@
           "categories": [
             "cs.RO"
           ],
-          "summary": "本文提出“Beyond Noise Steering: Dual-Latent Space Reinforcement Learning for Generative Robot Policy”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "现有生成式机器人策略强化学习多只调节初始噪声，无法直接修正生成过程中的动作表示。DLSRL让演员同时预测初始噪声潜变量和动作表示潜变量，后者经适配器以残差方式注入冻结生成器的中间动作token。跨多种生成策略和操作任务的实验表明，双潜空间控制可加快在线适应而无需更新基础策略。",
           "methodHighlights": [
-            "围绕“Beyond Noise Steering: Dual-Latent Space Reinforcement Learning for Generative Robot Policy”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "同时控制生成起点噪声与中间动作表示。",
+            "残差适配器调节冻结策略，降低在线更新成本。"
           ],
           "priority": "中",
           "areaTags": [
@@ -642,10 +642,10 @@
           "categories": [
             "cs.CV"
           ],
-          "summary": "本文提出“CamPilot: A Multi-Agent Cinematic Assistant for Camera-Controlled Movie Generation”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "文本生成视频已经能快速产出画面，但专业镜头语言和跨镜头连续性仍较弱。CamPilot让多个智能体协同完成电影级镜头规划与相机控制，并用GRPO从1.4万部专业电影中学习机位、运动、焦距行为和镜头关系。配套CamEval评测表明，该方法在摄影控制和电影感质量上优于现有文本生成电影方案。",
           "methodHighlights": [
-            "围绕“CamPilot: A Multi-Agent Cinematic Assistant for Camera-Controlled Movie Generation”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "从专业影片学习镜头角度、运动、焦距与跨镜头关系。",
+            "多智能体共同规划并迭代优化可控相机视角生成。"
           ],
           "priority": "中",
           "areaTags": [
@@ -678,10 +678,10 @@
             "cs.CV",
             "cs.AI"
           ],
-          "summary": "本文提出“From Evaluation to Enhancement: Benchmarking and Improving Think-with-Video Reasoning for Video Generative Models”相关方法，面向cs.CV, cs.AI中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "视频生成模型画面流畅并不代表它能执行符号规则、物理规律和目标约束。VWG-Bench覆盖9个推理维度和38个任务，以三级VLM裁判分别判断流畅度、规则遵循和目标实现，结果揭示主流模型在逻辑密集任务上的明显缺口。Vid-PRE再用纯文本奖励强化学习训练提示重写器，无需改动生成器即可提升约束感知的视频推理表现。",
           "methodHighlights": [
-            "围绕“From Evaluation to Enhancement: Benchmarking and Improving Think-with-Video Reasoning for Video Generative Models”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "将视觉质量与规则、目标正确性分层评测。",
+            "以文本奖励训练模型无关的提示推理增强器，避开视频奖励不稳定性。"
           ],
           "priority": "中",
           "areaTags": [
@@ -719,10 +719,10 @@
           "categories": [
             "cs.GR"
           ],
-          "summary": "本文提出“Gaussian Light Transport”相关方法，面向cs.GR中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "论文把全局光照解表示为位置、方向、表面法线和材质属性上的13维高斯混合。模型不使用传统Neumann级数，而是直接最小化渲染方程残差估计参数，并用高效裁剪减少高维高斯求值成本。所得视角无关光传输解可在毫秒级渲染，内存需求也低于常规神经渲染方法。",
           "methodHighlights": [
-            "围绕“Gaussian Light Transport”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "把场景属性纳入13维高斯基函数以压缩光传输表示。",
+            "直接优化渲染方程残差，并以裁剪支持实时求值。"
           ],
           "priority": "中",
           "areaTags": [
@@ -754,10 +754,10 @@
           "categories": [
             "cs.RO"
           ],
-          "summary": "本文提出“Harness Robotic OS: A Unified Embodied-Agent Runtime for Closed-Loop Quadruped Inspection”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "自主物业巡检需要把导航、感知、场景理解、人机交互和企业响应连成可追踪闭环。HROS用机器人运行时、具身技能、认知智能体、交互与运营四层架构共享物理上下文、分层记忆和安全门控自演化；Argos实例整合四足机器人、定位、深度、规划和多模态分析。住宅环境实验报告100%航点可达、室外定位误差低于10厘米，并完成告警与结构化报告闭环。",
           "methodHighlights": [
-            "围绕“Harness Robotic OS: A Unified Embodied-Agent Runtime for Closed-Loop Quadruped Inspection”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "统一异构机器人技能、认知推理与运营工作流。",
+            "以版本化候选更新实现受安全门控的运行轨迹自演化。"
           ],
           "priority": "中",
           "areaTags": [
@@ -790,10 +790,10 @@
             "cs.RO",
             "cs.CV"
           ],
-          "summary": "本文提出“IMLE-VLA: Fast Single-Step Action Generation for Vision-Language-Action Policies”相关方法，面向cs.RO, cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "扩散或流匹配VLA动作头依赖多步采样，会降低控制频率并造成机器人走停。IMLE-VLA用条件隐式最大似然估计训练单步动作生成器，在避免普通回归模式坍缩的同时取消迭代采样。应用于pi0.5后推理频率从15Hz升至55Hz，LIBERO平均成功率98%，真机动作也更平滑、更快。",
           "methodHighlights": [
-            "围绕“IMLE-VLA: Fast Single-Step Action Generation for Vision-Language-Action Policies”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "以cIMLE单步生成覆盖多模态动作分布。",
+            "无需多步Euler采样即可提高控制频率和动作吞吐。"
           ],
           "priority": "中",
           "areaTags": [
@@ -831,10 +831,10 @@
           "categories": [
             "cs.CV"
           ],
-          "summary": "本文提出“LangStreet: Persistent Language Fields for Anchor-Decoded Street Gaussians”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "锚点解码街景高斯会随视角生成不同子高斯，使语义特征难以绑定到稳定基元。LangStreet让瞬时子高斯负责路由观测，而由持久解码槽和父锚点拥有语言场，再按alpha合成责任累积证据并以低秩残差保存槽级细节。其基础版本在KITTI、Virtual KITTI和Waymo上接近全量版本精度，但显著降低语义特征存储。",
           "methodHighlights": [
-            "围绕“LangStreet: Persistent Language Fields for Anchor-Decoded Street Gaussians”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "提出持久语义所有权，避免语言特征随视角子高斯漂移。",
+            "锚点特征加低秩槽残差在稳定性、细节和存储间折中。"
           ],
           "priority": "中",
           "areaTags": [
@@ -866,10 +866,10 @@
           "categories": [
             "cs.RO"
           ],
-          "summary": "本文提出“LTLDiff: Finite Linear Temporal Logic-Guided Data Generation and Diffusion Policies for Multi-agent Robotic Manipulation”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "多机器人操作需要满足同时、先后和安全等时序逻辑，普通扩散策略容易失步。LTLDiff由大语言模型从自然语言指令学习有限线性时序逻辑公式，将其抽象语法树编码同时用于示范收集和扩散策略条件。实验表明，逻辑约束能减少动作顺序和协同错误并提高多智能体任务成功率。",
           "methodHighlights": [
-            "围绕“LTLDiff: Finite Linear Temporal Logic-Guided Data Generation and Diffusion Policies for Multi-agent Robotic Manipulation”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "把LTLf规范统一用于数据生成和策略训练。",
+            "以抽象语法树提供固定维度的逻辑条件表示。"
           ],
           "priority": "中",
           "areaTags": [
@@ -901,10 +901,10 @@
           "categories": [
             "cs.CV"
           ],
-          "summary": "本文提出“MHE-Former: Multi-Hypothesis Transformers via Entropy Maximization for 3D Mesh Recovery”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "单目手部与人体网格恢复在遮挡和深度歧义下往往会产生过度自信的单一结果。MHE-Former用熵最大化训练Transformer输出多个准确且多样的网格假设，再利用上下文和视觉语言模型按额外证据或自然语言意图选择结果。作者在多个数据集上报告了精度与多样性的领先结果，用户研究也验证了选择机制的实用性。",
           "methodHighlights": [
-            "围绕“MHE-Former: Multi-Hypothesis Transformers via Entropy Maximization for 3D Mesh Recovery”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "以概率建模和熵最大化实现标签友好的多假设网格恢复。",
+            "用VLM结合场景证据与用户意图完成候选假设选择。"
           ],
           "priority": "中",
           "areaTags": [
@@ -937,10 +937,10 @@
             "cs.RO",
             "cs.LG"
           ],
-          "summary": "本文提出“ObstaDiff: Generalizable Diffusion Policy Learning via Obstacle-aware Representations”相关方法，面向cs.RO, cs.LG中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "杂乱温室中的非结构化障碍会使仅在干净背景上训练的操作策略失效。ObstaDiff用轻量视觉编码器分离目标、障碍与背景，并让扩散策略朝目标中心瓶颈位姿生成避障末端轨迹。每种方法61次真机试验中，其平均成功率为75.41%，平均碰撞率为8.20%。",
           "methodHighlights": [
-            "围绕“ObstaDiff: Generalizable Diffusion Policy Learning via Obstacle-aware Representations”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "显式构建目标-障碍-背景结构化视觉表示。",
+            "以目标中心瓶颈位姿简化杂乱场景中的轨迹生成。"
           ],
           "priority": "中",
           "areaTags": [
@@ -978,10 +978,10 @@
           "categories": [
             "cs.RO"
           ],
-          "summary": "本文提出“RIDE: Relocalization-Informed Depth Estimation with 3D Gaussian Splatting”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "视觉重定位产生的二维像素到三维地图点对应，除估计姿态外也能提供稀疏度量深度。RIDE把PnP-RANSAC内点深度与预训练视频深度模型的几何先验结合，并用全局、局部校正和时间记忆处理不均匀或间断观测。它基于度量尺度3DGS地图，在无需微调的机器人序列上改善深度精度和时序一致性。",
           "methodHighlights": [
-            "围绕“RIDE: Relocalization-Informed Depth Estimation with 3D Gaussian Splatting”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "复用重定位内点对应为单目深度提供度量锚点。",
+            "全局/局部尺度校正与时间记忆跨越短暂观测缺口。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1013,10 +1013,10 @@
           "categories": [
             "cs.CV"
           ],
-          "summary": "本文提出“SAMV-DUSt3R: Instance-Centric 3D Scene Decoupling from Sparse Multi-Views”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "从稀疏多视图中抽取单个物体，既需要准确重建又需要把目标与背景解耦。SAMV-DUSt3R把SAM2二维掩码注入MV-DUSt3R，并通过Cross Flow Mask Block引导网络聚焦目标实例；Spatial RankGNN则选择最合适的参考视图。实验报告参考视图选择准确率73.5%，多项重建指标平均精度提升约11%。",
           "methodHighlights": [
-            "围绕“SAMV-DUSt3R: Instance-Centric 3D Scene Decoupling from Sparse Multi-Views”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "在端到端多视图重建中直接注入SAM2实例掩码。",
+            "用轻量空间排序图网络选择稳定的参考视角。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1048,10 +1048,10 @@
           "categories": [
             "cs.RO"
           ],
-          "summary": "本文提出“SEED-UMI: Sharing the Exoskeleton between human and robot for onE-to-one Dexterous demonstration”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "灵巧手模仿学习的难点在于接触丰富的人手示范难以准确映射到机器人。SEED-UMI让人和机器人佩戴同一外骨骼，使关节编码器和腕部相机形成跨本体共享的测量与视觉坐标，从而直接产生配对监督。五项接触任务中，该方案的数据采集效率比外骨骼遥操作高3倍，平均滚动成功率为70%。",
           "methodHighlights": [
-            "围绕“SEED-UMI: Sharing the Exoskeleton between human and robot for onE-to-one Dexterous demonstration”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "同一外骨骼在人体采集与机器人执行阶段复用。",
+            "策略直接学习外骨骼中心腕部原始图像，无需分割或修补。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1084,10 +1084,10 @@
             "cs.CV",
             "eess.IV"
           ],
-          "summary": "本文提出“UBone3D: Physics-Rectified Conditional Flow Matching for Anatomical 3D Shape Completion from Ultrasound”相关方法，面向cs.CV, eess.IV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "超声分割得到的局部点云常含表面增厚、条纹和缺失等成像伪影。UBone3D以物理校正的条件流匹配直接补全三维解剖形状，在测试时同时接受CT训练的解剖生成先验与超声形成空间中的物理一致性约束。模拟和体内数据实验显示，该方法能提高重建精度与解剖真实性。",
           "methodHighlights": [
-            "围绕“UBone3D: Physics-Rectified Conditional Flow Matching for Anatomical 3D Shape Completion from Ultrasound”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "用模拟物理代理显式描述超声确定性伪影。",
+            "推理时以解剖先验和超声物理一致性两股解耦引导共同校正形状。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1125,10 +1125,10 @@
           "categories": [
             "cs.CV"
           ],
-          "summary": "本文提出“Uncertainty DMD: Restoring Diversity in Few-Step Autoregressive Video Distillation”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "少步蒸馏可加速自回归视频生成，却常使不同噪声产生近似相同的首段视频，并由确定性缓存把多样性塌缩传播到后续片段。Uncertainty DMD在首段扰动时间步，并在后续采用随机缓存写入，从生成根节点和自回归条件两处恢复不确定性。该方法无需修改网络结构，在保持单样本视觉质量的同时改善视频多样性和运动幅度。",
           "methodHighlights": [
-            "围绕“Uncertainty DMD: Restoring Diversity in Few-Step Autoregressive Video Distillation”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "定位DMD在自回归视频中的结构化不确定性塌缩机制。",
+            "首段时间步扰动与随机缓存写入共同恢复长序列随机性。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1160,10 +1160,10 @@
           "categories": [
             "cs.CV"
           ],
-          "summary": "本文提出“UniH$^3$: Unifying Hierarchical Homogeneity and Heterogeneity for All-in-One Medical Image Restoration”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "通用医学图像恢复不仅要处理不同模态与退化的异质性，也可利用跨任务共享的解剖结构。UniH3用分层同质性记忆从高质量图像提取任务内与任务间先验，再用同质性引导注意力注入恢复网络；同时用分层异质性平衡器缓解任务间和任务内优化冲突。模型在MedIR-2D-500K与MedIR-3D-3K的通用和单任务设置中均达到领先表现。",
           "methodHighlights": [
-            "围绕“UniH$^3$: Unifying Hierarchical Homogeneity and Heterogeneity for All-in-One Medical Image Restoration”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "分层记忆检索跨模态共享的解剖结构先验。",
+            "分层平衡器同时处理任务间分布差异与任务内退化差异。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1195,10 +1195,10 @@
           "categories": [
             "cs.RO"
           ],
-          "summary": "本文提出“Visual-SLAM for the detection of hidden tomatoes in greenhouses by Hierarchical Localization and GLOMAPfor robotized harvesting”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "温室采收通常依赖昂贵LiDAR或双目传感器，且遮挡果实难以检测。该系统以低成本单目相机、ROS 2采集、分层定位与GLOMAP结构恢复运动构建番茄作物三维地图。真实温室实验识别出被遮挡番茄，重建尺寸、质心和朝向也经人工测量验证。",
           "methodHighlights": [
-            "围绕“Visual-SLAM for the detection of hidden tomatoes in greenhouses by Hierarchical Localization and GLOMAPfor robotized harvesting”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "用全局检索到局部特征的粗到细定位支持温室Visual-SLAM。",
+            "以GLOMAP生成可供生长分析与机器人采收使用的三维模型。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1230,10 +1230,10 @@
           "categories": [
             "cs.RO"
           ],
-          "summary": "本文提出“When Information is Worth the Risk: Behavioral Valuation for Hazardous Robotic Exploration”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "危险环境探索中，信息量最大的路径也可能使机器人提前失效并丧失后续观测。论文保持信念更新、传感器、风险模型和规划器不变，只改变路径排序的标量价值函数，并以Prelec概率加权构造风险增强行为信息目标。理论和截断失败网格实验显示，该价值层能在信息收益与生存风险之间形成可解释的保守到激进策略族。",
           "methodHighlights": [
-            "围绕“When Information is Worth the Risk: Behavioral Valuation for Hazardous Robotic Exploration”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "把危险探索的差异隔离到可解释的价值评估层。",
+            "概率加权参数产生高信息高风险与低风险路径之间的切换边界。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1265,10 +1265,10 @@
           "categories": [
             "cs.AI"
           ],
-          "summary": "本文提出“When Validation Stops Learning: Auditing Update Admission for Continual Embodied Agents”相关方法，面向cs.AI中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "持续学习具身智能体需要决定是否接纳策略更新，但过严验证会把有益更新一并拒绝。论文指出区间置信门在实际交互预算下无法证明旧任务行为未变，提出成对二项检验、历史参考提升和轮次级错失机会指标。构造的推动任务中，新协议在每阶段2000回合时接纳31.6%的更新，而原门控接纳率为零，但作者也明确真机与VLA验证尚未完成。",
           "methodHighlights": [
-            "围绕“When Validation Stops Learning: Auditing Update Admission for Continual Embodied Agents”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "同时审计更新错误控制与保留学习机会。",
+            "用低分歧成对结果显著降低旧任务不退化的验证成本。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1301,10 +1301,10 @@
             "cs.RO",
             "cs.HC"
           ],
-          "summary": "本文提出“CARLAverse: A Highly Modular, Distributed, and Multimodal Framework for Human-in-the-Loop Simulation”相关方法，面向cs.RO, cs.HC中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "自动驾驶的人在环混合交通实验需要真实人类协商和高频触觉反馈，集中式仿真容易受网络延迟影响。CARLAverse把驾驶、骑行和行人模拟器接入共享CARLA环境，并让客户端本地计算自车动力学和力反馈、中央服务器维护全局交通。分布式物理架构使跨机构多参与者实验能够扩展，同时保持触觉控制环的实时性。",
           "methodHighlights": [
-            "围绕“CARLAverse: A Highly Modular, Distributed, and Multimodal Framework for Human-in-the-Loop Simulation”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "统一驾驶员、骑行者和行人的多模态人在环接口。",
+            "将延迟敏感动力学下沉客户端，与中央交通仿真解耦。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1343,10 +1343,10 @@
           "categories": [
             "cs.RO"
           ],
-          "summary": "本文提出“FARM: Reading Failure Signals from the Internal Predictive States of a Frozen Robotic World Model”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "机器人在线失败监测通常依赖代理风险信号或额外训练的监控骨干。FARM只在冻结VLA-JEPA预测状态上训练33985参数读出头，输出逐步失败分数和因果轨迹风险，并在七个源任务上达到85.68 AUROC与88.59 AUPRC。跨PIPER X、SO-101和Franka的迁移实验表明，世界模型内部状态可作为低延迟、可迁移的失败特征。",
           "methodHighlights": [
-            "围绕“FARM: Reading Failure Signals from the Internal Predictive States of a Frozen Robotic World Model”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "直接读取冻结机器人世界模型的内部预测状态。",
+            "轻量监督头支持因果历史判别与跨机器人只读出适配。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1380,10 +1380,10 @@
             "cs.CV",
             "cs.RO"
           ],
-          "summary": "本文提出“GRADE: Single-Frame Generative Radar Depth Estimation Under Visual Degradation”相关方法，面向cs.CV, cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "烟雾、雾霾和黑暗会使相机深度估计失效，而毫米波雷达仍能提供可靠距离但角分辨率较低。GRADE先把单帧4D雷达频谱变为粗糙度量深度，再以该几何结果逐步约束潜扩散模型，并在能见度允许时融合残余相机线索。约9.5万帧、12栋建筑的真实烟雾实验中，模型在清晰和烟雾场景的MAE分别为0.303米与0.313米。",
           "methodHighlights": [
-            "围绕“GRADE: Single-Frame Generative Radar Depth Estimation Under Visual Degradation”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "以单帧雷达粗深度在每个去噪步骤约束生成先验。",
+            "像素适配器随视觉退化自动转向雷达主导的深度路径。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1422,10 +1422,10 @@
           "categories": [
             "cs.RO"
           ],
-          "summary": "本文提出“Learning Agent-based Model Predictive Control for Holistic Vehicle Performance”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "分布式多智能体车辆控制若不知道其他智能体贡献，模型预测控制的整体最优性会下降。LAMPC用带在线数据管理的高斯过程回归预测未知贡献，并把多步预测均值补入MPC模型、方差用于软机会约束。仿真和实验显示，该混合方案提高跟踪性能，在数据不足时仍保持约束满足并可实时运行。",
           "methodHighlights": [
-            "围绕“Learning Agent-based Model Predictive Control for Holistic Vehicle Performance”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "以在线高斯过程学习未知车辆智能体的控制贡献。",
+            "均值补全预测模型，方差构建随机安全与可行性约束。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1458,10 +1458,10 @@
           "categories": [
             "cs.AI"
           ],
-          "summary": "本文提出“Lightweight LiDAR-Based Cone Detection Framework Using Random Forest for Formula Student Driverless”相关方法，面向cs.AI中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "Formula Student无人赛车需要低延迟锥桶检测，但深度网络和多传感器方案常依赖GPU。该LiDAR-only流水线组合地面移除、IMU运动补偿、DBSCAN聚类与几何特征随机森林，并把特征从12项缩减至7项。2371个真实赛事标注簇上F1达到98.33%，CPU端到端耗时3.13毫秒，并发布数据、标注工具和模型。",
           "methodHighlights": [
-            "围绕“Lightweight LiDAR-Based Cone Detection Framework Using Random Forest for Formula Student Driverless”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "用几何特征随机森林实现CPU级LiDAR锥桶识别。",
+            "特征重要性压缩输入，同时保留IMU补偿与聚类的实时流水线。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1495,10 +1495,10 @@
             "cs.CV",
             "cs.RO"
           ],
-          "summary": "本文提出“MC-DeTra: Motion-Consistent Joint Object Detection and Socially-Aware Trajectory Forecasting in Bird's-Eye-View Images”相关方法，面向cs.CV, cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "自动驾驶的检测与轨迹预测统一模型在动态参与者和复杂社会交互上仍较薄弱。MC-DeTra在公开复现DeTra的基础上，引入历史运动、周围交通占用两类辅助监督，并约束预测朝向与运动方向一致；所有新增损失仅用于训练。Waymo严格检测条件预测评测显示，该方法改善动态、社会化轨迹预测且不增加推理延迟。",
           "methodHighlights": [
-            "围绕“MC-DeTra: Motion-Consistent Joint Object Detection and Socially-Aware Trajectory Forecasting in Bird's-Eye-View Images”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "用历史运动与交通占用监督共享BEV表示。",
+            "训练期朝向-运动一致性约束不增加部署计算量。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1538,10 +1538,10 @@
             "cs.RO",
             "cs.LG"
           ],
-          "summary": "本文提出“Testing Between the Test Cases: Proving End-to-End Steering in Conditions You Never Drove”相关方法，面向cs.RO, cs.LG中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "自动驾驶网络通过离散天气测试，并不能证明相邻扰动强度下同样安全。论文对CARLA高速路和城市道路的端到端转向网络使用界传播，在无需再次驾驶的情况下计算两帧之间所有扰动强度可能造成的转向偏差。验证发现了清晰天气训练策略的漏测失败，说明形式化方法可补足仿真验证覆盖。",
           "methodHighlights": [
-            "围绕“Testing Between the Test Cases: Proving End-to-End Steering in Conditions You Never Drove”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "用界传播连续覆盖离散测试用例之间的扰动空间。",
+            "以2.19英尺车道偏离预算直接验证端到端转向安全。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1581,10 +1581,10 @@
             "cs.CV",
             "cs.AI"
           ],
-          "summary": "本文提出“Toward Interpretable Multimodal Fusion: Heat Conduction Modeling for Hyperspectral and LiDAR Joint Classification”相关方法，面向cs.CV, cs.AI中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "高光谱与LiDAR联合分类需要同时利用光谱、空间和结构信息，但长程、各向异性交互通常计算昂贵。M2Heat把多模态特征传播解释为热传导，以vHeat和频率值嵌入模拟具有物理含义的全局信息流，再通过跨频率融合整合空间与频域线索。模型在Trento、Houston2013和Augsburg数据集上取得有竞争力的精度与次二次复杂度。",
           "methodHighlights": [
-            "围绕“Toward Interpretable Multimodal Fusion: Heat Conduction Modeling for Hyperspectral and LiDAR Joint Classification”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "以各向异性热传导算子建模长程多模态依赖。",
+            "跨频率融合联合空间结构与频域特征，并保留可解释性。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1623,10 +1623,10 @@
           "categories": [
             "cs.CV"
           ],
-          "summary": "本文提出“TrajFusionNet+: Transformer-Based Prediction of Pedestrian Crossing Intention via Fusion of Trajectory Representations and Scene Graphs”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "论文从自动驾驶车辆视角预测行人是否准备横穿道路。TrajFusionNet+用三个Transformer分支分别编码历史及预测轨迹序列、叠加边界框后的视觉轨迹，以及由分割图构建的行人中心场景图。模型在PIE和JAAD上取得更好的结果，并在联合训练、分数据集测试协议下表现出更强泛化。",
           "methodHighlights": [
-            "围绕“TrajFusionNet+: Transformer-Based Prediction of Pedestrian Crossing Intention via Fusion of Trajectory Representations and Scene Graphs”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "融合序列注意力、视觉轨迹注意力与场景图注意力。",
+            "场景图显式建模行人与道路交通元素之间的关系。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1659,10 +1659,10 @@
           "categories": [
             "cs.RO"
           ],
-          "summary": "本文提出“UniMPA: A Unified Memory-Prediction-Action Model via Action-Grounded Transition Modeling”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "VLA从观察直接预测动作会遇到阶段歧义、未来画面与可执行动作不一致，以及历史动作难以适配当前场景。UniMPA以动作落地的状态转移为统一接口：持久潜流与关键像素流预测未来，时序视觉动作记忆检索已实现转移，动作视觉记忆再检索历史动作原型。Prototype-Biased Flow把生成源移向有历史支持的动作流形，以兼顾未来目标、物理可执行性和场景适应。",
           "methodHighlights": [
-            "围绕“UniMPA: A Unified Memory-Prediction-Action Model via Action-Grounded Transition Modeling”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "用持久潜状态与选择性像素流消解操作阶段歧义。",
+            "双记忆库分别验证转移可执行性并提供动作原型。"
           ],
           "priority": "中",
           "areaTags": [
@@ -1695,10 +1695,10 @@
           "categories": [
             "cs.RO"
           ],
-          "summary": "本文提出“Using Automated Vehicles Operational Data to Confirm Safety and Anticipate Threats”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "summary": "欧盟自动驾驶系统法规开始要求公共道路运营数据的持续收集，以弥补型式认证难以覆盖的未知风险。论文分析在役监测与报告框架如何让安全主管机关确认批准时的安全目标，并把真实交通冲突沉淀为可供其他系统复测的场景目录。作者主张在制造商与监管者之间共享经验，以形成运营期持续安全评估。",
           "methodHighlights": [
-            "围绕“Using Automated Vehicles Operational Data to Confirm Safety and Anticipate Threats”构建任务表示与学习/推理流程。",
-            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+            "把真实运营数据接入自动驾驶认证后的持续安全确认。",
+            "用跨车型场景目录传播新发现的安全关键交通冲突。"
           ],
           "priority": "中",
           "areaTags": [
