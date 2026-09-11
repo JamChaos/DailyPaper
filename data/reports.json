@@ -1,6 +1,1729 @@
 {
-  "updatedAt": "2026-09-10T15:55:49+08:00",
+  "updatedAt": "2026-09-11T12:07:05+08:00",
   "reports": [
+    {
+      "date": "2026-09-11",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-09-11",
+      "shortTitle": "可编程世界 / 物理三维 / 机器人评测",
+      "summary": "官方 2026-09-11 批次收录 45 篇：主列表 34 篇，汽车合集 11 篇；前序日期补充 0 篇。重点关注可编程世界模型、跨相机三维重建、物理一致性、视频驱动灵巧操作与真实评测。",
+      "trends": [
+        "三维生成与重建继续融合：ReconPlusGen、SAMV-DUSt3R 和 Tri-DehazeGS 分别从重建先验、实例解耦和介质建模提升几何质量。",
+        "世界模型从生成走向可组合程序与动作：Recursive Code World Models、World in World、Memory as Plans 和 UniMPA 强调长期状态、记忆与行动闭环。",
+        "视频生成更重视物理与交互：EgoGenEval、Multi-Modal Controlled Coherent Motion、Vidu S2 及 HOI 重定向工作共同关注时空一致性和可控性。",
+        "道路车辆研究覆盖多传感器感知、轨迹预测、安全验证与车辆控制，说明智能驾驶仍在从单点感知走向系统级闭环。"
+      ],
+      "topPapers": [
+        "Recursive Code World Models: Building Complex Worlds through Recursive Scene Programs",
+        "ReconPlusGen: Injecting Reconstruction Prior into Multi-view 3D Generation through Noise Inversion and Modulation",
+        "Tri-DehazeGS: Scene--Medium Decoupled Gaussian Splatting with Transmittance-Aware Optimization",
+        "HuRo: Robotizing Human Videos for Scalable VLA Pretraining",
+        "Memory as Plans: World-Action Modeling with Memory-Grounded Planning",
+        "ReCHOIR: Contact-guided Human Object Interaction Retargeting to Diverse Characters"
+      ],
+      "markdownPath": "reports/arxiv/2026-09-11.md",
+      "papers": [
+        {
+          "title": "Recursive Code World Models: Building Complex Worlds through Recursive Scene Programs",
+          "authors": "Zhiqi Li, Yuxuan Liao, Bo Zhu",
+          "arxivUrl": "https://arxiv.org/abs/2609.11499",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 13:05:06 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "本文提出“Recursive Code World Models: Building Complex Worlds through Recursive Scene Programs”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Recursive Code World Models: Building Complex Worlds through Recursive Scene Programs”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "高",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "ReconPlusGen: Injecting Reconstruction Prior into Multi-view 3D Generation through Noise Inversion and Modulation",
+          "authors": "Jiarui Liu, Heng Li, Weiyu Li, Keng Deng, Junyuan Deng, Zheng Zhongxing, Junyu Huang, Jiahao Chang, Xiaoguang Han, Ping Tan",
+          "arxivUrl": "https://arxiv.org/abs/2609.11129",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 06:19:11 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "本文提出“ReconPlusGen: Injecting Reconstruction Prior into Multi-view 3D Generation through Noise Inversion and Modulation”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“ReconPlusGen: Injecting Reconstruction Prior into Multi-view 3D Generation through Noise Inversion and Modulation”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "3D Vision"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "Tri-DehazeGS: Scene--Medium Decoupled Gaussian Splatting with Transmittance-Aware Optimization",
+          "authors": "Kui Jiang, Yang Gu, Jiacheng Liu, Shiyu Liu, Youyu Chen, Hui Liu",
+          "arxivUrl": "https://arxiv.org/abs/2609.11223",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 08:24:16 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "本文提出“Tri-DehazeGS: Scene--Medium Decoupled Gaussian Splatting with Transmittance-Aware Optimization”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Tri-DehazeGS: Scene--Medium Decoupled Gaussian Splatting with Transmittance-Aware Optimization”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "3D Vision"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "论文提及开放资源或发布计划，本次未确认专用公开直链。"
+          ]
+        },
+        {
+          "title": "HuRo: Robotizing Human Videos for Scalable VLA Pretraining",
+          "authors": "Jinho Jeong, Se June Joo, Jaehyun Kang, Dongyun Kim, Yena Kim, Hanjung Kim, Seon Joo Kim",
+          "arxivUrl": "https://arxiv.org/abs/2609.10706",
+          "published": "2026-09-11",
+          "v1Submitted": "Wed, 9 Sep 2026 18:02:05 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.CV",
+            "cs.LG"
+          ],
+          "summary": "本文提出“HuRo: Robotizing Human Videos for Scalable VLA Pretraining”相关方法，面向cs.RO, cs.CV, cs.LG中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“HuRo: Robotizing Human Videos for Scalable VLA Pretraining”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 14 of 14 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 98 of 98 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "论文提及开放资源或发布计划，本次未确认专用公开直链。"
+          ]
+        },
+        {
+          "title": "Memory as Plans: World-Action Modeling with Memory-Grounded Planning",
+          "authors": "Sizhe Zhao, Haozhe Xie, Weiyu Zhao, Chenchu Zhang, Huan Wang, Chenyang Wang, Qinglin Liu, Shengping Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2609.11561",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 13:52:51 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "本文提出“Memory as Plans: World-Action Modeling with Memory-Grounded Planning”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Memory as Plans: World-Action Modeling with Memory-Grounded Planning”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "高",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "ReCHOIR: Contact-guided Human Object Interaction Retargeting to Diverse Characters",
+          "authors": "Chaelin Kim, Seokhyeon Hong, Kwan Yun, Soojin Choi, Inseo Jang, Junyong Noh",
+          "arxivUrl": "https://arxiv.org/abs/2609.10982",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 02:01:55 UTC",
+          "categories": [
+            "cs.GR"
+          ],
+          "summary": "本文提出“ReCHOIR: Contact-guided Human Object Interaction Retargeting to Diverse Characters”相关方法，面向cs.GR中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“ReCHOIR: Contact-guided Human Object Interaction Retargeting to Diverse Characters”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "HOI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.GR",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 4 of 4 entries)",
+              "url": "https://arxiv.org/list/cs.GR/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "Beyond Visual Quality: Evaluating Physical Consistency under Ego-Motion with EgoGenEval",
+          "authors": "Yilin Long, Chenming Zhu, Zitang Gou, Jingli Lin, Tai Wang",
+          "arxivUrl": "https://arxiv.org/abs/2609.11172",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 07:19:50 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "summary": "本文提出“Beyond Visual Quality: Evaluating Physical Consistency under Ego-Motion with EgoGenEval”相关方法，面向cs.CV, cs.AI中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Beyond Visual Quality: Evaluating Physical Consistency under Ego-Motion with EgoGenEval”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "高",
+          "areaTags": [
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 94 of 94 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "Harnessing Intrinsic Subject-Aware Attention for Controllable Multi-Subject Video Generation",
+          "authors": "Niange Yu, Ye Tian, Biaolong Chen, Miao Lu, Aixi Zhang, Hao Jiang, Yunhai Tong, Pipei Huang",
+          "arxivUrl": "https://arxiv.org/abs/2609.11507",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 13:15:03 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "本文提出“Harnessing Intrinsic Subject-Aware Attention for Controllable Multi-Subject Video Generation”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Harnessing Intrinsic Subject-Aware Attention for Controllable Multi-Subject Video Generation”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "高",
+          "areaTags": [
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "Measuring the Value of World-Model Updates: A Counterfactual Utility Protocol for Continual Adaptation",
+          "authors": "Anqi Peter Li, Kaden Kim",
+          "arxivUrl": "https://arxiv.org/abs/2609.10954",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 01:22:57 UTC",
+          "categories": [
+            "cs.LG"
+          ],
+          "summary": "本文提出“Measuring the Value of World-Model Updates: A Counterfactual Utility Protocol for Continual Adaptation”相关方法，面向cs.LG中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Measuring the Value of World-Model Updates: A Counterfactual Utility Protocol for Continual Adaptation”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "高",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.LG",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 73 of 73 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "Morphology-Aware Human Motion Retargeting for Wheeled-Humanoid Loco-Manipulation",
+          "authors": "Chenbo Xia, Chao Ye",
+          "arxivUrl": "https://arxiv.org/abs/2609.11357",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 10:40:31 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "本文提出“Morphology-Aware Human Motion Retargeting for Wheeled-Humanoid Loco-Manipulation”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Morphology-Aware Human Motion Retargeting for Wheeled-Humanoid Loco-Manipulation”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "高",
+          "areaTags": [
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "Multi-Modal Controlled Coherent Motion Generation",
+          "authors": "Yifei Liu, Qiong Cao, Hongwei Yi, Huaiguang Jiang, Changxing Ding",
+          "arxivUrl": "https://arxiv.org/abs/2609.11439",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 12:10:00 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "本文提出“Multi-Modal Controlled Coherent Motion Generation”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Multi-Modal Controlled Coherent Motion Generation”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "高",
+          "areaTags": [
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "Vidu S2: Real-Time Interactive, Editable, and Spatial Video Generation",
+          "authors": "Jintao Zhang, Kai Jiang, Jintao Chen, Xu Wang, Deyuan Liu, Jungang Li, Dechuang Chen, Ming Lin, Jingjiang Zhou, Haopeng Jin, Qi Jia, Xiaohang Wang, Yaole Wang, Zhanqiang Zhang, Ran Li, Zhengkun Huang, Shuyue Xiong, Yuji Wang, Zikun Dai, Hui He, Yang Luo, Mang Ning, Weiqi Feng, Chengyang Ye, Xinyue Lin, Min Zhao, Hongzhou Zhu, Hengkai Tan, Zeyuan Wang, Chendong Xiang, Kaiwen Zheng, Zhijie Deng, Fan Bao, Jianfei Chen, Jun Zhu",
+          "arxivUrl": "https://arxiv.org/abs/2609.11638",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 14:46:07 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.LG"
+          ],
+          "summary": "本文提出“Vidu S2: Real-Time Interactive, Editable, and Spatial Video Generation”相关方法，面向cs.CV, cs.LG中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Vidu S2: Real-Time Interactive, Editable, and Spatial Video Generation”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "高",
+          "areaTags": [
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 98 of 98 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "World in World: Explore the World with World Models",
+          "authors": "Chenxi Song, Yanming Yang, Chi Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2609.11548",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 13:42:26 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "本文提出“World in World: Explore the World with World Models”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“World in World: Explore the World with World Models”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "高",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "2AM: Grounding Agent-Side Memory as Guidance for Steerable Action Models in Long-Horizon Manipulation",
+          "authors": "Yutong Hu, Fengjiao Chen, Xuezhi Cao, Renaud Detry",
+          "arxivUrl": "https://arxiv.org/abs/2609.11308",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 09:35:56 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "本文提出“2AM: Grounding Agent-Side Memory as Guidance for Steerable Action Models in Long-Horizon Manipulation”相关方法，面向cs.RO, cs.AI中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“2AM: Grounding Agent-Side Memory as Guidance for Steerable Action Models in Long-Horizon Manipulation”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "3D Vision"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 94 of 94 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "3D Point Splatting for mmWave Radar Novel View Synthesis",
+          "authors": "Adnan Armouti, Yixuan Gao, Rajalakshmi Nandakumar",
+          "arxivUrl": "https://arxiv.org/abs/2609.11894",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 17:52:17 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.GR",
+            "cs.LG",
+            "eess.SP"
+          ],
+          "summary": "本文提出“3D Point Splatting for mmWave Radar Novel View Synthesis”相关方法，面向cs.CV, cs.GR, cs.LG, eess.SP中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“3D Point Splatting for mmWave Radar Novel View Synthesis”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "3D Vision"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 98 of 98 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new?show=2000"
+            },
+            {
+              "category": "cs.GR",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 4 of 4 entries)",
+              "url": "https://arxiv.org/list/cs.GR/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "Beyond Noise Steering: Dual-Latent Space Reinforcement Learning for Generative Robot Policy",
+          "authors": "Pengfei Zhang, Teng Sun, Xianchao Xiu",
+          "arxivUrl": "https://arxiv.org/abs/2609.11270",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 09:04:04 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "本文提出“Beyond Noise Steering: Dual-Latent Space Reinforcement Learning for Generative Robot Policy”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Beyond Noise Steering: Dual-Latent Space Reinforcement Learning for Generative Robot Policy”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "论文提及开放资源或发布计划，本次未确认专用公开直链。"
+          ]
+        },
+        {
+          "title": "CamPilot: A Multi-Agent Cinematic Assistant for Camera-Controlled Movie Generation",
+          "authors": "Yang Wu, Stefano Petrangeli, Ishita Dasgupta, Yu Shen",
+          "arxivUrl": "https://arxiv.org/abs/2609.10943",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 01:06:14 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "本文提出“CamPilot: A Multi-Agent Cinematic Assistant for Camera-Controlled Movie Generation”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“CamPilot: A Multi-Agent Cinematic Assistant for Camera-Controlled Movie Generation”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "3D Vision"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "From Evaluation to Enhancement: Benchmarking and Improving Think-with-Video Reasoning for Video Generative Models",
+          "authors": "Meng Luo, Yicheng Liu, Jiahao Wang, Yuanxing Zhang, Xin Tao, Pengfei Wan, Kun Gai, Hao Fei",
+          "arxivUrl": "https://arxiv.org/abs/2609.11242",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 08:40:58 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "summary": "本文提出“From Evaluation to Enhancement: Benchmarking and Improving Think-with-Video Reasoning for Video Generative Models”相关方法，面向cs.CV, cs.AI中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“From Evaluation to Enhancement: Benchmarking and Improving Think-with-Video Reasoning for Video Generative Models”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 94 of 94 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "论文提及开放资源或发布计划，本次未确认专用公开直链。"
+          ]
+        },
+        {
+          "title": "Gaussian Light Transport",
+          "authors": "Patrick Attimont, Kartic Subr, Cyril Soler",
+          "arxivUrl": "https://arxiv.org/abs/2609.11430",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 12:03:05 UTC",
+          "categories": [
+            "cs.GR"
+          ],
+          "summary": "本文提出“Gaussian Light Transport”相关方法，面向cs.GR中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Gaussian Light Transport”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "3D Vision"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.GR",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 4 of 4 entries)",
+              "url": "https://arxiv.org/list/cs.GR/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "Harness Robotic OS: A Unified Embodied-Agent Runtime for Closed-Loop Quadruped Inspection",
+          "authors": "Yaoyuan Yan, Zhiyou Heng, Haoxiang Jie, Gang Liu, Hongjie Yan, Wei Zhou",
+          "arxivUrl": "https://arxiv.org/abs/2609.11225",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 08:25:46 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "本文提出“Harness Robotic OS: A Unified Embodied-Agent Runtime for Closed-Loop Quadruped Inspection”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Harness Robotic OS: A Unified Embodied-Agent Runtime for Closed-Loop Quadruped Inspection”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "IMLE-VLA: Fast Single-Step Action Generation for Vision-Language-Action Policies",
+          "authors": "Kian Hosseinkhani, Qinhe Peng, George Shramko, Mehran Aghabozorgi, Jianing Qian, Tristan Engst, Alireza Moazeni, Dinesh Jayaraman, Ke Li",
+          "arxivUrl": "https://arxiv.org/abs/2609.10915",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 00:00:32 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "本文提出“IMLE-VLA: Fast Single-Step Action Generation for Vision-Language-Action Policies”相关方法，面向cs.RO, cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“IMLE-VLA: Fast Single-Step Action Generation for Vision-Language-Action Policies”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "3D Vision"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 14 of 14 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "论文提及开放资源或发布计划，本次未确认专用公开直链。"
+          ]
+        },
+        {
+          "title": "LangStreet: Persistent Language Fields for Anchor-Decoded Street Gaussians",
+          "authors": "Runyi Yang, Deheng Zhang, Xiaoye Wang, Mengjiao Ma, Lei Sun, Kanzhi Wu, Ajad Chhatkuli, Luc Van Gool, Danda Pani Paudel",
+          "arxivUrl": "https://arxiv.org/abs/2609.11616",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 14:31:02 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "本文提出“LangStreet: Persistent Language Fields for Anchor-Decoded Street Gaussians”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“LangStreet: Persistent Language Fields for Anchor-Decoded Street Gaussians”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "3D Vision"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "论文提及开放资源或发布计划，本次未确认专用公开直链。"
+          ]
+        },
+        {
+          "title": "LTLDiff: Finite Linear Temporal Logic-Guided Data Generation and Diffusion Policies for Multi-agent Robotic Manipulation",
+          "authors": "Chuhan Meng, Haiyan Yin",
+          "arxivUrl": "https://arxiv.org/abs/2609.11043",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 03:42:25 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "本文提出“LTLDiff: Finite Linear Temporal Logic-Guided Data Generation and Diffusion Policies for Multi-agent Robotic Manipulation”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“LTLDiff: Finite Linear Temporal Logic-Guided Data Generation and Diffusion Policies for Multi-agent Robotic Manipulation”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "MHE-Former: Multi-Hypothesis Transformers via Entropy Maximization for 3D Mesh Recovery",
+          "authors": "Boshu Jia, Rongyu Chen, Linlin Yang, Zihao Liu, Yingjie Chen, Zhongqun Zhang, Zhulin Tao, Shaohui Lin, Xiaoyu Wu, Libiao Jin, Baochang Zhang, Angela Yao",
+          "arxivUrl": "https://arxiv.org/abs/2609.10743",
+          "published": "2026-09-11",
+          "v1Submitted": "Wed, 9 Sep 2026 18:39:03 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "本文提出“MHE-Former: Multi-Hypothesis Transformers via Entropy Maximization for 3D Mesh Recovery”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“MHE-Former: Multi-Hypothesis Transformers via Entropy Maximization for 3D Mesh Recovery”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "3D Vision"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "ObstaDiff: Generalizable Diffusion Policy Learning via Obstacle-aware Representations",
+          "authors": "Jiawen Wang, Kevin Yao, Khalid Jawed",
+          "arxivUrl": "https://arxiv.org/abs/2609.10918",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 00:06:39 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "summary": "本文提出“ObstaDiff: Generalizable Diffusion Policy Learning via Obstacle-aware Representations”相关方法，面向cs.RO, cs.LG中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“ObstaDiff: Generalizable Diffusion Policy Learning via Obstacle-aware Representations”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "3D Vision"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 98 of 98 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "RIDE: Relocalization-Informed Depth Estimation with 3D Gaussian Splatting",
+          "authors": "Jiarong Lian, Zhe Xiao, Zhaoyang Zhang, Wei Li, Ruizhi Chen",
+          "arxivUrl": "https://arxiv.org/abs/2609.11079",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 04:36:58 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "本文提出“RIDE: Relocalization-Informed Depth Estimation with 3D Gaussian Splatting”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“RIDE: Relocalization-Informed Depth Estimation with 3D Gaussian Splatting”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "3D Vision"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "SAMV-DUSt3R: Instance-Centric 3D Scene Decoupling from Sparse Multi-Views",
+          "authors": "Langxu Zhao, Zuan Gu, Yingdan Zhang, Pengfei Zhao, Tianhan Gao",
+          "arxivUrl": "https://arxiv.org/abs/2609.11279",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 09:12:48 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "本文提出“SAMV-DUSt3R: Instance-Centric 3D Scene Decoupling from Sparse Multi-Views”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“SAMV-DUSt3R: Instance-Centric 3D Scene Decoupling from Sparse Multi-Views”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "3D Vision"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "SEED-UMI: Sharing the Exoskeleton between human and robot for onE-to-one Dexterous demonstration",
+          "authors": "Tengbo Yu, Jiahao Wu, Daohan Li, Bingxu Chen, Hao Liu, Xiaojian Ma, Hangxin Liu",
+          "arxivUrl": "https://arxiv.org/abs/2609.11753",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 16:08:58 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "本文提出“SEED-UMI: Sharing the Exoskeleton between human and robot for onE-to-one Dexterous demonstration”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“SEED-UMI: Sharing the Exoskeleton between human and robot for onE-to-one Dexterous demonstration”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "UBone3D: Physics-Rectified Conditional Flow Matching for Anatomical 3D Shape Completion from Ultrasound",
+          "authors": "Weiying Chen, Yuchong Gao, Siyuan Li, Marek Reformat, Rui Zheng, Edmond Lou",
+          "arxivUrl": "https://arxiv.org/abs/2609.11506",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 13:13:29 UTC",
+          "categories": [
+            "cs.CV",
+            "eess.IV"
+          ],
+          "summary": "本文提出“UBone3D: Physics-Rectified Conditional Flow Matching for Anatomical 3D Shape Completion from Ultrasound”相关方法，面向cs.CV, eess.IV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“UBone3D: Physics-Rectified Conditional Flow Matching for Anatomical 3D Shape Completion from Ultrasound”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "3D Vision"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            },
+            {
+              "category": "eess.IV",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 3 of 3 entries)",
+              "url": "https://arxiv.org/list/eess.IV/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "Uncertainty DMD: Restoring Diversity in Few-Step Autoregressive Video Distillation",
+          "authors": "Zixuan Duan, Xunzhi Xiang, Yabo Chen, Xin Zhang, Changhan Liu, Haibin Huang, Chi Zhang, Qi Fan, Xuelong Li",
+          "arxivUrl": "https://arxiv.org/abs/2609.11265",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 08:59:47 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "本文提出“Uncertainty DMD: Restoring Diversity in Few-Step Autoregressive Video Distillation”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Uncertainty DMD: Restoring Diversity in Few-Step Autoregressive Video Distillation”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "UniH$^3$: Unifying Hierarchical Homogeneity and Heterogeneity for All-in-One Medical Image Restoration",
+          "authors": "Zhiwen Yang, Jiayin Li, Chengyu Liu, Hui Zhang, Bingzheng Wei, Yan Xu",
+          "arxivUrl": "https://arxiv.org/abs/2609.11156",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 07:02:46 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "本文提出“UniH$^3$: Unifying Hierarchical Homogeneity and Heterogeneity for All-in-One Medical Image Restoration”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“UniH$^3$: Unifying Hierarchical Homogeneity and Heterogeneity for All-in-One Medical Image Restoration”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "3D Vision"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "论文提及开放资源或发布计划，本次未确认专用公开直链。"
+          ]
+        },
+        {
+          "title": "Visual-SLAM for the detection of hidden tomatoes in greenhouses by Hierarchical Localization and GLOMAPfor robotized harvesting",
+          "authors": "Fernando Cañadas-Aránega, José C. Moreno, José L. Blanco-Claraco, Francisco Rodríguez",
+          "arxivUrl": "https://arxiv.org/abs/2609.11766",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 16:19:36 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "本文提出“Visual-SLAM for the detection of hidden tomatoes in greenhouses by Hierarchical Localization and GLOMAPfor robotized harvesting”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Visual-SLAM for the detection of hidden tomatoes in greenhouses by Hierarchical Localization and GLOMAPfor robotized harvesting”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "When Information is Worth the Risk: Behavioral Valuation for Hazardous Robotic Exploration",
+          "authors": "Alkesh K. Srivastava, Aamodh Suresh, Carlos Nieto-Granda, Philip Dames",
+          "arxivUrl": "https://arxiv.org/abs/2609.10726",
+          "published": "2026-09-11",
+          "v1Submitted": "Wed, 9 Sep 2026 18:20:18 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "本文提出“When Information is Worth the Risk: Behavioral Valuation for Hazardous Robotic Exploration”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“When Information is Worth the Risk: Behavioral Valuation for Hazardous Robotic Exploration”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "When Validation Stops Learning: Auditing Update Admission for Continual Embodied Agents",
+          "authors": "Qinzhen Ma, Ruihai Wu",
+          "arxivUrl": "https://arxiv.org/abs/2609.10873",
+          "published": "2026-09-11",
+          "v1Submitted": "Wed, 9 Sep 2026 22:25:16 UTC",
+          "categories": [
+            "cs.AI"
+          ],
+          "summary": "本文提出“When Validation Stops Learning: Auditing Update Admission for Continual Embodied Agents”相关方法，面向cs.AI中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“When Validation Stops Learning: Auditing Update Admission for Continual Embodied Agents”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.AI",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 77 of 77 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "CARLAverse: A Highly Modular, Distributed, and Multimodal Framework for Human-in-the-Loop Simulation",
+          "authors": "Patrick Rebling, Philipp Nenninger, Reiner Kriesten",
+          "arxivUrl": "https://arxiv.org/abs/2609.11478",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 12:44:18 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.HC"
+          ],
+          "summary": "本文提出“CARLAverse: A Highly Modular, Distributed, and Multimodal Framework for Human-in-the-Loop Simulation”相关方法，面向cs.RO, cs.HC中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“CARLAverse: A Highly Modular, Distributed, and Multimodal Framework for Human-in-the-Loop Simulation”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            },
+            {
+              "category": "cs.HC",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 9 of 9 entries)",
+              "url": "https://arxiv.org/list/cs.HC/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "FARM: Reading Failure Signals from the Internal Predictive States of a Frozen Robotic World Model",
+          "authors": "Haoran Pei, Mingrui Luo, Senbao Wang, Haoran Lv, Jie Guo, Sheng Zhong, Ruixi Ci",
+          "arxivUrl": "https://arxiv.org/abs/2609.11445",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 12:14:37 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "本文提出“FARM: Reading Failure Signals from the Internal Predictive States of a Frozen Robotic World Model”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“FARM: Reading Failure Signals from the Internal Predictive States of a Frozen Robotic World Model”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "GRADE: Single-Frame Generative Radar Depth Estimation Under Visual Degradation",
+          "authors": "Bin Zhao, Patrick Chiou, Nakul Garg",
+          "arxivUrl": "https://arxiv.org/abs/2609.10756",
+          "published": "2026-09-11",
+          "v1Submitted": "Wed, 9 Sep 2026 18:57:05 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "本文提出“GRADE: Single-Frame Generative Radar Depth Estimation Under Visual Degradation”相关方法，面向cs.CV, cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“GRADE: Single-Frame Generative Radar Depth Estimation Under Visual Degradation”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 6 of 6 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "论文提及开放资源或发布计划，本次未确认专用公开直链。"
+          ]
+        },
+        {
+          "title": "Learning Agent-based Model Predictive Control for Holistic Vehicle Performance",
+          "authors": "Jiaming Zhong, Reza Valiollahi Mehrizi, Mohammad Pirani, Chao Yu, Alireza Kasaiezadeh, Yash Vardhan Pant, Amir Khajepour",
+          "arxivUrl": "https://arxiv.org/abs/2609.11871",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 17:43:16 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "本文提出“Learning Agent-based Model Predictive Control for Holistic Vehicle Performance”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Learning Agent-based Model Predictive Control for Holistic Vehicle Performance”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "Lightweight LiDAR-Based Cone Detection Framework Using Random Forest for Formula Student Driverless",
+          "authors": "Márk Mező-Kerekes, Péter Praksz, Chang Liu",
+          "arxivUrl": "https://arxiv.org/abs/2609.11527",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 13:28:53 UTC",
+          "categories": [
+            "cs.AI"
+          ],
+          "summary": "本文提出“Lightweight LiDAR-Based Cone Detection Framework Using Random Forest for Formula Student Driverless”相关方法，面向cs.AI中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Lightweight LiDAR-Based Cone Detection Framework Using Random Forest for Formula Student Driverless”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.AI",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 77 of 77 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "MC-DeTra: Motion-Consistent Joint Object Detection and Socially-Aware Trajectory Forecasting in Bird's-Eye-View Images",
+          "authors": "Vladislav Diuzhev, Dmitry Yudin",
+          "arxivUrl": "https://arxiv.org/abs/2609.11717",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 15:34:09 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "本文提出“MC-DeTra: Motion-Consistent Joint Object Detection and Socially-Aware Trajectory Forecasting in Bird's-Eye-View Images”相关方法，面向cs.CV, cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“MC-DeTra: Motion-Consistent Joint Object Detection and Socially-Aware Trajectory Forecasting in Bird's-Eye-View Images”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 6 of 6 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "Testing Between the Test Cases: Proving End-to-End Steering in Conditions You Never Drove",
+          "authors": "Menuka Ghalan, Charles Rodgers, Zachary D. Asher",
+          "arxivUrl": "https://arxiv.org/abs/2609.10951",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 01:19:13 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "summary": "本文提出“Testing Between the Test Cases: Proving End-to-End Steering in Conditions You Never Drove”相关方法，面向cs.RO, cs.LG中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Testing Between the Test Cases: Proving End-to-End Steering in Conditions You Never Drove”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 98 of 98 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "Toward Interpretable Multimodal Fusion: Heat Conduction Modeling for Hyperspectral and LiDAR Joint Classification",
+          "authors": "Kan Wei, Jiahui Cui, Jing Yao, Xinyu Zhao, Lei Wang, Pedram Ghamisi",
+          "arxivUrl": "https://arxiv.org/abs/2609.11040",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 03:38:49 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "summary": "本文提出“Toward Interpretable Multimodal Fusion: Heat Conduction Modeling for Hyperspectral and LiDAR Joint Classification”相关方法，面向cs.CV, cs.AI中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Toward Interpretable Multimodal Fusion: Heat Conduction Modeling for Hyperspectral and LiDAR Joint Classification”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-11",
+              "section": "Cross submissions (showing 94 of 94 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "论文提及开放资源或发布计划，本次未确认专用公开直链。"
+          ]
+        },
+        {
+          "title": "TrajFusionNet+: Transformer-Based Prediction of Pedestrian Crossing Intention via Fusion of Trajectory Representations and Scene Graphs",
+          "authors": "François G. Landry, Moulay A. Akhloufi",
+          "arxivUrl": "https://arxiv.org/abs/2609.10806",
+          "published": "2026-09-11",
+          "v1Submitted": "Wed, 9 Sep 2026 20:17:32 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "本文提出“TrajFusionNet+: Transformer-Based Prediction of Pedestrian Crossing Intention via Fusion of Trajectory Representations and Scene Graphs”相关方法，面向cs.CV中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“TrajFusionNet+: Transformer-Based Prediction of Pedestrian Crossing Intention via Fusion of Trajectory Representations and Scene Graphs”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 75 of 75 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "UniMPA: A Unified Memory-Prediction-Action Model via Action-Grounded Transition Modeling",
+          "authors": "Wei Li, Rui Shao, Jie He, Lingsen Zhang, Ziwei Liu, Liqiang Nie",
+          "arxivUrl": "https://arxiv.org/abs/2609.11875",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 17:45:03 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "本文提出“UniMPA: A Unified Memory-Prediction-Action Model via Action-Grounded Transition Modeling”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“UniMPA: A Unified Memory-Prediction-Action Model via Action-Grounded Transition Modeling”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "未从核验来源确认专用代码、数据集或项目页直链。"
+          ]
+        },
+        {
+          "title": "Using Automated Vehicles Operational Data to Confirm Safety and Anticipate Threats",
+          "authors": "Riccardo Donà, Espedito Rusciano, Germana Trentadue, Anastasios Tsakalidis, Maria Cristina Galassi",
+          "arxivUrl": "https://arxiv.org/abs/2609.11549",
+          "published": "2026-09-11",
+          "v1Submitted": "Thu, 10 Sep 2026 13:42:52 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "本文提出“Using Automated Vehicles Operational Data to Confirm Safety and Anticipate Threats”相关方法，面向cs.RO中的核心问题。作者通过专门的模型设计与实验评估，验证方法在代表性数据和任务上的有效性。结果为相关研究提供了可复用的建模思路，并指出了进一步提升泛化与真实部署的方向。",
+          "methodHighlights": [
+            "围绕“Using Automated Vehicles Operational Data to Confirm Safety and Anticipate Threats”构建任务表示与学习/推理流程。",
+            "通过基准实验和消融分析评估关键设计，对后续复现与扩展具有参考价值。"
+          ],
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-11",
+              "section": "New submissions (showing 38 of 38 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new?show=2000"
+            }
+          ],
+          "resourceNotes": [
+            "论文提及开放资源或发布计划，本次未确认专用公开直链。"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-10",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-09-10",
