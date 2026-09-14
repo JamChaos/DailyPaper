@@ -1,6 +1,942 @@
 {
-  "updatedAt": "2026-09-11T21:19:54+08:00",
+  "updatedAt": "2026-09-14T15:00:00+08:00",
   "reports": [
+    {
+      "date": "2026-09-14",
+      "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-09-14",
+      "shortTitle": "2026-09-14",
+      "summary": "收录 32 篇：主列表 28 篇，汽车合集 4 篇。",
+      "trends": [
+        "稀疏视图重建与物理部件理解",
+        "跨 embodiment 世界模型",
+        "视觉触觉语言动作",
+        "智能驾驶感知与规划"
+      ],
+      "topPapers": [
+        "VS-Splat: Voxel-Selective feed-forward Gaussian Splatting for end-to-end 3D object reconstruction from sparse-views",
+        "SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image",
+        "UniPart: Towards Zero-shot Language-Grounded 3D Part Segmentation for Embodied Interaction",
+        "From Transportation to Manipulation: Enabling Grasping in Magnetic Robotics",
+        "STAR: Sparse Tactile Representation Learning in Vision-Tactile-Language-Action Models for Dexterous Manipulation",
+        "An Automated Thickness Evaluation Procedure Using an Integrated Structured Light 3D Camera in a Robotic Bioprinting Framework"
+      ],
+      "markdownPath": "reports/arxiv/2026-09-14.md",
+      "papers": [
+        {
+          "title": "VS-Splat: Voxel-Selective feed-forward Gaussian Splatting for end-to-end 3D object reconstruction from sparse-views",
+          "authors": [
+            "Yunsu Jeong",
+            "Hyuk Heo",
+            "Youngsang Kwak",
+            "Jaehwa Kwak",
+            "Il Yong Chun"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12343",
+          "published": "2026-09-14",
+          "categories": "Computer Vision and Pattern Recognition (cs.CV)",
+          "summary": "论文《VS-Splat: Voxel-Selective feed-forward Gaussian Splatting for end-to-end 3D object reconstruction from sparse-views》面向VS-Splat问题，摘要指出：Feed-forward Gaussian splatting models have demonstrated remarkable effectiveness in reconstructing three-dimensional (3D) objects from a few two-dimensional (2D) images, even if they are unseen. As existing methods typically predict Gaussian primitives uniformly across the 3D space, most primitives are placed in non-object regions. This may。研究进一步报告：hinder the representation of fine object details. This paper proposes a Voxel-Selective Gaussian Splatting model (VS-Splat), a new end-to-endfeed-forward Gaussian splatting framework that predicts many primitives only within selected voxels that are likely to belong to an object, without 3D structural supervision. To achieve this,。这些设计把VS-Splat与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Feed-forward Gaussian splatting models have demonstrated remarkable effectiveness in reconstructing three-dimensional (3D) objects from a few two-dimensional (2D) images, even if t",
+            "实验或系统要点：hinder the representation of fine object details. This paper proposes a Voxel-Selective Gaussian Splatting model (VS-Splat), a new end-to-endfeed-forward Gaussian splatting framewo"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image",
+          "authors": [
+            "Yu-Rou Tuan",
+            "Hao-Tang Tsui",
+            "Nicolas Ugrinovic",
+            "Kris Kitani",
+            "Xiaoxuan Ma"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.13146",
+          "published": "2026-09-14",
+          "categories": "Graphics (cs.GR) ; Computer Vision and Pattern Recognition (cs.CV)",
+          "summary": "论文《SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image》面向SNAP3D问题，摘要指出：Part-aware 3D asset generation enables applications such as editing, articulation, simulation, and fabrication, yet existing methods can generate visually complete individual parts without ensuring that they form a valid physical assembly. Consequently, generated neighboring parts may interpenetrate, lack valid connections, or collapse under gravity. We。研究进一步报告：propose a physics-guided framework for improving single-image part-aware 3D generation with physically compatible geometry and stable connections. Our method resolves inter-part penetration, recovers a contact graph between neighboring parts, and introduces parameterized connectors at their contact surfaces. Using feedback from physical simulation, we refine connector。这些设计把SNAP3D与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Part-aware 3D asset generation enables applications such as editing, articulation, simulation, and fabrication, yet existing methods can generate visually complete individual parts",
+            "实验或系统要点：propose a physics-guided framework for improving single-image part-aware 3D generation with physically compatible geometry and stable connections. Our method resolves inter-part pe"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "UniPart: Towards Zero-shot Language-Grounded 3D Part Segmentation for Embodied Interaction",
+          "authors": [
+            "Xinqiang Yu",
+            "Zekun qi",
+            "Jiawei He",
+            "Wenyao Zhang",
+            "Xuchuan Chen",
+            "Guaocai Yao",
+            "Li Yi",
+            "Zhaoxiang Zhang",
+            "He Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12898",
+          "published": "2026-09-14",
+          "categories": "Computer Vision and Pattern Recognition (cs.CV) ; Artificial Intelligence (cs.AI); Robotics (cs.RO)",
+          "summary": "论文《UniPart: Towards Zero-shot Language-Grounded 3D Part Segmentation for Embodied Interaction》面向UniPart问题，摘要指出：Fine-grained robotic manipulation depends on understanding parts, not only whole objects. Existing 3D foundation models tend to be either generalized but object-aware, or part-aware but limited to closed-set taxonomies, which weakens zero-shot transfer. We study text-conditioned 3D part segmentation, where a free-form phrase selects a。研究进一步报告：functional part on point cloud. We introduce UniPart, a feed-forward cross-modal 3D Transformer that conditions CLIP text embedding. To scale supervision, we build LangPart-1M with 160K+ Objaverse assets and 8M text to part pairs using multi-view consistent part generation. We further manually label a high-quality。这些设计把UniPart与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Fine-grained robotic manipulation depends on understanding parts, not only whole objects. Existing 3D foundation models tend to be either generalized but object-aware, or part-awar",
+            "实验或系统要点：functional part on point cloud. We introduce UniPart, a feed-forward cross-modal 3D Transformer that conditions CLIP text embedding. To scale supervision, we build LangPart-1M with"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "From Transportation to Manipulation: Enabling Grasping in Magnetic Robotics",
+          "authors": [
+            "Lara Bergmann",
+            "Noah Greis",
+            "Cedric Grothues",
+            "Lisa-Marie Weigelt",
+            "Klaus Neumann"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12883",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO)",
+          "summary": "论文《From Transportation to Manipulation: Enabling Grasping in Magnetic Robotics》面向From Transportation to Manipulation问题，摘要指出：Magnetic levitation (MagLev) systems have great potential for application in high-mix, low-volume manufacturing due to their scalability and flexibility, enabling highly reconfigurable in-machine material flow. However, their manipulation capabilities remain largely unexploited, as current applications almost exclusively focus on transportation. To enable grasping and manipulation。研究进一步报告：directly on MagLev systems without requiring additional costly handling equipment, such as industrial robot arms, we present the Gripper MagBot, a low-cost parallel 6-DoF manipulator with an integrated 1-DoF gripper that mechanically couples three MagLev movers. The Gripper MagBot supports two operating configurations: a default。这些设计把From Transportation to Manipulation与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Magnetic levitation (MagLev) systems have great potential for application in high-mix, low-volume manufacturing due to their scalability and flexibility, enabling highly reconfigur",
+            "实验或系统要点：directly on MagLev systems without requiring additional costly handling equipment, such as industrial robot arms, we present the Gripper MagBot, a low-cost parallel 6-DoF manipulat"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "STAR: Sparse Tactile Representation Learning in Vision-Tactile-Language-Action Models for Dexterous Manipulation",
+          "authors": [
+            "Xiangcheng Liu",
+            "Tianhao Wu",
+            "Le Zheng",
+            "Yidong Wang",
+            "Bowen Jiang",
+            "Mingjie Pan",
+            "Xinlin Ren",
+            "Yi Liu",
+            "Jianlan Luo"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12549",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO)",
+          "summary": "论文《STAR: Sparse Tactile Representation Learning in Vision-Tactile-Language-Action Models for Dexterous Manipulation》面向STAR问题，摘要指出：Dexterous manipulation requires coordinated multi-finger control and effective tactile feedback, yet learning these capabilities remains challenging due to the lack of large-scale real-world data and the difficulty of extracting effective representations from sparse tactile signals. We build a robot platform and teleoperation system to collect。研究进一步报告：a 200-hour bimanual dexterous manipulation dataset with synchronized visual, tactile, and language annotations, comprising 10,576 trajectories across 65 tasks, 69.5% of which involve dexterous multi-finger manipulation. We further propose STAR, an integrated training recipe for vision-tactile-language-action (VTLA) models that addresses the spatial, temporal, and informational。这些设计把STAR与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Dexterous manipulation requires coordinated multi-finger control and effective tactile feedback, yet learning these capabilities remains challenging due to the lack of large-scale ",
+            "实验或系统要点：a 200-hour bimanual dexterous manipulation dataset with synchronized visual, tactile, and language annotations, comprising 10,576 trajectories across 65 tasks, 69.5% of which invol"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "An Automated Thickness Evaluation Procedure Using an Integrated Structured Light 3D Camera in a Robotic Bioprinting Framework",
+          "authors": [
+            "Ehsan Zobeidi",
+            "Omid Rezayof",
+            "Farshid Alambeigi"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12206",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO)",
+          "summary": "论文《An Automated Thickness Evaluation Procedure Using an Integrated Structured Light 3D Camera in a Robotic Bioprinting Framework》面向An Automated Thickness Evaluation Procedure Using an Integrated Structured Light 3D Camera in a Robotic Bioprinting Framework问题，摘要指出：Bioprinting is emerging as a tissue engineering technique to replace common treatment methods for large scale injuries. While thickness of the BioPrinted Constructs (BPCs) have shown to be of importance in the cell maturation and integration, the literature lacks a robust, automated, and quantitative method。研究进一步报告：for measuring these metrics. In this paper, we propose a fully automated vision-based method for measuring the thickness of the BPCs with complex geometries. Leveraging the point cloud and RGB images of a structured light 3D camera, our proposed method performs an image-based segmentation for。这些设计把An Automated Thickness Evaluation Procedure Using an Integrated Structured Light 3D Camera in a Robotic Bioprinting Framework与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Bioprinting is emerging as a tissue engineering technique to replace common treatment methods for large scale injuries. While thickness of the BioPrinted Constructs (BPCs) have sho",
+            "实验或系统要点：for measuring these metrics. In this paper, we propose a fully automated vision-based method for measuring the thickness of the BPCs with complex geometries. Leveraging the point c"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence",
+          "authors": [
+            "Shilong Zou",
+            "Shilin Zhang",
+            "Yingji Zhang",
+            "Yuhang Huang",
+            "Yi Zhang",
+            "Zeyuan Ding",
+            "Han Dong",
+            "Junwei Liao",
+            "Yong Dai",
+            "Jian Tang",
+            "Xiaozhu Ju"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12036",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI)",
+          "summary": "论文《Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence》面向Pelican-Sim 1.0问题，摘要指出：In this technical report, we propose Pelican-Sim 1.0, a general world model simulator for embodied intelligence that predicts future observations from visual context and robot actions to support downstream learning and decision making. The model incorporates four key design features: (1) Unified action representation: a。研究进一步报告：28-dimensional action value space covering most mainstream embodiments, keeping one model valid across heterogeneous devices. (2) Action-visual injection: URDF- and camera-rendered action videos bridge actions and pixels, giving markedly better controllability across embodiments, scenes, and tasks (PSNR +0.904 over alternative fusion baselines). (3) Sparse mixture-of-experts。这些设计把Pelican-Sim 1.0与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：In this technical report, we propose Pelican-Sim 1.0, a general world model simulator for embodied intelligence that predicts future observations from visual context and robot acti",
+            "实验或系统要点：28-dimensional action value space covering most mainstream embodiments, keeping one model valid across heterogeneous devices. (2) Action-visual injection: URDF- and camera-rendered"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Visual-SLAM for the detection of hidden tomatoes in greenhouses by Hierarchical Localization and GLOMAP for robotized harvesting",
+          "authors": [
+            "Fernando Cañadas-Aránega",
+            "José C. Moreno",
+            "José L. Blanco-Claraco",
+            "Francisco Rodríguez"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.11766",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO)",
+          "summary": "论文《Visual-SLAM for the detection of hidden tomatoes in greenhouses by Hierarchical Localization and GLOMAP for robotized harvesting》面向Visual-SLAM for the detection of hidden tomatoes in greenhouses by Hierarchical Localization and GLOMAP for robotized harvesting问题，摘要指出：Advanced crop monitoring inside greenhouses is becoming one of the primary objectives of research centers. High-performance sensors, such as LiDAR or stereo cameras, have traditionally been employed for this purpose, though these often have a high cost. This work proposes a Visual-SLAM system using a。研究进一步报告：monocular camera, which is significantly more cost-effective and specifically tailored for agricultural applications, such as mapping tomato crops in a greenhouse. Tests were carried out on a real tomato bunch, located in the Agroconnect experimental greenhouse. A ROS 2 Humble node was developed to run。这些设计把Visual-SLAM for the detection of hidden tomatoes in greenhouses by Hierarchical Localization and GLOMAP for robotized harvesting与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Advanced crop monitoring inside greenhouses is becoming one of the primary objectives of research centers. High-performance sensors, such as LiDAR or stereo cameras, have tradition",
+            "实验或系统要点：monocular camera, which is significantly more cost-effective and specifically tailored for agricultural applications, such as mapping tomato crops in a greenhouse. Tests were carri"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "HuRo: Robotizing Human Videos for Scalable VLA Pretraining",
+          "authors": [
+            "Jinho Jeong",
+            "Se June Joo",
+            "Jaehyun Kang",
+            "Dongyun Kim",
+            "Yena Kim",
+            "Hanjung Kim",
+            "Seon Joo Kim"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.10706",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO) ; Computer Vision and Pattern Recognition (cs.CV); Machine Learning (cs.LG)",
+          "summary": "论文《HuRo: Robotizing Human Videos for Scalable VLA Pretraining》面向HuRo问题，摘要指出：Human video datasets have emerged as a compelling alternative to expensive real-robot data, offering rich diversity at scale. To bridge the human-to-robot embodiment gap, existing approaches either robotize videos in task-matched settings or address observation and action alignment separately at scale. In this work, we。研究进一步报告：systematically examine whether robotized human videos can provide effective and scalable supervision for pretraining vision-language-action (VLA) policies. To this end, we develop a robotization pipeline that converts heterogeneous human videos into robot-aligned observations and action trajectories while inferring missing intermediate signals across annotation levels. Using。这些设计把HuRo与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Human video datasets have emerged as a compelling alternative to expensive real-robot data, offering rich diversity at scale. To bridge the human-to-robot embodiment gap, existing ",
+            "实验或系统要点：systematically examine whether robotized human videos can provide effective and scalable supervision for pretraining vision-language-action (VLA) policies. To this end, we develop "
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "CLAP: Cross-Embodiment Video World Models are Zero-Shot Physical Simulators",
+          "authors": [
+            "Kechen Liu",
+            "Ola Shorinwa"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2608.27406",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI); Computer Vision and Pattern Recognition (cs.CV)",
+          "summary": "论文《CLAP: Cross-Embodiment Video World Models are Zero-Shot Physical Simulators》面向CLAP问题，摘要指出：State-of-the-art action-conditioned video models are typically restricted to a single robot embodiment, preventing them from leveraging the vast corpus of heterogeneous video data that contains rich signals for learning generalizable physics. To bridge this gap, we introduce CLAP, a framework for cross-embodiment action-conditioned video generation。研究进一步报告：capable of being trained on diverse, internet-scale videos across human and robotic agents. CLAP is grounded in the insight that universal physical laws govern spatiotemporal dynamics regardless of the actor. However, cross-embodiment learning is non-trivial because action representations vary sharply across robot platforms and are。这些设计把CLAP与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：State-of-the-art action-conditioned video models are typically restricted to a single robot embodiment, preventing them from leveraging the vast corpus of heterogeneous video data ",
+            "实验或系统要点：capable of being trained on diverse, internet-scale videos across human and robotic agents. CLAP is grounded in the insight that universal physical laws govern spatiotemporal dynam"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "NSL-SLAM: High-Fidelity Neural Structured-Light Depth for Practical SLAM and Reconstruction",
+          "authors": [
+            "Jiaheng Li",
+            "Binsheng Zhang",
+            "Xinhai Chang",
+            "Wenzheng Chen"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.24495",
+          "published": "2026-09-14",
+          "categories": "Computer Vision and Pattern Recognition (cs.CV)",
+          "summary": "论文《NSL-SLAM: High-Fidelity Neural Structured-Light Depth for Practical SLAM and Reconstruction》面向NSL-SLAM问题，摘要指出：Structured-light (SL) cameras power depth sensing in millions of devices, and recent neural SL decoding methods have substantially improved their depth quality. SLAM systems can benefit greatly from such strong depth sensing, where reliable geometry enables stable tracking and faithful reconstruction. In this work, we。研究进一步报告：present NSL-SLAM, a practical SLAM system tailored for high-fidelity structured-light depth. We first strengthen SL depth sensing: inspired by the neural structured-light (NSL) method, we further incorporate strong monocular depth priors into the SL stereo decoding, reducing depth RMSE by 35% on Replica-SL compared to。这些设计把NSL-SLAM与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Structured-light (SL) cameras power depth sensing in millions of devices, and recent neural SL decoding methods have substantially improved their depth quality. SLAM systems can be",
+            "实验或系统要点：present NSL-SLAM, a practical SLAM system tailored for high-fidelity structured-light depth. We first strengthen SL depth sensing: inspired by the neural structured-light (NSL) met"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "PAVXploreRL: Physical-Action-Visual World Model Reinforcement Learning with Action Exploration",
+          "authors": [
+            "Han Wang",
+            "Zijun Wang",
+            "Shuoshuo Xue",
+            "Rui Cao",
+            "Fengjiao Chen",
+            "Xiaodan Liang",
+            "Roy Ka-Wei Lee"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.16602",
+          "published": "2026-09-14",
+          "categories": "Computer Vision and Pattern Recognition (cs.CV)",
+          "summary": "论文《PAVXploreRL: Physical-Action-Visual World Model Reinforcement Learning with Action Exploration》面向PAVXploreRL问题，摘要指出：Action-conditioned world models are a key component of embodied AI, serving as scalable policy evaluators that reduce reliance on expensive real-world rollouts. To accurately capture diverse action-induced dynamics, such models should satisfy three key objectives-Physical Plausibility (P), Action Adherence (A), and Visual Fidelity (V), collectively。研究进一步报告：referred to as PAV-while remaining robust to both in-distribution (ID) expert demonstrations and out-of-distribution (OOD) actions. However, existing methods primarily rely on ID action-video pairs and pixel-level reconstruction losses, which do not explicitly optimize PAV objectives and generalize poorly beyond expert data. To address this,。这些设计把PAVXploreRL与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Action-conditioned world models are a key component of embodied AI, serving as scalable policy evaluators that reduce reliance on expensive real-world rollouts. To accurately captu",
+            "实验或系统要点：referred to as PAV-while remaining robust to both in-distribution (ID) expert demonstrations and out-of-distribution (OOD) actions. However, existing methods primarily rely on ID a"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Ego-Dynamics-Augmented World Model for Autonomous Driving with Zero-Shot Cross-Embodiment Adaptation",
+          "authors": [
+            "Zhidong Wang",
+            "Jingsong Liang",
+            "Zirui Li",
+            "Zhan Chen",
+            "Han Yu",
+            "Chen Lv"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2607.13410",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO)",
+          "summary": "论文《Ego-Dynamics-Augmented World Model for Autonomous Driving with Zero-Shot Cross-Embodiment Adaptation》面向Ego-Dynamics-Augmented World Model for Autonomous Driving with Zero-Shot Cross-Embodiment Adaptation问题，摘要指出：End-to-end autonomous driving requires generalization ability across platforms with dissimilar physical characteristics. The chassis defines the physical embodiment of each platform, and real-world fleets span sub-tonne microcars to bus-class vehicles. Consequently, the driving stack must either be retrained per platform or adapt to the underlying。研究进一步报告：chassis dynamics online. World model (WM)-based reinforcement learning offers a sample-efficient path toward end-to-end autonomous driving on egocentric bird's-eye-view (BEV) representations, but its effectiveness hinges on how faithfully the WM captures the ego vehicle's dynamics. This work identifies a structural bottleneck in BEV-based WMs: observation。这些设计把Ego-Dynamics-Augmented World Model for Autonomous Driving with Zero-Shot Cross-Embodiment Adaptation与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：End-to-end autonomous driving requires generalization ability across platforms with dissimilar physical characteristics. The chassis defines the physical embodiment of each platfor",
+            "实验或系统要点：chassis dynamics online. World model (WM)-based reinforcement learning offers a sample-efficient path toward end-to-end autonomous driving on egocentric bird's-eye-view (BEV) repre"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Intelligent Driving"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive"
+        },
+        {
+          "title": "4D-RaDiff: Latent Point Diffusion for 4D Radar Point Cloud Generation",
+          "authors": [
+            "Jimmie Kwok",
+            "Holger Caesar",
+            "Andras Palffy"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2512.14235",
+          "published": "2026-09-14",
+          "categories": "Computer Vision and Pattern Recognition (cs.CV)",
+          "summary": "论文《4D-RaDiff: Latent Point Diffusion for 4D Radar Point Cloud Generation》面向4D-RaDiff问题，摘要指出：Automotive radar has shown promising developments in environment perception due to its cost-effectiveness and robustness in adverse weather conditions. However, the limited availability of annotated radar data poses a significant challenge for advancing radar-based perception systems. To address this limitation, we propose a novel framework。研究进一步报告：to generate 4D radar point clouds for training and evaluating object detectors. Unlike image-based diffusion, our method is designed to consider the sparsity and unique characteristics of radar point clouds by applying diffusion to a latent point cloud representation. Within this latent space, generation is。这些设计把4D-RaDiff与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Automotive radar has shown promising developments in environment perception due to its cost-effectiveness and robustness in adverse weather conditions. However, the limited availab",
+            "实验或系统要点：to generate 4D radar point clouds for training and evaluating object detectors. Unlike image-based diffusion, our method is designed to consider the sparsity and unique characteris"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive"
+        },
+        {
+          "title": "RoMu4o: A Robotic Manipulation Unit For Orchard Operations Automating Proximal Hyperspectral Leaf Sensing",
+          "authors": [
+            "Mehrad Mortazavi",
+            "David J. Cappelleri",
+            "Reza Ehsani"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2501.10621",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO) ; Computer Vision and Pattern Recognition (cs.CV)",
+          "summary": "论文《RoMu4o: A Robotic Manipulation Unit For Orchard Operations Automating Proximal Hyperspectral Leaf Sensing》面向RoMu4o问题，摘要指出：Driven by the need to address labor shortages and meet the demands of a rapidly growing population, robotic automation has become a critical component in precision agriculture. Leaf-level hyperspectral spectroscopy is shown to be a powerful tool for phenotyping, monitoring crop health, identifying essential nutrients。研究进一步报告：within plants as well as detecting diseases and water stress. This work introduces RoMu4o, a robotic manipulation unit for orchard operations offering an automated solution for proximal hyperspectral leaf sensing. This ground robot is equipped with a 6DOF robotic arm and vision system for real-time。这些设计把RoMu4o与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Driven by the need to address labor shortages and meet the demands of a rapidly growing population, robotic automation has become a critical component in precision agriculture. Lea",
+            "实验或系统要点：within plants as well as detecting diseases and water stress. This work introduces RoMu4o, a robotic manipulation unit for orchard operations offering an automated solution for pro"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "ASTRIL-MPC: Autonomous Traversal Framework of Articulated Tracked Robots with Language-Guided Neural-Kinematic MPC",
+          "authors": [
+            "Zhenfeng Gan",
+            "Yanbo Chen",
+            "Lirong Che",
+            "Junbo Tan",
+            "Xueqian Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.13083",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI)",
+          "summary": "论文《ASTRIL-MPC: Autonomous Traversal Framework of Articulated Tracked Robots with Language-Guided Neural-Kinematic MPC》面向ASTRIL-MPC问题，摘要指出：In urban search and rescue, articulated tracked robots (ATRs) must traverse structured but contact-rich environments such as stairwells and cluttered building interiors. Reliable autonomy remains challenging because robot-terrain interaction (RTI) is hybrid and discontinuous, and effective flipper-track coordination is difficult to model analytically. We present。研究进一步报告：ASTRIL-MPC, a language-guided neural kinematics model predictive control (MPC) framework for autonomous traversal. A learned kinematics model predicts short-horizon task-state increments from a height sequence and recent trajectories; NMPC plans with multi-objective costs and strict feasibility constraints; and a large language model (LLM) proposes bounded。这些设计把ASTRIL-MPC与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：In urban search and rescue, articulated tracked robots (ATRs) must traverse structured but contact-rich environments such as stairwells and cluttered building interiors. Reliable a",
+            "实验或系统要点：ASTRIL-MPC, a language-guided neural kinematics model predictive control (MPC) framework for autonomous traversal. A learned kinematics model predicts short-horizon task-state incr"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Embodied-BenchForge: A Closed-Loop Agentic Workflow for Embodied Benchmark Construction",
+          "authors": [
+            "Baoyang Jiang",
+            "Fengchun Zhang",
+            "Leyuan Wang",
+            "Haotian Li",
+            "Yida Wang",
+            "Zhe Ji",
+            "Jinshan Lai",
+            "Xi Ren",
+            "Danyang Li",
+            "Zheng Yang",
+            "Jianwei Hu",
+            "Qiang Ma"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.13082",
+          "published": "2026-09-14",
+          "categories": "Artificial Intelligence (cs.AI)",
+          "summary": "论文《Embodied-BenchForge: A Closed-Loop Agentic Workflow for Embodied Benchmark Construction》面向Embodied-BenchForge问题，摘要指出：Agentic systems offer a promising way to automate embodied benchmark construction, but existing approaches typically cover isolated stages or remain specialized to predefined environments and task families. More importantly, multi-step construction produces dependent intermediate artifacts that are often passed downstream without artifact-specific verification, allowing local。研究进一步报告：defects to propagate into the final benchmark. We present Embodied-BenchForge, an agentic framework that transforms user-specified evaluation intents into complete embodied benchmark artifacts. It formulates construction as Closed-Loop Benchmark Synthesis, integrating forward artifact synthesis with backward verification and repair. Skill-Orchestrated Artifact Synthesis composes typed and。这些设计把Embodied-BenchForge与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Agentic systems offer a promising way to automate embodied benchmark construction, but existing approaches typically cover isolated stages or remain specialized to predefined envir",
+            "实验或系统要点：defects to propagate into the final benchmark. We present Embodied-BenchForge, an agentic framework that transforms user-specified evaluation intents into complete embodied benchma"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Anchoring Clinical Events in Time: UID-Preserving Multimodal Reconstruction and Source-Grounded Adjudication",
+          "authors": [
+            "Sayantan Kumar",
+            "Nicolas Grimaldi",
+            "Jack Cummins",
+            "Jeremy C. Weiss"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.13062",
+          "published": "2026-09-14",
+          "categories": "Artificial Intelligence (cs.AI)",
+          "summary": "论文《Anchoring Clinical Events in Time: UID-Preserving Multimodal Reconstruction and Source-Grounded Adjudication》面向Anchoring Clinical Events in Time问题，摘要指出：Clinical timelines support treatment-window analysis and leakage-free modeling, but discharge summaries often obscure chronology and structured EHR tables describe only part of the patient course. We present a UID-preserving framework that links each narrative event occurrence to its source span and retains that identity through。研究进一步报告：text-only estimation, structured-evidence retrieval, timestamped source-row grounding, and joint revision. We also present GAVEL, an LLM judge that compares two UID-aligned timelines against the narrative and structured record, to augment prior matching and temporal assessments. Across six open-weight models and 40 mixed-critical-care summaries, the GLM。这些设计把Anchoring Clinical Events in Time与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Clinical timelines support treatment-window analysis and leakage-free modeling, but discharge summaries often obscure chronology and structured EHR tables describe only part of the",
+            "实验或系统要点：text-only estimation, structured-evidence retrieval, timestamped source-row grounding, and joint revision. We also present GAVEL, an LLM judge that compares two UID-aligned timelin"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Dynin-Robotics: Omnimodal Unified Diffusion Vision-Language-Action Model",
+          "authors": [
+            "Hoeun Lee",
+            "Jaeik Kim",
+            "Jusang Oh",
+            "Jinhyeok Kim",
+            "Geon Choi",
+            "Hyeonggeun Kim",
+            "Jaeyoung Do"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.13053",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI); Machine Learning (cs.LG)",
+          "summary": "论文《Dynin-Robotics: Omnimodal Unified Diffusion Vision-Language-Action Model》面向Dynin-Robotics问题，摘要指出：Visual goal and dynamics prediction can provide language-conditioned robot policies with both a target outcome and a representation of action-dependent scene changes. We bring these predictions into action generation and selection through a shared trajectory model. Dynin-Robotics implements this formulation on Dynin-Omni, an omnimodal masked-diffusion。研究进一步报告：backbone, representing language, visual observations, goals, and actions as discrete tokens. By varying conditioning and target spans, the same model learns action prediction, action-conditioned next-observation prediction, terminal goal-state prediction, and trajectory-to-instruction reconstruction. These interfaces support test-time scaling through goal prediction, action-candidate evaluation, and joint refinement。这些设计把Dynin-Robotics与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Visual goal and dynamics prediction can provide language-conditioned robot policies with both a target outcome and a representation of action-dependent scene changes. We bring thes",
+            "实验或系统要点：backbone, representing language, visual observations, goals, and actions as discrete tokens. By varying conditioning and target spans, the same model learns action prediction, acti"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Label-Guided Knowledge Distillation for 3D-CNNs in Action Recognition",
+          "authors": [
+            "Yanjiang Shi",
+            "Peng Zhao",
+            "Nan Qi",
+            "Guiqin Wang"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.13024",
+          "published": "2026-09-14",
+          "categories": "Computer Vision and Pattern Recognition (cs.CV) ; Artificial Intelligence (cs.AI)",
+          "summary": "论文《Label-Guided Knowledge Distillation for 3D-CNNs in Action Recognition》面向Label-Guided Knowledge Distillation for 3D-CNNs in Action Recognition问题，摘要指出：As a key model compression technique, knowledge distillation aims to transfer knowledge from a high-capacity teacher model to a lightweight student model for enhancing the latter's performance. In this work, we reviewed the feature knowledge distillation for 3D-CNNs and observed that most feature distillation methods。研究进一步报告：in video analysis are simple adaptations of those used in image analysis, often neglecting the differences of video features in the temporal dimension. To address this issue, we proposed Label-Guided Knowledge Distillation (LGKD) to guide the distillation of student model features using ground truth labels.。这些设计把Label-Guided Knowledge Distillation for 3D-CNNs in Action Recognition与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：As a key model compression technique, knowledge distillation aims to transfer knowledge from a high-capacity teacher model to a lightweight student model for enhancing the latter's",
+            "实验或系统要点：in video analysis are simple adaptations of those used in image analysis, often neglecting the differences of video features in the temporal dimension. To address this issue, we pr"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Comfort by Construction: Adaptive, Comfort-Bounded Action Spaces for Learned Driving Policies",
+          "authors": [
+            "Anna Rothenhäusler",
+            "Daniel Jost",
+            "Raghu Rajan",
+            "Faris Janjos",
+            "Oliver Scheel",
+            "Andreas Look",
+            "Joschka Boedecker"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.13011",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI)",
+          "summary": "论文《Comfort by Construction: Adaptive, Comfort-Bounded Action Spaces for Learned Driving Policies》面向Comfort by Construction问题，摘要指出：Data-driven driving simulators command accelerations and steering rates from a fixed grid without constraining the realized accelerations and jerks. As a result, reinforcement-learning policies inflate safety metrics through abrupt, last-second maneuvers that lie far outside the range of human driving and would be unacceptable to。研究进一步报告：occupants of a real vehicle, so the metrics measure simulator permissiveness rather than policy quality. Enforcing comfort bounds naively is not enough: lateral limits shrink quadratically with speed, so clamping a static grid saturates it and destroys fine-grained control (\"grid collapse\"). We propose an adaptive。这些设计把Comfort by Construction与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Data-driven driving simulators command accelerations and steering rates from a fixed grid without constraining the realized accelerations and jerks. As a result, reinforcement-lear",
+            "实验或系统要点：occupants of a real vehicle, so the metrics measure simulator permissiveness rather than policy quality. Enforcing comfort bounds naively is not enough: lateral limits shrink quadr"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive"
+        },
+        {
+          "title": "Physics-Aware Video Generation via Agentic Planning and Graph-Guided Optimization",
+          "authors": [
+            "Minh-Loi Nguyen",
+            "Xuan-Vu Le",
+            "Thanh-Toan Do",
+            "Tam V. Nguyen",
+            "Minh-Triet Tran",
+            "Trung-Nghia Le"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.13006",
+          "published": "2026-09-14",
+          "categories": "Computer Vision and Pattern Recognition (cs.CV)",
+          "summary": "论文《Physics-Aware Video Generation via Agentic Planning and Graph-Guided Optimization》面向Physics-Aware Video Generation via Agentic Planning and Graph-Guided Optimization问题，摘要指出：Video diffusion models (VDMs) have demonstrated remarkable capabilities in synthesizing high-fidelity, photorealistic video content. However, they fundamentally lack an intrinsic understanding of physical laws and frequently produce visually appealing but causally illogical sequences characterized by structural hallucinations and physically implausible dynamics. Injecting physical awareness via。研究进一步报告：training-free test-time optimization is a promising alternative, yet existing methods rely on global gradient updates and rigid scheduling heuristics that inadvertently corrupt passive backgrounds and fail to model complex dynamic state changes. To address this, we propose PhysPlan, a novel training-free guidance framework that shifts。这些设计把Physics-Aware Video Generation via Agentic Planning and Graph-Guided Optimization与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Video diffusion models (VDMs) have demonstrated remarkable capabilities in synthesizing high-fidelity, photorealistic video content. However, they fundamentally lack an intrinsic u",
+            "实验或系统要点：training-free test-time optimization is a promising alternative, yet existing methods rely on global gradient updates and rigid scheduling heuristics that inadvertently corrupt pas"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Physics-informed denoising method for image reconstruction in quantitative low-field MRI",
+          "authors": [
+            "Catarina Redshaw Kranich",
+            "Claudia Prieto",
+            "Christoph Kolbitsch",
+            "Felix Frederik Zimmermann"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12966",
+          "published": "2026-09-14",
+          "categories": "Image and Video Processing (eess.IV)",
+          "summary": "论文《Physics-informed denoising method for image reconstruction in quantitative low-field MRI》面向Physics-informed denoising method for image reconstruction in quantitative low-field MRI问题，摘要指出：Low-field magnetic resonance imaging (MRI) is becoming increasingly important for medical imaging because it can reduce healthcare costs while ensuring high diagnostic output. Nevertheless, quantitative imaging in low-field MRI faces challenges, such as low signal-to-noise ratio and long scan durations. Deep learning approaches have been。研究进一步报告：proposed for image reconstruction to overcome these challenges. Still, deep learning often requires large high-quality training datasets which are usually not available for low-field applications. Here we propose a modular unrolled end-to-end deep learning method for the denoised reconstruction of quantitative parameter maps directly from。这些设计把Physics-informed denoising method for image reconstruction in quantitative low-field MRI与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Low-field magnetic resonance imaging (MRI) is becoming increasingly important for medical imaging because it can reduce healthcare costs while ensuring high diagnostic output. Neve",
+            "实验或系统要点：proposed for image reconstruction to overcome these challenges. Still, deep learning often requires large high-quality training datasets which are usually not available for low-fie"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "A Robot Among People:From Social Imitation to the Social Becoming of Human Groups",
+          "authors": [
+            "Victor Tuan Vu Pham",
+            "Judith Dörrenbächer",
+            "Thomas H. Weisswange",
+            "Marc Hassenzahl"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12937",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO) ; Computers and Society (cs.CY); Human-Computer Interaction (cs.HC)",
+          "summary": "论文《A Robot Among People:From Social Imitation to the Social Becoming of Human Groups》面向A Robot Among People问题，摘要指出：Robots designed to mediate human groups often fall into the solutionist trap: they are framed as sociable agents that fix problems such as conflict, disengagement, or lack of coordination. We suggest a different way of thinking. Rather than discrete agents, robots can be understood as。研究进一步报告：situated elements of shared environments; catalysts and carriers of group experience whose meaning emerges through how people position, interpret, and interact with them. From this perspective, robots are not there to repair some ostensible dysfunctionality, but to enable group-level sense-making around care, norms, and identity.。这些设计把A Robot Among People与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Robots designed to mediate human groups often fall into the solutionist trap: they are framed as sociable agents that fix problems such as conflict, disengagement, or lack of coord",
+            "实验或系统要点：situated elements of shared environments; catalysts and carriers of group experience whose meaning emerges through how people position, interpret, and interact with them. From this"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "ARC: Autonomous Robotics Compliance A Three-Layer Governance Architecture for Deployed Autonomous Systems",
+          "authors": [
+            "Tord Eide",
+            "Einar Holt"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12932",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI); Computers and Society (cs.CY)",
+          "summary": "论文《ARC: Autonomous Robotics Compliance A Three-Layer Governance Architecture for Deployed Autonomous Systems》面向ARC问题，摘要指出：Proposed governance framework for autonomous robotic systems, introducing a three-layer compliance architecture (ARC) instantiated through model safety validation, cognitive certification benchmarks, and operational authorization standards.。研究进一步报告：。这些设计把ARC与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Proposed governance framework for autonomous robotic systems, introducing a three-layer compliance architecture (ARC) instantiated through model safety validation, cognitive certif",
+            "实验或系统要点："
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Physical-State-Guided Diffusion Sampling for Full-Waveform Inversion",
+          "authors": [
+            "Chen Min",
+            "Haowen Jiang",
+            "Zheng Ma",
+            "Xiongbin Yan"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12899",
+          "published": "2026-09-14",
+          "categories": "Machine Learning (cs.LG)",
+          "summary": "论文《Physical-State-Guided Diffusion Sampling for Full-Waveform Inversion》面向Physical-State-Guided Diffusion Sampling for Full-Waveform Inversion问题，摘要指出：Full waveform inversion (FWI) estimates subsurface velocity from seismic recordings, but its ill-posedness and nonlinearity make accurate reconstruction strongly dependent on initialization and prior information. Diffusion posterior sampling provides a learned geological prior, yet directly coupling its denoiser to the nonlinear wave solver can yield。研究进一步报告：unreliable physical guidance. We propose Physical-State-Guided Diffusion Sampling (PSG), which couples a persistent physical velocity to the diffusion prior through a Gaussian bridge. The physical state is refined by waveform fitting regularized by the denoised velocity, and in turn guides the reverse diffusion process. This。这些设计把Physical-State-Guided Diffusion Sampling for Full-Waveform Inversion与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Full waveform inversion (FWI) estimates subsurface velocity from seismic recordings, but its ill-posedness and nonlinearity make accurate reconstruction strongly dependent on initi",
+            "实验或系统要点：unreliable physical guidance. We propose Physical-State-Guided Diffusion Sampling (PSG), which couples a persistent physical velocity to the diffusion prior through a Gaussian brid"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "Before the Tipping Point: Force-Guided Active Perception for Shape-Agnostic Estimation of 3D Centers of Mass",
+          "authors": [
+            "Steven M. Hyland",
+            "Jing Xiao",
+            "Cagdas D. Onal"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12894",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO)",
+          "summary": "论文《Before the Tipping Point: Force-Guided Active Perception for Shape-Agnostic Estimation of 3D Centers of Mass》面向Before the Tipping Point问题，摘要指出：Estimating the 3D center of mass of unknown objects is challenging when grasping is infeasible, geometry is irregular, or mass distribution is uneven. We present a force-based method that estimates CoM height and mass from a single sub-critical tipping experiment by a robot manipulator. The。研究进一步报告：robot applies a quasistatic elevated push and retract motion, using force-angle measurements recorded during tipping to identify parameters from the object trajectory. Our proposed push-retract cycle mitigates frictional bias, enabling generalized fitting. We experimentally validate our method using a robot manipulator with a six-axis force。这些设计把Before the Tipping Point与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Estimating the 3D center of mass of unknown objects is challenging when grasping is infeasible, geometry is irregular, or mass distribution is uneven. We present a force-based meth",
+            "实验或系统要点：robot applies a quasistatic elevated push and retract motion, using force-angle measurements recorded during tipping to identify parameters from the object trajectory. Our proposed"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "VideoTok4D: A 4D-Aware Video Tokenizer for Compact World Representation",
+          "authors": [
+            "Xinyi Chen",
+            "Hanxin Zhu",
+            "Xijun Wang",
+            "Xingrui Wang",
+            "Sen Liang",
+            "Xin Li",
+            "Zhibo Chen"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12874",
+          "published": "2026-09-14",
+          "categories": "Computer Vision and Pattern Recognition (cs.CV)",
+          "summary": "论文《VideoTok4D: A 4D-Aware Video Tokenizer for Compact World Representation》面向VideoTok4D问题，摘要指出：Video tokenizers have emerged as a cornerstone of modern video modeling, underpinning progress in compression, reconstruction and generation by mapping high-dimensional visual signals into compact latent spaces. However, despite this progress, current tokenization paradigms largely remain within the 2D visual domain, treating videos as image。研究进一步报告：sequences rather than observations of an underlying dynamic 3D world. Consequently, the learned tokens inherit this observation-centric bias, limiting their capacity to compactly represent real-world 4D scenes. To mitigate this issue, we propose VideoTok4D, a novel 4D-aware video tokenizer for compact world representation. Specifically, our。这些设计把VideoTok4D与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Video tokenizers have emerged as a cornerstone of modern video modeling, underpinning progress in compression, reconstruction and generation by mapping high-dimensional visual sign",
+            "实验或系统要点：sequences rather than observations of an underlying dynamic 3D world. Consequently, the learned tokens inherit this observation-centric bias, limiting their capacity to compactly r"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "A Multi-Vehicle Dataset with Camera, LiDAR, and Radar Sensors and Scanned 3D Models for Custom Auto-Annotation using RTK-GNSS",
+          "authors": [
+            "Philipp Berthold",
+            "Bianca Forkel",
+            "Mirko Maehlisch"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12871",
+          "published": "2026-09-14",
+          "categories": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI); Computer Vision and Pattern Recognition (cs.CV); Machine Learning (cs.LG)",
+          "summary": "论文《A Multi-Vehicle Dataset with Camera, LiDAR, and Radar Sensors and Scanned 3D Models for Custom Auto-Annotation using RTK-GNSS》面向A Multi-Vehicle Dataset with Camera, LiDAR, and Radar Sensors and Scanned 3D Models for Custom Auto-Annotation using RTK-GNSS问题，摘要指出：Datasets are a crucial element in the development of perception algorithms. They relate sensor measurement data to annotated reference information and allow for the deduction of sensor and object characteristics. In autonomous driving, the reference data commonly consist of semantic image segmentation, point-wise associations, or。研究进一步报告：bounding box annotations. The dataset proposed in this work, however, aims to dig deeper into the evaluation of measurement principles and provides scanned 3D models of all vehicles together with a pose and continuous kinematics reference obtained by RTK-GNSS. Combined, the state of the complete。这些设计把A Multi-Vehicle Dataset with Camera, LiDAR, and Radar Sensors and Scanned 3D Models for Custom Auto-Annotation using RTK-GNSS与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Datasets are a crucial element in the development of perception algorithms. They relate sensor measurement data to annotated reference information and allow for the deduction of se",
+            "实验或系统要点：bounding box annotations. The dataset proposed in this work, however, aims to dig deeper into the evaluation of measurement principles and provides scanned 3D models of all vehicle"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive"
+        },
+        {
+          "title": "3D CT-to-PET Translation via Latent Brownian Bridge Diffusion",
+          "authors": [
+            "Sarita Mourya",
+            "Francesco Di Feola",
+            "Pierangelo Veltri",
+            "Paolo Soda"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12860",
+          "published": "2026-09-14",
+          "categories": "Computer Vision and Pattern Recognition (cs.CV) ; Artificial Intelligence (cs.AI)",
+          "summary": "论文《3D CT-to-PET Translation via Latent Brownian Bridge Diffusion》面向3D CT-to-PET Translation via Latent Brownian Bridge Diffusion问题，摘要指出：Computed tomography (CT) and positron emission tomography (PET) provide complementary anatomical and functional information for cancer diagnosis and treatment planning. However, the widespread use of PET is limited by high radiation exposure, elevated costs, and restricted availability. To address these limitations, deep learning-based CT-to-PET translation。研究进一步报告：has emerged as a promising approach for synthesizing PET-like information directly from CT images, although accurately modeling the large cross-modal gap remains challenging. In this work, we propose a 3D CT-to-PET translation framework based on latent Brownian Bridge Diffusion (BBDM). The method consists of two。这些设计把3D CT-to-PET Translation via Latent Brownian Bridge Diffusion与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Computed tomography (CT) and positron emission tomography (PET) provide complementary anatomical and functional information for cancer diagnosis and treatment planning. However, th",
+            "实验或系统要点：has emerged as a promising approach for synthesizing PET-like information directly from CT images, although accurately modeling the large cross-modal gap remains challenging. In th"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "MGAvatar: Mesh-Bound Gaussians for Head Avatar Geometry and Appearance Modeling",
+          "authors": [
+            "Lei Shi",
+            "Sen Peng",
+            "Zhiyang Deng",
+            "Zhonggui Chen",
+            "Xiaohu Guo",
+            "Baorong Yang",
+            "Xiao Dong"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12850",
+          "published": "2026-09-14",
+          "categories": "Computer Vision and Pattern Recognition (cs.CV)",
+          "summary": "论文《MGAvatar: Mesh-Bound Gaussians for Head Avatar Geometry and Appearance Modeling》面向MGAvatar问题，摘要指出：Accurate head modeling requires a stable yet expressive geometric representation. Existing Gaussian-based head avatars commonly rely on parametric templates (e.g., FLAME) for Gaussian initialization and deformation, but these templates lack personalized priors and struggle to represent structures such as hair and clothing. To address this。研究进一步报告：issue, we propose MGAvatar, a Gaussian-mesh hybrid representation that jointly models geometry and appearance through two Gaussian-mesh binding modes. Specifically, we introduce vertex-bound Gaussians and constrain their learnable parameters, enabling progressive mesh deformation to represent complex head geometry, while a pose-dependent offset module accounts for。这些设计把MGAvatar与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：Accurate head modeling requires a stable yet expressive geometric representation. Existing Gaussian-based head avatars commonly rely on parametric templates (e.g., FLAME) for Gauss",
+            "实验或系统要点：issue, we propose MGAvatar, a Gaussian-mesh hybrid representation that jointly models geometry and appearance through two Gaussian-mesh binding modes. Specifically, we introduce ve"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        },
+        {
+          "title": "4D Parallelism Unlocks Exascale Bayesian Neural Networks for High-Fidelity Atmospheric Modeling",
+          "authors": [
+            "Deifilia Kieckhefen",
+            "Juan Pedro Gutiérrez Hermosillo Muriedas",
+            "Lars Helge Heyen",
+            "Mathis Bode",
+            "Iida Hakulinen",
+            "Andreas Herten",
+            "Chelsea Maria John",
+            "Thorsten Kurth",
+            "Anni Moisala",
+            "Asena Karolin Özdemir",
+            "Kaleb Phipps",
+            "Oskar Taubert",
+            "Arvid Weyrauch",
+            "Markus Götz",
+            "Charlotte Debus"
+          ],
+          "arxivUrl": "https://arxiv.org/abs/2609.12815",
+          "published": "2026-09-14",
+          "categories": "Atmospheric and Oceanic Physics (physics.ao-ph) ; Artificial Intelligence (cs.AI); Distributed, Parallel, and Cluster Computing (cs.DC); Machine Learning (cs.LG); Performance (cs.PF)",
+          "summary": "论文《4D Parallelism Unlocks Exascale Bayesian Neural Networks for High-Fidelity Atmospheric Modeling》面向4D Parallelism Unlocks Exascale Bayesian Neural Networks for High-Fidelity Atmospheric Modeling问题，摘要指出：We present BEAST, the first-ever Bayesian Swin Transformer for atmospheric forecasting on 0.25$^\\circ$ global resolution able to accurately quantify both aleatoric and epistemic uncertainty. To overcome the associated computational bottlenecks, we devise an orthogonal 4D-parallelization scheme that introduces a unique domain-tensor-parallelism strategy and a novel。研究进一步报告：uncertainty parallel method, enabling us to fully leverage GPU capacity and efficiently scale model training. For a 2.4-billion-parameter model, we achieve a peak performance of 3.96 EFLOP/s on 20,480 NVIDIA GH200 GPUs on the JUPITER supercomputer. We train BEAST as a 700-million-parameter model with 96。这些设计把4D Parallelism Unlocks Exascale Bayesian Neural Networks for High-Fidelity Atmospheric Modeling与三维/具身任务连接起来，为相关系统提供可复用的实验基线。",
+          "methodHighlights": [
+            "从摘要提取的核心设计：We present BEAST, the first-ever Bayesian Swin Transformer for atmospheric forecasting on 0.25$^\\circ$ global resolution able to accurately quantify both aleatoric and epistemic un",
+            "实验或系统要点：uncertainty parallel method, enabling us to fully leverage GPU capacity and efficiently scale model training. For a 2.4-billion-parameter model, we achieve a peak performance of 3."
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Vision",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main"
+        }
+      ]
+    },
     {
       "date": "2026-09-11",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-09-11",
