@@ -1,6 +1,4604 @@
 {
-  "updatedAt": "2026-09-23T17:34:19+08:00",
+  "updatedAt": "2026-09-24T06:22:07Z",
   "reports": [
+    {
+      "date": "2026-09-24",
+      "title": "arXiv 三维视觉与智能驾驶日报 - 2026-09-24",
+      "shortTitle": "可执行3D、潜在世界模型与具身交互",
+      "summary": "官方 2026-09-24 批次收录 123 篇：主论文 112 篇、汽车合集 11 篇；前序日期补充 0 篇。",
+      "trends": [
+        "三维高斯表示的用途从新视角合成扩展到场景语义、PDE物理演化、层级拓扑特征与直接对象生成，研究开始共同处理几何结构和可执行状态。",
+        "世界模型路线聚焦可行动的潜在状态：JEPA嵌入替代视频扩散特征，WAM/VLA对齐动作与未来，点轨迹表示进一步覆盖刚体、关节和可变形物体。",
+        "生成视频的运动一致性和记忆成为显式研究对象，频域轨迹监督约束动作连续性，跨步记忆综述梳理如何保留实体状态与干预历史。",
+        "机器人部署研究强调实时与物理闭环：触觉操作、少样本适应、异步规划、风险恢复及仿真到真实评估共同指向可验证的长程交互。",
+        "道路驾驶候选涵盖协同感知、占据预测、分支式反事实轨迹和长尾VLM推理；驾驶VLA与世界动作模型留在主列表，其余按规则折叠进汽车合集。"
+      ],
+      "topPapers": [
+        "GaussPDE: Graph-Based Partial Differential Equation-Driven Rendering for 3D Gaussian Splatting",
+        "Latent evolving World Action Model",
+        "AWM-VLA: AlignedWorld Modeling for Efficient and Explainable Vision-Language-Action Policies",
+        "Visibility-Guided Structured Measure Flow for Class-Conditioned 3D Gaussian Generation",
+        "GaussianDS: Depth-supervised Semantic Gaussian Splatting for Scene Understanding",
+        "All modalities are equal, but video is more equal: Closing the Cross-Attention Gap in Joint Video Generation",
+        "MotionSpec: Spectral Trajectory Supervision for Motion-Consistent Video Generation",
+        "Generalizable Robotic Insertion with World Models",
+        "PointCast: One World Model for Rigid, Articulated, and Deformable Object Manipulation",
+        "InternW0: A Foundational Physical World Model for Efficient Real-World Interactions",
+        "Frozen Flows Forget: Diagnosing and Restoring Lost Motion in a Latent-flow World Model",
+        "LiMA: Bridging Long-term Imagination to Real-time Dexterous Manipulation via Asynchronous Diffusion"
+      ],
+      "markdownPath": "reports/arxiv/2026-09-24.md",
+      "papers": [
+        {
+          "title": "Pro-Bench: Prompt-Robust Open-Vocabulary Visual Grounding Across Real-World Heterogeneous Environments",
+          "authors": "Linus Nwankwo, Muslim Alaran, Christian Rauch, Stanley Chukwuebuka Obilikpa, Elmar Rueckert",
+          "arxivUrl": "https://arxiv.org/abs/2609.27076",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 21:16:09 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "Pro-Bench以13,000余帧、74,500个人工实例标注和515种查询覆盖五类真实机器人环境。研究比较16种开放词汇模型的定位、时延、提示敏感度与目标恢复一致性，发现10种配置在短类别词上最好。结果说明相近mAP仍可能掩盖改写提示后的目标追踪差异。",
+          "methodHighlights": [
+            "用跨环境真实机器人图像和多种语言语义构成提示鲁棒性基准，并把重述一致性纳入评估。"
+          ],
+          "projectUrl": "https://pro-bench.github.io/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Embodied AI",
+            "Visual Grounding"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 12 of 12 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "PEARL: A Lightweight Prompt-based Feature Interpreter Framework for Real-Time, Anonymous, and Heterogeneous Collaborative Perception",
+          "authors": "Armin Maleki, Hayder Radha",
+          "arxivUrl": "https://arxiv.org/abs/2609.27123",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 22:27:59 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.LG"
+          ],
+          "summary": "PEARL面向传感器和模型各异的协同驾驶参与者，避免要求先验知道新加入车辆的配置。它并行训练稀疏检测与密集域不变两种低秩提示解释器，在OPV2V、V2XSet及DAIR-V2X上测试。实时选择解释器比随机选择高8.2 AP，平均耗时1.67毫秒，通信量最多降低34.7倍。",
+          "methodHighlights": [
+            "由密集特征解释器匿名识别新参与者，再切换至适配其任务的稀疏检测解释器。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Intelligent Driving",
+            "V2X",
+            "Collaborative Perception",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 94 of 94 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new"
+            }
+          ]
+        },
+        {
+          "title": "Surgical Kinematics from Monocular Video with Learned Articulated Motion Constraints",
+          "authors": "Mehmet Kerem Turkcan, Soham Samal, Zoran Kostic",
+          "arxivUrl": "https://arxiv.org/abs/2609.27227",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 01:49:27 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "该方法只用单目手术视频重建手术器械的位置、朝向和夹爪角度，并在2,802段Open-H视频上评估。冻结DINOv3全局特征与微调SAM 3.1器械掩码提供视觉表征，网络还融合深度、掩码几何和时间状态。相对LiveMAE，路径长度误差由0.45降至0.34厘米，动作分割t-mAP由44.54%升至54.44%。",
+          "methodHighlights": [
+            "以可微加权最小二乘共同拟合视觉状态观测与位移增量，并将旋转观测写成累积四元数的二次目标。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robotics",
+            "Articulated Objects"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 12 of 12 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "GaussPDE: Graph-Based Partial Differential Equation-Driven Rendering for 3D Gaussian Splatting",
+          "authors": "Haoyuan Yue, Fengyuan Ye, Ziyin Li",
+          "arxivUrl": "https://arxiv.org/abs/2609.27264",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 02:48:35 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "GaussPDE在预训练3D Gaussian Splatting场景上直接运行偏微分方程，无须提取网格、体素化或重新训练。相机感知正则先抑制漂浮高斯和异常大基元，随后按协方差、透明度、外观及边界构图。图拉普拉斯驱动的标量场再映射到球谐颜色系数，实验显示跨边界泄漏低于对照方法。",
+          "methodHighlights": [
+            "以高斯基元构成带质量权重的活动图，在保持几何与透明度不变时耦合PDE状态和渲染颜色。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D",
+            "3D Gaussian Splatting",
+            "Neural Rendering"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            }
+          ]
+        },
+        {
+          "title": "Breaking Weather-Content Coupling: Type-Severity Guided Progressive Disentanglement for All-in-One Infrared Restoration",
+          "authors": "Xinyao Wang, Lijun He, Zhihan Ren, Fan Li",
+          "arxivUrl": "https://arxiv.org/abs/2609.27317",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 03:47:23 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "summary": "TSGPD-IR针对红外图像中天气伪响应与真实热结构混杂、退化程度空间不均的问题。天气语义提示和区域退化估计分别提供全局类型及局部强度，后者通过代理监督学习而不需人工严重度标注。分层专家路由逐步去除天气影响，同时保留微弱但真实的热结构。",
+          "methodHighlights": [
+            "把天气类别和像素区域退化强度拆开建模，再以共享分支守住天气不变的热信息。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Robust Perception",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "SatUnreal: A High-Precision Synthetic Dataset for Satellite Stereo Matching via Unreal Engine",
+          "authors": "Han-Gyeol Kim, JaeWan Park, Junmin Park, Darongsae Kwon",
+          "arxivUrl": "https://arxiv.org/abs/2609.27442",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 07:07:31 UTC",
+          "categories": [
+            "cs.CV",
+            "eess.IV"
+          ],
+          "summary": "SatUnreal用Unreal Engine合成1万组0.3米地面采样距离的卫星立体影像。场景涵盖城市峡谷和低纹理地貌，并通过两阶段射线追踪生成精确遮挡标签，避免真实数据中的时相差异和稀疏LiDAR真值歧义。只用合成数据训练的迭代模型在US3D与WHU-Stereo上实现更好的零样本迁移。",
+          "methodHighlights": [
+            "用固定虚拟环境控制时空一致性，并将卫星轨道基线变化与遮挡真值生成纳入模拟管线。"
+          ],
+          "projectUrl": "https://openaccess.thecvf.com/content/CVPR2026W/EarthVision/supplemental/Kim_SatUnreal_A_High-Precision_CVPRW_2026_supplemental.pdf",
+          "codeUrl": "https://github.com/jmp-Telepix/SatUnreal_A_High-Precision_Synthetic_Dataset_for_Satellite_Stereo_Matching_via_UnrealEngine",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Reconstruction",
+            "Physical 3D",
+            "Simulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "eess.IV",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 6 of 6 entries)",
+              "url": "https://arxiv.org/list/eess.IV/new"
+            }
+          ]
+        },
+        {
+          "title": "Latent evolving World Action Model",
+          "authors": "Xueji Fang, Boqiang Duan, Hua Wu, Jingdong Wang, Guo-Jun Qi",
+          "arxivUrl": "https://arxiv.org/abs/2609.27455",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 07:22:43 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "LeWAM以JEPA预测嵌入作为动作生成条件，并在同一表征空间预测未来状态，不再依赖视频扩散骨干。作者比较视觉编码器后发现I-JEPA最适合动作生成，还指出模仿学习难以区分成功与失败动作。DemoDPO直接从示范数据构造离线偏好；仅0.4B可训练参数的模型在RoboTwin 2.0平均成功率为92.28%，并验证了真实操作效果。",
+          "methodHighlights": [
+            "用潜在空间未来预测取代像素级视频扩散，再以示范偏好优化修正仅模仿动作的局限。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/XuejiFang/LeWAM",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "World Action Model",
+            "Robotics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 12 of 12 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Know-Your-Scene (KYS)-SLAM: Hierarchical Semantic-Motion Priors for Feature Matching in Stereo Visual SLAM",
+          "authors": "Preeti Chatterjee, Jin Lu, Jin Sun, Suchendra M. Bhandarkar",
+          "arxivUrl": "https://arxiv.org/abs/2609.27509",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 08:07:47 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "KYS-SLAM把语义、全景实例和动态运动证据转成连续匹配代价，避免传统方法直接删除可疑特征。它作为模块接入ORB-SLAM3，几何后端不变；免训练运动分数通过深度感知自运动拟合估计。固定参数下，KITTI室外ATE RMSE下降17.4%，EuRoC室内下降27.7%，动态子集也有改善。",
+          "methodHighlights": [
+            "以分级兼容性调节特征对应权重而非二元剔除，并用覆盖率自适应阈值识别独立运动实例。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Reconstruction",
+            "SLAM",
+            "Intelligent Driving"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 12 of 12 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Track2Art: Motion-Centric Articulated Object Model Recovery from 2D Point Trackers",
+          "authors": "Xiaotong Li, Yixiong Jing, Junsheng Ding, Weihang Li, Benjamin Busam, Guangming Wang, Brian Sheil",
+          "arxivUrl": "https://arxiv.org/abs/2609.27675",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 10:47:02 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "Track2Art从RGB-D交互视频的二维点轨迹恢复物体刚性部件及关节关系。持久三维轨迹把同一刚性部件的共动性与部件间相对运动显式分开，再结合预训练跟踪特征和旋转等变解析推理。PartNet-Mobility的20个对齐物体上，Point IoU为0.695、端到端J@20为0.410，无需已知部件数或测试时优化。",
+          "methodHighlights": [
+            "以持久点运动而非静态重建几何作为关节可观测线索，联合解码部件、关节种类与关节几何。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "Articulated Objects",
+            "Physical 3D",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            }
+          ]
+        },
+        {
+          "title": "RoadOcc Learns When to Persist, Transport, or Refresh Memory for Roadside Occupancy Prediction",
+          "authors": "Xiaokai Bai, Lei Yang, Songkai Wang, Lianqing Zheng, Si-Yuan Cao, Hui-liang Shen",
+          "arxivUrl": "https://arxiv.org/abs/2609.27677",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 10:47:53 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "RoadOcc处理固定路侧相机下稀疏车辆占据随时间移动造成的历史错位问题。模型在原坐标保留历史、按速度传输历史和刷新当前证据三种记忆来源间学习软路由。InfraOcc达到65.29 mIoU和32.37动态mIoU，分别比STCOcc高4.44和4.71；移除刷新路径会损失0.32动态mIoU。",
+          "methodHighlights": [
+            "以动态感知交叉注意力、体素速度估计和速度引导稀疏融合实现Persist/Transport/Refresh记忆选择。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Intelligent Driving",
+            "Occupancy",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            }
+          ]
+        },
+        {
+          "title": "AWM-VLA: AlignedWorld Modeling for Efficient and Explainable Vision-Language-Action Policies",
+          "authors": "An Lanji, Dawei Liu, Jin Li, Haoran Xu, Mei Chen, Yu Tian",
+          "arxivUrl": "https://arxiv.org/abs/2609.27753",
+          "published": "2026-09-24",
+          "v1Submitted": "Sat, 15 Aug 2026 04:25:57 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "AWM-VLA把未来世界建模嵌入扩散Transformer策略，避免昂贵的像素级未来帧生成。可学习未来令牌的中间表示对齐未来观测的视觉语言嵌入，并扩展到对象中心及动作相关未来预测。作者报告，该设计在预测后果的同时直接生成动作，改善长时程操作的可解释性和策略效率。",
+          "methodHighlights": [
+            "将对齐的未来潜表示作为策略内部状态，与动作去噪共享单一模型而非外挂世界模型。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "World Action Model",
+            "VLA"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            }
+          ]
+        },
+        {
+          "title": "Visibility-Guided Structured Measure Flow for Class-Conditioned 3D Gaussian Generation",
+          "authors": "Yizhao Wang",
+          "arxivUrl": "https://arxiv.org/abs/2609.27778",
+          "published": "2026-09-24",
+          "v1Submitted": "Mon, 17 Aug 2026 04:54:22 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "该工作为类别条件3D Gaussian对象生成构建可见性引导的结构化测度流。生成目标同时涉及整体形状分布和局部可见结构，作者将可见性信息用于流场引导，避免只按点集统计匹配而产生不可见部位结构问题。实验报告几何更连贯、局部细节更清晰且多视角一致性优于潜变量生成基线。",
+          "methodHighlights": [
+            "在结构化测度流中显式注入可见性条件，使类别形状生成兼顾观测区域与完整物体结构。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "3D Generation",
+            "3D Gaussian Splatting",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            }
+          ]
+        },
+        {
+          "title": "Fusion-Aware Direct 3D Gaussian Generation with Structured Patch Latent Flows",
+          "authors": "Yizhao Wang, Jingbo Wang, Guantao Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2609.27779",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 18 Aug 2026 01:19:53 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "该方法直接生成带融合信息的3D Gaussian，而不是先解码为中间显式网格。结构化patch潜流将局部块级表示与整体对象融合，联合处理几何细节和跨视角一致性。消融实验分别验证层级融合、全局局部耦合、密度感知监督和渲染反馈的作用。",
+          "methodHighlights": [
+            "以结构化patch潜变量流直接预测高斯表示，并通过渲染反馈闭合生成与观察之间的优化环。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Generation",
+            "3D Gaussian Splatting",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            }
+          ]
+        },
+        {
+          "title": "GaussianDS: Depth-supervised Semantic Gaussian Splatting for Scene Understanding",
+          "authors": "Yufei Zhang, Chenlu Zhan, Hongwei Wang",
+          "arxivUrl": "https://arxiv.org/abs/2609.27850",
+          "published": "2026-09-24",
+          "v1Submitted": "Sat, 22 Aug 2026 05:27:16 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "GaussianDS从头联合优化RGB外观、渲染深度与紧凑语义，减少二维基础模型特征抬升到三维时的语义漂移。它把多视角帧按相机位姿排成伪视频，用SAM2传播跨视图一致掩码，并加入深度边缘感知细化。LERF达到60.5% mIoU，3D-OVS达到97.79% mIoU及90.28% mBIoU，同时支持三维物体移除。",
+          "methodHighlights": [
+            "用尺度平移对齐的单目深度和深度边缘损失，把语义边界锚定到高斯几何不连续处。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Reconstruction",
+            "3D Gaussian Splatting",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            }
+          ]
+        },
+        {
+          "title": "TopoGS: Topology-Aware Anchor Feature Aggregation for Large-Scale 3D Gaussian Splatting",
+          "authors": "Wei Zhang, Shiqiang Gong, Shengkai Yu, Zeyu Wang, Clement Mallet, Zhitong Xiong, Qi Wang",
+          "arxivUrl": "https://arxiv.org/abs/2609.27868",
+          "published": "2026-09-24",
+          "v1Submitted": "Thu, 20 Aug 2026 14:29:03 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "summary": "TopoGS解决八叉树3DGS各层锚点独立优化、层级拓扑未被充分利用的问题。层级锚点耦合建立双向跨层梯度，结构感知聚合则通过包含关系和哈希匹配区分有效父子锚点。十个大场景上，航拍、地面和合成制图相较最强基线分别提升2.13、1.78和0.29 dB PSNR，并降低渲染耗时及内存。",
+          "methodHighlights": [
+            "结合残差MLP上下文融合与软加权父子聚合，使不同层级只交换拓扑上有效的信息。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/WZ-CS/TopoGS",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Reconstruction",
+            "3D Gaussian Splatting",
+            "Neural Rendering"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "All modalities are equal, but video is more equal: Closing the Cross-Attention Gap in Joint Video Generation",
+          "authors": "Ohad Rahamim, Dvir Samuel, Idan Schwartz, Gal Chechik",
+          "arxivUrl": "https://arxiv.org/abs/2609.27901",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 12:02:23 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "RecCAR研究联合视频与动作/音频扩散中跨模态注意力约束不对称的问题。它把两个方向的对应关系都写成视频令牌分布，并将弱方向向强方向的固定参考对齐。视频—人体动作生成的Human Anatomy分数从0.69升到0.75，视频—音频生成的不同步值从0.804降至0.752。",
+          "methodHighlights": [
+            "以KL正则收窄双向跨注意力对应分布的差距，同时保留视频作为丰富事件表征的主导作用。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Video Generation",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            }
+          ]
+        },
+        {
+          "title": "MotionSpec: Spectral Trajectory Supervision for Motion-Consistent Video Generation",
+          "authors": "Ziqi Ni, Rui Li, Shiqi Jiang, Wei Zhou",
+          "arxivUrl": "https://arxiv.org/abs/2609.28095",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 13:28:16 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "MotionSpec用稠密锚点相对轨迹约束文本生成视频的运动连续性。轨迹经时间傅里叶变换成为运动频谱体，再同时对齐振幅与相位；局部光流一致性另行约束相邻帧过渡。实验报告复杂动作的时间连贯性和合理性提升，同时保持视觉保真度。",
+          "methodHighlights": [
+            "在频域监督全局运动强度与时间组织，并用光流损失补足局部帧间动态。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Video Generation",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            }
+          ]
+        },
+        {
+          "title": "EmbodiedMemory-Bench: Benchmarking Embodied Memory for Long-Horizon Embodied Tasks",
+          "authors": "Lizhou Liang, Xinyu Zhong, Miao Pan, Xiaohe Zhou, Xuanyu Liu, Qinfeng Li, Peng Li, Jintao Chen, Xuhong Zhang, Wenqi Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2609.28236",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 15:00:42 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "EMem-Bench由2,554个交互回合组成，覆盖四类长时程具身记忆任务。评测要求智能体先从观察和行动中更新记忆，再依赖历史完成后续环境任务；作者同时提出空间、事件和场景记忆系统EMem及8B策略。匹配骨干的比较中，EMem提升开源与闭源模型表现，结果也显示现有模型的记忆能力仍不均衡。",
+          "methodHighlights": [
+            "将记忆读写放在真实交互回合中评估，并以外部空间/事件/场景记忆补充策略上下文。"
+          ],
+          "projectUrl": "https://zju-omniai.github.io/EmbodiedMemoryBench/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Embodied AI",
+            "World Models"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            }
+          ]
+        },
+        {
+          "title": "BronchoTop: Bronchoscopy Navigation via RGB-Only Topological Localization",
+          "authors": "Clara Tomasini, Ana Cristina Murillo, Luis Riazuelo",
+          "arxivUrl": "https://arxiv.org/abs/2609.28328",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 16:07:15 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "BronchoTop只使用标准支气管镜RGB视频，不需要患者专属CT或外置传感器。系统通过管腔检测跟踪、分支标签关联、概率位置估计和切换验证，在通用气道模型上定位镜头。仿真、模型和真实数据评估中，真实序列精度较现有方法提高20%以上；论文同时发布真实数据与仿真代码。",
+          "methodHighlights": [
+            "将视野内管腔拓扑与通用气道树进行概率关联，实现患者无关的实时拓扑定位。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robotics",
+            "Medical Robotics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            }
+          ]
+        },
+        {
+          "title": "AnchorReasoning: A Visual Grounding and Causal Reasoning Dataset in Long-Tail Autonomous Driving Scenarios",
+          "authors": "Zhipeng Bao, Wenjie Zhao, Tianle Zhu, Haohua Que, Chence Yang, Geng Yuan, Qianwen Li",
+          "arxivUrl": "https://arxiv.org/abs/2609.28366",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 16:38:06 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "summary": "AnchorReasoning基于WOD-E2E构建长尾驾驶视觉推理数据，含416,119帧和395,379个决策关键元素标注。每帧把元素定位、属性影响、驾驶理由及动作/轨迹规划串成视觉锚定推理链，并逐级微调模型。八种骨干的5秒ADE/FDE分别下降7.84和11.86，推理令牌减少18.5、平均延迟降低0.32秒/帧。",
+          "methodHighlights": [
+            "以由视觉证据到动作轨迹的分层监督训练驾驶VLM，并设计感知物体尺寸的定位指标。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Intelligent Driving",
+            "Driving VLA"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "Frozen Flows Forget: Diagnosing and Restoring Lost Motion in a Latent-flow World Model",
+          "authors": "Xiwen Chen, Rigaudiere Z. Li, Zhiruo Zhou, Xiaojun Zhu, Houde Liu",
+          "arxivUrl": "https://arxiv.org/abs/2609.28414",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 17:17:02 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.RO"
+          ],
+          "summary": "该研究指出冻结自监督潜空间中的流模型会预测出静止或瞬移，根源是训练信号缺少变化在时间轴上的位置约束。DART保持潜表征冻结，只对流模型加入解码路径监督。完整评测中它恢复了动作的时间结构和与场景的耦合，大规模实验缩小了近半与oracle插值基准的差距。",
+          "methodHighlights": [
+            "通过解码增强的rollout监督定位未来变化发生时刻，纠正仅潜变量损失造成的运动遗失。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "World Models",
+            "Video Generation",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 12 of 12 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "The Past Frames the Future: Memory for Autoregressive Video Generation",
+          "authors": "Harold Haodong Chen, Rongjin Guo, Disen Lan, Wen-Jie Shu, Hongfei Zhang, Hanzhe Hu, Shengtao Yao, Zixin Zhang, Guibin Zhang, Zhefan Rao, Jinxiu Liu, Yexin Liu, Rui Peng, Yuhao Liu, Bin Ren, Shuai Yang, Yukang Chen, Salman Khan, Ying-Cong Chen, Ser-Nam Lim, Rynson W.H. Lau, Nicu Sebe, Yu Cheng, Ming-Hsuan Yang, Qifeng Chen",
+          "arxivUrl": "https://arxiv.org/abs/2609.28466",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 17:54:52 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "这篇综述将自回归视频生成中的记忆定义为跨外层生成步骤持续保存、并能影响后续画面的历史信息。它从表示载体、需保留的语义/物理内容、写读更新操作、闭环训练和评估五方面整理现有方法。讨论聚焦有限上下文下的实体身份、动态状态和干预因果变化如何持续可用。",
+          "methodHighlights": [
+            "建立以记忆生命周期和闭环影响为主轴的分类框架，区分真正持久记忆与当前上下文复述。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Video Generation",
+            "World Models"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            }
+          ]
+        },
+        {
+          "title": "Bend the Clock: Predicting Ahead to Beat Latency in Event-Based Object Detection",
+          "authors": "Biswadeep Sen, Benoit R. Cottereau, Nicolas Cuperlier, Terence Sim",
+          "arxivUrl": "https://arxiv.org/abs/2609.26919",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 18:15:23 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "ChronoFuse指出事件检测的延迟会使预测到达时场景已经变化，因此按观测时间评估会高估实时效用。它只用当前及缓存历史特征预测输出可用时刻的目标状态，额外增加0.17M参数和0.84毫秒。方法恢复1Mpx驾驶数据中71%的延迟损失，在EV-Flying上以20.95 sAP超过标准检测器的2.25。",
+          "methodHighlights": [
+            "因果跨时特征融合把预测目标从输入采集时刻移到实际输出时刻，且不访问未来帧。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Intelligent Driving",
+            "Event Cameras",
+            "Robotics",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Laser-Tracker-Assisted Camera-to-Robot Calibration for Mobile Robots",
+          "authors": "Jan A. Rudolph, Öykü Kandemir, Markus Ulrich",
+          "arxivUrl": "https://arxiv.org/abs/2609.27006",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 19:40:08 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "该方法使用激光跟踪仪的三维计量和相机二维观测，标定移动机器人的相机坐标。新公式推广此前面向地面观测相机的假设，并通过串联多个标定靶放宽机器人和相机布置限制。论文面向多类带相机、且由跟踪仪定位的移动机器人系统。",
+          "methodHighlights": [
+            "以多个标定靶构成坐标链，将外部精密计量与视觉手眼标定结合。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "3D Reconstruction",
+            "Robotics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "DAVIO: Dense Monocular-Inertial SLAM with Feed-Forward Initialization and Pose-Conditioned Mapping",
+          "authors": "Jaafar Mahmoud, Arthur Movsesyan, Mikhail Iumanov, Sergey Kolyubin",
+          "arxivUrl": "https://arxiv.org/abs/2609.27702",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 11:21:38 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "DAVIO让同一个前馈深度模型同时承担单目惯性SLAM初始化和稠密建图。启动阶段用五帧窗口及预积分IMU构造无特征线性系统，在线阶段再由度量位姿条件化深度预测并仅沿视线校正尺度。EuRoC上启动更早、定位误差更低；建筑尺度ORI数据上，在真实里程计替代真值位姿时退化也更小。",
+          "methodHighlights": [
+            "以IMU建立度量尺度与重力基准，再将深度模型预测融合到姿态条件化子图优化中。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Reconstruction",
+            "SLAM",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Task-Prototype Guided Flow Matching for Few-Shot Generalization in Vision-Language Robot Manipulation",
+          "authors": "Yizhao Wang, Guantao Zhang, Jingbo Wang",
+          "arxivUrl": "https://arxiv.org/abs/2609.27780",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 18 Aug 2026 01:20:07 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "TP-Flow针对少量演示下语言指令无法说明接触时机、动作阶段和纠错风格的问题。支持示范被编码为任务原型令牌，同时调节流匹配先验与速度场，并用情景式支持/查询训练模拟少样本适应。LEROBOT上的结果显示，相比不带任务原型的策略，少量演示即可提升新程序操作泛化。",
+          "methodHighlights": [
+            "以对称交叉注意力提取阶段原型，再通过门控自适应归一化注入动作流场。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Manipulation",
+            "VLA"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "VLMs Can Describe, But Not Measure: Object-Centric Scene Understanding for Robotic Manipulation",
+          "authors": "Enrico Saccon, Tommaso Faraci, Iñigo De La Ossa Zarzuelo, Luigi Palopoli, Marco Roveri, Matteo Saveriano",
+          "arxivUrl": "https://arxiv.org/abs/2609.28184",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 14:26:22 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "该模块化框架从单帧RGB-D先分割物体区域，再由VLM赋予语义并以深度恢复度量信息。作者在151个桌面场景发现，单独依赖VLM描述时几何测量不稳，而对象中心表示改善定位与深度估计。所得表示可接入任务规划并用于机器人执行。",
+          "methodHighlights": [
+            "把语义识别与深度几何分工处理，以对象级场景图支持规划调用。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Manipulation",
+            "3D Perception"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "MemBodied: Recurrent Associative Memory for Vision-Language-Action Models",
+          "authors": "Tej Deep Pala, Navonil Majumder, Bryce Goh, Raphael Yee, Jianfei Yang, Liming Chen, Soujanya Poria",
+          "arxivUrl": "https://arxiv.org/abs/2609.28256",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 15:19:19 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CV"
+          ],
+          "summary": "MemBodied为VLA增加固定大小的情节记忆，避免把全部历史帧不断塞入上下文。记忆由跨策略调用更新的关联状态和保存初始场景的episode anchor组成，行动时结合当前观察读取二者。该设计面向必须依据早先观察才能完成的历史依赖操作，并在五个RMB任务上评估。",
+          "methodHighlights": [
+            "以关联状态记录交互变化、以初始场景锚点保留参照，压缩历史并降低上下文增长。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "VLA",
+            "World Models"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "Generalizable Robotic Insertion with World Models",
+          "authors": "Nicklas Hansen, Iretiayo Akinola, Yijie Guo, Jie Xu, Bingjie Tang, Hao Su, Xiaolong Wang, Abhishek Gupta, Dieter Fox, Yashraj Narang",
+          "arxivUrl": "https://arxiv.org/abs/2609.28258",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 15:20:45 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.CV",
+            "cs.LG"
+          ],
+          "summary": "该世界模型同时使用机器人本体感觉和腕部相机原始视觉，在多种插入任务上训练单一策略。训练覆盖最多90种几何各异的部件，对未知几何对象零样本成功率为56%，模型自由基线为7%。纳入更多训练物体能持续改善泛化，留出对象微调也提高数据效率。",
+          "methodHighlights": [
+            "在世界模型内联合状态感知和动作后果预测，靠跨物体数据训练通用插入策略。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "World Models",
+            "Robot Manipulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 94 of 94 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new"
+            }
+          ]
+        },
+        {
+          "title": "VGM-VS: Rethinking Visual Geometry Model for High-Precision Visual Servoing",
+          "authors": "Yimin Pan, Sen Wang, You Zhou, Jianfeng Gao, Pengbo Sun, Ahmed M. Naguib, Zoltan-Csaba Marton",
+          "arxivUrl": "https://arxiv.org/abs/2609.28312",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 15:56:19 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "summary": "VGM-VS将预训练前馈视觉几何模型用于闭环位姿视觉伺服，在参考目标图像和当前图像间估计相对相机位姿。该模型在遮挡、弱纹理和目标只占小区域时仍能提供几何线索，但平移存在尺度歧义。方法通过机器人沿预定义动作采集图像—位姿配对，对相机头作场景特定度量适配后用于控制。",
+          "methodHighlights": [
+            "把几何模型的相对位姿增量放入PBVS闭环，并以少量机器人自采数据标定实际尺度。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "3D Reconstruction",
+            "Visual Servoing"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "FLINT: Fast Lightweight Inference for Traversability",
+          "authors": "William Bonilla, Maxime Boisvert, David-Alexandre Poissant, David Meger, Louis Petit",
+          "arxivUrl": "https://arxiv.org/abs/2609.26857",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 14:46:31 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "FLINT研究越野通行性，指出可通行性同时依赖地形与机器人自身动力学，难以靠人工标签扩充。仅用RGB相机的21.6M参数模型在CPU上达到14.7 FPS，参数规模约为可比基础模型的1/38。留出地形探测中，它优于大型模型并产生更低成本的局部代价图。",
+          "methodHighlights": [
+            "将机器人自身经历用于学习通行性评分，针对边缘设备以小型视觉骨干生成导航代价图。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Navigation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "Backdoors in Learning-Based Industrial Robotic Arm Manipulation: An Empirical Security Study",
+          "authors": "Zijian Zhang, Zhen Zeng, Zhongshu Gu, Sandeep Pisharody",
+          "arxivUrl": "https://arxiv.org/abs/2609.26868",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 16:46:10 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "研究在FANUC与xArm两种真实工业机械臂上评估视觉运动策略和VLA后门攻击。测试触发器可让模型保持正常日常行为、只在特定物理条件出现时执行攻击者指定动作。论文比较攻击效果与防御方法，指出模型输出直接驱动机械臂会把数据后门风险带入真实工作空间。",
+          "methodHighlights": [
+            "把触发攻击和清除防御放到实体机械臂操作闭环中验证，而非仅报告离线分类精度。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robot Manipulation",
+            "Robustness"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "MSK-Bench: Benchmarking Full-Body Musculoskeletal Motor Control Across Tasks, Control Paradigms, and Physiological Metrics",
+          "authors": "Mengtao Ou, Zongzheng Zhang, Zhenghao Xiao, Yixuan Pan, Ziwen Zhuang, Hang Zhao, Hongyang Li, Yanan Sui, Libin Liu, Hao Zhao",
+          "arxivUrl": "https://arxiv.org/abs/2609.26872",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 17:52:19 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "MSK-Bench统一评估肌肉驱动人形机器人的全身控制，覆盖22项姿态、运动和接触交互任务。基准比较五类控制范式，并加入扰动鲁棒性和生理指标，针对肌肉冗余与激活动力学带来的难点。它补足此前步态、假肢或手部任务分散评测的缺口。",
+          "methodHighlights": [
+            "将不同控制算法置于统一肌骨模型任务集，按任务难度、扰动和生理量共同衡量全身运动控制。"
+          ],
+          "projectUrl": "https://zzongzheng0918.github.io/MSK-Bench/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Embodied AI",
+            "Simulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Spiderbot: An Open-Source Energy-Efficient Hexapod with Passive Gravity Compensation",
+          "authors": "Ritwik Sharma, Vimarsh Shah, Saransh Agrawal",
+          "arxivUrl": "https://arxiv.org/abs/2609.26989",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 19:30:39 UTC",
+          "categories": [
+            "cs.RO",
+            "eess.SY"
+          ],
+          "summary": "Spiderbot是一种开源低成本六足平台，每条腿使用二自由度连杆和被动弹簧，而非常见的三自由度持续驱动结构。四连杆重力补偿机构让站立功率仅1.5 W，比无弹簧版本低逾90%，可承载最高3.25 kg而无需额外电机扭矩。整机成本低于400美元，目标是支持长时及多机器人实验。",
+          "methodHighlights": [
+            "用被动弹簧承担站立负载，将节能机制嵌入机械连杆而非依赖控制器持续输出扭矩。"
+          ],
+          "projectUrl": "https://erc-bpgc.github.io/SpiderBot/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robotics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.SY/new"
+            },
+            {
+              "category": "eess.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/eess.SY/new"
+            }
+          ]
+        },
+        {
+          "title": "Humanoid Locomotion with a Fly-Inspired Recurrent Controller",
+          "authors": "Isabel Guan, Yuntian Zhao, Dingyuan Zhang, Shipeng Lyu",
+          "arxivUrl": "https://arxiv.org/abs/2609.27001",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 19:36:07 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "研究以仿蝇虫循环神经控制器驱动Unitree G1人形机器人，并公开分析其闭环行为。固定策略在7种地形、3种速度和3种初始偏航的63种条件中完成61种；清零循环状态后，标称偏航成功从19/21降至0/21。检查252个记录状态时，替换深度或上游状态未改变动作，揭示行为依赖持续循环内部状态。",
+          "methodHighlights": [
+            "将3,609个连续神经状态与人形身体反馈耦合，并通过状态干预测试控制器中哪些变量真正支撑步行。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Humanoid Robotics",
+            "Locomotion"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Learning Expressive Humanoid Locomotion from Monocular Runway Videos for Robot Fashion Shows",
+          "authors": "Kyrylo Kolesnichenko, Irvin Steve Cardenas, Jong-Hoon Kim",
+          "arxivUrl": "https://arxiv.org/abs/2609.27003",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 19:38:35 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "该方法将单目走秀视频转为可部署的人形机器人步态策略，包含动作恢复、机器人重定向、运动修正和策略训练。策略部署在Booster K1实体平台，窄步态及躯干、手臂协同动作保留了走秀风格。所有实体试验均未跌倒，展示了从人类视频到表现性全身运动的迁移流程。",
+          "methodHighlights": [
+            "串联视频动作估计、机器人骨架重定向与物理策略训练，使风格化动作能在硬件上执行。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Humanoid Robotics",
+            "Video Generation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "MultiPush: Learning to Rearrange with Teams of Car-Like Pushers",
+          "authors": "Jeeho Ahn, Christoforos Mavrogiannis",
+          "arxivUrl": "https://arxiv.org/abs/2609.27005",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 19:39:44 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "MultiPush协调多台类车机器人在受限工作区内推移多个物体，必须兼顾碰撞、任务冲突和Dubins运动学。方法依据可通行图联合分配机器人与推送顺序，在最多14个物体及2至4台机器人的仿真中测试。相较对照调度，完成总时长最多缩短16%。",
+          "methodHighlights": [
+            "利用类车运动学将推送任务整理为有序Dubins曲线分配，并由强化学习联合决定调度与机器人指派。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Multi-Robot",
+            "Manipulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "HiRE: Hindsight Reward Editing for Policy Finetuning",
+          "authors": "Haoyi Niu, Zhengtao Han, Yufeng Ji, Zhongyu Li, Koushil Sreenath",
+          "arxivUrl": "https://arxiv.org/abs/2609.27068",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 21:04:10 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "HiRE通过回顾成功与失败轨迹，校准基础模型表示得到的控制奖励。它识别模型误判为高奖励、最终却失败的陷阱状态，并惩罚这类状态、提升相反案例的回报。该方法无需训练奖励模型或额外机器人交互，针对预训练策略的环境适配阶段。",
+          "methodHighlights": [
+            "从成败对照轨迹中反向编辑语义奖励，将视觉表征同真实控制结果对齐。"
+          ],
+          "projectUrl": "https://hire-project.github.io",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robot Learning"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "The Gaussian Is Enough: Flow-Matching Priors Do Not Help When Fine-Tuning Large Behavior Models",
+          "authors": "Chen Xu, Rishi Shah, Hadas Kress-Gazit, Haruki Nishimura, Masha Itkina",
+          "arxivUrl": "https://arxiv.org/abs/2609.27070",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 21:05:22 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "作者在三种大行为模型、40多个仿真任务及两类平台上进行超过10万次仿真试验，并补充五项双臂操作的1,250次硬件试验。结论是更接近动作分布的非高斯先验，微调预训练模型时通常不带来收益，极低数据量时可能例外。结果提醒流匹配策略的先验优势不能从从头训练直接外推至大模型微调。",
+          "methodHighlights": [
+            "以跨模型、跨任务的大规模对照隔离动作先验选择的影响，检验已有流匹配结论能否迁移到预训练策略。"
+          ],
+          "projectUrl": "https://cxu-tri.github.io/non_gaussian_FT/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robot Learning"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "Fast Direction-Conditioned Reachability for Motion Prediction Under Model Uncertainty",
+          "authors": "Hrishav Das, Melkior Ornik",
+          "arxivUrl": "https://arxiv.org/abs/2609.27077",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 21:18:05 UTC",
+          "categories": [
+            "cs.RO",
+            "eess.SY"
+          ],
+          "summary": "该研究为动力学模型矩阵不确定的机器人邻近体运动预测设计快速方向条件可达集。方向化表示避免完整传播高维不确定集，目标是在保证保守性的同时降低碰撞规避计算成本。作者分析了模型不确定条件下的可达边界，并将其用于实时运动预测。",
+          "methodHighlights": [
+            "利用运动方向对可达集参数化，减少不确定线性系统逐步传播的计算负担。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robot Navigation",
+            "Motion Prediction"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.SY/new"
+            },
+            {
+              "category": "eess.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/eess.SY/new"
+            }
+          ]
+        },
+        {
+          "title": "Water Surface Swimming in a Centipede and its Robophysical ModeL",
+          "authors": "Zhaochen J. Xu, Delfin Aydin, Abdullah Mustafa, Margarita B. Levin, Jianfeng Lin, Tianyu Wang, Daniel I. Goldman",
+          "arxivUrl": "https://arxiv.org/abs/2609.27088",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 21:39:48 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文分析蜈蚣Lithobius forficatus以直接体波及周期腿运动在水面游动的机制。作者测量动物运动学，并构建可独立改变腿形、刚度、波向和腿部相位的多腿物理机器人模型。实验用机器人验证分布式腿如何影响推进和水面运动表现。",
+          "methodHighlights": [
+            "以可调节腿部结构和波动参数的robophysical平台隔离身体波与腿运动对游动的作用。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robotics",
+            "Physical Modeling"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Intelligence Across Embodiments",
+          "authors": "Bo Ai, Henrik I. Christensen, Hao Su",
+          "arxivUrl": "https://arxiv.org/abs/2609.27095",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 21:53:12 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.LG"
+          ],
+          "summary": "文章分析机器人具身差异如何限制经验迁移，差异涉及传感器、运动学、动力学、几何及执行器。作者主张随着不同身体形态的数据增加，应学习能跨具身复用的表征，而不是只依赖预先手工建立对应关系。文中也提出评估应明确测量具身差距和跨机器人迁移能力。",
+          "methodHighlights": [
+            "将具身多样性视为扩展实体经验的关键轴，并把通用学习先验与具身映射工程区分开来。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Embodied AI",
+            "World Models"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 94 of 94 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new"
+            }
+          ]
+        },
+        {
+          "title": "Design and Modeling of a Single-Port Three-Arm Robotic Tool for Minimally Invasive Neurosurgery",
+          "authors": "Nazia H. Dana, Harith S. Gallage, Ismail A. Auta, Dhanvi Yuvaraj, Ronghuai Qi",
+          "arxivUrl": "https://arxiv.org/abs/2609.27099",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 21:54:18 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文提出用于微创神经外科的单孔三臂工具，主套管外径7.14毫米，三根可转向副套管外径1.93毫米。系统以腱驱动关节组合成12自由度工具并接到7自由度机械臂，作者推导运动学并通过实验验证静态与运动模型。该设计面向单切口空间内多臂器械操作。",
+          "methodHighlights": [
+            "将三根可转向套管集成在单孔主套管中，并以紧凑驱动器实现多臂腱驱动运动。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robotics",
+            "Medical Robotics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Planning Trajectories that Bounce: Reflection Classes for Collision-Tolerant Robots",
+          "authors": "Subhadeep Koley, Subhrajit Bhattacharya, David Saldaña",
+          "arxivUrl": "https://arxiv.org/abs/2609.27145",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 23:11:51 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "该规划器研究高惯量、低机动机器人主动利用墙面反弹的路径，而非一概避开接触。反射增强状态图按经过的墙序列枚举路径类别，能系统搜索可执行反弹方案。算法比较不同反射类别的代价，寻找较直接无碰路径更省控制时间或转向努力的选项。",
+          "methodHighlights": [
+            "以反射序列定义离散路径类，把可控碰撞纳入图搜索而非视作规划失败。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robot Navigation",
+            "Physics-aware Learning"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "HINT-Blimp: Human INTent Inference from Multimodal Cues for Robotic Blimps",
+          "authors": "Subhadeep Koley, Benjamin Greenberg, Yifei Simon Shao, Juan Aceros, Nadia Figueroa, David Saldaña",
+          "arxivUrl": "https://arxiv.org/abs/2609.27154",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 23:38:19 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "HINT-Blimp从人的稀疏推力和口头指令推断飞艇的目标与运动意图，不需要操作者持续盯着手持界面。意图被表示为参数化线性动力系统，粒子滤波器在线维护候选意图并随交互更新。研究在多名参与者的300次试验中验证多模态交互控制。",
+          "methodHighlights": [
+            "将推力与语音映射到意图动力学参数，以粒子滤波在线估计人所期望的方向和运动方式。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Human-Robot Interaction"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Fine Wrist Control as a Marker of Surgical Teleoperation Expertise",
+          "authors": "Mary Kate Gale, Shujiro Shobayashi, Sangeet Satpathy, Nitsan Davidor, Ilana Nisky, Allison Okamura",
+          "arxivUrl": "https://arxiv.org/abs/2609.27160",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 23:46:19 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "研究比较27名新手与9名专家远程操作员完成圆柱—插销任务时的上肢运动。专家在较难动作中更稳定地控制腕部，同时保持肩肘活动范围，并显著更快完成任务。结果提示机器人遥操作训练可将人体生物力学纳入熟练度评估，而非只观察最终任务成败。",
+          "methodHighlights": [
+            "用运动追踪记录腕、肩、肘运动学，将操作者动作特征与任务难度及完成时间联系。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Human-Robot Interaction"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Learning Dissipative Dynamics with Dissipativity-by-Construction Discrete-Time Neural Networks",
+          "authors": "Tuan Luong, Hyungpil Moon",
+          "arxivUrl": "https://arxiv.org/abs/2609.27188",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 00:49:49 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "该工作直接在离散时间多层感知器中学习增量耗散系统，避免训练和推理期间调用常微分方程求解器。作者通过受约束参数化与专门训练过程确保所需耗散性质，针对连续时间被动模型离散化后未必保留稳定性的缺陷。此类保证适用于嵌入闭环机器人控制器的学习动力学模型。",
+          "methodHighlights": [
+            "用构造式参数约束在离散网络本身保持耗散性，不依赖事后连续时间模型转换。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Physics-aware Learning",
+            "Robotics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "NaviScale: Generating Large-Scale Semantic Map Datasets for Object Navigation",
+          "authors": "Chuanlin Lan, Yanwei Zheng, Weijian Liu, Zhitong Zhou, Xiao Zhang, Fuzhen Zhuang, Dongxiao Yu",
+          "arxivUrl": "https://arxiv.org/abs/2609.27218",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 01:30:26 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "NaviScale为ObjectNav合成大规模语义地图训练数据，不必为每条样本重建完整三维环境。它把真实住宅平面图与MP3D、HM3DSem中的房间语义及障碍图组合，并通过跨房间结构变化和房间内布局替换扩大多样性。射线投射模拟视野遮挡，生成部分观察图与完整目标地图配对。",
+          "methodHighlights": [
+            "以真实户型结构和语义房间图组合扩增导航地图，再用视域射线投射模拟机器人局部观察。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Navigation",
+            "Simulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "A Quasi-Direct-Drive Underactuated Asymmetric Hand for Dexterous and Efficient Grasping and Manipulation",
+          "authors": "Benjamin Davis, Chase Kidder, Hannah S. Stuart",
+          "arxivUrl": "https://arxiv.org/abs/2609.27240",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 02:17:07 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "Berkeley QUAD是一只四指11自由度、8个驱动器的准直驱动欠驱动不对称机械手。桡侧手指独立驱动负责灵巧动作，尺侧手指用柔顺耦合传动和较大电机提供力量。预载连杆传动在减少电机数的同时保留接近人手的可达工作空间，支持自适应抓取和操作。",
+          "methodHighlights": [
+            "把独立准直驱动与欠驱动尺侧耦合组合，以生物启发的不对称分配兼顾精细控制和抓握力。"
+          ],
+          "projectUrl": "https://benudavis.github.io/berkeley-quadhand/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Manipulation",
+            "Robotics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Memory That Changes Action Is Not Memory That Guides It: Counterfactual Auditing of History-Conditioned Robot Policies",
+          "authors": "Jiajie Zhang, Yankai Xiang, Changhao Chen",
+          "arxivUrl": "https://arxiv.org/abs/2609.27247",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 02:31:53 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "Counterfactual Memory Audit让机器人策略面对当前观察相同、但过去经历不同的配对历史，检测记忆是否真正指导动作。Mem-0审计中，Put Back任务64对里只有20对同时满足可靠性条件，尽管每对动作都改变；Swap决策中，两个记忆虽然令动作改变却选择同一分支。该指标区分记忆敏感性与记忆是否产生恰当物理价值。",
+          "methodHighlights": [
+            "在共同随机性下交叉历史并评估动作在两种历史中的后果，而不是仅测任务成功或动作变化。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "VLA",
+            "Robot Learning"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "BranchDrive: A Branch-Structured Dataset for Action-Conditioned Driving Prediction",
+          "authors": "Feeza Khan Khanzada, Sudarshan Sridhar, Jaerock Kwon",
+          "arxivUrl": "https://arxiv.org/abs/2609.27275",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 03:02:38 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "BranchDrive提供一个标准驾驶决策前史及名义专家未来，并为每项决策记录12种真实执行的加速、制动与转向干预未来。CARLA数据通过控制遵循、回放保真、模态完整和动作泄漏审计，最终含606个分支组和7,878条轨迹。基准测试模型能否预测替代自车决策造成的短时结果及十步轨迹。",
+          "methodHighlights": [
+            "将真实物理干预轨迹组织成分支式样本，评估动作条件预测而非只拟合行为策略的单一未来。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Intelligent Driving",
+            "Driving Prediction",
+            "Simulation",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "EmbodiedSWE: Coding Agents for Long Horizon Dexterous Robotics",
+          "authors": "Haoxiang You, Zeyu Shen, Yilang Liu, Zhicheng Zheng, Lihan Zha, Kashu Yamazaki, Mingtong Zhang, Suning Huang, Jiankai Sun, Qianzhong Chen, Lucy He, Kaiyuan Liu, Haoran Chang, Katerina Fragkiadaki, Dhruv Shah, Mac Schwager, Peter Henderson, Ian Abraham, Canwen Xu",
+          "arxivUrl": "https://arxiv.org/abs/2609.27308",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 03:38:58 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "EMBODIEDSWE-BENCH测试编码智能体解决接触操作、可变形物体和最长半小时连续交互任务。作者发现前沿编码代理可借助工具完成复杂仿真任务，但解法常需多轮交互且针对单一实例。EMBODIEDSWE-GEN把解法扩成多样轨迹供VLA训练，演示数据增加时策略效果随之提升。",
+          "methodHighlights": [
+            "以编码代理先求解长程任务，再把程序化解法扩展成VLA可用的多样操作轨迹。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Embodied AI",
+            "Robot Manipulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Turning Safety into Competence: Minimally Exploitable Robot Policies via Safety-Filtered Reinforcement Learning",
+          "authors": "Ruihan Wu, Rui Yang, Donggeon David Oh, Duy Nguyen, Haimin Hu",
+          "arxivUrl": "https://arxiv.org/abs/2609.27312",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 03:44:21 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.LG",
+            "eess.SY"
+          ],
+          "summary": "S2C把安全策略学习与竞争任务策略训练拆成两个阶段，目标是提高机器人对抗任务表现且不易被利用。安全滤波器由对抗强化学习训练，在竞争策略学习环境和最终部署阶段均持续应用。模拟touchdown博弈中，该方法相对八个安全RL基线取得最高胜率和Elo，并减少可利用失败行为。",
+          "methodHighlights": [
+            "先在安全关键Markov博弈中合成不可利用的动作过滤器，再训练任务策略适应过滤后的动力学。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robustness",
+            "Robot Learning"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 94 of 94 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new"
+            },
+            {
+              "category": "cs.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.SY/new"
+            },
+            {
+              "category": "eess.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/eess.SY/new"
+            }
+          ]
+        },
+        {
+          "title": "CoRe-WAM: Correspondence-Aligned Temporal Residuals for World Action Models",
+          "authors": "Bin Zhou, Jialong Liu, Jianan Wang, Changhao Chen, Kani Chen",
+          "arxivUrl": "https://arxiv.org/abs/2609.27314",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 03:46:32 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "CoRe-WAM指出相机或物体移动后直接比较同一像素位置，会把不同场景内容当成变化。TraceDelta借冻结跟踪模型的对应关系把历史视觉特征搬到当前坐标，再计算有符号时序差。轻量适配器把这些差值转成带有效性门控的残差，供动作策略利用近期场景变化。",
+          "methodHighlights": [
+            "用点对应先校准历史特征位置，再将对齐残差作为参数高效的世界动作模型时序输入。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "World Action Model",
+            "Robot Manipulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "A Sample-Based Approach for Hierarchical Information-Theoretic Compression of Probabilistic Occupancy Grids",
+          "authors": "Zhenyu Jin, Daniel T. Larsson",
+          "arxivUrl": "https://arxiv.org/abs/2609.27330",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 04:09:03 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.IT"
+          ],
+          "summary": "该方法以采样而非穷举动态规划，构建概率占据栅格的信息论层级压缩表示。受蒙特卡洛树搜索启发，它逐步统计候选抽象的价值，避免大规模地图上信息最优Q-tree递归的高计算开销。算法具备 anytime 特性，可随时停止并输出有效压缩地图。",
+          "methodHighlights": [
+            "用样本统计逐步扩展多分辨率树，使大型真实占据地图能在有限算力下及时压缩。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robot Navigation",
+            "Occupancy"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "DUGM-R: Uncertainty-Aware Dynamic Grid Mapping and Risk-Triggered Recovery for Learned Local Navigation",
+          "authors": "Haoyun Feng, Adrian Rubio-Solis, Zhaodong Guo, George Mylonas",
+          "arxivUrl": "https://arxiv.org/abs/2609.27338",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 04:28:11 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "DUGM-R将局部占据、动态障碍速度及速度估计不确定性合成机器人中心栅格，供拥挤室内导航策略使用。名义策略冻结后，有限时域风险价值函数再预测何时继续执行会导致碰撞，并触发独立恢复策略。该结构把动态表示不确定性与策略执行风险分开处理。",
+          "methodHighlights": [
+            "先学习带不确定度的动态网格，再以风险触发器切换到安全恢复控制而不改动已训练的名义策略。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Navigation",
+            "Robustness"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Spatial and Semantic Reasoning for LLM-Driven Robot Navigation via MCP",
+          "authors": "Jungsoo Lee, Jaegyun Park, Wansoo Kim",
+          "arxivUrl": "https://arxiv.org/abs/2609.27340",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 04:29:01 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "该框架把ROS导航占据栅格转成LLM可消费的空间语义表示，并通过Model Context Protocol提供标准化工具接口。它免去机器人专用包装器，让语言模型读取导航状态并调用现有导航系统。论文聚焦几何消息难以直接用于语言推理、系统适配方式不易复用这两项集成问题。",
+          "methodHighlights": [
+            "在ROS与语言代理间加入导航表征层，通过MCP暴露可复用的空间查询和导航能力。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robot Navigation",
+            "Embodied AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "BladeMaster: Real-Time Robotic Cutting Simulation with Online-Generated Persistent Discontinuities",
+          "authors": "Zhanyu Yang, Yunuo Chen, Yanjia Huang, Joseph Masterjohn, Yin Yang, Chenfanfu Jiang",
+          "arxivUrl": "https://arxiv.org/abs/2609.27342",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 04:29:39 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.GR"
+          ],
+          "summary": "BladeMaster模拟机器人切割时材料拓扑变化及刀具抽离后的持久切口。方法基于GPU加速总拉格朗日物质点法，使用材料点侧标签在线记录刀刃生成的切割历史。切面保留为真实不连续边界，并允许新暴露表面继续与刀具和彼此发生接触。",
+          "methodHighlights": [
+            "把切割历史编码在材料点侧标签中，避免预先指定切面或额外几何场近似材料分离。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D",
+            "Physical AI",
+            "Simulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.GR",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 4 of 4 entries)",
+              "url": "https://arxiv.org/list/cs.GR/new"
+            }
+          ]
+        },
+        {
+          "title": "Omnidirectional Amphibious Locomotion via Internal Mass Actuation",
+          "authors": "Niko Weaver, Boxi Xia, Li-Yu Lo, Yuhao Huang, Boyuan Chen",
+          "arxivUrl": "https://arxiv.org/abs/2609.27358",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 04:55:34 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "MARBLE是全封闭全向两栖滚动机器人，以内部质量移动驱动机身，不使用外露车轮或推进器。三组正交滑块改变重心产生滚动，方向感知控制器把平面速度映射成滑块目标；外壳兼作地面接触面和浮力腔。被动鳍片配合球壳旋转，让同一套质量驱动机构支持陆地运动与水面推进。",
+          "methodHighlights": [
+            "用三轴内部滑块调节质量分布，将球壳滚动控制扩展到两栖表面运动。"
+          ],
+          "projectUrl": "https://generalroboticslab.com/MARBLE",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robotics",
+            "Locomotion"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "From LiDAR Maps to Visual Localization: Unified Visual Association for Robust Point-Line-Plane Pose Estimation",
+          "authors": "Wentao Zhao, Zikun Chen, Yihe Niu, Haoyu Chen, Jingchuan Wang",
+          "arxivUrl": "https://arxiv.org/abs/2609.27363",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 05:05:05 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "该定位方法把LiDAR地图几何和反射率渲染为带二维—三维来源对应的类图像，使相机和点云地图能共享视觉特征匹配器。点与线对应同时支持全局定位和连续姿态跟踪，避免单独训练图像—LiDAR跨模态匹配模型。研究面向机器人在预建LiDAR地图中的长期视觉定位。",
+          "methodHighlights": [
+            "将地图投影为保留几何出处的准图像，以统一二维视觉匹配桥接相机与激光雷达。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Reconstruction",
+            "SLAM",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "CoPRE: Improving Sensitivity in Proprioceptive Contact Detection for Low-Cost Robot Arms",
+          "authors": "Yuxiao Zhu, Jinzhou Li, Yifei Dong, Muhammad Suhail, Chunyuan Yang, Xinyuan Luo, Haoyu Li, Boyuan Chen, Xianyi Cheng",
+          "arxivUrl": "https://arxiv.org/abs/2609.27381",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 05:32:06 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "CoPRE只用低成本机械臂已有的关节本体感觉估计无接触运动时的关节力矩，不需力传感器、接触标签或解析动力学模型。在线接触检测比较实测信号与无接触预测，专门针对弱接触变化被运动噪声淹没的问题。由此可在不额外布置传感器的情况下提高轻微碰触灵敏度。",
+          "methodHighlights": [
+            "先用自由运动拟合预期本体信号，再将偏离模型的关节力矩响应作为接触证据。"
+          ],
+          "projectUrl": "https://copre-arm.github.io",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robot Manipulation",
+            "Haptics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "X2Real: an eXtensive simulation benchmark for real-world generalist policies",
+          "authors": "Lian Ruan, Jade Yang, Sherphylan Gao, Felix Gao, Kyson Liang, Galen Liu, Ligo Wu, Lane Jin, Guu Gu, Bevan Xie, Cloud Yan, Zongzi Yuan, Kino Luo, Emma Chen, Shuwen Chen, Yang Ping, Miles Guo, Rain Sun, Kayden Zhang, Alex Du, Ruihai Wu, Liang Hao, Zhaoshuo Li, Roy Gan, Hao Wang, Qian Wang",
+          "arxivUrl": "https://arxiv.org/abs/2609.27449",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 07:13:26 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "X2Real基于Isaac Lab-Arena构建可演进的真实世界通用操作策略仿真基准。设计同时关注仿真真实性、任务多样性和训练/测试划分公平，针对既有平台sim-to-real差距和评测泄漏问题。框架让策略评估能随机器人任务与真实部署经验持续更新。",
+          "methodHighlights": [
+            "把真实部署校准、任务扩展及训练测试公平性整合进可演进的仿真评测流程。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Simulation",
+            "Robot Manipulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "BEE: Intervention-Adaptive Real-World Reinforcement Learning with Vision-Language-Action Models",
+          "authors": "Weihui Zhao, Xiaohan Yan, Zunian Wan, Xuan Du, Zhaozhan Chi, Jianbo Mao, Ruipu Wu, Rushuai Yang, Houlin Li, Shukai Yang, Jing Wu, Yuxiang Yan, Yongcheng Liu, Chuankang Li, Guanghui Ren, Wei Shan, Maoqing Yao",
+          "arxivUrl": "https://arxiv.org/abs/2609.27450",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 07:14:20 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "BEE在冻结VLA上开展真实机器人在线强化学习，重点优化少数毫米级精度关键阶段。框架把人工纠正作为逐动作维度的介入信号，因为纠正的可靠程度会随动作分量变化，而非统一当成标签。该方式减少昂贵自由探索，并利用专家修改提升实体操作策略。",
+          "methodHighlights": [
+            "让在线策略按介入动作维度估计专家意见可靠性，从纠正中学习同时保留预训练VLA主体。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "VLA",
+            "Robot Manipulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "Safety-Filtered Distributed Koopman-MPC",
+          "authors": "Shengjun Zhang, Wenhao Li, Zhenxin Lin, Zhenglong Sun",
+          "arxivUrl": "https://arxiv.org/abs/2609.27463",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 07:28:17 UTC",
+          "categories": [
+            "cs.RO",
+            "eess.SY"
+          ],
+          "summary": "该分布式Koopman-MPC把邻居轨迹用于预测，却不依赖其提供安全约束，以应对通信丢包。局部传感与货架几何进入硬约束二次规划，投影得到实际执行输入；论文给出有界误差下采样间安全定理和局部可行性检验。方法把协同预测和本地安全保证分离。",
+          "methodHighlights": [
+            "用Koopman模型预测邻居轨迹，再由本地硬约束QP过滤动作，避免将安全决策交给可能丢包的通信。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robustness",
+            "Robot Navigation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.SY/new"
+            },
+            {
+              "category": "eess.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/eess.SY/new"
+            }
+          ]
+        },
+        {
+          "title": "A Modular Dual-Arm Robotic Cell for Disassembly and Repair of Industrial Control Electronics",
+          "authors": "Maximilian Ruhe, Fabian Harlacher, Christian Friedrich, Martin Kipfmueller",
+          "arxivUrl": "https://arxiv.org/abs/2609.27466",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 07:29:14 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "论文实现面向PLC、伺服驱动器和操作面板维修的模块化双臂拆解单元。系统组合两台协作机械臂、可换工具、RGB-D和腕部视觉、力矩感知及ROS 2行为树，并支持远程操作和数字孪生。维修流程含序列规划、符号执行回退、限力工具技能与视觉状态检查。",
+          "methodHighlights": [
+            "以行为树组织双臂拆解步骤和失败回退，再将视觉检查与限力接触动作模块化。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Manipulation",
+            "Industrial Robotics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Kairos: Grounded Forecasting of Presence and Directional Flow in 4D Scene Graphs",
+          "authors": "Iacopo Catalano, Julio A. Placed, Javier Civera, Jorge Peña Queralta",
+          "arxivUrl": "https://arxiv.org/abs/2609.27467",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 07:30:00 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "Kairos把三维场景图扩为四维场景图，在已重建几何体素上记录人的出现率及方向分布。频谱预测器可在未来查询时刻同时预测人是否出现和其运动方向，不再把活动压成单一标量或假定方向恒定。该表示服务于人群环境中的长期机器人自主导航。",
+          "methodHighlights": [
+            "在场景图体素中存储时变方向混合分布，以频谱时间模型外推未来人流。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/IacopomC/kairos",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D",
+            "Physical AI",
+            "World Models"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "Collocated Shape Regulation for Soft Robots",
+          "authors": "Pietro Pustina, Ebrahim Shahabi, Daniel Feliu-Talegon, Alessandro De Luca, Cosimo Della Santina",
+          "arxivUrl": "https://arxiv.org/abs/2609.27469",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 07:31:10 UTC",
+          "categories": [
+            "cs.RO",
+            "eess.SY"
+          ],
+          "summary": "论文给出连续软体机器人的collocated形状控制通用框架，只调节实际受驱动坐标。作者证明在明确兼容条件下，受控坐标稳定收敛可进一步保证整体机器人形状收敛。统一推导包含PD、PID、PsatID等控制器，解决软体动力学难以完整建模的问题。",
+          "methodHighlights": [
+            "以共点输入输出变量构建稳定控制律，降低连续体机器人逐自由度建模与驱动负担。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robotics",
+            "Control"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.SY/new"
+            },
+            {
+              "category": "eess.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/eess.SY/new"
+            }
+          ]
+        },
+        {
+          "title": "RoboCafé in the Open: Interaction Continuity in Long-Term Public Human-Robot Interaction",
+          "authors": "Kaitlynn Taylor Pineda, Kush Kumar Kushwaha, Jie Wang, Jiaming Du, Anvii Mishra, Emilie Basu Suri, Angela Guo, Chien-Ming Huang",
+          "arxivUrl": "https://arxiv.org/abs/2609.27475",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 07:38:39 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "RoboCafé是一台在大学楼内长期运行的对话咖啡机器人，用于研究公共空间人机交互连续性。12天部署中完成148份订单，现场包含回头客、路人、多人组和连续订单，揭示以单笔订单为边界的交互记忆假设失效。研究聚焦机器人如何跨越不同人的接触及场景变化保持上下文。",
+          "methodHighlights": [
+            "以真实连续部署检验任务感知对话、多模态感知和跨次会面记忆如何支持公共交互。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Human-Robot Interaction"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Behavior-Aligned Action Tokenization for Robot Policy Learning",
+          "authors": "Junbo Dong, Ze Chen, Zhendong Xie, Junjie Li, Lixin Xu, Xuemin Chi, Yiming Song, Zhaoyuan Ma",
+          "arxivUrl": "https://arxiv.org/abs/2609.27513",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 08:12:03 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "BAAT用软动态时间规整为不同演示中的动作块寻找行为对应，并将对应的量化坐标联合对齐。这样即使动作节奏不同，相似运动也能映射到邻近离散令牌，同时保留可执行动作细节。研究提出动作历史条件策略以利用更稳定的行为编码。",
+          "methodHighlights": [
+            "把软DTW行为对齐目标加入动作分块量化器，提升跨任务共享动作词元的能力。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robot Learning",
+            "VLA"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "NavProbe: Evidence-Grounded Reasoning with Active Memory Retrieval for Zero-Shot Navigation",
+          "authors": "Jingyang Liu, Sujia Yao, Jiayuan Gu, Lan Xu",
+          "arxivUrl": "https://arxiv.org/abs/2609.27526",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 08:22:00 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "NavProbe为零样本长程导航维护动态子目标清单和可主动检索的证据索引。索引关联访问地点、路径转移及地标的摘要与原始视觉几何记录；信息不足时任务代理取回局部证据并修订目标。可复用结论会反写索引，技能策略再把更新后的任务态转成导航动作。",
+          "methodHighlights": [
+            "将紧凑记忆与按需视觉/几何证据检索组合，支持长时程目标修订而不重读完整历史。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Navigation",
+            "Embodied AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Behaviora - A Conceptual Architecture for External and Internal Behavior of Robots and Agents",
+          "authors": "Gote Nyman",
+          "arxivUrl": "https://arxiv.org/abs/2609.27536",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 08:28:37 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "Behaviora提出用持久地址表示机器人或代理的行为片段，并把“做什么”和“以何种风格做”分开建模。行为片段由可组合子事件组成，Style Profile描述表达方式，Experience Profile承载影响执行的内部状态。该概念架构旨在让外部动作与内部行为状态可寻址、可复用。",
+          "methodHighlights": [
+            "通过行为episode、风格档案和经验档案三层数据结构显式编码行为语义。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Physical AI",
+            "Embodied AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "RegenHarness: A Robot Agent Harness with Evidence-Gated Recursive Self-Improvement",
+          "authors": "Kailin Wang, Haoxiang Jie, Yaoyuan Yan, Zhiyou Heng, Zhaosong Li",
+          "arxivUrl": "https://arxiv.org/abs/2609.27612",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 09:29:04 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "RegenHarness将机器人任务提案、技能执行、观察验证和进度提交分成独立闭环。规划、监控、验证与恢复使用隔离上下文；版本化记忆区分直接观察和已确认进度，并由身份绑定的提交门控制可信状态更新。执行器还处理重复调度、恢复边界和技能终止判定，避免将模型声称成功误当作任务完成。",
+          "methodHighlights": [
+            "采用证据门控的状态提交和四角色隔离上下文，将机器人代理的自我修正限制在可验证的执行循环内。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Embodied AI",
+            "Robotics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "InternW0: A Foundational Physical World Model for Efficient Real-World Interactions",
+          "authors": "Jisong Cai, Yao Mu, Ganlin Yang, Zhe Cao, Zhangzheng Tu, Xing Gao, Kailin Li, Xinyu Zhan, Lixin Yang, Yangkun Zhu, Haoxiang Ma, Ming Zhou, Qiaojun Yu, Yufei Xue, Liqun He, Yifei Yao, Yifan Zhu, Long Ling, Bingqi Jiang, Haoyu Guo, Xueyue Zhu, Bowen Zhou, Bin Zhao, Tianfan Xue, Chunhua Shen, Weinan Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2609.27656",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 10:20:56 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "InternW0是上海人工智能实验室提出的物理世界模型，同时学习未来视频动态和连续机器人控制。视频专家提供较长时域预测，轻量动作专家在更快频率执行控制，两者以异步多频处理配合。局部物理建模还要应对部分观察和外部扰动，目标是使预测能持续服务于实时交互。",
+          "methodHighlights": [
+            "用非对称视频—动作架构和流匹配共享物理状态理解，同时按预测与控制的不同频率异步运行。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D",
+            "World Action Model"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "GLoTouch: Global-to-Local Haptic Perception Using a Parallel Gripper for Object Search, Recognition, and Grasping Without External Vision",
+          "authors": "Zonglin Li, Wanruo Zhang, Yiming Wang, Kun Song, Xinyi Zhou, Daolin Ma",
+          "arxivUrl": "https://arxiv.org/abs/2609.27695",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 11:16:31 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "GLoTouch让平行夹爪在无外部视觉时完成容器内搜索、物体识别和抓取。论文针对低自由度触觉探索难兼顾容器级定位与物体表面细节的问题，提出由全局到局部的触觉感知流程。该方案面向黑暗或相机失效环境，把触觉当作完整操作感知来源。",
+          "methodHighlights": [
+            "先以大范围触觉探索定位目标区域，再细化接触几何用于识别和抓握规划。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Manipulation",
+            "Haptics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "CoRelNav: Collaborative Relational Navigation for Multi-Robot Spatially Constrained Semantic Navigation",
+          "authors": "Jinyu He, Zihao Mao, Haonan Jin, Mengyin Fu, Wenjie Song",
+          "arxivUrl": "https://arxiv.org/abs/2609.27720",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 11:38:13 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "CoRelNav研究多机器人如何共同完成带空间关系的语义导航，例如寻找处于其他物体关系中的特定目标。方法将任务条件探索与候选目标协作验证结合，使多个平台共享各自观察到的目标和上下文证据。它补足以往关系导航常限单机器人、而多机器人协同少做实例关系核验的断层。",
+          "methodHighlights": [
+            "采用候选驱动的协同验证，使分布式观察能确认语义目标与周边对象的空间关系。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Navigation",
+            "Multi-Robot"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "InfiNoVA: Infinite Novel View Augmentation for Viewpoint Invariant Robot Policies",
+          "authors": "Sai Puneeth Reddy Gottam, Elmar Rueckert, Vedant Dave",
+          "arxivUrl": "https://arxiv.org/abs/2609.27734",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 11:47:58 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "InfiNoVA将同步多相机操作演示重建为随时间变化的3D Gaussian场景，再从采样相机位姿渲染新视角。生成观察仍与原动作及状态一一对应，从而扩充未见相机视点且保持几何一致。该增广专为减少VLA策略对训练时摄像机角度的依赖。",
+          "methodHighlights": [
+            "利用时变3DGS生成稠密新视点训练样本，不改变其配对动作标签。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "3D Gaussian Splatting",
+            "VLA"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "Less Language, More Latents: Annotation-Efficient VLAs for Driving",
+          "authors": "Alexey Zakharov, Kemal Oksuz, Puneet K. Dokania",
+          "arxivUrl": "https://arxiv.org/abs/2609.27747",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 12:00:04 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "summary": "LADA针对驾驶视频与专家轨迹丰富、自然语言指令稀缺的训练瓶颈。流程先用向量量化动作模型把轨迹编码为高层驾驶意图，再利用少量语言标注建立意图与指令的对应，最后生成语言条件控制监督。该Driving VLA路线减少对逐帧人工文本标注的依赖。",
+          "methodHighlights": [
+            "将未标注轨迹压缩为潜在驾驶动作词表，再用有限语言样本对齐词元与可控意图。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Intelligent Driving",
+            "Driving VLA",
+            "VLA"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 94 of 94 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new"
+            }
+          ]
+        },
+        {
+          "title": "Safe Multi-Robot Coordination via VLM-LLM Reasoning and Reachability Analysis",
+          "authors": "Mohamed Dwedar, Ahmad Hafez, Alexander Jesser, Amr Alanwar",
+          "arxivUrl": "https://arxiv.org/abs/2609.27816",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 18 Aug 2026 12:52:54 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "eess.SY"
+          ],
+          "summary": "该框架协调具备视觉的四足机器人与无摄像头移动平台，在静态和动态障碍环境中共同到达目标。视觉机器人通过中心服务器和MQTT提供共享语义感知，语言模型负责推理，移动平台执行无视觉导航。可达性分析用于保证协同动作安全，适用于异构机器人组队。",
+          "methodHighlights": [
+            "把中心语义感知与VLM/LLM推理接入可达性安全层，协调能力不对称的机器人。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Multi-Robot",
+            "Robot Navigation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            },
+            {
+              "category": "cs.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.SY/new"
+            },
+            {
+              "category": "eess.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/eess.SY/new"
+            }
+          ]
+        },
+        {
+          "title": "Remote Surfaces at Your Fingertips: Electrovibration-Based Tactile Feedback for Robot Teleoperation via Touchscreen Interfaces",
+          "authors": "Alperen Kenan, Juan José García Cárdenas, Adriana Tapus, Paul Bremner, Manuel Giuliani",
+          "arxivUrl": "https://arxiv.org/abs/2609.27938",
+          "published": "2026-09-24",
+          "v1Submitted": "Sat, 22 Aug 2026 14:36:06 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.HC"
+          ],
+          "summary": "该遥操作界面用电振动把远端接触表面反馈给操作者的触屏，而非使用易受刚性接触和通信延迟影响的力反馈机械装置。触觉纹理直接编码表面交互，目标是降低持续操作的视觉认知负担。研究将触屏上的可控电振动用于远程机器人接触感知。",
+          "methodHighlights": [
+            "以电振动生成与接触相对应的触觉信号，在不闭合机械力反馈回路下传递远端表面信息。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Human-Robot Interaction",
+            "Haptics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.HC",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 10 of 10 entries)",
+              "url": "https://arxiv.org/list/cs.HC/new"
+            }
+          ]
+        },
+        {
+          "title": "AeRSoM: An Aerial Rigid-Soft Integrated Manipulator for Contact-Rich Manipulation",
+          "authors": "Jiacheng Liang, Hang Zhong, Yaonan Wang, Ge Chen, Zhixing Zhang, Bocheng Tian, Hui Zhang, Li Wen",
+          "arxivUrl": "https://arxiv.org/abs/2609.28044",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 12:52:03 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "AeRSoM把全驱动飞行平台与刚柔结合机械臂集成，用于空中接触式操作。可变刚度调节让系统在接触时吸收交互力，同时尽量保持飞行稳定和末端精度。论文针对刚性机械臂难适应接触、软体机械臂精度不足的矛盾设计实体系统。",
+          "methodHighlights": [
+            "将可调柔顺刚软机械臂装到全驱动空中平台，以刚度调节平衡接触稳定性和定位精度。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Manipulation",
+            "Robotics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Distillation for Efficient Multitask Manipulation Policies via Conditional Flow Matching",
+          "authors": "Shreya Deshmukh, Imen Mahdi, Nick Heppert, Abhinav Valada",
+          "arxivUrl": "https://arxiv.org/abs/2609.28107",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 13:38:23 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.LG"
+          ],
+          "summary": "该工作研究以条件流匹配蒸馏多任务机器人操作策略，避免每个任务都单独保存一套模型。它先利用专家演示训练单任务教师，再把教师知识迁移到共享多任务策略，以缓和直接拼接数据带来的容量与性能冲突。评价聚焦操作基准中的多任务效率和任务间性能保持。",
+          "methodHighlights": [
+            "将单任务生成策略的知识条件化蒸馏进共享流匹配控制器，减少多任务训练的模型冗余。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robot Manipulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 94 of 94 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new"
+            }
+          ]
+        },
+        {
+          "title": "DEAL-Grasp: Decoupled Alignment Representation for Geometry-Aware Dexterous Grasp Generation",
+          "authors": "Fuqiang Zhao, Qian Liu",
+          "arxivUrl": "https://arxiv.org/abs/2609.28131",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 13:56:26 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.GR"
+          ],
+          "summary": "DEAL-Grasp将灵巧抓取从耦合关节姿态生成改写为几何锚点和手指关节参数的对齐空间生成。全局刚体变换通过Procrustes闭式求解恢复，局部指关节仍独立表示，避免联合姿态回归产生不稳定接触。目标包括可动物体抓取的几何合理性及多样化手—物交互合成。",
+          "methodHighlights": [
+            "把刚体配准与局部手指姿态解耦，利用任务空间锚点生成有几何依据的接触配置。"
+          ],
+          "projectUrl": "https://wmtlab.github.io/DEAL-Grasp/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "HOI",
+            "Physical 3D",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.GR",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 4 of 4 entries)",
+              "url": "https://arxiv.org/list/cs.GR/new"
+            }
+          ]
+        },
+        {
+          "title": "Dissecting Advantage-Guided Post-Training for Vision-Language-Action Policies",
+          "authors": "Jiahang Cao, Hanye Zhao, Hang Lai, Shenyu Zhang, Xiaoshen Han, Xinghang Li, Futeng Liu, Wanli Peng, Heyun Wang, Yunhong Wang, Jason Li, Yong Yu, Weinan Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2609.28161",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 14:10:14 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "这项实证研究拆解VLA优势引导强化学习后训练中的多个相互耦合选择。作者分别考察评论家优势如何构造、校准及用于策略更新，并用分阶段离线评估筛选配方。这样无需大量真实机器人实验，也能辨别不同训练设计影响的是何种估计目标。",
+          "methodHighlights": [
+            "把优势定义、标定和策略更新拆成可控变量，并为各训练阶段设计离线筛查指标。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "VLA",
+            "Robot Learning"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Dynamic, Decentralized Spatial Code Reuse for OCDMA LiDAR in Robot Swarms",
+          "authors": "Mohammad Hani Alomari",
+          "arxivUrl": "https://arxiv.org/abs/2609.28172",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 14:17:37 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "该协议让LiDAR机器人依据信标维护的干扰邻接图，动态、分散地重新使用光学码。作者证明在机器人密度恒定时所需码数按O(log N/log log N)增长，而静态分配需要Theta(N)个码。协议在机器人群中验证空间复用，避免所有机器人使用互异编码。",
+          "methodHighlights": [
+            "用局部干扰邻域动态协调OCDMA码分配，在无需中央全局指派下实现空间复用。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robotics",
+            "LiDAR"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "DAVIS: A Depth-Only End-to-End Active-Vision Framework for Humanoid Soccer Skills",
+          "authors": "Jiakang Jin, Yixiao Huo, Pengyuan Wang, Yinan Han, Tingxuan Zhang, Zhuobing Zhao, Xuanxin Zhou, Zhangchen Ye, Enxuan Ruan, Yifei Bao, Jiankun Yang, Chenghao Sun, Wenhao Cui, Xiaoyu Tian, Yiming Li",
+          "arxivUrl": "https://arxiv.org/abs/2609.28175",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 14:19:45 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "DAVIS以头戴深度图、本体感觉历史和可选任务命令直接生成25自由度关节PD目标，学习人形足球接触技能。系统把接近、对准、击球和恢复纳入闭环，处理自运动造成的视角变化与球体暂时出视野。其设计不依赖额外运行时感知或规划模块。",
+          "methodHighlights": [
+            "将可见性辅助几何线索与端到端关节控制结合，用深度感知闭环学习足球接触动作。"
+          ],
+          "projectUrl": "https://thusi-lab.github.io/DAVIS/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Humanoid Robotics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "GLASS: Architecture-Tuned, Composable, Device-Side Linear Algebra for Edge Robotics and Beyond",
+          "authors": "Brian Plancher",
+          "arxivUrl": "https://arxiv.org/abs/2609.28179",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 14:23:39 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.DC",
+            "cs.MS"
+          ],
+          "summary": "GLASS是面向边缘机器人计算的header-only CUDA C++线性代数库，覆盖线程、warp、block及NVIDIA硬件实现。它将计算实现、执行范围和kernel打包作为架构相关选择，通过离线测量决定并在编译期静态解析。论文针对GPU机器人应用缺乏成熟可复用数值基础设施的问题。",
+          "methodHighlights": [
+            "提供跨执行层级可组合的设备端几何与线性代数例程，并用测量驱动静态选择实现。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robotics",
+            "Efficient Inference"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Controlling Collectives of AI Agents in Reasoning Space with Spatial Transformers",
+          "authors": "Frederic Vatnsdal, Roshan Gopal, Romina Garcia Camargo, Vijay Kumar, Alejandro Ribeiro",
+          "arxivUrl": "https://arxiv.org/abs/2609.28247",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 15:08:35 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "COMPASS用空间Transformer聚合多跳机器人间消息，并在每台机器人本地生成反馈令牌，以协调大规模异构智能体群。作者发现结构化多样化语言命令可抵消群体偏置，且随团队规模扩展仍有收益。该架构面向分布式导航与群体控制，不依赖单一中心控制器。",
+          "methodHighlights": [
+            "以局部空间Transformer处理邻居信息，在推理空间闭环调节多机器人群体行为。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Multi-Robot",
+            "Embodied AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "BrickCraft-Duo: Efficient Dual-Arm Skill Learning and Refinement for Compositional Long-Horizon Assembly",
+          "authors": "Jichuan Yu, Zhenyu Xiao, Ze Wang, Ruixuan Liu, Changliu Liu, Chuxiong Hu",
+          "arxivUrl": "https://arxiv.org/abs/2609.28281",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 15:32:11 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "BrickCraft-Duo用双臂技能组合完成互锁积木的长程装配，并从多样示范学习可重复的单臂及双臂技能。双臂对称对齐支持两侧技能共享，装配/支撑角色分配则帮助管理结构稳定性。系统针对紧配合插入、机械互锁及复杂步骤依赖进行逐步技能细化。",
+          "methodHighlights": [
+            "通过双侧对称对齐共享单臂动作，再组合装配与支撑技能解决长时程装配。"
+          ],
+          "projectUrl": "https://jichuan-yu.github.io/BrickCraft-Duo",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Manipulation",
+            "HOI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Contact-Implicit Stein Projected ADMM for Discovery of Diverse Contact-Rich Manipulation Strategies",
+          "authors": "Hrishikesh Sathyanarayan, Christian Hughes, Ian Abraham",
+          "arxivUrl": "https://arxiv.org/abs/2609.28299",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 15:45:54 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "作者指出接触隐式轨迹优化通常收敛到一个局部接触模式，无法给操作规划者多种抓取、推挤或接触策略选择。方法把共识ADMM与Stein变分推断结合，从单个初值扩展为多样接触轨迹解。它针对鲁棒操作中策略多样性和初值敏感问题，研究不同可行动作模式的发现。",
+          "methodHighlights": [
+            "用Stein粒子维持候选轨迹差异，以投影ADMM求解接触约束并发现多种局部策略。"
+          ],
+          "projectUrl": "https://anon-website-submission.github.io/stein-admm-website/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Manipulation",
+            "Physics-aware Learning"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "TANDEM: Task and Motion Planning with As-Needed Demonstrations for Efficient Vision-Language-Action Model Fine-tuning",
+          "authors": "Samrat Sahoo, Liang Ji, Tom Silver, Yixuan Huang",
+          "arxivUrl": "https://arxiv.org/abs/2609.28314",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 15:57:01 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "TANDEM把任务与运动规划和选择性远程操作结合，只在规划器无法完成某阶段时请求人类示范。人类协助被表示为可按需调用的规划能力，再用于VLA微调。该方式针对长程操作中反复示范机器人已有技能所造成的数据采集浪费。",
+          "methodHighlights": [
+            "以任务/运动规划执行已掌握步骤，仅为超出规划域的阶段触发远程示范并纳入训练。"
+          ],
+          "projectUrl": "https://prpl-group.com/tandem/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "VLA",
+            "Robot Manipulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Multimodal Voice Activity Projection for Social Robot Mediation: Expected Behavior and Deployment Constraints",
+          "authors": "Antonio Cano, Guillermo Perez, Luis Merino, Randy Gomez",
+          "arxivUrl": "https://arxiv.org/abs/2609.28317",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 15:57:29 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "MM-VAP从同步视听证据预测社交对话中的未来轮次状态，尤其关注机器人应等待、转向或适时介入的时机。系统分类保持发言、轮替、轮替预测、附和及重叠等交谈状态，并以预训练视听编码器进行LoRA适配。它为社交机器人提供人类状态感知层，而不是直接生成对话内容。",
+          "methodHighlights": [
+            "把语音活动预测转成面向机器人介入的轮次事件标签，兼顾视听时序与部署约束。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Human-Robot Interaction"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Motoneuron-Inspired Sampling for Model Predictive Path Integral Control",
+          "authors": "Alexis Poignant, Jan Babič",
+          "arxivUrl": "https://arxiv.org/abs/2609.28325",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 16:03:21 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "Spike-MPPI以简化运动神经元动力学生成具有时间结构的控制扰动，替代标准模型预测路径积分控制中的独立高斯噪声。实验在力矩驱动和拮抗驱动的MuJoCo Ant模型上比较有限采样预算下的控制结果。方法检验生物启发的相关采样是否比无结构扰动更有效利用轨迹rollout。",
+          "methodHighlights": [
+            "用运动神经元动态生成时间相关扰动提议分布，改善有限计算下的MPPI候选轨迹质量。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robotics",
+            "Control"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Beyond Future Prediction: Denoising as Generative Adaptation for Robot Control",
+          "authors": "Zanyi Wang, Yuheng Lei, Dengyang Jiang, Ping Luo, Mengdi Wang, Zhixuan Liang, Shilong Liu",
+          "arxivUrl": "https://arxiv.org/abs/2609.28339",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 16:17:35 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "NowWAM探讨生成式扩散Transformer如何迁移到机器人动作学习，而不把训练任务设为未来图像预测。模型对当前观察去噪，同时预测机器人动作，借助图像视频预训练先验直接适配控制。实验旨在区分视觉生成能力与动作学习真正需要的预测目标。",
+          "methodHighlights": [
+            "以当前帧去噪和动作预测联合训练，替代昂贵且可能无助控制的未来像素生成目标。"
+          ],
+          "projectUrl": "https://xmz111.github.io/NowWAM/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "World Action Model",
+            "Robot Learning"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "LEAP-CBF: A Safety Filter for Uncertain Systems with Least-Effort Adversarial Potentials",
+          "authors": "Oswin So, Eric Yu, Chuchu Fan",
+          "arxivUrl": "https://arxiv.org/abs/2609.28364",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 16:36:11 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.LG",
+            "math.OC"
+          ],
+          "summary": "LEAP为受扰非线性系统提供鲁棒控制屏障证书，量化扰动将状态推至失效需要付出的最小努力。作者证明LEAP可作为无扰系统的控制屏障函数，并据此构造安全过滤器。该表示尝试降低传统鲁棒CBF在高维输入约束下的保守性。",
+          "methodHighlights": [
+            "将最小失效扰动能量作为安全裕度证书，再转化为可用于控制过滤的屏障条件。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robustness",
+            "Control"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 94 of 94 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new"
+            }
+          ]
+        },
+        {
+          "title": "Amplify: A Lightweight Library for Reproducible Nonlinear Programming Problems in Robotics",
+          "authors": "Nelson Rosa Jr",
+          "arxivUrl": "https://arxiv.org/abs/2609.28377",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 16:53:15 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "Amplify是一个仅537行的非线性规划库，用AMPL建模语言表达可复现的机器人轨迹优化问题。它把优化算法本身写入模型，降低研究者重建结果时对大型专用依赖和复杂软件栈的要求。论文展示了机器人轨迹优化算法的紧凑表达和复现实验流程。",
+          "methodHighlights": [
+            "以简短声明式模型编码轨迹优化算法和问题设定，提升机器人非线性规划的可复现性。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/nr-codes/Amplify",
+          "datasetUrl": "",
+          "priority": "低",
+          "areaTags": [
+            "Physical AI",
+            "Robotics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "ForgetMimic: Motion Unlearning for Reinforcement Learning Humanoid Control",
+          "authors": "Xukun Luan, Zhongxiang Lei, Chen Gong, Shaowei Li, Yuanguo Bi, Jinyan Liu",
+          "arxivUrl": "https://arxiv.org/abs/2609.28378",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 16:54:25 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.CR",
+            "cs.LG"
+          ],
+          "summary": "ForgetMimic研究如何从强化学习人形策略中删除指定动作，以应对恶意、错误或不再获准使用的示范。方法针对动作级遗忘而非整体模型遗忘，目标是在去除目标动作后仍保留其他已学运动能力。论文将其置于人形运动安全和数据权利背景下评估。",
+          "methodHighlights": [
+            "把遗忘目标定义到具体动作行为，通过策略更新压制指定运动而尽量保留其他技能。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "https://github.com/Zili1000/ForgetMimic",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Humanoid Robotics",
+            "Robustness"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 94 of 94 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new"
+            }
+          ]
+        },
+        {
+          "title": "PointCast: One World Model for Rigid, Articulated, and Deformable Object Manipulation",
+          "authors": "Hantao Ye, Ross Worobel, Zhuoli Xie, Mingen Li, Houjian Yu, Youngjin Hong, Changhyun Choi",
+          "arxivUrl": "https://arxiv.org/abs/2609.28393",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 17:02:18 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "PointCast用点集表示刚体、关节及可变形物体，模型对每个点保留身份并监督其独立运动轨迹。扩散Transformer在末端执行器指令条件下去噪未来短窗点位置，不依赖网格拓扑。这样一种统一世界模型可预测不同形变类别物体在操作过程中的几何变化。",
+          "methodHighlights": [
+            "以具身份的3D点轨迹作为拓扑无关状态，统一学习刚体、铰接和可变形物体动力学。"
+          ],
+          "projectUrl": "https://pointcast-wm.github.io",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Physical 3D",
+            "World Models"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Tractable Reinforcement Learning for Full Class of Signal Temporal Logic Specifications Using Spatiotemporal Tube Reward",
+          "authors": "Vaishnavi Jagabathula, P Sangeerth, Pushpak Jagtap",
+          "arxivUrl": "https://arxiv.org/abs/2609.28396",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 17:03:00 UTC",
+          "categories": [
+            "cs.RO",
+            "eess.SY"
+          ],
+          "summary": "该RL框架利用时空管状奖励，控制动力学未知且执行器受限的机器人满足完整信号时序逻辑规范。时空管把逻辑和时间复杂度映射成训练信号，无需保存冗长状态历史。方法覆盖非完整和欠驱动系统，目标是让约束规格可在强化学习中直接优化。",
+          "methodHighlights": [
+            "将信号时序逻辑要求转换为几何化时空管奖励，适配输入约束下的学习控制。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Physics-aware Learning",
+            "Control"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.SY/new"
+            },
+            {
+              "category": "eess.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/eess.SY/new"
+            }
+          ]
+        },
+        {
+          "title": "Watch, Recall, Act: Always-On Robots in Concurrent Embodied Streams",
+          "authors": "Ding Yi, Peiwen Sun, Chenchu Rong, Jianan Wang, Xili Dai, Xiangyu Yue, Xi Lin",
+          "arxivUrl": "https://arxiv.org/abs/2609.28429",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 17:29:40 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "ARMS处理不重置的连续多模态流：指令可能到达或失效，环境变化且机器人自身动作会改变后续场景。策略在预训练pi0.5骨干上加入三个轻量模块，持续跟踪当前视觉、本体状态和过去动作。它支持双臂并行执行、远期线索回忆和交错任务响应。",
+          "methodHighlights": [
+            "以流式感知、具身状态及动作记忆模块增强预训练VLA，让策略在持续运行中应对新指令和过去事件。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "VLA",
+            "Embodied AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "LiMA: Bridging Long-term Imagination to Real-time Dexterous Manipulation via Asynchronous Diffusion",
+          "authors": "Ning Chen, Yankai Fu, Junkai Zhao, Qianpu Sun, Guocai Yao, Pengwei Wang, Zhongyuan Wang, Shanghang Zhang",
+          "arxivUrl": "https://arxiv.org/abs/2609.28431",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 17:31:52 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "LiMA把长期意图规划与接触后的快速反应分给异步双系统，以缓解VLA理解力与WAM高推理延迟之间的时间错配。想象系统负责远期动作计划，扩散执行器按更快频率响应物理接触变化。框架目标是在保留长时程前瞻时满足灵巧操作实时性。",
+          "methodHighlights": [
+            "异步运行高层长期想象和低延迟动作扩散，避免每次接触变化都等待完整世界模型生成。"
+          ],
+          "projectUrl": "https://ccdcs.github.io/LiMA_repo/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "World Action Model",
+            "Robot Manipulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Where Should I Join? Robot Group Joining via Language-Guided Goal Prediction",
+          "authors": "Zilin Fang, Zishuo Wang, Gim Hee Lee, David Hsu",
+          "arxivUrl": "https://arxiv.org/abs/2609.28467",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 17:55:48 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "summary": "该任务要求机器人根据图像和语言描述判断应该加入正在活动的人群的什么位置，而非前往给定坐标。方法递归谱划分生成候选群体成员子集，并对候选加入姿势排序。它将群体活动识别、成员定位和符合社交规范的接近姿势整合为社交导航问题。",
+          "methodHighlights": [
+            "由语言目标定位群体成员，再用谱划分候选与姿势排序生成有社会约束的导航目标。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robot Navigation",
+            "Human-Robot Interaction"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "SlackDrive: Reclaiming Runtime Slack for Adaptive Driving Inference",
+          "authors": "Xiaohuan Pei, Hengguang Zhou, Yuanhao Ban, Justin Cui, Jiaqi Feng, Haoyu Xie, Tao Huang, Pichao Wang, Yanchao Yang, Cho-Jui Hsieh",
+          "arxivUrl": "https://arxiv.org/abs/2609.28064",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 13:13:19 UTC",
+          "categories": [
+            "cs.AI",
+            "cs.RO"
+          ],
+          "summary": "SlackDrive针对驾驶世界动作模型推理延迟变化，利用近期实测时延推断当前可用计算余量。静态离线调度无法利用共享车载算力在每次运行时产生的剩余预算，方法据此自适应决定推理计算投入。目标是在满足车辆实时控制期限的同时尽量保留驾驶策略推理能力。",
+          "methodHighlights": [
+            "将在线延迟余量反馈到驾驶模型推理调度，使计算预算随运行时负载而变。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Intelligent Driving",
+            "Driving World Model",
+            "Driving VLA"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 12 of 12 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 59 of 59 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "Teach-to-Crash: A Closed-Loop Student-Teacher LLM Framework for Collision-Inducing Test Scenario Generation",
+          "authors": "Zaid Ghazal, Khouloud Gaaloul, Bruce Maxim",
+          "arxivUrl": "https://arxiv.org/abs/2609.27296",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 03:32:19 UTC",
+          "categories": [
+            "cs.SE",
+            "cs.AI",
+            "cs.MA",
+            "eess.SY"
+          ],
+          "summary": "Teach-to-Crash用双LLM闭环在仿真中主动生成导致碰撞的自动驾驶测试场景。低推理Student按严格JSON模式生成可执行场景，高推理Teacher仅在碰撞率或碰撞时间显示搜索停滞时调整方向。框架兼顾场景有效性、多样性和针对罕见安全失效的搜索效率。",
+          "methodHighlights": [
+            "把受约束自车中心场景表示、停滞感知搜索和教师—学生模型组合成闭环失效挖掘流程。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Intelligent Driving",
+            "Simulation",
+            "Robustness",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "listingSources": [
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            },
+            {
+              "category": "cs.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.SY/new"
+            },
+            {
+              "category": "eess.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/eess.SY/new"
+            },
+            {
+              "category": "cs.SE",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 27 of 27 entries)",
+              "url": "https://arxiv.org/list/cs.SE/new"
+            }
+          ]
+        },
+        {
+          "title": "EBRL: Asynchronous Embodied RL by Multi-Grained Resource Management",
+          "authors": "Liang Mi, Weijun Wang, Bowen Gao, Tianze Yu, Zixu Hao, Han Xiao, Xin Ding, Mingzhe Huang, Xin He, Lu Shi, Hao Wu, Haipeng Dai, Guihai Chen, Yunxin Liu, Ting Cao",
+          "arxivUrl": "https://arxiv.org/abs/2609.27547",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 08:36:21 UTC",
+          "categories": [
+            "cs.LG",
+            "cs.DC"
+          ],
+          "summary": "EBRL针对具身强化学习中仿真、动作生成和参数训练对CPU/GPU资源需求不同导致的闲置。异步流水调度令环境组仿真、策略生成与训练交叠，并细分GPU资源分配。系统以实际吞吐和资源使用评估在同步屏障式训练之外的收益。",
+          "methodHighlights": [
+            "跨环境组异步流水执行rollout与学习，按多粒度资源管理减少等待和GPU独占浪费。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Embodied AI",
+            "Simulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.LG",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 115 of 115 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new"
+            }
+          ]
+        },
+        {
+          "title": "ARS-Avatar: Animatable and Relightable Surfel Avatars with Learnable Ambient Occlusion",
+          "authors": "Jiateng Liu, Hao Gao, Junxin Sun, Mengqi Liu, Jiu-Cheng Xie, Jucheng Song, Feng Xu",
+          "arxivUrl": "https://arxiv.org/abs/2609.27600",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 09:15:36 UTC",
+          "categories": [
+            "cs.GR"
+          ],
+          "summary": "ARS-Avatar从多视角图像重建可动画、可重光照的人体surfel头像，处理姿态变形、材质与未知光照的耦合。模板网格形变先验帮助估计surfel属性，延迟着色用于恢复BRDF材质。方法还加入可学习环境遮蔽，以改善动画姿态下的光照外观。",
+          "methodHighlights": [
+            "采用surfel几何与模板变形先验，并在延迟着色框架中联合估计可重光照材质。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Reconstruction",
+            "Neural Rendering",
+            "Physical 3D"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.GR",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 2 of 2 entries)",
+              "url": "https://arxiv.org/list/cs.GR/new"
+            }
+          ]
+        },
+        {
+          "title": "Merging Large Language Models and Battery Physics for User-Aware Electric Vehicle Driving Management",
+          "authors": "Yukta Pareek, Yasaman Masoudi, Satadru Dey",
+          "arxivUrl": "https://arxiv.org/abs/2609.27050",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 20:43:21 UTC",
+          "categories": [
+            "eess.SY"
+          ],
+          "summary": "该框架让LLM根据自然语言用户意图及电池状态生成有界行为参数，再交由物理控制层规划电动车速度建议。安全滤波器约束放电电流包络，Lyapunov分析给出有界推荐行为的理论保证。论文研究面向道路车辆的用户偏好和电池约束协同驾驶管理。",
+          "methodHighlights": [
+            "把语言意图解释限制在可验证参数范围内，再以电池物理模型和安全过滤生成车辆建议。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Physical AI",
+            "Robustness",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "listingSources": [
+            {
+              "category": "cs.SY",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 24 of 24 entries)",
+              "url": "https://arxiv.org/list/cs.SY/new"
+            },
+            {
+              "category": "eess.SY",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 24 of 24 entries)",
+              "url": "https://arxiv.org/list/eess.SY/new"
+            }
+          ]
+        },
+        {
+          "title": "A Systematic Evaluation of Infrastructure-Based Radar System for Highway Traffic Monitoring",
+          "authors": "Tianheng Zhu, Woei-chyi Chang, Alamss Riaz, Sogand Hasanzadeh, Yiheng Feng",
+          "arxivUrl": "https://arxiv.org/abs/2609.27143",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 23:06:31 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "DRaT是由高速公路合流段车辆轨迹构成的雷达与无人机双模态数据集，用无人机轨迹作真值评估路侧雷达。雷达单车检测精确率78%、召回率57%，IDF1为0.699；空间平均速度误差低于4%，但密度和流量因漏检低估约23%。数据已开放在Zenodo。",
+          "methodHighlights": [
+            "以无人机轨迹真值分层评估路侧雷达的检测、跟踪和宏观交通流估计，并发布可复现数据。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "https://zenodo.org/records/20171110",
+          "priority": "高",
+          "areaTags": [
+            "Intelligent Driving",
+            "Radar",
+            "Traffic Monitoring",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            }
+          ]
+        },
+        {
+          "title": "Automotive mmWave Spinning Radar Place Recognition with Spatially Gated Feature-Correlation Representation",
+          "authors": "Saimunur Rahman, Sagun Singh Shrestha, Abdelwahed Khamis, Peyman Moghadam",
+          "arxivUrl": "https://arxiv.org/abs/2609.27394",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 05:51:58 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CV"
+          ],
+          "summary": "SGCA-Net针对汽车旋转FMCW雷达的360度极坐标扫描，处理航向变化造成的循环移位和相似地点特征混淆。空间门控压低不稳定雷达区域的影响，局部特征相关聚合则保留不同回波间的区分关系。MulRan城市、校园和开放道路评估均优于现有方法，HeRCULES结果显示无需微调即可迁移到未见环境和雷达传感器。",
+          "methodHighlights": [
+            "用旋转鲁棒特征提取配合空间门控的局部相关聚合，实现全天候雷达地点识别。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Intelligent Driving",
+            "Radar",
+            "Localization",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "SGDet3D++: Geometry-Grounded Semantics for 4D Radar and Camera 3D Object Detection",
+          "authors": "Xiaokai Bai, Zhenyu Fan, Lianqing Zheng, Songkai Wang, Si-Yuan Cao, Hui-liang Shen",
+          "arxivUrl": "https://arxiv.org/abs/2609.27671",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 10:42:13 UTC",
+          "categories": [
+            "cs.CV"
+          ],
+          "summary": "SGDet3D++针对4D雷达—相机融合中证据虽已对齐、却未必支持同一个运动目标的问题。它以当前3D状态条件化语义检索、关联回波聚合和Doppler历史更新，在OmniHD-Scenes上比最强比较方法高3.82 mAP和6.82 ODS，在ManTruckScenes上高6.82 mAP和9.22 NDS。机制分析显示，朝向一致门控把目标回波纯度从29.95%提高到58.87%，运动验证保留96.11%的相容历史。",
+          "methodHighlights": [
+            "将雷达候选锚点作为图像语义检索条件，并只在Doppler运动矛盾时替换时序记忆。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Intelligent Driving",
+            "4D Radar",
+            "3D Detection",
+            "Sensor Fusion",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            }
+          ]
+        },
+        {
+          "title": "Reflection-Aware Reasoning for Non-Line-of-Sight Pedestrian Localization",
+          "authors": "Byeonggyu Park, Mingu Jeon, Seong-Woo Kim",
+          "arxivUrl": "https://arxiv.org/abs/2609.27346",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 04:33:01 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "该方法解决自车运动时雷达多径传播复杂导致的非视线行人定位误差。系统融合前视相机与二维雷达点云，在鸟瞰空间推断反射阶数及反射面分布，再用物理引导射线追踪还原弯折传播路径。研究在室外移动自车测试平台验证隐藏行人定位。",
+          "methodHighlights": [
+            "显式重建多径反射路线和反射表面分布，以相机语义和雷达点云共同求解NLOS目标位置。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Intelligent Driving",
+            "Radar",
+            "Sensor Fusion",
+            "Automotive Collection"
+          ],
+          "watchGroups": [],
+          "displayGroup": "automotive",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Geometry-Conditioned Visual Place Recognition in Natural Environments",
+          "authors": "Walter Nedov, Saimunur Rahman, Kavindie Katuwandeniya, David Hall, Kaushik Roy, Peyman Moghadam",
+          "arxivUrl": "https://arxiv.org/abs/2609.27370",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 05:19:23 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.RO"
+          ],
+          "summary": "Depth-Aware Distillation把几何基础模型推断的深度关系投影到视觉基础模型令牌中，全程无需深度传感器。两阶段教师学习先维持原有外观表征，再优化自然场景地点区分。WildCross上跨序列Recall@1由61.41%升至66.37%，Recall@5由65.86%升至72.49%。",
+          "methodHighlights": [
+            "以通道级几何条件调制视觉令牌，把跨视角稳定的空间结构蒸馏到地点识别表征。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "3D Perception",
+            "Physical AI",
+            "Robot Navigation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 12 of 12 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.AI",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 134 of 134 entries)",
+              "url": "https://arxiv.org/list/cs.AI/new"
+            }
+          ]
+        },
+        {
+          "title": "Median Temporal Ensembling: Training-Free Robust Aggregation for Action-Chunked Visuomotor Policies",
+          "authors": "Yuhang Jiang",
+          "arxivUrl": "https://arxiv.org/abs/2609.27167",
+          "published": "2026-09-24",
+          "v1Submitted": "Tue, 22 Sep 2026 23:57:55 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "summary": "该研究指出动作块策略对重叠预测使用指数加权平均时，单个异常候选便可能造成无界影响。坐标中位数集成不需训练，攻击步长增强后仍维持稳健恢复；对照策略微调只恢复公开patch攻击损失的44%，攻击增强后降至7.3%。25种模型与污染组合中，中位数法从未劣于平均且15种显著更好。",
+          "methodHighlights": [
+            "用逐坐标中位数替换动作块时序均值，获得无需再训练的组合抗异常保证。"
+          ],
+          "projectUrl": "https://avalon-s.github.io/MedianTE/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Learning",
+            "Robustness"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 94 of 94 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new"
+            }
+          ]
+        },
+        {
+          "title": "Banana Kick: Response-Informed Skill Evolution for Humanoid Soccer",
+          "authors": "Hao E. Zhang, Ruize Geng, Raihan Haque, Khalil Zbiss, Guanyang Luo, Hui-ping Wang, H. Eric Tseng, Ding Zhao",
+          "arxivUrl": "https://arxiv.org/abs/2609.27269",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 02:52:46 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "RISE研究人形机器人如何从普通踢球模仿动作发展出香蕉球旋转及弧线等新接触技能。作者将奖励局部平坦、策略响应无法提供学习信号的情况称为一阶学习饥饿，并指出单纯放大饱和旋转奖励无法解决零旋转问题。方法根据缓存rollout的响应敏感度选择目标变化，仅接受经验证且不损害踢球可靠性的更新。",
+          "methodHighlights": [
+            "以闭环目标延续排序强化学习目标，依据策略响应而非奖励数值挑选下一步技能塑形方向。"
+          ],
+          "projectUrl": "https://haozhang-thu.github.io/bananakick/",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Humanoid Robotics",
+            "Manipulation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Compressed delayed-information projection for six-degree-of-freedom underwater vehicle navigation under delayed acoustic positioning",
+          "authors": "Shuyue Li, Miguel López-Benítez, Eng Gee Lim, Fei Ma, Qian Dong, Mengze Cao, Limin Yu, Xiaohui Qin",
+          "arxivUrl": "https://arxiv.org/abs/2609.27439",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 07:02:33 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "CDIP处理水下无人航行器收到延迟声学定位包后，避免直接用历史测量更新当前状态造成时序错配。它保留发送时刻状态和历史—当前交叉协方差，将15状态误差卡尔曼滤波校正投影至当前时刻，无须完整回放历史。154段、固定1.5秒延迟记录中，位置RMSE由1.062米降至0.456米，平均每次更新比回放处理快约127倍。",
+          "methodHighlights": [
+            "以源时刻快照及交叉协方差压缩延迟观测更新，近似固定滞后回放而不重算估计历史。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Navigation",
+            "Localization"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Gray-Box Model Predictive Control for Articulated Dump Trucks via Gaussian Process Learning of Sideslip",
+          "authors": "Arash Shahirpour, Jens Ahlers, Christopher Schulte, Tim Reuscher",
+          "arxivUrl": "https://arxiv.org/abs/2609.27597",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 09:11:23 UTC",
+          "categories": [
+            "cs.RO",
+            "eess.SY"
+          ],
+          "summary": "该工作面向矿业铰接式自卸车自动运行，指出运动学模型的侧滑遗漏会降低模型预测控制精度。高斯过程回归从数据学习侧滑角，再将其补入运动学灰箱车辆模型。仿真中最大横向跟踪误差从超过2米降至0.56米。",
+          "methodHighlights": [
+            "以高斯过程学习侧滑并扩展既有运动学模型，避免完整动力学建模和频繁现场重标定。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Physics-aware Learning",
+            "Vehicle Control"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.SY/new"
+            },
+            {
+              "category": "eess.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/eess.SY/new"
+            }
+          ]
+        },
+        {
+          "title": "Wave-Robust Passive AUV Localization Using FP-MUSIC",
+          "authors": "Usama Saqib, Ola Rønning, Andrzej Wąsowski",
+          "arxivUrl": "https://arxiv.org/abs/2609.27712",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 11:29:56 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "FP-MUSIC为被动AUV定位与三维测图，仅需带水听器阵列和IMU的漂浮浮标，无须预部署海底信标或读取航行器传感器。IMU校正阵列在波浪引起的姿态变化，宽带匹配滤波估计信标距离，功率不对称用于消除前后方歧义。仿真海况中，系统保持对波浪扰动稳健的三维位置与航向估计。",
+          "methodHighlights": [
+            "先反扭曲阵列协方差再执行MUSIC方位估计，并以宽带匹配滤波恢复距离。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "3D Reconstruction",
+            "Robot Navigation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Anchor-Free Hidden-Target Seeking via Certified Self-Calibration under Correlated Odometry",
+          "authors": "Yash Bagla",
+          "arxivUrl": "https://arxiv.org/abs/2609.27905",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 26 Aug 2026 11:47:11 UTC",
+          "categories": [
+            "cs.RO",
+            "eess.SY"
+          ],
+          "summary": "该方法解决无全局定位锚点的隐藏目标搜寻，车辆只从位置与朝向未知的中继获得距离—方位观测。两种不同视点足以闭式估计控制所需的中继航向偏差和目标位移，绝对坐标则保持不可观。相关里程计误差证书覆盖率达到95.0%，若错误地假设独立则只有82.1%；策略会等到校准可信后才搜寻。",
+          "methodHighlights": [
+            "通过多视图自标定恢复任务所需的相对量，并将相关航迹不确定性证书接入拒绝/搜寻混合策略。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Robot Navigation",
+            "Localization"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/cs.SY/new"
+            },
+            {
+              "category": "eess.SY",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 22 of 22 entries)",
+              "url": "https://arxiv.org/list/eess.SY/new"
+            }
+          ]
+        },
+        {
+          "title": "Learning a Speed-adaptive Hip Exoskeleton Control Policy Via Sim-to-real Reinforcement Learning",
+          "authors": "Bin Li, Zhimin Hou, Jiacheng Hou, Zenian Liang, Tong Wu, Teng Ma, Chenglong Fu",
+          "arxivUrl": "https://arxiv.org/abs/2609.28027",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 12:53:01 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "该框架用肌骨模拟器上的强化学习按行走速度学习髋部外骨骼助力时机，再将策略迁移到实体设备。高斯过程偏好学习通过成对用户比较，个性化调整助力幅度；这种拆分缩小了真人在线优化变量。人体受试实验显示可用少量暴露识别个体助力偏好。",
+          "methodHighlights": [
+            "先仿真学习速度适配的助力时序，再以在线偏好建模单独调节真人接受的力矩幅度。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Embodied AI",
+            "Robotics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Large-Scale Geometric Map-Based Localization of UAVs in GNSS-Denied Urban Environments",
+          "authors": "Garth Terlizzi, Kaveh Fathian",
+          "arxivUrl": "https://arxiv.org/abs/2609.28225",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 14:53:11 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "该UAV定位系统把向下相机观察到的建筑排列与参考建筑轮廓数据库匹配，在GNSS受限城市估计位置。几何描述符联合建筑三角关系及单体形状，跨帧累计观察后再与大范围地图检索。四座城市七次飞行中，搜索面积约113和254平方公里时Recall@1为100%；扩大至452平方公里仍达71.4%，覆盖最多277,000栋建筑。",
+          "methodHighlights": [
+            "用建筑间几何关系而非外观特征构造大范围定位描述符，并通过跨帧局部地图累计稳固匹配。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "3D Reconstruction",
+            "Robot Navigation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Talk2Escape: Conversational Grounding for Vision-and-Language Navigation",
+          "authors": "Zerui Li, Sihao Lin, Yanyan Shao, Jiwen Zhang, Xiangyu Shi, Shijie Li, Qi Wu",
+          "arxivUrl": "https://arxiv.org/abs/2609.28296",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 15:41:54 UTC",
+          "categories": [
+            "cs.RO",
+            "cs.HC"
+          ],
+          "summary": "Talk2Escape将视觉语言导航从单轮开环执行改为可对话的闭环纠错。轻量视觉语言模块监测运动状态，发现局部绕圈或轨迹偏离时，把第一视角观察转换为简短问题，请人类或算法提供针对性纠正。它在R2R-CE、RxR-CE及VLNVerse等模拟器提升多个基础代理表现。",
+          "methodHighlights": [
+            "按运动学异常触发自然语言澄清，以低成本交互修复累积定位误差和错误子目标。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Embodied AI",
+            "Robot Navigation"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.HC",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 10 of 10 entries)",
+              "url": "https://arxiv.org/list/cs.HC/new"
+            }
+          ]
+        },
+        {
+          "title": "Privacy-Preserving Semantic Segmentation from High-Resolution Depth and Ultra-Low-Resolution RGB",
+          "authors": "Xuying Huang, Swithinraj Moses Daniel, Sicong Pan, Sebastian Houben, Maren Bennewitz",
+          "arxivUrl": "https://arxiv.org/abs/2609.28360",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 16:31:19 UTC",
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "summary": "该研究为隐私敏感移动机器人设计高分辨率深度与超低分辨率RGB非对称感知方案。高分辨率几何引导低分辨率图像恢复语义，再把二维特征聚合为三维场景分割，以补足模糊RGB的空间语义损失。ScanNet上方法优于隐私保护基线，并在SUN RGB-D和SceneNN上实现更强零样本迁移。",
+          "methodHighlights": [
+            "利用稠密深度补偿受限RGB语义，再将逐帧预测融合为一致的3D场景特征。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical 3D",
+            "3D Perception",
+            "Physical AI"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.CV",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 106 of 106 entries)",
+              "url": "https://arxiv.org/list/cs.CV/new"
+            },
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 12 of 12 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        },
+        {
+          "title": "Context-Continuous Preference Learning for Exoskeleton Personalization",
+          "authors": "Sunin Baek, Sungwoo Park, Daekyum Kim",
+          "arxivUrl": "https://arxiv.org/abs/2609.28427",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 17:28:08 UTC",
+          "categories": [
+            "cs.LG",
+            "cs.RO"
+          ],
+          "summary": "CCPL以高斯过程偏好模型检验外骨骼用户在邻近运动条件下偏好是否连续，从而共享有限反馈。模拟和九名健康成人的踝、肘外骨骼回顾数据表明，条件偏好平滑时模型优于独立学习；若偏好不连续则会产生负迁移。每个情境仅五次暴露时，重建相关性在踝助力由0.644升至0.720，在肘助力由0.476升至0.526。",
+          "methodHighlights": [
+            "在邻近工况之间共享成对偏好观测，同时保留情境特定效用以避免假定所有条件相同。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "高",
+          "areaTags": [
+            "Physical AI",
+            "Embodied AI",
+            "Robotics"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "Cross submissions (showing 12 of 12 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            },
+            {
+              "category": "cs.LG",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 115 of 115 entries)",
+              "url": "https://arxiv.org/list/cs.LG/new"
+            }
+          ]
+        },
+        {
+          "title": "Vision-Based Control of a Tether-Suspended Aerial Radiation Sensing Payload",
+          "authors": "Ian Snider, Brian J. Quiter, Emil Rofors, Mark W. Mueller",
+          "arxivUrl": "https://arxiv.org/abs/2609.27219",
+          "published": "2026-09-24",
+          "v1Submitted": "Wed, 23 Sep 2026 01:31:32 UTC",
+          "categories": [
+            "cs.RO"
+          ],
+          "summary": "该系统控制重型无人机下方系留的辐射探测器，而非直接控制飞机本体。机载向下相机跟踪探测器标记，四状态卡尔曼滤波估计系绳摆角和角速度，再以带积分线性二次调节器沿规划路径控制载荷。户外有风飞行中，相比以飞行器为参考的基线，转场期间载荷跟踪误差降低20%。",
+          "methodHighlights": [
+            "由视觉标记估计系绳摆动状态，以载荷位置作为LQR控制输出而非以无人机位置代替。"
+          ],
+          "projectUrl": "",
+          "codeUrl": "",
+          "datasetUrl": "",
+          "priority": "中",
+          "areaTags": [
+            "Physical AI",
+            "Robotics",
+            "Perception"
+          ],
+          "watchGroups": [],
+          "displayGroup": "main",
+          "listingSources": [
+            {
+              "category": "cs.RO",
+              "date": "2026-09-24",
+              "section": "New submissions (showing 91 of 91 entries)",
+              "url": "https://arxiv.org/list/cs.RO/new"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-23",
       "title": "arXiv 三维视觉与 Physical AI 日报 - 2026-09-23",
