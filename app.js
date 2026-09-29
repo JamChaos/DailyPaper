@@ -532,7 +532,27 @@ function renderReportDetail() {
     return;
   }
 
-  mainPapers.forEach((paper, index) => els.paperList.append(renderPaper(paper, `#${index + 1}`)));
+  const pickTitles = (report.topPapers || []).map((title) => String(title).trim().toLowerCase());
+  const featuredPapers = mainPapers.filter((paper) => {
+    const title = String(paper.title || "").trim().toLowerCase();
+    return paper.selected === true || pickTitles.some((pick) =>
+      title === pick || (pick && title && (title.includes(pick) || pick.includes(title))),
+    );
+  });
+  const featured = pickTitles.length || featuredPapers.length ? featuredPapers : mainPapers.slice(0, 10);
+  const otherPapers = mainPapers.filter((paper) => !featured.includes(paper));
+  featured.forEach((paper, index) => els.paperList.append(renderPaper(paper, `#${index + 1}`)));
+  if (otherPapers.length) {
+    const collection = createEl("details", "automotive-collection");
+    const summary = createEl("summary");
+    const label = createEl("span");
+    label.append(createEl("strong", "", `其他相关论文（${otherPapers.length} 篇）`));
+    summary.append(label, createEl("span", "collection-count", `${otherPapers.length} 篇`));
+    const list = createEl("div", "paper-list collection-paper-list");
+    otherPapers.forEach((paper, index) => list.append(renderPaper(paper, `R${index + 1}`)));
+    collection.append(summary, list);
+    els.paperList.append(collection);
+  }
 }
 
 function render() {
